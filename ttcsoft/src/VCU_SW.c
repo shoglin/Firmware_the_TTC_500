@@ -488,7 +488,7 @@ void VCU_SW_step(void)
             IO_ADC_ChannelInit(IO_ADC_02, IO_ADC_ABSOLUTE,
             IO_ADC_NO_RANGE,
                                IO_ADC_NO_PULL,
-                               IO_PIN_NONE,
+                               IO_SENSOR_SUPPLY_0,
                                NULL);
             /* S-Function (analogInputGet_ttc500): '<S7>/EngineAirFilterClogSens' */
 
@@ -526,6 +526,9 @@ void VCU_SW_initialize(void)
     (void) memset((void*) &VCU_SW_DW, 0, sizeof(DW_VCU_SW_T));
 
     /* Start for S-Function (digitalInputGet_ttc500): '<S7>/EngineAirFilterClogSens' */
+
+    /* Turning the POWER_SUPPLY_0 */
+    IO_POWER_Set(IO_SENSOR_SUPPLY_0, IO_POWER_ON);
 
     // Initialization of digital input IO_DI_50 channel
     IO_DI_Init(IO_DI_50, IO_DI_PU_10K, NULL);
