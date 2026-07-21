@@ -39,8 +39,6 @@ IO_CAN_DATA_FRAME read_message_Pin101_Pin104_CMD_msg_rx = { 0 };
 
 ubyte2 read_message_Pin101_Pin104_CMD_handler_rx = 0;
 
-static ubyte1 flag_first_run = 1;
-
 // Deñlaration of CAN message frame and handler for TX
 IO_CAN_DATA_FRAME transmit_message_vlvcmd_hyd1_k_msg_tx = { 0 };
 
@@ -449,10 +447,13 @@ void VCU_SW_step(void)
             // Get value of digital input IO_DI_50 with error check
             rc = IO_ADC_Get(IO_ADC_02, &adc_value, &adc_fresh);
 
-            /* FunctionCaller: '<S7>/Function Caller13' */
+            /* FunctionCaller: '<S7>/adc_value_for_transmit' */
 
-            convAIVoltageData(adc_value, VCU_SW_B.adc_104_error,
-                              &adc_value_for_transmit);
+            /* convAIVoltageData(adc_value, VCU_SW_B.adc_104_error,
+             &adc_value_for_transmit); */
+
+            convAICurrentData(adc_value, VCU_SW_B.adc_104_error,
+                                          &adc_value_for_transmit);
 
             /* DataTypeConversion: '<S7>/Data Type Conversion' incorporates:
              *  DataStoreWrite: '<S7>/Data Store Write13'
@@ -485,7 +486,7 @@ void VCU_SW_step(void)
             break;
         case 2:
             IO_DI_DeInit(IO_DI_50);
-            IO_ADC_ChannelInit(IO_ADC_02, IO_ADC_ABSOLUTE,
+            IO_ADC_ChannelInit(IO_ADC_02, IO_ADC_CURRENT,
             IO_ADC_NO_RANGE,
                                IO_ADC_NO_PULL,
                                IO_SENSOR_SUPPLY_0,
@@ -495,9 +496,11 @@ void VCU_SW_step(void)
             // Get value of digital input IO_DI_50 with error check
             rc = IO_ADC_Get(IO_ADC_02, &adc_value, &adc_fresh);
 
-            /* FunctionCaller: '<S7>/Function Caller13' */
+            /* FunctionCaller: '<S7>/adc_value_for_transmit' */
 
-            convAIVoltageData(adc_value, VCU_SW_B.adc_104_error,
+            /* convAIVoltageData(adc_value, VCU_SW_B.adc_104_error,
+             &adc_value_for_transmit); */
+            convAICurrentData(adc_value, VCU_SW_B.adc_104_error,
                               &adc_value_for_transmit);
 
             /* DataTypeConversion: '<S7>/Data Type Conversion' incorporates:

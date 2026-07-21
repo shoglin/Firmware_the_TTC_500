@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v5.1.6                      
 ******************************************************************************
->> Linked Tue Jul 21 10:41:52 2026
+>> Linked Tue Jul 21 12:28:25 2026
 
 OUTPUT FILE NAME:   <build/app.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000bf080
@@ -1453,7 +1453,7 @@ $fill000   0    000a0080    00000080
                   000cdf60    000000d8     VCU_SW.obj (.text:VCU_SW_initialize)
                   000ce038    00000006     rtsv7R4_T_be_v3D16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
                   000ce03e    00000002     --HOLE-- [fill = 00000000]
-                  000ce040    00000024     convAIVoltageData.obj (.text:convAIVoltageData)
+                  000ce040    00000024     convAICurrentData.obj (.text:convAICurrentData)
                   000ce064    0000000c     --HOLE-- [fill = 00000000]
                   000ce070    0000002c     convDIOSttToEnum.obj (.text:convDIOSttToEnum)
                   000ce09c    00000004     --HOLE-- [fill = 00000000]
@@ -2208,7 +2208,7 @@ ffffffff   __c_args__
 000bf120   _mpuWriteState_
 080030b0   _sys_memory
 ffffffff   binit
-000ce040   convAIVoltageData
+000ce040   convAICurrentData
 000ce070   convDIOSttToEnum
 000cdda9   copy_in
 000bf1c0   crossover_interrupt
@@ -2965,7 +2965,7 @@ address    name
 000cdf3f   __aeabi_llsl
 000cdf60   VCU_SW_initialize
 000ce039   __TI_decompress_rle24
-000ce040   convAIVoltageData
+000ce040   convAICurrentData
 000ce070   convDIOSttToEnum
 000ce0a0   VCU_SW_step
 000ce6f0   task
@@ -3246,12 +3246,27 @@ convAIVoltageData.obj
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-000ce058  local     $C$L1 (.text:convAIVoltageData)
-000ce060  local     $C$L2 (.text:convAIVoltageData)
-000ce040  local     $a (.text:convAIVoltageData)
+00000018  local     $C$L1 (.text:convAIVoltageData)
+00000020  local     $C$L2 (.text:convAIVoltageData)
+00000000  local     $a (.text:convAIVoltageData)
 00000000  local     .text (.text)
-000ce040  local     .text:convAIVoltageData (.text:convAIVoltageData)
-000ce040  global    convAIVoltageData (.text:convAIVoltageData)
+00000000  local     .text:convAIVoltageData (.text:convAIVoltageData)
+00000000  global    convAIVoltageData (.text:convAIVoltageData)
+
+
+================================================================================
+
+convAICurrentData.obj
+
+Run/Load            
+Value     Binding   Name (Section)
+--------  --------  ---------------
+000ce058  local     $C$L1 (.text:convAICurrentData)
+000ce060  local     $C$L2 (.text:convAICurrentData)
+000ce040  local     $a (.text:convAICurrentData)
+00000000  local     .text (.text)
+000ce040  local     .text:convAICurrentData (.text:convAICurrentData)
+000ce040  global    convAICurrentData (.text:convAICurrentData)
 
 
 ================================================================================
