@@ -1,4 +1,4 @@
-./build/VCU_SW.obj ./build/ert_main.obj ./build/convDIOSttToEnum.obj                                       
+./build/convAIVoltageData.obj ./build/VCU_SW.obj ./build/ert_main.obj ./build/convDIOSttToEnum.obj                                       
 -o build/app.out                                                 
 -l ./lib/ttc500.lib                             
 -l ./lib/bsp.lib                         

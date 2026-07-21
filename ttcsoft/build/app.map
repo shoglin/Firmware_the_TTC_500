@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v5.1.6                      
 ******************************************************************************
->> Linked Tue Jul 14 16:01:57 2026
+>> Linked Mon Jul 20 16:52:58 2026
 
 OUTPUT FILE NAME:   <build/app.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000bf080
@@ -959,76 +959,76 @@ $fill000   0    000a0080    00000080
                   000ba150    0000015c                : drv_IO_INT_WD.obj (.IO_DRIVER_CODE:IO_INT_WD_DWWD_Task)
                   000ba2ac    00000004     --HOLE-- [fill = 00000000]
                   000ba2b0    00000030                : drv_IO_Driver.obj (.IO_DRIVER_CODE:IO_Driver_TaskBegin)
-                  000ba2e0    00000068                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_ReadValue)
-                  000ba348    00000008     --HOLE-- [fill = 00000000]
-                  000ba350    00000024                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_Read2V5RefSum)
+                  000ba2e0    00000044                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxComplete)
+                  000ba324    0000000c     --HOLE-- [fill = 00000000]
+                  000ba330    00000044                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxLost)
                   000ba374    0000000c     --HOLE-- [fill = 00000000]
-                  000ba380    00000210                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-                  000ba590    00000060                : drv_IO_DIO.obj (.IO_DRIVER_CODE:IO_DI_Evaluate)
-                  000ba5f0    00000040                : drv_IO_INT_PWD.obj (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGALrPWM)
-                  000ba630    00000040                : drv_IO_INT_PWD.obj (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGAHrPWM)
-                  000ba670    00000080                : drv_IO_PWM.obj (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
-                  000ba6f0    00000210                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-                  000ba900    00000040                : drv_IO_INT_PWD.obj (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGATimer)
-                  000ba940    00000044                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_SafetyStep2Mode)
-                  000ba984    0000000c     --HOLE-- [fill = 00000000]
-                  000ba990    00000434                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-                  000badc4    0000000c     --HOLE-- [fill = 00000000]
-                  000badd0    000000cc                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
-                  000bae9c    00000004     --HOLE-- [fill = 00000000]
-                  000baea0    0000005c                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_SafetyStep3Mode)
-                  000baefc    00000004     --HOLE-- [fill = 00000000]
-                  000baf00    00000418                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-                  000bb318    00000008     --HOLE-- [fill = 00000000]
-                  000bb320    0000027c                : drv_IO_DIO.obj (.IO_DRIVER_CODE:IO_DI_Get)
+                  000ba380    0000003c                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_FPGA_GetTxStat)
+                  000ba3bc    00000004     --HOLE-- [fill = 00000000]
+                  000ba3c0    000001f0                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+                  000ba5b0    000000c4                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
+                  000ba674    0000000c     --HOLE-- [fill = 00000000]
+                  000ba680    00000054                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame)
+                  000ba6d4    0000000c     --HOLE-- [fill = 00000000]
+                  000ba6e0    000001fc                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+                  000ba8dc    00000004     --HOLE-- [fill = 00000000]
+                  000ba8e0    000000cc                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame)
+                  000ba9ac    00000004     --HOLE-- [fill = 00000000]
+                  000ba9b0    0000003c                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_ConvertCsm2IODataFrame)
+                  000ba9ec    00000004     --HOLE-- [fill = 00000000]
+                  000ba9f0    000002dc                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+                  000baccc    00000004     --HOLE-- [fill = 00000000]
+                  000bacd0    0000006c                : drv_IO_INT_PVG_VOUT.obj (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput)
+                  000bad3c    00000004     --HOLE-- [fill = 00000000]
+                  000bad40    0000007c                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_DeInitPVGType)
+                  000badbc    00000004     --HOLE-- [fill = 00000000]
+                  000badc0    00000050                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_DeInitDOHSType)
+                  000bae10    000001bc                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+                  000bafcc    00000004     --HOLE-- [fill = 00000000]
+                  000bafd0    00000098                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_DeInit2ModeType)
+                  000bb068    00000008     --HOLE-- [fill = 00000000]
+                  000bb070    000001ec                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+                  000bb25c    00000004     --HOLE-- [fill = 00000000]
+                  000bb260    00000098                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_DeInit3ModeType)
+                  000bb2f8    00000008     --HOLE-- [fill = 00000000]
+                  000bb300    0000019c                : drv_IO_DIO.obj (.IO_DRIVER_CODE:IO_DI_DeInit)
+                  000bb49c    00000004     --HOLE-- [fill = 00000000]
+                  000bb4a0    000000fc                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
                   000bb59c    00000004     --HOLE-- [fill = 00000000]
-                  000bb5a0    00000044                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxComplete)
-                  000bb5e4    0000000c     --HOLE-- [fill = 00000000]
-                  000bb5f0    00000044                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxLost)
-                  000bb634    0000000c     --HOLE-- [fill = 00000000]
-                  000bb640    0000003c                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_FPGA_GetTxStat)
-                  000bb67c    00000004     --HOLE-- [fill = 00000000]
-                  000bb680    000001f0                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
-                  000bb870    000000c4                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
-                  000bb934    0000000c     --HOLE-- [fill = 00000000]
-                  000bb940    00000054                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame)
-                  000bb994    0000000c     --HOLE-- [fill = 00000000]
-                  000bb9a0    000001fc                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
-                  000bbb9c    00000004     --HOLE-- [fill = 00000000]
-                  000bbba0    000000cc                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame)
-                  000bbc6c    00000004     --HOLE-- [fill = 00000000]
-                  000bbc70    0000003c                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_ConvertCsm2IODataFrame)
-                  000bbcac    00000004     --HOLE-- [fill = 00000000]
-                  000bbcb0    000002dc                : drv_IO_CAN.obj (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-                  000bbf8c    00000004     --HOLE-- [fill = 00000000]
-                  000bbf90    0000006c                : drv_IO_INT_PVG_VOUT.obj (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput)
-                  000bbffc    00000004     --HOLE-- [fill = 00000000]
-                  000bc000    0000007c                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_DeInitPVGType)
-                  000bc07c    00000004     --HOLE-- [fill = 00000000]
-                  000bc080    00000050                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_DeInitDOHSType)
-                  000bc0d0    000001bc                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-                  000bc28c    00000004     --HOLE-- [fill = 00000000]
-                  000bc290    00000098                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_DeInit2ModeType)
-                  000bc328    00000008     --HOLE-- [fill = 00000000]
-                  000bc330    000001ec                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-                  000bc51c    00000004     --HOLE-- [fill = 00000000]
-                  000bc520    00000098                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_DeInit3ModeType)
-                  000bc5b8    00000008     --HOLE-- [fill = 00000000]
-                  000bc5c0    0000019c                : drv_IO_DIO.obj (.IO_DRIVER_CODE:IO_DI_DeInit)
-                  000bc75c    00000004     --HOLE-- [fill = 00000000]
-                  000bc760    000000fc                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
-                  000bc85c    00000004     --HOLE-- [fill = 00000000]
-                  000bc860    0000010c                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
-                  000bc96c    00000004     --HOLE-- [fill = 00000000]
-                  000bc970    00000398                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-                  000bcd08    00000008     --HOLE-- [fill = 00000000]
-                  000bcd10    000001f4                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-                  000bcf04    0000000c     --HOLE-- [fill = 00000000]
-                  000bcf10    00000268                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_Get)
-                  000bd178    00000008     --HOLE-- [fill = 00000000]
-                  000bd180    00000050                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_DeInitPWDType)
-                  000bd1d0    000001a4                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
-                  000bd374    0000000c     --HOLE-- [fill = 00000000]
+                  000bb5a0    0000010c                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
+                  000bb6ac    00000004     --HOLE-- [fill = 00000000]
+                  000bb6b0    00000398                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+                  000bba48    00000008     --HOLE-- [fill = 00000000]
+                  000bba50    00000068                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_ReadValue)
+                  000bbab8    00000008     --HOLE-- [fill = 00000000]
+                  000bbac0    00000024                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_Read2V5RefSum)
+                  000bbae4    0000000c     --HOLE-- [fill = 00000000]
+                  000bbaf0    00000210                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+                  000bbd00    00000210                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+                  000bbf10    000001f4                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+                  000bc104    0000000c     --HOLE-- [fill = 00000000]
+                  000bc110    00000044                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_SafetyStep2Mode)
+                  000bc154    0000000c     --HOLE-- [fill = 00000000]
+                  000bc160    00000434                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+                  000bc594    0000000c     --HOLE-- [fill = 00000000]
+                  000bc5a0    000000cc                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
+                  000bc66c    00000004     --HOLE-- [fill = 00000000]
+                  000bc670    0000005c                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_SafetyStep3Mode)
+                  000bc6cc    00000004     --HOLE-- [fill = 00000000]
+                  000bc6d0    00000418                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+                  000bcae8    00000008     --HOLE-- [fill = 00000000]
+                  000bcaf0    00000268                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_Get)
+                  000bcd58    00000008     --HOLE-- [fill = 00000000]
+                  000bcd60    00000050                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_DeInitPWDType)
+                  000bcdb0    000001a4                : drv_IO_ADC.obj (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+                  000bcf54    0000000c     --HOLE-- [fill = 00000000]
+                  000bcf60    00000060                : drv_IO_DIO.obj (.IO_DRIVER_CODE:IO_DI_Evaluate)
+                  000bcfc0    00000040                : drv_IO_INT_PWD.obj (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGALrPWM)
+                  000bd000    00000040                : drv_IO_INT_PWD.obj (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGAHrPWM)
+                  000bd040    00000080                : drv_IO_PWM.obj (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
+                  000bd0c0    00000040                : drv_IO_INT_PWD.obj (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGATimer)
+                  000bd100    0000027c                : drv_IO_DIO.obj (.IO_DRIVER_CODE:IO_DI_Get)
+                  000bd37c    00000004     --HOLE-- [fill = 00000000]
                   000bd380    00000154                : drv_IO_INT_RTC.obj (.IO_DRIVER_CODE:IO_INT_RTC_ReadBackCfg)
                   000bd4d4    0000000c     --HOLE-- [fill = 00000000]
                   000bd4e0    000000a8                : drv_DIAG_INT_Core.obj (.IO_DRIVER_CODE:DIAG_INT_CoreTaskB)
@@ -1452,11 +1452,12 @@ $fill000   0    000a0080    00000080
                   000cdf5c    00000004     --HOLE-- [fill = 00000000]
                   000cdf60    000000cc     VCU_SW.obj (.text:VCU_SW_initialize)
                   000ce02c    00000004     --HOLE-- [fill = 00000000]
-                  000ce030    0000002c     convDIOSttToEnum.obj (.text:convDIOSttToEnum)
-                  000ce05c    00000004     --HOLE-- [fill = 00000000]
-                  000ce060    00000674     VCU_SW.obj (.text:VCU_SW_step)
-                  000ce6d4    00000006     rtsv7R4_T_be_v3D16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
-                  000ce6da    00000006     --HOLE-- [fill = 00000000]
+                  000ce030    00000024     convAIVoltageData.obj (.text:convAIVoltageData)
+                  000ce054    00000006     rtsv7R4_T_be_v3D16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  000ce05a    00000006     --HOLE-- [fill = 00000000]
+                  000ce060    0000002c     convDIOSttToEnum.obj (.text:convDIOSttToEnum)
+                  000ce08c    00000004     --HOLE-- [fill = 00000000]
+                  000ce090    00000650     VCU_SW.obj (.text:VCU_SW_step)
                   000ce6e0    00000060     ert_main.obj (.text:task)
                   000ce740    00000138     ert_main.obj (.text:main)
                   000ce878    0000000e     rtsv7R4_T_be_v3D16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
@@ -1482,9 +1483,10 @@ $fill000   0    000a0080    00000080
 .cinit     0    000ceb30    00000b48     
                   000ceb30    00000acb     (.cinit..IO_DRIVER_VAR_NORMAL.load) [load image, compression = rle]
                   000cf5fb    00000005     --HOLE-- [fill = 00000000]
-                  000cf600    00000011     (.cinit..data.load) [load image, compression = rle]
-                  000cf611    00000003     --HOLE-- [fill = 00000000]
-                  000cf614    0000000c     (__TI_handler_table)
+                  000cf600    0000000d     (.cinit..data.load) [load image, compression = rle]
+                  000cf60d    00000003     --HOLE-- [fill = 00000000]
+                  000cf610    0000000c     (__TI_handler_table)
+                  000cf61c    00000004     --HOLE-- [fill = 00000000]
                   000cf620    0000000b     (.cinit..IO_DRIVER_VAR_COMMON.load) [load image, compression = rle]
                   000cf62b    00000005     --HOLE-- [fill = 00000000]
                   000cf630    00000008     (.cinit..CSM_VAR.load) [load image, compression = zero_init]
@@ -1590,7 +1592,7 @@ LINKER GENERATED COPY TABLES
 
 __TI_cinit_table @ 000cf648 records: 6, size/record: 8, table size: 48
 	.IO_DRIVER_VAR_NORMAL: load addr=000ceb30, load size=00000acb bytes, run addr=08038390, run size=000058cc bytes, compression=rle
-	.data: load addr=000cf600, load size=00000011 bytes, run addr=08003000, run size=00000040 bytes, compression=rle
+	.data: load addr=000cf600, load size=0000000d bytes, run addr=08003000, run size=00000040 bytes, compression=rle
 	.IO_DRIVER_VAR_COMMON: load addr=000cf620, load size=0000000b bytes, run addr=0803fae0, run size=00000100 bytes, compression=rle
 	.CSM_VAR: load addr=000cf630, load size=00000008 bytes, run addr=08038000, run size=00000390 bytes, compression=zero_init
 	.TI.bound:Csm_Mcu_SharedMem: load addr=000cf638, load size=00000008 bytes, run addr=0803fee0, run size=00000120 bytes, compression=zero_init
@@ -1599,7 +1601,7 @@ __TI_cinit_table @ 000cf648 records: 6, size/record: 8, table size: 48
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 000cf614 records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 000cf610 records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_decompress_rle24
 	index: 1, handler: __TI_decompress_none
 	index: 2, handler: __TI_zero_init
@@ -1911,17 +1913,17 @@ address    name
 000aff28   ICU_timestamp_edgecounter_prg
 000c33f0   IO_ADC_Calc2V5RefSum
 000c34a0   IO_ADC_CalcBatteryVoltage
-000bd1d0   IO_ADC_ChannelDeInit
-000bc970   IO_ADC_ChannelInit
-000bc290   IO_ADC_DeInit2ModeType
-000bc520   IO_ADC_DeInit3ModeType
-000bc080   IO_ADC_DeInitDOHSType
-000bc000   IO_ADC_DeInitPVGType
-000bcf10   IO_ADC_Get
-000badd0   IO_ADC_Get2ModeType
-000baf00   IO_ADC_Get3ModeType
-000ba6f0   IO_ADC_GetDOType
-000ba380   IO_ADC_GetPVGType
+000bcdb0   IO_ADC_ChannelDeInit
+000bb6b0   IO_ADC_ChannelInit
+000bafd0   IO_ADC_DeInit2ModeType
+000bb260   IO_ADC_DeInit3ModeType
+000badc0   IO_ADC_DeInitDOHSType
+000bad40   IO_ADC_DeInitPVGType
+000bcaf0   IO_ADC_Get
+000bc5a0   IO_ADC_Get2ModeType
+000bc6d0   IO_ADC_Get3ModeType
+000bbd00   IO_ADC_GetDOType
+000bbaf0   IO_ADC_GetPVGType
 000b9860   IO_ADC_GetSSupMode
 000b8530   IO_ADC_Init2ModeType
 000b8960   IO_ADC_Init3ModeType
@@ -1930,8 +1932,8 @@ address    name
 000b7f80   IO_ADC_InitPVGType
 000c2d30   IO_ADC_N2HET2_ISR
 000c7d30   IO_ADC_ProtectionTask
-000ba350   IO_ADC_Read2V5RefSum
-000ba2e0   IO_ADC_ReadValue
+000bbac0   IO_ADC_Read2V5RefSum
+000bba50   IO_ADC_ReadValue
 000b9640   IO_ADC_StatusInit
 000c4110   IO_ADC_SystemTask
 000b98c0   IO_ADC_UpdateSSupVarLimit
@@ -1941,14 +1943,14 @@ address    name
 000b9c10   IO_CAN_ConfigMsgInt
 000b4050   IO_CAN_FPGA_InitDefault
 000b7b90   IO_CAN_Init
-000bb680   IO_CAN_MsgStatus
-000bbcb0   IO_CAN_ReadMsg
+000ba3c0   IO_CAN_MsgStatus
+000ba9f0   IO_CAN_ReadMsg
 000cac40   IO_CAN_WaitCanTransfer
 000cac80   IO_CAN_WaitInitNormalMode
 000cacc0   IO_CAN_WaitLocalPowerDown
-000bb9a0   IO_CAN_WriteMsg
-000bc5c0   IO_DI_DeInit
-000bb320   IO_DI_Get
+000ba6e0   IO_CAN_WriteMsg
+000bb300   IO_DI_DeInit
+000bd100   IO_DI_Get
 000b8ba0   IO_DI_Init
 000c76c0   IO_DO_CheckCurProtLimit
 000c2f10   IO_DO_CheckCurrent
@@ -2029,10 +2031,10 @@ address    name
 000c35e0   IO_INT_PVG_VOUT_ControlTask
 000c7f80   IO_INT_PVG_VOUT_ProtectionTask
 000c3580   IO_INT_PVG_VOUT_SetVoltage
-000bbf90   IO_INT_PVG_VOUT_WriteOutput
-000ba630   IO_INT_PWD_GetFPGAHrPWM
-000ba5f0   IO_INT_PWD_GetFPGALrPWM
-000ba900   IO_INT_PWD_GetFPGATimer
+000bacd0   IO_INT_PVG_VOUT_WriteOutput
+000bd000   IO_INT_PWD_GetFPGAHrPWM
+000bcfc0   IO_INT_PWD_GetFPGALrPWM
+000bd0c0   IO_INT_PWD_GetFPGATimer
 000b5e10   IO_INT_PWD_Init
 000c6340   IO_INT_PWM_GPIO_ChEnable
 000bf310   IO_INT_PWM_GPIO_GetDuty
@@ -2134,7 +2136,7 @@ address    name
 000bff30   IO_PWM_N2HETx_ISR
 000bfd30   IO_PWM_N2HETx_interrupt
 000c6430   IO_PWM_ProtectionTask
-000ba670   IO_PWM_ReadPinLevel
+000bd040   IO_PWM_ReadPinLevel
 000b5bd0   IO_PWM_StatusInit
 000bf050   IO_RTC_GetTimeUS
 000b7b30   IO_RTC_InitDateAndTime
@@ -2156,7 +2158,7 @@ UNDEFED    SHT$$INIT_ARRAY$$Limit
 000ceb20   VCU_SW_M
 000ceb18   VCU_SW_RGND
 000cdf60   VCU_SW_initialize
-000ce060   VCU_SW_step
+000ce090   VCU_SW_step
 08038000   _ProtectedRAM_
 08000a00   _StackABORT_
 08000800   _StackABORT_END_
@@ -2173,11 +2175,11 @@ UNDEFED    SHT$$INIT_ARRAY$$Limit
 00000008   __SYSMEM_SIZE
 000cf648   __TI_CINIT_Base
 000cf678   __TI_CINIT_Limit
-000cf614   __TI_Handler_Table_Base
-000cf620   __TI_Handler_Table_Limit
+000cf610   __TI_Handler_Table_Base
+000cf61c   __TI_Handler_Table_Limit
 000cddf1   __TI_auto_init
 000ce879   __TI_decompress_none
-000ce6d5   __TI_decompress_rle24
+000ce055   __TI_decompress_rle24
 000ceb30   __TI_static_base__
 000ce8e7   __TI_zero_init
 000cdf3f   __aeabi_llsl
@@ -2206,7 +2208,8 @@ ffffffff   __c_args__
 000bf120   _mpuWriteState_
 080030b0   _sys_memory
 ffffffff   binit
-000ce030   convDIOSttToEnum
+000ce030   convAIVoltageData
+000ce060   convDIOSttToEnum
 000cdda9   copy_in
 000bf1c0   crossover_interrupt
 08038318   csm_mcu_bcr1_backup
@@ -2750,29 +2753,29 @@ address    name
 000ba060   IO_INT_Driver_TaskBegin
 000ba150   IO_INT_WD_DWWD_Task
 000ba2b0   IO_Driver_TaskBegin
-000ba2e0   IO_ADC_ReadValue
-000ba350   IO_ADC_Read2V5RefSum
-000ba380   IO_ADC_GetPVGType
-000ba5f0   IO_INT_PWD_GetFPGALrPWM
-000ba630   IO_INT_PWD_GetFPGAHrPWM
-000ba670   IO_PWM_ReadPinLevel
-000ba6f0   IO_ADC_GetDOType
-000ba900   IO_INT_PWD_GetFPGATimer
-000badd0   IO_ADC_Get2ModeType
-000baf00   IO_ADC_Get3ModeType
-000bb320   IO_DI_Get
-000bb680   IO_CAN_MsgStatus
-000bb9a0   IO_CAN_WriteMsg
-000bbcb0   IO_CAN_ReadMsg
-000bbf90   IO_INT_PVG_VOUT_WriteOutput
-000bc000   IO_ADC_DeInitPVGType
-000bc080   IO_ADC_DeInitDOHSType
-000bc290   IO_ADC_DeInit2ModeType
-000bc520   IO_ADC_DeInit3ModeType
-000bc5c0   IO_DI_DeInit
-000bc970   IO_ADC_ChannelInit
-000bcf10   IO_ADC_Get
-000bd1d0   IO_ADC_ChannelDeInit
+000ba3c0   IO_CAN_MsgStatus
+000ba6e0   IO_CAN_WriteMsg
+000ba9f0   IO_CAN_ReadMsg
+000bacd0   IO_INT_PVG_VOUT_WriteOutput
+000bad40   IO_ADC_DeInitPVGType
+000badc0   IO_ADC_DeInitDOHSType
+000bafd0   IO_ADC_DeInit2ModeType
+000bb260   IO_ADC_DeInit3ModeType
+000bb300   IO_DI_DeInit
+000bb6b0   IO_ADC_ChannelInit
+000bba50   IO_ADC_ReadValue
+000bbac0   IO_ADC_Read2V5RefSum
+000bbaf0   IO_ADC_GetPVGType
+000bbd00   IO_ADC_GetDOType
+000bc5a0   IO_ADC_Get2ModeType
+000bc6d0   IO_ADC_Get3ModeType
+000bcaf0   IO_ADC_Get
+000bcdb0   IO_ADC_ChannelDeInit
+000bcfc0   IO_INT_PWD_GetFPGALrPWM
+000bd000   IO_INT_PWD_GetFPGAHrPWM
+000bd040   IO_PWM_ReadPinLevel
+000bd0c0   IO_INT_PWD_GetFPGATimer
+000bd100   IO_DI_Get
 000bd380   IO_INT_RTC_ReadBackCfg
 000bd4e0   DIAG_INT_CoreTaskB
 000bd590   DIAG_SSW_Drop_Check
@@ -2961,9 +2964,10 @@ address    name
 000cdf1d   memcmp
 000cdf3f   __aeabi_llsl
 000cdf60   VCU_SW_initialize
-000ce030   convDIOSttToEnum
-000ce060   VCU_SW_step
-000ce6d5   __TI_decompress_rle24
+000ce030   convAIVoltageData
+000ce055   __TI_decompress_rle24
+000ce060   convDIOSttToEnum
+000ce090   VCU_SW_step
 000ce6e0   task
 000ce740   main
 000ce879   __TI_decompress_none
@@ -2971,8 +2975,8 @@ address    name
 000ceb18   VCU_SW_RGND
 000ceb20   VCU_SW_M
 000ceb30   __TI_static_base__
-000cf614   __TI_Handler_Table_Base
-000cf620   __TI_Handler_Table_Limit
+000cf610   __TI_Handler_Table_Base
+000cf61c   __TI_Handler_Table_Limit
 000cf648   __TI_CINIT_Base
 000cf678   __TI_CINIT_Limit
 08000020   _StackUSER_END_
@@ -3230,10 +3234,25 @@ ffffffff   binit
 UNDEFED    SHT$$INIT_ARRAY$$Base
 UNDEFED    SHT$$INIT_ARRAY$$Limit
 
-[807 symbols]
+[808 symbols]
 
 
 SYMBOL DEFINITIONS BY INPUT FILE 
+
+================================================================================
+
+convAIVoltageData.obj
+
+Run/Load            
+Value     Binding   Name (Section)
+--------  --------  ---------------
+000ce048  local     $C$L1 (.text:convAIVoltageData)
+000ce050  local     $C$L2 (.text:convAIVoltageData)
+000ce030  local     $a (.text:convAIVoltageData)
+00000000  local     .text (.text)
+000ce030  local     .text:convAIVoltageData (.text:convAIVoltageData)
+000ce030  global    convAIVoltageData (.text:convAIVoltageData)
+
 
 ================================================================================
 
@@ -3243,15 +3262,11 @@ Run/Load
 Value     Binding   Name (Section)
 --------  --------  ---------------
 000ce3c0  local     $C$L1 (.text:VCU_SW_step)
-000ce5f0  local     $C$L2 (.text:VCU_SW_step)
-000ce618  local     $C$L3 (.text:VCU_SW_step)
-000ce640  local     $C$L4 (.text:VCU_SW_step)
-000ce64c  local     $C$L5 (.text:VCU_SW_step)
-000ce658  local     $C$L6 (.text:VCU_SW_step)
-000ce6a0  local     $C$L7 (.text:VCU_SW_step)
-000ce6bc  local     $C$L8 (.text:VCU_SW_step)
-000ce6cc  local     $C$L9 (.text:VCU_SW_step)
-000ce060  local     $a (.text:VCU_SW_step)
+000ce610  local     $C$L2 (.text:VCU_SW_step)
+000ce65c  local     $C$L3 (.text:VCU_SW_step)
+000ce6a0  local     $C$L4 (.text:VCU_SW_step)
+000ce6d0  local     $C$L5 (.text:VCU_SW_step)
+000ce090  local     $a (.text:VCU_SW_step)
 000cdf60  local     $a (.text:VCU_SW_initialize)
 00000000  local     $a (.text:VCU_SW_terminate)
 000ceb18  local     $d (.const)
@@ -3260,7 +3275,6 @@ Value     Binding   Name (Section)
 08003010  local     $d (.data)
 08003014  local     $d (.data)
 08003024  local     $d (.data)
-08003026  local     $d (.data)
 08003028  local     $d (.data)
 08003038  local     $d (.data)
 0800303a  local     $d (.data)
@@ -3270,16 +3284,15 @@ Value     Binding   Name (Section)
 08003000  local     .data (.data)
 00000000  local     .text (.text)
 000cdf60  local     .text:VCU_SW_initialize (.text:VCU_SW_initialize)
-000ce060  local     .text:VCU_SW_step (.text:VCU_SW_step)
+000ce090  local     .text:VCU_SW_step (.text:VCU_SW_step)
 00000000  local     .text:VCU_SW_terminate (.text:VCU_SW_terminate)
 08003040  global    VCU_SW_B (.bss:VCU_SW_B)
 000ceb20  global    VCU_SW_M (.const)
 000ceb18  global    VCU_SW_RGND (.const)
 000cdf60  global    VCU_SW_initialize (.text:VCU_SW_initialize)
-000ce060  global    VCU_SW_step (.text:VCU_SW_step)
+000ce090  global    VCU_SW_step (.text:VCU_SW_step)
 00000000  global    VCU_SW_terminate (.text:VCU_SW_terminate)
 0800303b  local     current_CAN_config$2 (.data)
-08003026  local     flag_first_run (.data)
 0800303a  local     old_CAN_config$1 (.data)
 08003024  global    read_message_Pin101_Pin104_CMD_handler_rx (.data)
 08003014  global    read_message_Pin101_Pin104_CMD_msg_rx (.data)
@@ -3324,13 +3337,13 @@ convDIOSttToEnum.obj
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-000ce048  local     $C$L1 (.text:convDIOSttToEnum)
-000ce050  local     $C$L2 (.text:convDIOSttToEnum)
-000ce058  local     $C$L3 (.text:convDIOSttToEnum)
-000ce030  local     $a (.text:convDIOSttToEnum)
+000ce078  local     $C$L1 (.text:convDIOSttToEnum)
+000ce080  local     $C$L2 (.text:convDIOSttToEnum)
+000ce088  local     $C$L3 (.text:convDIOSttToEnum)
+000ce060  local     $a (.text:convDIOSttToEnum)
 00000000  local     .text (.text)
-000ce030  local     .text:convDIOSttToEnum (.text:convDIOSttToEnum)
-000ce030  global    convDIOSttToEnum (.text:convDIOSttToEnum)
+000ce060  local     .text:convDIOSttToEnum (.text:convDIOSttToEnum)
+000ce060  global    convDIOSttToEnum (.text:convDIOSttToEnum)
 
 
 ================================================================================
@@ -4083,7 +4096,7 @@ ttc500.lib : drv_IO_INT_PVG_VOUT.obj
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-000bbfe0  local     $C$L1 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput)
+000bad20  local     $C$L1 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput)
 000c8030  local     $C$L10 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ProtectionTask)
 000c8080  local     $C$L11 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ProtectionTask)
 000c80f0  local     $C$L12 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ProtectionTask)
@@ -4094,7 +4107,7 @@ Value     Binding   Name (Section)
 000c81e4  local     $C$L17 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ProtectionTask)
 000c81e8  local     $C$L18 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ProtectionTask)
 000c8218  local     $C$L19 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ProtectionTask)
-000bbff4  local     $C$L2 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput)
+000bad34  local     $C$L2 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput)
 000c8244  local     $C$L20 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ProtectionTask)
 000c82b4  local     $C$L21 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ProtectionTask)
 000c82cc  local     $C$L22 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ProtectionTask)
@@ -4119,7 +4132,7 @@ Value     Binding   Name (Section)
 000000c0  local     $C$L7 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ResetProt)
 000000d0  local     $C$L8 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ResetProt)
 000c7fd0  local     $C$L9 (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ProtectionTask)
-000bbf90  local     $a (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput)
+000bacd0  local     $a (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput)
 000c3580  local     $a (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_SetVoltage)
 000c35b8  local     $a (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_SetVoltage)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_SetPVG)
@@ -4140,7 +4153,7 @@ Value     Binding   Name (Section)
 00000000  local     .IO_DRIVER_CODE:IO_INT_PVG_VOUT_ScalePVGSetpointtoAD (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ScalePVGSetpointtoAD)
 00000000  local     .IO_DRIVER_CODE:IO_INT_PVG_VOUT_SetPVG (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_SetPVG)
 000c3580  local     .IO_DRIVER_CODE:IO_INT_PVG_VOUT_SetVoltage (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_SetVoltage)
-000bbf90  local     .IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput)
+000bacd0  local     .IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput)
 00000000  local     .text (.text)
 000c7f10  local     IO_INT_PVG_VOUT_CheckVoltProtLimit (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_CheckVoltProtLimit)
 000c35e0  global    IO_INT_PVG_VOUT_ControlTask (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ControlTask)
@@ -4150,7 +4163,7 @@ Value     Binding   Name (Section)
 00000000  global    IO_INT_PVG_VOUT_ScalePVGSetpointtoAD (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_ScalePVGSetpointtoAD)
 00000000  global    IO_INT_PVG_VOUT_SetPVG (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_SetPVG)
 000c3580  global    IO_INT_PVG_VOUT_SetVoltage (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_SetVoltage)
-000bbf90  global    IO_INT_PVG_VOUT_WriteOutput (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput)
+000bacd0  global    IO_INT_PVG_VOUT_WriteOutput (.IO_DRIVER_CODE:IO_INT_PVG_VOUT_WriteOutput)
 
 
 ================================================================================
@@ -4642,8 +4655,8 @@ ttc500.lib : drv_IO_CAN.obj
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-000bb6f8  local     $C$L1 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
-000bb858  local     $C$L10 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba438  local     $C$L1 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba598  local     $C$L10 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
 000b7f60  local     $C$L100 (.IO_DRIVER_CODE:IO_CAN_Init)
 000b7f68  local     $C$L101 (.IO_DRIVER_CODE:IO_CAN_Init)
 000b7f6c  local     $C$L102 (.IO_DRIVER_CODE:IO_CAN_Init)
@@ -4654,7 +4667,7 @@ Value     Binding   Name (Section)
 00000090  local     $C$L107 (.IO_DRIVER_CODE:IO_CAN_FIFOStatus)
 000000cc  local     $C$L108 (.IO_DRIVER_CODE:IO_CAN_FIFOStatus)
 000000e0  local     $C$L109 (.IO_DRIVER_CODE:IO_CAN_FIFOStatus)
-000bb85c  local     $C$L11 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba59c  local     $C$L11 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
 00000100  local     $C$L110 (.IO_DRIVER_CODE:IO_CAN_FIFOStatus)
 00000154  local     $C$L111 (.IO_DRIVER_CODE:IO_CAN_FIFOStatus)
 00000168  local     $C$L112 (.IO_DRIVER_CODE:IO_CAN_FIFOStatus)
@@ -4665,7 +4678,7 @@ Value     Binding   Name (Section)
 000001f0  local     $C$L117 (.IO_DRIVER_CODE:IO_CAN_FIFOStatus)
 0000021c  local     $C$L118 (.IO_DRIVER_CODE:IO_CAN_FIFOStatus)
 00000224  local     $C$L119 (.IO_DRIVER_CODE:IO_CAN_FIFOStatus)
-000bb864  local     $C$L12 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba5a4  local     $C$L12 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
 00000228  local     $C$L120 (.IO_DRIVER_CODE:IO_CAN_FIFOStatus)
 00000064  local     $C$L121 (.IO_DRIVER_CODE:IO_CAN_FGPA_DisableMailbox)
 000000a8  local     $C$L122 (.IO_DRIVER_CODE:IO_CAN_FGPA_DisableMailbox)
@@ -4676,7 +4689,7 @@ Value     Binding   Name (Section)
 0000007c  local     $C$L127 (.IO_DRIVER_CODE:IO_CAN_CPU_ResetHandle)
 0000008c  local     $C$L128 (.IO_DRIVER_CODE:IO_CAN_CPU_ResetHandle)
 000000c0  local     $C$L129 (.IO_DRIVER_CODE:IO_CAN_DeInitHandle)
-000bb86c  local     $C$L13 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba5ac  local     $C$L13 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
 000000d0  local     $C$L130 (.IO_DRIVER_CODE:IO_CAN_DeInitHandle)
 000000d8  local     $C$L131 (.IO_DRIVER_CODE:IO_CAN_DeInitHandle)
 00000110  local     $C$L132 (.IO_DRIVER_CODE:IO_CAN_DeInitHandle)
@@ -4687,7 +4700,7 @@ Value     Binding   Name (Section)
 000000a8  local     $C$L137 (.IO_DRIVER_CODE:IO_CAN_FPGA_DeInitChannel)
 000000a0  local     $C$L138 (.IO_DRIVER_CODE:IO_CAN_CPU_DeInitChannel)
 000000cc  local     $C$L139 (.IO_DRIVER_CODE:IO_CAN_CPU_DeInitChannel)
-000bb8cc  local     $C$L14 (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
+000ba60c  local     $C$L14 (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
 00000104  local     $C$L140 (.IO_DRIVER_CODE:IO_CAN_CPU_DeInitChannel)
 0000010c  local     $C$L141 (.IO_DRIVER_CODE:IO_CAN_CPU_DeInitChannel)
 00000114  local     $C$L142 (.IO_DRIVER_CODE:IO_CAN_CPU_DeInitChannel)
@@ -4698,7 +4711,7 @@ Value     Binding   Name (Section)
 000b9978  local     $C$L147 (.IO_DRIVER_CODE:IO_CAN_CheckIdParm)
 000b9994  local     $C$L148 (.IO_DRIVER_CODE:IO_CAN_CheckIdParm)
 000b999c  local     $C$L149 (.IO_DRIVER_CODE:IO_CAN_CheckIdParm)
-000bb8d8  local     $C$L15 (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
+000ba618  local     $C$L15 (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
 000b99a0  local     $C$L150 (.IO_DRIVER_CODE:IO_CAN_CheckIdParm)
 000b99fc  local     $C$L151 (.IO_DRIVER_CODE:IO_CAN_GetNewMailbox)
 000b9a30  local     $C$L152 (.IO_DRIVER_CODE:IO_CAN_GetNewMailbox)
@@ -4709,7 +4722,7 @@ Value     Binding   Name (Section)
 000b9ab0  local     $C$L157 (.IO_DRIVER_CODE:IO_CAN_GetNewMailbox)
 000b9ac0  local     $C$L158 (.IO_DRIVER_CODE:IO_CAN_GetNewMailbox)
 000b9af0  local     $C$L159 (.IO_DRIVER_CODE:IO_CAN_GetNewHandle)
-000bb8e0  local     $C$L16 (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
+000ba620  local     $C$L16 (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
 000b9b90  local     $C$L160 (.IO_DRIVER_CODE:IO_CAN_FPGA_CreateRxAccMask)
 000b9bb0  local     $C$L161 (.IO_DRIVER_CODE:IO_CAN_FPGA_CreateRxAccMask)
 000b9c00  local     $C$L162 (.IO_DRIVER_CODE:IO_CAN_CalcIdFormat)
@@ -4720,7 +4733,7 @@ Value     Binding   Name (Section)
 000b9df0  local     $C$L167 (.IO_DRIVER_CODE:IO_CAN_ConfigMsgInt)
 000b9e20  local     $C$L168 (.IO_DRIVER_CODE:IO_CAN_ConfigMsgInt)
 000b9e60  local     $C$L169 (.IO_DRIVER_CODE:IO_CAN_ConfigMsgInt)
-000bb908  local     $C$L17 (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
+000ba648  local     $C$L17 (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
 000b9e70  local     $C$L170 (.IO_DRIVER_CODE:IO_CAN_ConfigMsgInt)
 000b9ee4  local     $C$L171 (.IO_DRIVER_CODE:IO_CAN_ConfigMsgInt)
 000b9f50  local     $C$L172 (.IO_DRIVER_CODE:IO_CAN_ConfigMsgInt)
@@ -4731,7 +4744,7 @@ Value     Binding   Name (Section)
 000b9fe0  local     $C$L177 (.IO_DRIVER_CODE:IO_CAN_ConfigMsgInt)
 000b9fe4  local     $C$L178 (.IO_DRIVER_CODE:IO_CAN_ConfigMsgInt)
 00000124  local     $C$L179 (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
-000bb968  local     $C$L18 (.IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame)
+000ba6a8  local     $C$L18 (.IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame)
 00000130  local     $C$L180 (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
 000001a0  local     $C$L181 (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
 00000250  local     $C$L182 (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
@@ -4742,26 +4755,26 @@ Value     Binding   Name (Section)
 000003dc  local     $C$L187 (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
 00000400  local     $C$L188 (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
 00000470  local     $C$L189 (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
-000bb96c  local     $C$L19 (.IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame)
+000ba6ac  local     $C$L19 (.IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame)
 0000048c  local     $C$L190 (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
 000004a4  local     $C$L191 (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
 000004e4  local     $C$L192 (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
 000004e8  local     $C$L193 (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
 000b94e0  local     $C$L194 (.IO_DRIVER_CODE:IO_CAN_CPU_InitDefault)
-000bb700  local     $C$L2 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
-000bba30  local     $C$L20 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
-000bba38  local     $C$L21 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
-000bba90  local     $C$L22 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
-000bba98  local     $C$L23 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
-000bbb00  local     $C$L24 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
-000bbb68  local     $C$L25 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
-000bbb70  local     $C$L26 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
-000bbb78  local     $C$L27 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
-000bbb80  local     $C$L28 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
-000bbb88  local     $C$L29 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
-000bb74c  local     $C$L3 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
-000bbb90  local     $C$L30 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
-000bbb94  local     $C$L31 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba440  local     $C$L2 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba770  local     $C$L20 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba778  local     $C$L21 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba7d0  local     $C$L22 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba7d8  local     $C$L23 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba840  local     $C$L24 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba8a8  local     $C$L25 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba8b0  local     $C$L26 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba8b8  local     $C$L27 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba8c0  local     $C$L28 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba8c8  local     $C$L29 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba48c  local     $C$L3 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba8d0  local     $C$L30 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba8d4  local     $C$L31 (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
 000cace0  local     $C$L32 (.IO_DRIVER_CODE:IO_CAN_WaitLocalPowerDown)
 000cace8  local     $C$L33 (.IO_DRIVER_CODE:IO_CAN_WaitLocalPowerDown)
 000caca0  local     $C$L34 (.IO_DRIVER_CODE:IO_CAN_WaitInitNormalMode)
@@ -4770,29 +4783,29 @@ Value     Binding   Name (Section)
 000cac68  local     $C$L37 (.IO_DRIVER_CODE:IO_CAN_WaitCanTransfer)
 000000ec  local     $C$L38 (.IO_DRIVER_CODE:IO_CAN_Status)
 00000120  local     $C$L39 (.IO_DRIVER_CODE:IO_CAN_Status)
-000bb760  local     $C$L4 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba4a0  local     $C$L4 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
 00000130  local     $C$L40 (.IO_DRIVER_CODE:IO_CAN_Status)
 00000140  local     $C$L41 (.IO_DRIVER_CODE:IO_CAN_Status)
 00000150  local     $C$L42 (.IO_DRIVER_CODE:IO_CAN_Status)
 00000160  local     $C$L43 (.IO_DRIVER_CODE:IO_CAN_Status)
 00000168  local     $C$L44 (.IO_DRIVER_CODE:IO_CAN_Status)
 0000016c  local     $C$L45 (.IO_DRIVER_CODE:IO_CAN_Status)
-000bbbe0  local     $C$L46 (.IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame)
-000bbc40  local     $C$L47 (.IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame)
-000bbd50  local     $C$L48 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-000bbd58  local     $C$L49 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-000bb7bc  local     $C$L5 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
-000bbd9c  local     $C$L50 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-000bbdb0  local     $C$L51 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-000bbe3c  local     $C$L52 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-000bbf00  local     $C$L53 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-000bbf64  local     $C$L54 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-000bbf6c  local     $C$L55 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-000bbf74  local     $C$L56 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-000bbf7c  local     $C$L57 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-000bbf84  local     $C$L58 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-000bbf88  local     $C$L59 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
-000bb7d0  local     $C$L6 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba920  local     $C$L46 (.IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame)
+000ba980  local     $C$L47 (.IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame)
+000baa90  local     $C$L48 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000baa98  local     $C$L49 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000ba4fc  local     $C$L5 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000baadc  local     $C$L50 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000baaf0  local     $C$L51 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000bab7c  local     $C$L52 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000bac40  local     $C$L53 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000baca4  local     $C$L54 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000bacac  local     $C$L55 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000bacb4  local     $C$L56 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000bacbc  local     $C$L57 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000bacc4  local     $C$L58 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000bacc8  local     $C$L59 (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000ba510  local     $C$L6 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
 000000a0  local     $C$L60 (.IO_DRIVER_CODE:IO_CAN_CPU_ReadFIFO)
 000000c4  local     $C$L61 (.IO_DRIVER_CODE:IO_CAN_CPU_ReadFIFO)
 000000e0  local     $C$L62 (.IO_DRIVER_CODE:IO_CAN_CPU_ReadFIFO)
@@ -4803,7 +4816,7 @@ Value     Binding   Name (Section)
 00000140  local     $C$L67 (.IO_DRIVER_CODE:IO_CAN_FPGA_ReadFIFO)
 00000150  local     $C$L68 (.IO_DRIVER_CODE:IO_CAN_FPGA_ReadFIFO)
 0000015c  local     $C$L69 (.IO_DRIVER_CODE:IO_CAN_FPGA_ReadFIFO)
-000bb7e0  local     $C$L7 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba520  local     $C$L7 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
 00000170  local     $C$L70 (.IO_DRIVER_CODE:IO_CAN_FPGA_ReadFIFO)
 00000190  local     $C$L71 (.IO_DRIVER_CODE:IO_CAN_FPGA_ReadFIFO)
 000001a4  local     $C$L72 (.IO_DRIVER_CODE:IO_CAN_FPGA_ReadFIFO)
@@ -4814,7 +4827,7 @@ Value     Binding   Name (Section)
 000000e4  local     $C$L77 (.IO_DRIVER_CODE:IO_CAN_ReadFIFO)
 000000f8  local     $C$L78 (.IO_DRIVER_CODE:IO_CAN_ReadFIFO)
 000000fc  local     $C$L79 (.IO_DRIVER_CODE:IO_CAN_ReadFIFO)
-000bb844  local     $C$L8 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba584  local     $C$L8 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
 00000100  local     $C$L80 (.IO_DRIVER_CODE:IO_CAN_ReadFIFO)
 000b7ca8  local     $C$L81 (.IO_DRIVER_CODE:IO_CAN_Init)
 000b7cf4  local     $C$L82 (.IO_DRIVER_CODE:IO_CAN_Init)
@@ -4825,7 +4838,7 @@ Value     Binding   Name (Section)
 000b7d48  local     $C$L87 (.IO_DRIVER_CODE:IO_CAN_Init)
 000b7d50  local     $C$L88 (.IO_DRIVER_CODE:IO_CAN_Init)
 000b7d58  local     $C$L89 (.IO_DRIVER_CODE:IO_CAN_Init)
-000bb84c  local     $C$L9 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba58c  local     $C$L9 (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
 000b7d5c  local     $C$L90 (.IO_DRIVER_CODE:IO_CAN_Init)
 000b7d70  local     $C$L91 (.IO_DRIVER_CODE:IO_CAN_Init)
 000b7d78  local     $C$L92 (.IO_DRIVER_CODE:IO_CAN_Init)
@@ -4844,22 +4857,22 @@ Value     Binding   Name (Section)
 000ceaa8  local     $P$T5$6 (.const)
 000ceab4  local     $P$T6$7 (.const)
 000ceab8  local     $P$T7$8 (.const)
-000bb5a0  local     $a (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxComplete)
-000bb5f0  local     $a (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxLost)
-000bb640  local     $a (.IO_DRIVER_CODE:IO_CAN_FPGA_GetTxStat)
-000bb680  local     $a (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
-000bb870  local     $a (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
-000bb940  local     $a (.IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame)
-000bb9a0  local     $a (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba2e0  local     $a (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxComplete)
+000ba330  local     $a (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxLost)
+000ba380  local     $a (.IO_DRIVER_CODE:IO_CAN_FPGA_GetTxStat)
+000ba3c0  local     $a (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba5b0  local     $a (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
+000ba680  local     $a (.IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame)
+000ba6e0  local     $a (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
 000cacc0  local     $a (.IO_DRIVER_CODE:IO_CAN_WaitLocalPowerDown)
 000cac80  local     $a (.IO_DRIVER_CODE:IO_CAN_WaitInitNormalMode)
 000cac40  local     $a (.IO_DRIVER_CODE:IO_CAN_WaitCanTransfer)
 00000000  local     $a (.IO_DRIVER_CODE:IO_CAN_FPGA_GetStatus)
 00000000  local     $a (.IO_DRIVER_CODE:IO_CAN_FPGA_GetErrorCounter)
 00000000  local     $a (.IO_DRIVER_CODE:IO_CAN_Status)
-000bbba0  local     $a (.IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame)
-000bbc70  local     $a (.IO_DRIVER_CODE:IO_CAN_ConvertCsm2IODataFrame)
-000bbcb0  local     $a (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000ba8e0  local     $a (.IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame)
+000ba9b0  local     $a (.IO_DRIVER_CODE:IO_CAN_ConvertCsm2IODataFrame)
+000ba9f0  local     $a (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
 00000000  local     $a (.IO_DRIVER_CODE:IO_CAN_CPU_ReadFIFO)
 00000000  local     $a (.IO_DRIVER_CODE:IO_CAN_FPGA_ReadFIFO)
 00000000  local     $a (.IO_DRIVER_CODE:IO_CAN_ReadFIFO)
@@ -4911,10 +4924,10 @@ Value     Binding   Name (Section)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
 000b9ff0  local     .IO_DRIVER_CODE:IO_CAN_ConfigMsg (.IO_DRIVER_CODE:IO_CAN_ConfigMsg)
 000b9c10  local     .IO_DRIVER_CODE:IO_CAN_ConfigMsgInt (.IO_DRIVER_CODE:IO_CAN_ConfigMsgInt)
-000bbc70  local     .IO_DRIVER_CODE:IO_CAN_ConvertCsm2IODataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertCsm2IODataFrame)
-000bbba0  local     .IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame)
-000bb940  local     .IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame)
-000bb870  local     .IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
+000ba9b0  local     .IO_DRIVER_CODE:IO_CAN_ConvertCsm2IODataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertCsm2IODataFrame)
+000ba8e0  local     .IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame)
+000ba680  local     .IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame)
+000ba5b0  local     .IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_DeInit (.IO_DRIVER_CODE:IO_CAN_DeInit)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_DeInitHandle (.IO_DRIVER_CODE:IO_CAN_DeInitHandle)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_FGPA_DisableMailbox (.IO_DRIVER_CODE:IO_CAN_FGPA_DisableMailbox)
@@ -4923,10 +4936,10 @@ Value     Binding   Name (Section)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_FPGA_DeInitChannel (.IO_DRIVER_CODE:IO_CAN_FPGA_DeInitChannel)
 000b9910  local     .IO_DRIVER_CODE:IO_CAN_FPGA_GetChConfig (.IO_DRIVER_CODE:IO_CAN_FPGA_GetChConfig)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_FPGA_GetErrorCounter (.IO_DRIVER_CODE:IO_CAN_FPGA_GetErrorCounter)
-000bb5a0  local     .IO_DRIVER_CODE:IO_CAN_FPGA_GetRxComplete (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxComplete)
-000bb5f0  local     .IO_DRIVER_CODE:IO_CAN_FPGA_GetRxLost (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxLost)
+000ba2e0  local     .IO_DRIVER_CODE:IO_CAN_FPGA_GetRxComplete (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxComplete)
+000ba330  local     .IO_DRIVER_CODE:IO_CAN_FPGA_GetRxLost (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxLost)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_FPGA_GetStatus (.IO_DRIVER_CODE:IO_CAN_FPGA_GetStatus)
-000bb640  local     .IO_DRIVER_CODE:IO_CAN_FPGA_GetTxStat (.IO_DRIVER_CODE:IO_CAN_FPGA_GetTxStat)
+000ba380  local     .IO_DRIVER_CODE:IO_CAN_FPGA_GetTxStat (.IO_DRIVER_CODE:IO_CAN_FPGA_GetTxStat)
 000b4050  local     .IO_DRIVER_CODE:IO_CAN_FPGA_InitDefault (.IO_DRIVER_CODE:IO_CAN_FPGA_InitDefault)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_FPGA_ReadFIFO (.IO_DRIVER_CODE:IO_CAN_FPGA_ReadFIFO)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_FPGA_ResetRxHandle (.IO_DRIVER_CODE:IO_CAN_FPGA_ResetRxHandle)
@@ -4934,14 +4947,14 @@ Value     Binding   Name (Section)
 000b9ad0  local     .IO_DRIVER_CODE:IO_CAN_GetNewHandle (.IO_DRIVER_CODE:IO_CAN_GetNewHandle)
 000b99b0  local     .IO_DRIVER_CODE:IO_CAN_GetNewMailbox (.IO_DRIVER_CODE:IO_CAN_GetNewMailbox)
 000b7b90  local     .IO_DRIVER_CODE:IO_CAN_Init (.IO_DRIVER_CODE:IO_CAN_Init)
-000bb680  local     .IO_DRIVER_CODE:IO_CAN_MsgStatus (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba3c0  local     .IO_DRIVER_CODE:IO_CAN_MsgStatus (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_ReadFIFO (.IO_DRIVER_CODE:IO_CAN_ReadFIFO)
-000bbcb0  local     .IO_DRIVER_CODE:IO_CAN_ReadMsg (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000ba9f0  local     .IO_DRIVER_CODE:IO_CAN_ReadMsg (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_Status (.IO_DRIVER_CODE:IO_CAN_Status)
 000cac40  local     .IO_DRIVER_CODE:IO_CAN_WaitCanTransfer (.IO_DRIVER_CODE:IO_CAN_WaitCanTransfer)
 000cac80  local     .IO_DRIVER_CODE:IO_CAN_WaitInitNormalMode (.IO_DRIVER_CODE:IO_CAN_WaitInitNormalMode)
 000cacc0  local     .IO_DRIVER_CODE:IO_CAN_WaitLocalPowerDown (.IO_DRIVER_CODE:IO_CAN_WaitLocalPowerDown)
-000bb9a0  local     .IO_DRIVER_CODE:IO_CAN_WriteMsg (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba6e0  local     .IO_DRIVER_CODE:IO_CAN_WriteMsg (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
 08038390  local     .IO_DRIVER_DATA_NORMAL:init (.IO_DRIVER_DATA_NORMAL:init)
 00000000  local     .IO_DRIVER_DATA_NORMAL:uninit (.IO_DRIVER_DATA_NORMAL:uninit)
 000cea64  local     .const (.const)
@@ -4956,10 +4969,10 @@ Value     Binding   Name (Section)
 00000000  global    IO_CAN_ConfigFIFOInt (.IO_DRIVER_CODE:IO_CAN_ConfigFIFOInt)
 000b9ff0  global    IO_CAN_ConfigMsg (.IO_DRIVER_CODE:IO_CAN_ConfigMsg)
 000b9c10  global    IO_CAN_ConfigMsgInt (.IO_DRIVER_CODE:IO_CAN_ConfigMsgInt)
-000bbc70  local     IO_CAN_ConvertCsm2IODataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertCsm2IODataFrame)
-000bbba0  local     IO_CAN_ConvertFPGA2IODataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame)
-000bb940  local     IO_CAN_ConvertIO2CsmDataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame)
-000bb870  local     IO_CAN_ConvertIO2FPGADataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
+000ba9b0  local     IO_CAN_ConvertCsm2IODataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertCsm2IODataFrame)
+000ba8e0  local     IO_CAN_ConvertFPGA2IODataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertFPGA2IODataFrame)
+000ba680  local     IO_CAN_ConvertIO2CsmDataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertIO2CsmDataFrame)
+000ba5b0  local     IO_CAN_ConvertIO2FPGADataFrame (.IO_DRIVER_CODE:IO_CAN_ConvertIO2FPGADataFrame)
 00000000  global    IO_CAN_DeInit (.IO_DRIVER_CODE:IO_CAN_DeInit)
 00000000  global    IO_CAN_DeInitHandle (.IO_DRIVER_CODE:IO_CAN_DeInitHandle)
 00000000  local     IO_CAN_FGPA_DisableMailbox (.IO_DRIVER_CODE:IO_CAN_FGPA_DisableMailbox)
@@ -4968,10 +4981,10 @@ Value     Binding   Name (Section)
 00000000  local     IO_CAN_FPGA_DeInitChannel (.IO_DRIVER_CODE:IO_CAN_FPGA_DeInitChannel)
 000b9910  local     IO_CAN_FPGA_GetChConfig (.IO_DRIVER_CODE:IO_CAN_FPGA_GetChConfig)
 00000000  local     IO_CAN_FPGA_GetErrorCounter (.IO_DRIVER_CODE:IO_CAN_FPGA_GetErrorCounter)
-000bb5a0  local     IO_CAN_FPGA_GetRxComplete (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxComplete)
-000bb5f0  local     IO_CAN_FPGA_GetRxLost (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxLost)
+000ba2e0  local     IO_CAN_FPGA_GetRxComplete (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxComplete)
+000ba330  local     IO_CAN_FPGA_GetRxLost (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxLost)
 00000000  local     IO_CAN_FPGA_GetStatus (.IO_DRIVER_CODE:IO_CAN_FPGA_GetStatus)
-000bb640  local     IO_CAN_FPGA_GetTxStat (.IO_DRIVER_CODE:IO_CAN_FPGA_GetTxStat)
+000ba380  local     IO_CAN_FPGA_GetTxStat (.IO_DRIVER_CODE:IO_CAN_FPGA_GetTxStat)
 000b4050  global    IO_CAN_FPGA_InitDefault (.IO_DRIVER_CODE:IO_CAN_FPGA_InitDefault)
 00000000  local     IO_CAN_FPGA_ReadFIFO (.IO_DRIVER_CODE:IO_CAN_FPGA_ReadFIFO)
 00000000  local     IO_CAN_FPGA_ResetRxHandle (.IO_DRIVER_CODE:IO_CAN_FPGA_ResetRxHandle)
@@ -4979,14 +4992,14 @@ Value     Binding   Name (Section)
 000b9ad0  local     IO_CAN_GetNewHandle (.IO_DRIVER_CODE:IO_CAN_GetNewHandle)
 000b99b0  local     IO_CAN_GetNewMailbox (.IO_DRIVER_CODE:IO_CAN_GetNewMailbox)
 000b7b90  global    IO_CAN_Init (.IO_DRIVER_CODE:IO_CAN_Init)
-000bb680  global    IO_CAN_MsgStatus (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
+000ba3c0  global    IO_CAN_MsgStatus (.IO_DRIVER_CODE:IO_CAN_MsgStatus)
 00000000  global    IO_CAN_ReadFIFO (.IO_DRIVER_CODE:IO_CAN_ReadFIFO)
-000bbcb0  global    IO_CAN_ReadMsg (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
+000ba9f0  global    IO_CAN_ReadMsg (.IO_DRIVER_CODE:IO_CAN_ReadMsg)
 00000000  global    IO_CAN_Status (.IO_DRIVER_CODE:IO_CAN_Status)
 000cac40  global    IO_CAN_WaitCanTransfer (.IO_DRIVER_CODE:IO_CAN_WaitCanTransfer)
 000cac80  global    IO_CAN_WaitInitNormalMode (.IO_DRIVER_CODE:IO_CAN_WaitInitNormalMode)
 000cacc0  global    IO_CAN_WaitLocalPowerDown (.IO_DRIVER_CODE:IO_CAN_WaitLocalPowerDown)
-000bb9a0  global    IO_CAN_WriteMsg (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
+000ba6e0  global    IO_CAN_WriteMsg (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
 08038b1c  local     io_can_fifo_buf (.IO_DRIVER_DATA_NORMAL:init)
 08038f1c  local     io_can_fpga_rx_buffer (.IO_DRIVER_DATA_NORMAL:init)
 00000000  local     io_can_fpga_rx_mailbox_buffer (.IO_DRIVER_DATA_NORMAL:uninit)
@@ -5519,25 +5532,25 @@ Value     Binding   Name (Section)
 --------  --------  ---------------
 000b3348  local     $C$L1 (.IO_DRIVER_CODE:IO_ADC_VariantInit)
 000c39f4  local     $C$L10 (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
-000bb23c  local     $C$L100 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb264  local     $C$L101 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb2b0  local     $C$L102 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb2e0  local     $C$L103 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb2e4  local     $C$L104 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb30c  local     $C$L105 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb310  local     $C$L106 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb314  local     $C$L107 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bd020  local     $C$L108 (.IO_DRIVER_CODE:IO_ADC_Get)
-000bd040  local     $C$L109 (.IO_DRIVER_CODE:IO_ADC_Get)
+000bca0c  local     $C$L100 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bca34  local     $C$L101 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bca80  local     $C$L102 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bcab0  local     $C$L103 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bcab4  local     $C$L104 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bcadc  local     $C$L105 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bcae0  local     $C$L106 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bcae4  local     $C$L107 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bcc00  local     $C$L108 (.IO_DRIVER_CODE:IO_ADC_Get)
+000bcc20  local     $C$L109 (.IO_DRIVER_CODE:IO_ADC_Get)
 000c39f8  local     $C$L11 (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
-000bd060  local     $C$L110 (.IO_DRIVER_CODE:IO_ADC_Get)
-000bd080  local     $C$L111 (.IO_DRIVER_CODE:IO_ADC_Get)
-000bd0f0  local     $C$L112 (.IO_DRIVER_CODE:IO_ADC_Get)
-000bd0fc  local     $C$L113 (.IO_DRIVER_CODE:IO_ADC_Get)
-000bd128  local     $C$L114 (.IO_DRIVER_CODE:IO_ADC_Get)
-000bd130  local     $C$L115 (.IO_DRIVER_CODE:IO_ADC_Get)
-000bd150  local     $C$L116 (.IO_DRIVER_CODE:IO_ADC_Get)
-000bd170  local     $C$L117 (.IO_DRIVER_CODE:IO_ADC_Get)
+000bcc40  local     $C$L110 (.IO_DRIVER_CODE:IO_ADC_Get)
+000bcc60  local     $C$L111 (.IO_DRIVER_CODE:IO_ADC_Get)
+000bccd0  local     $C$L112 (.IO_DRIVER_CODE:IO_ADC_Get)
+000bccdc  local     $C$L113 (.IO_DRIVER_CODE:IO_ADC_Get)
+000bcd08  local     $C$L114 (.IO_DRIVER_CODE:IO_ADC_Get)
+000bcd10  local     $C$L115 (.IO_DRIVER_CODE:IO_ADC_Get)
+000bcd30  local     $C$L116 (.IO_DRIVER_CODE:IO_ADC_Get)
+000bcd50  local     $C$L117 (.IO_DRIVER_CODE:IO_ADC_Get)
 000c4070  local     $C$L118 (.IO_DRIVER_CODE:IO_ADC_GetExtShutOff)
 000c40f4  local     $C$L119 (.IO_DRIVER_CODE:IO_ADC_GetExtShutOff)
 000c3a20  local     $C$L12 (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
@@ -5630,81 +5643,81 @@ Value     Binding   Name (Section)
 000b87a4  local     $C$L199 (.IO_DRIVER_CODE:IO_ADC_Init2ModeType)
 000b98f8  local     $C$L2 (.IO_DRIVER_CODE:IO_ADC_UpdateSSupVarLimit)
 000c3c20  local     $C$L20 (.IO_DRIVER_CODE:IO_ADC_Get1V2Supply)
-000bc0c8  local     $C$L200 (.IO_DRIVER_CODE:IO_ADC_DeInitDOHSType)
-000bc3a0  local     $C$L201 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc3ac  local     $C$L202 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc3b0  local     $C$L203 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc3dc  local     $C$L204 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc3f8  local     $C$L205 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc414  local     $C$L206 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc430  local     $C$L207 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc44c  local     $C$L208 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc468  local     $C$L209 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bae08  local     $C$L200 (.IO_DRIVER_CODE:IO_ADC_DeInitDOHSType)
+000bb0e0  local     $C$L201 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb0ec  local     $C$L202 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb0f0  local     $C$L203 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb11c  local     $C$L204 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb138  local     $C$L205 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb154  local     $C$L206 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb170  local     $C$L207 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb18c  local     $C$L208 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb1a8  local     $C$L209 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
 000c3c6c  local     $C$L21 (.IO_DRIVER_CODE:IO_ADC_Get2V5Supply)
-000bc484  local     $C$L210 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc4a0  local     $C$L211 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc4e0  local     $C$L212 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc50c  local     $C$L213 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc5a0  local     $C$L214 (.IO_DRIVER_CODE:IO_ADC_DeInit3ModeType)
-000bc5a8  local     $C$L215 (.IO_DRIVER_CODE:IO_ADC_DeInit3ModeType)
-000bc140  local     $C$L216 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-000bc14c  local     $C$L217 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-000bc150  local     $C$L218 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-000bc170  local     $C$L219 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000bb1c4  local     $C$L210 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb1e0  local     $C$L211 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb220  local     $C$L212 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb24c  local     $C$L213 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb2e0  local     $C$L214 (.IO_DRIVER_CODE:IO_ADC_DeInit3ModeType)
+000bb2e8  local     $C$L215 (.IO_DRIVER_CODE:IO_ADC_DeInit3ModeType)
+000bae80  local     $C$L216 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000bae8c  local     $C$L217 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000bae90  local     $C$L218 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000baeb0  local     $C$L219 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
 000c3d00  local     $C$L22 (.IO_DRIVER_CODE:IO_ADC_GetSafetySwitch)
-000bc190  local     $C$L220 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-000bc1b4  local     $C$L221 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-000bc1d8  local     $C$L222 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-000bc1fc  local     $C$L223 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-000bc250  local     $C$L224 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-000bc27c  local     $C$L225 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-000bc310  local     $C$L226 (.IO_DRIVER_CODE:IO_ADC_DeInit2ModeType)
-000bc318  local     $C$L227 (.IO_DRIVER_CODE:IO_ADC_DeInit2ModeType)
-000bc7e0  local     $C$L228 (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
-000bc7e8  local     $C$L229 (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
+000baed0  local     $C$L220 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000baef4  local     $C$L221 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000baf18  local     $C$L222 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000baf3c  local     $C$L223 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000baf90  local     $C$L224 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000bafbc  local     $C$L225 (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000bb050  local     $C$L226 (.IO_DRIVER_CODE:IO_ADC_DeInit2ModeType)
+000bb058  local     $C$L227 (.IO_DRIVER_CODE:IO_ADC_DeInit2ModeType)
+000bb520  local     $C$L228 (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
+000bb528  local     $C$L229 (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
 000c3d4c  local     $C$L23 (.IO_DRIVER_CODE:IO_ADC_GetSafetySwitch)
-000bc800  local     $C$L230 (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
-000bc808  local     $C$L231 (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
-000bc838  local     $C$L232 (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
-000bc840  local     $C$L233 (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
-000bc914  local     $C$L234 (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
-000bc934  local     $C$L235 (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
-000bc940  local     $C$L236 (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
-000bc95c  local     $C$L237 (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
-000bc964  local     $C$L238 (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
-000bc968  local     $C$L239 (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
+000bb540  local     $C$L230 (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
+000bb548  local     $C$L231 (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
+000bb578  local     $C$L232 (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
+000bb580  local     $C$L233 (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
+000bb654  local     $C$L234 (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
+000bb674  local     $C$L235 (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
+000bb680  local     $C$L236 (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
+000bb69c  local     $C$L237 (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
+000bb6a4  local     $C$L238 (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
+000bb6a8  local     $C$L239 (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
 000c3d5c  local     $C$L24 (.IO_DRIVER_CODE:IO_ADC_GetSafetySwitch)
-000bc9f4  local     $C$L240 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bca04  local     $C$L241 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bca64  local     $C$L242 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bca8c  local     $C$L243 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bcac8  local     $C$L244 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bcad0  local     $C$L245 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bcaf0  local     $C$L246 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bcb50  local     $C$L247 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bcb90  local     $C$L248 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bcbe0  local     $C$L249 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb734  local     $C$L240 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb744  local     $C$L241 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb7a4  local     $C$L242 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb7cc  local     $C$L243 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb808  local     $C$L244 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb810  local     $C$L245 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb830  local     $C$L246 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb890  local     $C$L247 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb8d0  local     $C$L248 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb920  local     $C$L249 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
 000c3d70  local     $C$L25 (.IO_DRIVER_CODE:IO_ADC_GetSafetySwitch)
-000bcc20  local     $C$L250 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bcc90  local     $C$L251 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bcca4  local     $C$L252 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bccb0  local     $C$L253 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bccfc  local     $C$L254 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bcd00  local     $C$L255 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bcd04  local     $C$L256 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bd1c8  local     $C$L257 (.IO_DRIVER_CODE:IO_ADC_DeInitPWDType)
-000bd24c  local     $C$L258 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
-000bd27c  local     $C$L259 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bb960  local     $C$L250 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb9d0  local     $C$L251 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb9e4  local     $C$L252 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb9f0  local     $C$L253 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bba3c  local     $C$L254 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bba40  local     $C$L255 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bba44  local     $C$L256 (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bcda8  local     $C$L257 (.IO_DRIVER_CODE:IO_ADC_DeInitPWDType)
+000bce2c  local     $C$L258 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bce5c  local     $C$L259 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
 000c3da4  local     $C$L26 (.IO_DRIVER_CODE:IO_ADC_GetSafetySwitch)
-000bd290  local     $C$L260 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
-000bd2b0  local     $C$L261 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
-000bd2d0  local     $C$L262 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
-000bd2f0  local     $C$L263 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
-000bd310  local     $C$L264 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
-000bd330  local     $C$L265 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
-000bd34c  local     $C$L266 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
-000bd36c  local     $C$L267 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
-000bd370  local     $C$L268 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bce70  local     $C$L260 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bce90  local     $C$L261 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bceb0  local     $C$L262 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bced0  local     $C$L263 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bcef0  local     $C$L264 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bcf10  local     $C$L265 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bcf2c  local     $C$L266 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bcf4c  local     $C$L267 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bcf50  local     $C$L268 (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
 000c3520  local     $C$L269 (.IO_DRIVER_CODE:IO_ADC_CalcBatteryVoltage)
 000c3e3c  local     $C$L27 (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
 000c3538  local     $C$L270 (.IO_DRIVER_CODE:IO_ADC_CalcBatteryVoltage)
@@ -5713,7 +5726,7 @@ Value     Binding   Name (Section)
 000c347c  local     $C$L273 (.IO_DRIVER_CODE:IO_ADC_Calc2V5RefSum)
 000c3e54  local     $C$L28 (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
 000c3e70  local     $C$L29 (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
-000ba328  local     $C$L3 (.IO_DRIVER_CODE:IO_ADC_ReadValue)
+000bba98  local     $C$L3 (.IO_DRIVER_CODE:IO_ADC_ReadValue)
 000c3edc  local     $C$L30 (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
 000c3eec  local     $C$L31 (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
 000c3f20  local     $C$L32 (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
@@ -5721,79 +5734,79 @@ Value     Binding   Name (Section)
 000c3f8c  local     $C$L34 (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
 000c3fec  local     $C$L35 (.IO_DRIVER_CODE:IO_ADC_GetTimerInThreshold)
 000b98ac  local     $C$L36 (.IO_DRIVER_CODE:IO_ADC_GetSSupMode)
-000ba4c0  local     $C$L37 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba4f8  local     $C$L38 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba500  local     $C$L39 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba330  local     $C$L4 (.IO_DRIVER_CODE:IO_ADC_ReadValue)
-000ba51c  local     $C$L40 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba524  local     $C$L41 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba52c  local     $C$L42 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba584  local     $C$L43 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba588  local     $C$L44 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba830  local     $C$L45 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000ba868  local     $C$L46 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000ba870  local     $C$L47 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000ba88c  local     $C$L48 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000ba894  local     $C$L49 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbc30  local     $C$L37 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbc68  local     $C$L38 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbc70  local     $C$L39 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbaa0  local     $C$L4 (.IO_DRIVER_CODE:IO_ADC_ReadValue)
+000bbc8c  local     $C$L40 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbc94  local     $C$L41 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbc9c  local     $C$L42 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbcf4  local     $C$L43 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbcf8  local     $C$L44 (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbe40  local     $C$L45 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbe78  local     $C$L46 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbe80  local     $C$L47 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbe9c  local     $C$L48 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbea4  local     $C$L49 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
 000c3830  local     $C$L5 (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
-000ba89c  local     $C$L50 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000ba8f4  local     $C$L51 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000ba8f8  local     $C$L52 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000bcd78  local     $C$L53 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000bcd80  local     $C$L54 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000bce38  local     $C$L55 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000bce70  local     $C$L56 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000bce78  local     $C$L57 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000bce94  local     $C$L58 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000bcef8  local     $C$L59 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bbeac  local     $C$L50 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbf04  local     $C$L51 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbf08  local     $C$L52 (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbf78  local     $C$L53 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bbf80  local     $C$L54 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc038  local     $C$L55 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc070  local     $C$L56 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc078  local     $C$L57 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc094  local     $C$L58 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc0f8  local     $C$L59 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
 000c385c  local     $C$L6 (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
-000bcefc  local     $C$L60 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000baad0  local     $C$L61 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bab00  local     $C$L62 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bab28  local     $C$L63 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bab64  local     $C$L64 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bab70  local     $C$L65 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000baba0  local     $C$L66 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000babd0  local     $C$L67 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000babf4  local     $C$L68 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000babfc  local     $C$L69 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc0fc  local     $C$L60 (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc2a0  local     $C$L61 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc2d0  local     $C$L62 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc2f8  local     $C$L63 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc334  local     $C$L64 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc340  local     $C$L65 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc370  local     $C$L66 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc3a0  local     $C$L67 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc3c4  local     $C$L68 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc3cc  local     $C$L69 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
 000c3920  local     $C$L7 (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
-000bac20  local     $C$L70 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bac70  local     $C$L71 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000baca4  local     $C$L72 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000baca8  local     $C$L73 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bacc0  local     $C$L74 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bad40  local     $C$L75 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bad70  local     $C$L76 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bad94  local     $C$L77 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bad9c  local     $C$L78 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000badbc  local     $C$L79 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc3f0  local     $C$L70 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc440  local     $C$L71 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc474  local     $C$L72 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc478  local     $C$L73 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc490  local     $C$L74 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc510  local     $C$L75 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc540  local     $C$L76 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc564  local     $C$L77 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc56c  local     $C$L78 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc58c  local     $C$L79 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
 000c39e8  local     $C$L8 (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
-000bae14  local     $C$L80 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
-000bae20  local     $C$L81 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
-000bae60  local     $C$L82 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
-000bae74  local     $C$L83 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
-000bae84  local     $C$L84 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
-000bae90  local     $C$L85 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
-000bae98  local     $C$L86 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
-000bafcc  local     $C$L87 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bafd8  local     $C$L88 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bafe0  local     $C$L89 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc5e4  local     $C$L80 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
+000bc5f0  local     $C$L81 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
+000bc630  local     $C$L82 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
+000bc644  local     $C$L83 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
+000bc654  local     $C$L84 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
+000bc660  local     $C$L85 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
+000bc668  local     $C$L86 (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
+000bc79c  local     $C$L87 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc7a8  local     $C$L88 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc7b0  local     $C$L89 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
 000c39f0  local     $C$L9 (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
-000bb09c  local     $C$L90 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb0d4  local     $C$L91 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb0dc  local     $C$L92 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb114  local     $C$L93 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb12c  local     $C$L94 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb134  local     $C$L95 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb1b0  local     $C$L96 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb1f4  local     $C$L97 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb210  local     $C$L98 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb238  local     $C$L99 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc86c  local     $C$L90 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc8a4  local     $C$L91 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc8ac  local     $C$L92 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc8e4  local     $C$L93 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc8fc  local     $C$L94 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc904  local     $C$L95 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc980  local     $C$L96 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc9c4  local     $C$L97 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc9e0  local     $C$L98 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bca08  local     $C$L99 (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
 000b32f0  local     $a (.IO_DRIVER_CODE:IO_ADC_VariantInit)
 000b98c0  local     $a (.IO_DRIVER_CODE:IO_ADC_UpdateSSupVarLimit)
-000ba2e0  local     $a (.IO_DRIVER_CODE:IO_ADC_ReadValue)
-000ba350  local     $a (.IO_DRIVER_CODE:IO_ADC_Read2V5RefSum)
+000bba50  local     $a (.IO_DRIVER_CODE:IO_ADC_ReadValue)
+000bbac0  local     $a (.IO_DRIVER_CODE:IO_ADC_Read2V5RefSum)
 000c37d0  local     $a (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
 000c38a0  local     $a (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
 000c3970  local     $a (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
@@ -5812,40 +5825,40 @@ Value     Binding   Name (Section)
 000c3f88  local     $a (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
 000c3fb0  local     $a (.IO_DRIVER_CODE:IO_ADC_GetTimerInThreshold)
 000b9860  local     $a (.IO_DRIVER_CODE:IO_ADC_GetSSupMode)
-000ba380  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba4b8  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba4f0  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba568  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba6f0  local     $a (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000ba828  local     $a (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000ba860  local     $a (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000ba8d8  local     $a (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000bcd10  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000bce30  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000bce68  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000bcedc  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000ba940  local     $a (.IO_DRIVER_CODE:IO_ADC_SafetyStep2Mode)
-000ba990  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000baac8  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000baaf0  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bab20  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bab8c  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000babbc  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000babec  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bac94  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bad2c  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bad5c  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bad8c  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000badd0  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
-000baea0  local     $a (.IO_DRIVER_CODE:IO_ADC_SafetyStep3Mode)
-000baf00  local     $a (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb094  local     $a (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb0cc  local     $a (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb18c  local     $a (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb228  local     $a (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb2d0  local     $a (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bcf10  local     $a (.IO_DRIVER_CODE:IO_ADC_Get)
-000bd0e4  local     $a (.IO_DRIVER_CODE:IO_ADC_Get)
+000bbaf0  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbc28  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbc60  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbcd8  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbd00  local     $a (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbe38  local     $a (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbe70  local     $a (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbee8  local     $a (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbf10  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc030  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc068  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc0dc  local     $a (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc110  local     $a (.IO_DRIVER_CODE:IO_ADC_SafetyStep2Mode)
+000bc160  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc298  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc2c0  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc2f0  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc35c  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc38c  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc3bc  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc464  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc4fc  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc52c  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc55c  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc5a0  local     $a (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
+000bc670  local     $a (.IO_DRIVER_CODE:IO_ADC_SafetyStep3Mode)
+000bc6d0  local     $a (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc864  local     $a (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc89c  local     $a (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc95c  local     $a (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc9f8  local     $a (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bcaa0  local     $a (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bcaf0  local     $a (.IO_DRIVER_CODE:IO_ADC_Get)
+000bccc4  local     $a (.IO_DRIVER_CODE:IO_ADC_Get)
 000c4010  local     $a (.IO_DRIVER_CODE:IO_ADC_GetExtShutOff)
 000c4110  local     $a (.IO_DRIVER_CODE:IO_ADC_SystemTask)
 000b9640  local     $a (.IO_DRIVER_CODE:IO_ADC_StatusInit)
@@ -5862,17 +5875,17 @@ Value     Binding   Name (Section)
 000b8960  local     $a (.IO_DRIVER_CODE:IO_ADC_Init3ModeType)
 000b8370  local     $a (.IO_DRIVER_CODE:IO_ADC_SafetyInit2Mode)
 000b8530  local     $a (.IO_DRIVER_CODE:IO_ADC_Init2ModeType)
-000bc000  local     $a (.IO_DRIVER_CODE:IO_ADC_DeInitPVGType)
-000bc080  local     $a (.IO_DRIVER_CODE:IO_ADC_DeInitDOHSType)
-000bc330  local     $a (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
-000bc520  local     $a (.IO_DRIVER_CODE:IO_ADC_DeInit3ModeType)
-000bc0d0  local     $a (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-000bc290  local     $a (.IO_DRIVER_CODE:IO_ADC_DeInit2ModeType)
-000bc760  local     $a (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
-000bc860  local     $a (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
-000bc970  local     $a (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bd180  local     $a (.IO_DRIVER_CODE:IO_ADC_DeInitPWDType)
-000bd1d0  local     $a (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bad40  local     $a (.IO_DRIVER_CODE:IO_ADC_DeInitPVGType)
+000badc0  local     $a (.IO_DRIVER_CODE:IO_ADC_DeInitDOHSType)
+000bb070  local     $a (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bb260  local     $a (.IO_DRIVER_CODE:IO_ADC_DeInit3ModeType)
+000bae10  local     $a (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000bafd0  local     $a (.IO_DRIVER_CODE:IO_ADC_DeInit2ModeType)
+000bb4a0  local     $a (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
+000bb5a0  local     $a (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
+000bb6b0  local     $a (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bcd60  local     $a (.IO_DRIVER_CODE:IO_ADC_DeInitPWDType)
+000bcdb0  local     $a (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
 000c34a0  local     $a (.IO_DRIVER_CODE:IO_ADC_CalcBatteryVoltage)
 000c351c  local     $a (.IO_DRIVER_CODE:IO_ADC_CalcBatteryVoltage)
 000c33f0  local     $a (.IO_DRIVER_CODE:IO_ADC_Calc2V5RefSum)
@@ -5895,55 +5908,55 @@ Value     Binding   Name (Section)
 000c3e30  local     $t (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
 000c3ed0  local     $t (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
 000c3f80  local     $t (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
-000ba4b0  local     $t (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba4e8  local     $t (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba560  local     $t (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000ba820  local     $t (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000ba858  local     $t (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000ba8d0  local     $t (.IO_DRIVER_CODE:IO_ADC_GetDOType)
-000bce28  local     $t (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000bce60  local     $t (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000bced4  local     $t (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
-000baac0  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000baae8  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bab18  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bab84  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000babb4  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000babe4  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bac8c  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bad24  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bad54  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bad84  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
-000bb08c  local     $t (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb0c4  local     $t (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb184  local     $t (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb220  local     $t (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bb2c8  local     $t (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000bd0dc  local     $t (.IO_DRIVER_CODE:IO_ADC_Get)
+000bbc20  local     $t (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbc58  local     $t (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbcd0  local     $t (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbe30  local     $t (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbe68  local     $t (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bbee0  local     $t (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bc028  local     $t (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc060  local     $t (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc0d4  local     $t (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bc290  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc2b8  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc2e8  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc354  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc384  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc3b4  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc45c  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc4f4  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc524  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc554  local     $t (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc85c  local     $t (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc894  local     $t (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc954  local     $t (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bc9f0  local     $t (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bca98  local     $t (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bccbc  local     $t (.IO_DRIVER_CODE:IO_ADC_Get)
 000c3514  local     $t (.IO_DRIVER_CODE:IO_ADC_CalcBatteryVoltage)
 00000000  local     .IO_DRIVER_CODE:IO_ADC_BoardTempFloat (.IO_DRIVER_CODE:IO_ADC_BoardTempFloat)
 00000000  local     .IO_DRIVER_CODE:IO_ADC_BoardTempSbyte (.IO_DRIVER_CODE:IO_ADC_BoardTempSbyte)
 000c33f0  local     .IO_DRIVER_CODE:IO_ADC_Calc2V5RefSum (.IO_DRIVER_CODE:IO_ADC_Calc2V5RefSum)
 000c34a0  local     .IO_DRIVER_CODE:IO_ADC_CalcBatteryVoltage (.IO_DRIVER_CODE:IO_ADC_CalcBatteryVoltage)
 000c37d0  local     .IO_DRIVER_CODE:IO_ADC_CalcBoardTemp (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
-000bd1d0  local     .IO_DRIVER_CODE:IO_ADC_ChannelDeInit (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
-000bc970  local     .IO_DRIVER_CODE:IO_ADC_ChannelInit (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bc860  local     .IO_DRIVER_CODE:IO_ADC_CheckSafetyConf (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
-000bc290  local     .IO_DRIVER_CODE:IO_ADC_DeInit2ModeType (.IO_DRIVER_CODE:IO_ADC_DeInit2ModeType)
-000bc520  local     .IO_DRIVER_CODE:IO_ADC_DeInit3ModeType (.IO_DRIVER_CODE:IO_ADC_DeInit3ModeType)
-000bc080  local     .IO_DRIVER_CODE:IO_ADC_DeInitDOHSType (.IO_DRIVER_CODE:IO_ADC_DeInitDOHSType)
-000bc000  local     .IO_DRIVER_CODE:IO_ADC_DeInitPVGType (.IO_DRIVER_CODE:IO_ADC_DeInitPVGType)
-000bd180  local     .IO_DRIVER_CODE:IO_ADC_DeInitPWDType (.IO_DRIVER_CODE:IO_ADC_DeInitPWDType)
-000bcf10  local     .IO_DRIVER_CODE:IO_ADC_Get (.IO_DRIVER_CODE:IO_ADC_Get)
+000bcdb0  local     .IO_DRIVER_CODE:IO_ADC_ChannelDeInit (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bb6b0  local     .IO_DRIVER_CODE:IO_ADC_ChannelInit (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb5a0  local     .IO_DRIVER_CODE:IO_ADC_CheckSafetyConf (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
+000bafd0  local     .IO_DRIVER_CODE:IO_ADC_DeInit2ModeType (.IO_DRIVER_CODE:IO_ADC_DeInit2ModeType)
+000bb260  local     .IO_DRIVER_CODE:IO_ADC_DeInit3ModeType (.IO_DRIVER_CODE:IO_ADC_DeInit3ModeType)
+000badc0  local     .IO_DRIVER_CODE:IO_ADC_DeInitDOHSType (.IO_DRIVER_CODE:IO_ADC_DeInitDOHSType)
+000bad40  local     .IO_DRIVER_CODE:IO_ADC_DeInitPVGType (.IO_DRIVER_CODE:IO_ADC_DeInitPVGType)
+000bcd60  local     .IO_DRIVER_CODE:IO_ADC_DeInitPWDType (.IO_DRIVER_CODE:IO_ADC_DeInitPWDType)
+000bcaf0  local     .IO_DRIVER_CODE:IO_ADC_Get (.IO_DRIVER_CODE:IO_ADC_Get)
 000c3b80  local     .IO_DRIVER_CODE:IO_ADC_Get1V2Supply (.IO_DRIVER_CODE:IO_ADC_Get1V2Supply)
-000badd0  local     .IO_DRIVER_CODE:IO_ADC_Get2ModeType (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
-000ba990  local     .IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc5a0  local     .IO_DRIVER_CODE:IO_ADC_Get2ModeType (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
+000bc160  local     .IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
 000c3c30  local     .IO_DRIVER_CODE:IO_ADC_Get2V5Supply (.IO_DRIVER_CODE:IO_ADC_Get2V5Supply)
-000baf00  local     .IO_DRIVER_CODE:IO_ADC_Get3ModeType (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000ba6f0  local     .IO_DRIVER_CODE:IO_ADC_GetDOType (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bc6d0  local     .IO_DRIVER_CODE:IO_ADC_Get3ModeType (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bbd00  local     .IO_DRIVER_CODE:IO_ADC_GetDOType (.IO_DRIVER_CODE:IO_ADC_GetDOType)
 000c4010  local     .IO_DRIVER_CODE:IO_ADC_GetExtShutOff (.IO_DRIVER_CODE:IO_ADC_GetExtShutOff)
-000ba380  local     .IO_DRIVER_CODE:IO_ADC_GetPVGType (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000bcd10  local     .IO_DRIVER_CODE:IO_ADC_GetPWDType (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bbaf0  local     .IO_DRIVER_CODE:IO_ADC_GetPVGType (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbf10  local     .IO_DRIVER_CODE:IO_ADC_GetPWDType (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
 000b9860  local     .IO_DRIVER_CODE:IO_ADC_GetSSupMode (.IO_DRIVER_CODE:IO_ADC_GetSSupMode)
 000c3c90  local     .IO_DRIVER_CODE:IO_ADC_GetSafetySwitch (.IO_DRIVER_CODE:IO_ADC_GetSafetySwitch)
 000c3db0  local     .IO_DRIVER_CODE:IO_ADC_GetSensorSupply (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
@@ -5955,21 +5968,21 @@ Value     Binding   Name (Section)
 000b8200  local     .IO_DRIVER_CODE:IO_ADC_InitDOHSType (.IO_DRIVER_CODE:IO_ADC_InitDOHSType)
 000b8110  local     .IO_DRIVER_CODE:IO_ADC_InitDOLSType (.IO_DRIVER_CODE:IO_ADC_InitDOLSType)
 000b7f80  local     .IO_DRIVER_CODE:IO_ADC_InitPVGType (.IO_DRIVER_CODE:IO_ADC_InitPVGType)
-000bc760  local     .IO_DRIVER_CODE:IO_ADC_InitPWDType (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
+000bb4a0  local     .IO_DRIVER_CODE:IO_ADC_InitPWDType (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
 000c2d30  local     .IO_DRIVER_CODE:IO_ADC_N2HET2_ISR (.IO_DRIVER_CODE:IO_ADC_N2HET2_ISR)
 000c2cc0  local     .IO_DRIVER_CODE:IO_ADC_N2HET2_interrupt (.IO_DRIVER_CODE:IO_ADC_N2HET2_interrupt)
 000c7d30  local     .IO_DRIVER_CODE:IO_ADC_ProtectionTask (.IO_DRIVER_CODE:IO_ADC_ProtectionTask)
 000c2c80  local     .IO_DRIVER_CODE:IO_ADC_QueueFast (.IO_DRIVER_CODE:IO_ADC_QueueFast)
 000c2c10  local     .IO_DRIVER_CODE:IO_ADC_QueueSlow (.IO_DRIVER_CODE:IO_ADC_QueueSlow)
-000ba350  local     .IO_DRIVER_CODE:IO_ADC_Read2V5RefSum (.IO_DRIVER_CODE:IO_ADC_Read2V5RefSum)
-000ba2e0  local     .IO_DRIVER_CODE:IO_ADC_ReadValue (.IO_DRIVER_CODE:IO_ADC_ReadValue)
+000bbac0  local     .IO_DRIVER_CODE:IO_ADC_Read2V5RefSum (.IO_DRIVER_CODE:IO_ADC_Read2V5RefSum)
+000bba50  local     .IO_DRIVER_CODE:IO_ADC_ReadValue (.IO_DRIVER_CODE:IO_ADC_ReadValue)
 00000000  local     .IO_DRIVER_CODE:IO_ADC_ResetProtection (.IO_DRIVER_CODE:IO_ADC_ResetProtection)
-000bc0d0  local     .IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-000bc330  local     .IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bae10  local     .IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000bb070  local     .IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
 000b8370  local     .IO_DRIVER_CODE:IO_ADC_SafetyInit2Mode (.IO_DRIVER_CODE:IO_ADC_SafetyInit2Mode)
 000b87b0  local     .IO_DRIVER_CODE:IO_ADC_SafetyInit3Mode (.IO_DRIVER_CODE:IO_ADC_SafetyInit3Mode)
-000ba940  local     .IO_DRIVER_CODE:IO_ADC_SafetyStep2Mode (.IO_DRIVER_CODE:IO_ADC_SafetyStep2Mode)
-000baea0  local     .IO_DRIVER_CODE:IO_ADC_SafetyStep3Mode (.IO_DRIVER_CODE:IO_ADC_SafetyStep3Mode)
+000bc110  local     .IO_DRIVER_CODE:IO_ADC_SafetyStep2Mode (.IO_DRIVER_CODE:IO_ADC_SafetyStep2Mode)
+000bc670  local     .IO_DRIVER_CODE:IO_ADC_SafetyStep3Mode (.IO_DRIVER_CODE:IO_ADC_SafetyStep3Mode)
 000b9640  local     .IO_DRIVER_CODE:IO_ADC_StatusInit (.IO_DRIVER_CODE:IO_ADC_StatusInit)
 000c4110  local     .IO_DRIVER_CODE:IO_ADC_SystemTask (.IO_DRIVER_CODE:IO_ADC_SystemTask)
 000b98c0  local     .IO_DRIVER_CODE:IO_ADC_UpdateSSupVarLimit (.IO_DRIVER_CODE:IO_ADC_UpdateSSupVarLimit)
@@ -5983,24 +5996,24 @@ Value     Binding   Name (Section)
 000c33f0  global    IO_ADC_Calc2V5RefSum (.IO_DRIVER_CODE:IO_ADC_Calc2V5RefSum)
 000c34a0  global    IO_ADC_CalcBatteryVoltage (.IO_DRIVER_CODE:IO_ADC_CalcBatteryVoltage)
 000c37d0  local     IO_ADC_CalcBoardTemp (.IO_DRIVER_CODE:IO_ADC_CalcBoardTemp)
-000bd1d0  global    IO_ADC_ChannelDeInit (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
-000bc970  global    IO_ADC_ChannelInit (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
-000bc860  local     IO_ADC_CheckSafetyConf (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
-000bc290  global    IO_ADC_DeInit2ModeType (.IO_DRIVER_CODE:IO_ADC_DeInit2ModeType)
-000bc520  global    IO_ADC_DeInit3ModeType (.IO_DRIVER_CODE:IO_ADC_DeInit3ModeType)
-000bc080  global    IO_ADC_DeInitDOHSType (.IO_DRIVER_CODE:IO_ADC_DeInitDOHSType)
-000bc000  global    IO_ADC_DeInitPVGType (.IO_DRIVER_CODE:IO_ADC_DeInitPVGType)
-000bd180  local     IO_ADC_DeInitPWDType (.IO_DRIVER_CODE:IO_ADC_DeInitPWDType)
-000bcf10  global    IO_ADC_Get (.IO_DRIVER_CODE:IO_ADC_Get)
+000bcdb0  global    IO_ADC_ChannelDeInit (.IO_DRIVER_CODE:IO_ADC_ChannelDeInit)
+000bb6b0  global    IO_ADC_ChannelInit (.IO_DRIVER_CODE:IO_ADC_ChannelInit)
+000bb5a0  local     IO_ADC_CheckSafetyConf (.IO_DRIVER_CODE:IO_ADC_CheckSafetyConf)
+000bafd0  global    IO_ADC_DeInit2ModeType (.IO_DRIVER_CODE:IO_ADC_DeInit2ModeType)
+000bb260  global    IO_ADC_DeInit3ModeType (.IO_DRIVER_CODE:IO_ADC_DeInit3ModeType)
+000badc0  global    IO_ADC_DeInitDOHSType (.IO_DRIVER_CODE:IO_ADC_DeInitDOHSType)
+000bad40  global    IO_ADC_DeInitPVGType (.IO_DRIVER_CODE:IO_ADC_DeInitPVGType)
+000bcd60  local     IO_ADC_DeInitPWDType (.IO_DRIVER_CODE:IO_ADC_DeInitPWDType)
+000bcaf0  global    IO_ADC_Get (.IO_DRIVER_CODE:IO_ADC_Get)
 000c3b80  local     IO_ADC_Get1V2Supply (.IO_DRIVER_CODE:IO_ADC_Get1V2Supply)
-000badd0  global    IO_ADC_Get2ModeType (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
-000ba990  local     IO_ADC_Get2ModeType_Int (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
+000bc5a0  global    IO_ADC_Get2ModeType (.IO_DRIVER_CODE:IO_ADC_Get2ModeType)
+000bc160  local     IO_ADC_Get2ModeType_Int (.IO_DRIVER_CODE:IO_ADC_Get2ModeType_Int)
 000c3c30  local     IO_ADC_Get2V5Supply (.IO_DRIVER_CODE:IO_ADC_Get2V5Supply)
-000baf00  global    IO_ADC_Get3ModeType (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
-000ba6f0  global    IO_ADC_GetDOType (.IO_DRIVER_CODE:IO_ADC_GetDOType)
+000bc6d0  global    IO_ADC_Get3ModeType (.IO_DRIVER_CODE:IO_ADC_Get3ModeType)
+000bbd00  global    IO_ADC_GetDOType (.IO_DRIVER_CODE:IO_ADC_GetDOType)
 000c4010  local     IO_ADC_GetExtShutOff (.IO_DRIVER_CODE:IO_ADC_GetExtShutOff)
-000ba380  global    IO_ADC_GetPVGType (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
-000bcd10  local     IO_ADC_GetPWDType (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
+000bbaf0  global    IO_ADC_GetPVGType (.IO_DRIVER_CODE:IO_ADC_GetPVGType)
+000bbf10  local     IO_ADC_GetPWDType (.IO_DRIVER_CODE:IO_ADC_GetPWDType)
 000b9860  global    IO_ADC_GetSSupMode (.IO_DRIVER_CODE:IO_ADC_GetSSupMode)
 000c3c90  local     IO_ADC_GetSafetySwitch (.IO_DRIVER_CODE:IO_ADC_GetSafetySwitch)
 000c3db0  local     IO_ADC_GetSensorSupply (.IO_DRIVER_CODE:IO_ADC_GetSensorSupply)
@@ -6012,21 +6025,21 @@ Value     Binding   Name (Section)
 000b8200  global    IO_ADC_InitDOHSType (.IO_DRIVER_CODE:IO_ADC_InitDOHSType)
 000b8110  global    IO_ADC_InitDOLSType (.IO_DRIVER_CODE:IO_ADC_InitDOLSType)
 000b7f80  global    IO_ADC_InitPVGType (.IO_DRIVER_CODE:IO_ADC_InitPVGType)
-000bc760  local     IO_ADC_InitPWDType (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
+000bb4a0  local     IO_ADC_InitPWDType (.IO_DRIVER_CODE:IO_ADC_InitPWDType)
 000c2d30  global    IO_ADC_N2HET2_ISR (.IO_DRIVER_CODE:IO_ADC_N2HET2_ISR)
 000c2cc0  local     IO_ADC_N2HET2_interrupt (.IO_DRIVER_CODE:IO_ADC_N2HET2_interrupt)
 000c7d30  global    IO_ADC_ProtectionTask (.IO_DRIVER_CODE:IO_ADC_ProtectionTask)
 000c2c80  local     IO_ADC_QueueFast (.IO_DRIVER_CODE:IO_ADC_QueueFast)
 000c2c10  local     IO_ADC_QueueSlow (.IO_DRIVER_CODE:IO_ADC_QueueSlow)
-000ba350  global    IO_ADC_Read2V5RefSum (.IO_DRIVER_CODE:IO_ADC_Read2V5RefSum)
-000ba2e0  global    IO_ADC_ReadValue (.IO_DRIVER_CODE:IO_ADC_ReadValue)
+000bbac0  global    IO_ADC_Read2V5RefSum (.IO_DRIVER_CODE:IO_ADC_Read2V5RefSum)
+000bba50  global    IO_ADC_ReadValue (.IO_DRIVER_CODE:IO_ADC_ReadValue)
 00000000  global    IO_ADC_ResetProtection (.IO_DRIVER_CODE:IO_ADC_ResetProtection)
-000bc0d0  local     IO_ADC_SafetyDeInit2Mode (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
-000bc330  local     IO_ADC_SafetyDeInit3Mode (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
+000bae10  local     IO_ADC_SafetyDeInit2Mode (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit2Mode)
+000bb070  local     IO_ADC_SafetyDeInit3Mode (.IO_DRIVER_CODE:IO_ADC_SafetyDeInit3Mode)
 000b8370  local     IO_ADC_SafetyInit2Mode (.IO_DRIVER_CODE:IO_ADC_SafetyInit2Mode)
 000b87b0  local     IO_ADC_SafetyInit3Mode (.IO_DRIVER_CODE:IO_ADC_SafetyInit3Mode)
-000ba940  local     IO_ADC_SafetyStep2Mode (.IO_DRIVER_CODE:IO_ADC_SafetyStep2Mode)
-000baea0  local     IO_ADC_SafetyStep3Mode (.IO_DRIVER_CODE:IO_ADC_SafetyStep3Mode)
+000bc110  local     IO_ADC_SafetyStep2Mode (.IO_DRIVER_CODE:IO_ADC_SafetyStep2Mode)
+000bc670  local     IO_ADC_SafetyStep3Mode (.IO_DRIVER_CODE:IO_ADC_SafetyStep3Mode)
 000b9640  global    IO_ADC_StatusInit (.IO_DRIVER_CODE:IO_ADC_StatusInit)
 000c4110  global    IO_ADC_SystemTask (.IO_DRIVER_CODE:IO_ADC_SystemTask)
 000b98c0  global    IO_ADC_UpdateSSupVarLimit (.IO_DRIVER_CODE:IO_ADC_UpdateSSupVarLimit)
@@ -6169,26 +6182,26 @@ Value     Binding   Name (Section)
 000b8fe0  local     $C$L205 (.IO_DRIVER_CODE:IO_DI_Init)
 000b9014  local     $C$L206 (.IO_DRIVER_CODE:IO_DI_Init)
 000b9018  local     $C$L207 (.IO_DRIVER_CODE:IO_DI_Init)
-000bb400  local     $C$L208 (.IO_DRIVER_CODE:IO_DI_Get)
-000bb430  local     $C$L209 (.IO_DRIVER_CODE:IO_DI_Get)
+000bd1e0  local     $C$L208 (.IO_DRIVER_CODE:IO_DI_Get)
+000bd210  local     $C$L209 (.IO_DRIVER_CODE:IO_DI_Get)
 000000e0  local     $C$L21 (.IO_DRIVER_CODE:IO_DO_AnalogDiag)
-000bb480  local     $C$L210 (.IO_DRIVER_CODE:IO_DI_Get)
-000bb4c8  local     $C$L211 (.IO_DRIVER_CODE:IO_DI_Get)
-000bb4f4  local     $C$L212 (.IO_DRIVER_CODE:IO_DI_Get)
-000bb500  local     $C$L213 (.IO_DRIVER_CODE:IO_DI_Get)
-000bb540  local     $C$L214 (.IO_DRIVER_CODE:IO_DI_Get)
-000bb554  local     $C$L215 (.IO_DRIVER_CODE:IO_DI_Get)
-000bb55c  local     $C$L216 (.IO_DRIVER_CODE:IO_DI_Get)
-000bb594  local     $C$L217 (.IO_DRIVER_CODE:IO_DI_Get)
-000bb598  local     $C$L218 (.IO_DRIVER_CODE:IO_DI_Get)
-000bc670  local     $C$L219 (.IO_DRIVER_CODE:IO_DI_DeInit)
+000bd260  local     $C$L210 (.IO_DRIVER_CODE:IO_DI_Get)
+000bd2a8  local     $C$L211 (.IO_DRIVER_CODE:IO_DI_Get)
+000bd2d4  local     $C$L212 (.IO_DRIVER_CODE:IO_DI_Get)
+000bd2e0  local     $C$L213 (.IO_DRIVER_CODE:IO_DI_Get)
+000bd320  local     $C$L214 (.IO_DRIVER_CODE:IO_DI_Get)
+000bd334  local     $C$L215 (.IO_DRIVER_CODE:IO_DI_Get)
+000bd33c  local     $C$L216 (.IO_DRIVER_CODE:IO_DI_Get)
+000bd374  local     $C$L217 (.IO_DRIVER_CODE:IO_DI_Get)
+000bd378  local     $C$L218 (.IO_DRIVER_CODE:IO_DI_Get)
+000bb3b0  local     $C$L219 (.IO_DRIVER_CODE:IO_DI_DeInit)
 00000020  local     $C$L22 (.IO_DRIVER_CODE:IO_DO_DigitalDiag)
-000bc690  local     $C$L220 (.IO_DRIVER_CODE:IO_DI_DeInit)
-000bc6b0  local     $C$L221 (.IO_DRIVER_CODE:IO_DI_DeInit)
-000bc6d0  local     $C$L222 (.IO_DRIVER_CODE:IO_DI_DeInit)
-000bc710  local     $C$L223 (.IO_DRIVER_CODE:IO_DI_DeInit)
-000bc730  local     $C$L224 (.IO_DRIVER_CODE:IO_DI_DeInit)
-000bc754  local     $C$L225 (.IO_DRIVER_CODE:IO_DI_DeInit)
+000bb3d0  local     $C$L220 (.IO_DRIVER_CODE:IO_DI_DeInit)
+000bb3f0  local     $C$L221 (.IO_DRIVER_CODE:IO_DI_DeInit)
+000bb410  local     $C$L222 (.IO_DRIVER_CODE:IO_DI_DeInit)
+000bb450  local     $C$L223 (.IO_DRIVER_CODE:IO_DI_DeInit)
+000bb470  local     $C$L224 (.IO_DRIVER_CODE:IO_DI_DeInit)
+000bb494  local     $C$L225 (.IO_DRIVER_CODE:IO_DI_DeInit)
 0000002c  local     $C$L23 (.IO_DRIVER_CODE:IO_DO_DigitalDiag)
 000000e8  local     $C$L24 (.IO_DRIVER_CODE:IO_DO_Set)
 000000f8  local     $C$L25 (.IO_DRIVER_CODE:IO_DO_Set)
@@ -6299,9 +6312,9 @@ Value     Binding   Name (Section)
 00000000  local     $a (.IO_DRIVER_CODE:IO_DO_DeInit)
 000c2f10  local     $a (.IO_DRIVER_CODE:IO_DO_CheckCurrent)
 000b8ba0  local     $a (.IO_DRIVER_CODE:IO_DI_Init)
-000ba590  local     $a (.IO_DRIVER_CODE:IO_DI_Evaluate)
-000bb320  local     $a (.IO_DRIVER_CODE:IO_DI_Get)
-000bc5c0  local     $a (.IO_DRIVER_CODE:IO_DI_DeInit)
+000bcf60  local     $a (.IO_DRIVER_CODE:IO_DI_Evaluate)
+000bd100  local     $a (.IO_DRIVER_CODE:IO_DI_Get)
+000bb300  local     $a (.IO_DRIVER_CODE:IO_DI_DeInit)
 0803d5f4  local     $d (.IO_DRIVER_DATA_NORMAL)
 000cdc44  local     $d (.IO_DRIVER_CONST)
 000bd7d8  local     $t (.IO_DRIVER_CODE:IO_DO_GetVoltage_Int)
@@ -6311,9 +6324,9 @@ Value     Binding   Name (Section)
 000001cc  local     $t (.IO_DRIVER_CODE:IO_DO_GetCur)
 000002a4  local     $t (.IO_DRIVER_CODE:IO_DO_GetCur)
 00000370  local     $t (.IO_DRIVER_CODE:IO_DO_GetCur)
-000bc5c0  local     .IO_DRIVER_CODE:IO_DI_DeInit (.IO_DRIVER_CODE:IO_DI_DeInit)
-000ba590  local     .IO_DRIVER_CODE:IO_DI_Evaluate (.IO_DRIVER_CODE:IO_DI_Evaluate)
-000bb320  local     .IO_DRIVER_CODE:IO_DI_Get (.IO_DRIVER_CODE:IO_DI_Get)
+000bb300  local     .IO_DRIVER_CODE:IO_DI_DeInit (.IO_DRIVER_CODE:IO_DI_DeInit)
+000bcf60  local     .IO_DRIVER_CODE:IO_DI_Evaluate (.IO_DRIVER_CODE:IO_DI_Evaluate)
+000bd100  local     .IO_DRIVER_CODE:IO_DI_Get (.IO_DRIVER_CODE:IO_DI_Get)
 000b8ba0  local     .IO_DRIVER_CODE:IO_DI_Init (.IO_DRIVER_CODE:IO_DI_Init)
 00000000  local     .IO_DRIVER_CODE:IO_DO_AnalogDiag (.IO_DRIVER_CODE:IO_DO_AnalogDiag)
 000c76c0  local     .IO_DRIVER_CODE:IO_DO_CheckCurProtLimit (.IO_DRIVER_CODE:IO_DO_CheckCurProtLimit)
@@ -6337,9 +6350,9 @@ Value     Binding   Name (Section)
 0803d5f4  local     .IO_DRIVER_DATA_NORMAL (.IO_DRIVER_DATA_NORMAL)
 00000000  local     .text (.text)
 000cdc44  local     IO_DIO_Default_Limits (.IO_DRIVER_CONST)
-000bc5c0  global    IO_DI_DeInit (.IO_DRIVER_CODE:IO_DI_DeInit)
-000ba590  local     IO_DI_Evaluate (.IO_DRIVER_CODE:IO_DI_Evaluate)
-000bb320  global    IO_DI_Get (.IO_DRIVER_CODE:IO_DI_Get)
+000bb300  global    IO_DI_DeInit (.IO_DRIVER_CODE:IO_DI_DeInit)
+000bcf60  local     IO_DI_Evaluate (.IO_DRIVER_CODE:IO_DI_Evaluate)
+000bd100  global    IO_DI_Get (.IO_DRIVER_CODE:IO_DI_Get)
 000b8ba0  global    IO_DI_Init (.IO_DRIVER_CODE:IO_DI_Init)
 00000000  local     IO_DO_AnalogDiag (.IO_DRIVER_CODE:IO_DO_AnalogDiag)
 000c76c0  global    IO_DO_CheckCurProtLimit (.IO_DRIVER_CODE:IO_DO_CheckCurProtLimit)
@@ -10641,10 +10654,10 @@ Value     Binding   Name (Section)
 00000114  local     $C$L40 (.IO_DRIVER_CODE:IO_PWM_ResetProtection)
 00000120  local     $C$L41 (.IO_DRIVER_CODE:IO_PWM_ResetProtection)
 00000134  local     $C$L42 (.IO_DRIVER_CODE:IO_PWM_ResetProtection)
-000ba6a8  local     $C$L43 (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
-000ba6c8  local     $C$L44 (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
-000ba6e8  local     $C$L45 (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
-000ba6ec  local     $C$L46 (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
+000bd078  local     $C$L43 (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
+000bd098  local     $C$L44 (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
+000bd0b8  local     $C$L45 (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
+000bd0bc  local     $C$L46 (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
 000c591c  local     $C$L47 (.IO_DRIVER_CODE:IO_PWM_CheckDOProtLimit)
 000c5940  local     $C$L48 (.IO_DRIVER_CODE:IO_PWM_CheckDOProtLimit)
 000c5950  local     $C$L49 (.IO_DRIVER_CODE:IO_PWM_CheckDOProtLimit)
@@ -10715,7 +10728,7 @@ Value     Binding   Name (Section)
 000c62d0  local     $a (.IO_DRIVER_CODE:IO_PWM_ForceOutputLow)
 00000000  local     $a (.IO_DRIVER_CODE:IO_PWM_ResolveOpenLoadShortCircuit)
 00000000  local     $a (.IO_DRIVER_CODE:IO_PWM_ResetProtection)
-000ba670  local     $a (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
+000bd040  local     $a (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
 000c5800  local     $a (.IO_DRIVER_CODE:IO_PWM_CalcDiodePowerLimit)
 000c58a0  local     $a (.IO_DRIVER_CODE:IO_PWM_CheckDOProtLimit)
 000c5918  local     $a (.IO_DRIVER_CODE:IO_PWM_CheckDOProtLimit)
@@ -10789,7 +10802,7 @@ Value     Binding   Name (Section)
 000c5bf0  local     .IO_DRIVER_CODE:IO_PWM_ProtectionTask_Int (.IO_DRIVER_CODE:IO_PWM_ProtectionTask_Int)
 000bf380  local     .IO_DRIVER_CODE:IO_PWM_ReadDuty (.IO_DRIVER_CODE:IO_PWM_ReadDuty)
 000bf450  local     .IO_DRIVER_CODE:IO_PWM_ReadFeedback (.IO_DRIVER_CODE:IO_PWM_ReadFeedback)
-000ba670  local     .IO_DRIVER_CODE:IO_PWM_ReadPinLevel (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
+000bd040  local     .IO_DRIVER_CODE:IO_PWM_ReadPinLevel (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
 00000000  local     .IO_DRIVER_CODE:IO_PWM_ResetProtection (.IO_DRIVER_CODE:IO_PWM_ResetProtection)
 00000000  local     .IO_DRIVER_CODE:IO_PWM_ResolveOpenLoadShortCircuit (.IO_DRIVER_CODE:IO_PWM_ResolveOpenLoadShortCircuit)
 00000000  local     .IO_DRIVER_CODE:IO_PWM_SafetyDeInit (.IO_DRIVER_CODE:IO_PWM_SafetyDeInit)
@@ -10828,7 +10841,7 @@ Value     Binding   Name (Section)
 000c5bf0  local     IO_PWM_ProtectionTask_Int (.IO_DRIVER_CODE:IO_PWM_ProtectionTask_Int)
 000bf380  local     IO_PWM_ReadDuty (.IO_DRIVER_CODE:IO_PWM_ReadDuty)
 000bf450  local     IO_PWM_ReadFeedback (.IO_DRIVER_CODE:IO_PWM_ReadFeedback)
-000ba670  global    IO_PWM_ReadPinLevel (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
+000bd040  global    IO_PWM_ReadPinLevel (.IO_DRIVER_CODE:IO_PWM_ReadPinLevel)
 00000000  global    IO_PWM_ResetProtection (.IO_DRIVER_CODE:IO_PWM_ResetProtection)
 00000000  global    IO_PWM_ResolveOpenLoadShortCircuit (.IO_DRIVER_CODE:IO_PWM_ResolveOpenLoadShortCircuit)
 00000000  local     IO_PWM_SafetyDeInit (.IO_DRIVER_CODE:IO_PWM_SafetyDeInit)
@@ -11522,15 +11535,15 @@ Value     Binding   Name (Section)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_InitQuadFPGA)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_InitDutyCycleTMS)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_InitDutyCyclePWMHR)
-000ba900  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGATimer)
+000bd0c0  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGATimer)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_InitDutyCycleFPGA)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_InitCountTMS)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_InitCountFPGA)
 000b5e10  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_Init)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_GetQuadTMS)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_GetQuadFPGA)
-000ba5f0  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGALrPWM)
-000ba630  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGAHrPWM)
+000bcfc0  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGALrPWM)
+000bd000  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGAHrPWM)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_GetDutyCycleAvgValues)
 000000b4  local     $a (.IO_DRIVER_CODE:IO_INT_GetDutyCycleAvgValues)
 000000cc  local     $a (.IO_DRIVER_CODE:IO_INT_GetDutyCycleAvgValues)
@@ -11586,9 +11599,9 @@ Value     Binding   Name (Section)
 00000000  local     .IO_DRIVER_CODE:IO_INT_PWD_GetDutyCycleFPGA (.IO_DRIVER_CODE:IO_INT_PWD_GetDutyCycleFPGA)
 00000000  local     .IO_DRIVER_CODE:IO_INT_PWD_GetDutyCyclePWMHR (.IO_DRIVER_CODE:IO_INT_PWD_GetDutyCyclePWMHR)
 00000000  local     .IO_DRIVER_CODE:IO_INT_PWD_GetDutyCycleTMS (.IO_DRIVER_CODE:IO_INT_PWD_GetDutyCycleTMS)
-000ba630  local     .IO_DRIVER_CODE:IO_INT_PWD_GetFPGAHrPWM (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGAHrPWM)
-000ba5f0  local     .IO_DRIVER_CODE:IO_INT_PWD_GetFPGALrPWM (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGALrPWM)
-000ba900  local     .IO_DRIVER_CODE:IO_INT_PWD_GetFPGATimer (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGATimer)
+000bd000  local     .IO_DRIVER_CODE:IO_INT_PWD_GetFPGAHrPWM (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGAHrPWM)
+000bcfc0  local     .IO_DRIVER_CODE:IO_INT_PWD_GetFPGALrPWM (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGALrPWM)
+000bd0c0  local     .IO_DRIVER_CODE:IO_INT_PWD_GetFPGATimer (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGATimer)
 00000000  local     .IO_DRIVER_CODE:IO_INT_PWD_GetQuadFPGA (.IO_DRIVER_CODE:IO_INT_PWD_GetQuadFPGA)
 00000000  local     .IO_DRIVER_CODE:IO_INT_PWD_GetQuadTMS (.IO_DRIVER_CODE:IO_INT_PWD_GetQuadTMS)
 000b5e10  local     .IO_DRIVER_CODE:IO_INT_PWD_Init (.IO_DRIVER_CODE:IO_INT_PWD_Init)
@@ -11620,9 +11633,9 @@ Value     Binding   Name (Section)
 00000000  global    IO_INT_PWD_GetDutyCycleFPGA (.IO_DRIVER_CODE:IO_INT_PWD_GetDutyCycleFPGA)
 00000000  global    IO_INT_PWD_GetDutyCyclePWMHR (.IO_DRIVER_CODE:IO_INT_PWD_GetDutyCyclePWMHR)
 00000000  global    IO_INT_PWD_GetDutyCycleTMS (.IO_DRIVER_CODE:IO_INT_PWD_GetDutyCycleTMS)
-000ba630  global    IO_INT_PWD_GetFPGAHrPWM (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGAHrPWM)
-000ba5f0  global    IO_INT_PWD_GetFPGALrPWM (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGALrPWM)
-000ba900  global    IO_INT_PWD_GetFPGATimer (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGATimer)
+000bd000  global    IO_INT_PWD_GetFPGAHrPWM (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGAHrPWM)
+000bcfc0  global    IO_INT_PWD_GetFPGALrPWM (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGALrPWM)
+000bd0c0  global    IO_INT_PWD_GetFPGATimer (.IO_DRIVER_CODE:IO_INT_PWD_GetFPGATimer)
 00000000  global    IO_INT_PWD_GetQuadFPGA (.IO_DRIVER_CODE:IO_INT_PWD_GetQuadFPGA)
 00000000  global    IO_INT_PWD_GetQuadTMS (.IO_DRIVER_CODE:IO_INT_PWD_GetQuadTMS)
 000b5e10  global    IO_INT_PWD_Init (.IO_DRIVER_CODE:IO_INT_PWD_Init)
@@ -13065,13 +13078,13 @@ Value     Binding   Name (Section)
 000ce8c5  local     $C$L8 (.text)
 000ce8c9  local     $C$L9 (.text)
 000ce886  local     $t (.text)
-000ce6d4  local     $t (.text:decompress:rle24)
+000ce054  local     $t (.text:decompress:rle24)
 00000000  local     $t (.text:decompress:rle)
 000ce886  local     .text (.text)
 00000000  local     .text:decompress:rle (.text:decompress:rle)
-000ce6d4  local     .text:decompress:rle24 (.text:decompress:rle24)
+000ce054  local     .text:decompress:rle24 (.text:decompress:rle24)
 00000001  global    __TI_decompress_rle (.text:decompress:rle)
-000ce6d5  global    __TI_decompress_rle24 (.text:decompress:rle24)
+000ce055  global    __TI_decompress_rle24 (.text:decompress:rle24)
 000ce887  local     __TI_decompress_rle_core (.text)
 
 

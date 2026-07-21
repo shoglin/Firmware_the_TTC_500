@@ -30,6 +30,8 @@
 /* Child system includes */
 #include "convDIOSttToEnum_private.h"
 #include "convDIOSttToEnum.h"
+#include "convAIVoltageData.h"
+#include "convAIVoltageData_private.h"
 #include "IO_PIN.h"
 #include "IO_POWER.h"
 #include "IO_CAN.h"
@@ -52,7 +54,8 @@ typedef struct {
   CAN_MESSAGE_BUS CANPack_VLVCMD_HYD1; /* '<S7>/CANPack_VLVCMD_HYD1' */
   CAN_MESSAGE_BUS msg_419365114;     /* '<S5>/read_message_Pin101_Pin104_CMD' */
   CAN_MESSAGE_BUS CANPack_VLVCMD_HYD1_h;/* '<S2>/CANPack_VLVCMD_HYD1' */
-  ubyte2 di_104_error;                 /* '<S7>/EngineAirFilterClogSens' */
+  ubyte2 di_104_error;
+  ubyte2 adc_104_error;  /* '<S7>/EngineAirFilterClogSens' */
   ubyte2 DataStoreRead;                /* '<S2>/Data Store Read' */
   ubyte1 CANUnpack_Pin101_Pin104_CMD_o1;/* '<S5>/CANUnpack_Pin101_Pin104_CMD' */
   ubyte1 CANUnpack_Pin101_Pin104_CMD_o2;/* '<S5>/CANUnpack_Pin101_Pin104_CMD' */

@@ -58,26 +58,16 @@ void VCU_SW_step(void)
     StateModeTypes rtb_FunctionCaller13;
 
     ubyte4 adc_value;
-    BOOL adc_fresh;
+    ubyte2 adc_value_for_transmit;
+    bool adc_fresh;
     IO_ErrorType rc;
 
     static ubyte1 old_CAN_config = 0xFF;
     static ubyte1 current_CAN_config = 0;
 
-    /* S-Function (digitalInputGet_ttc500): '<S7>/EngineAirFilterClogSens' */
-
-    // Get value of digital input IO_DI_50 with error check
-    VCU_SW_B.di_104_error = IO_DI_Get(IO_DI_50, &rtb_di_104_value);
-
-    /* FunctionCaller: '<S7>/Function Caller13' */
-    convDIOSttToEnum(rtb_di_104_value, VCU_SW_B.di_104_error,
-                     &rtb_FunctionCaller13);
-
     /* DataTypeConversion: '<S7>/Data Type Conversion' incorporates:
      *  DataStoreWrite: '<S7>/Data Store Write13'
      */
-    VCU_SW_DW.OutputNetworkData.Pin101_Pin104_FB.Pin3_feedback =
-            (ubyte2) rtb_FunctionCaller13;
 
     /* S-Function (scanpack): '<S7>/CANPack_VLVCMD_HYD1' */
     /* S-Function (scanpack): '<S7>/CANPack_VLVCMD_HYD1' */
@@ -434,58 +424,91 @@ void VCU_SW_step(void)
 
     current_CAN_config = VCU_SW_B.CANUnpack_Pin101_Pin104_CMD_o1;
 
-    if (flag_first_run)
+    if (old_CAN_config == current_CAN_config)
+        switch (current_CAN_config)
+        {
+        case 1:
+            /* S-Function (digitalInputGet_ttc500): '<S7>/EngineAirFilterClogSens' */
+
+            // Get value of digital input IO_DI_50 with error check
+            VCU_SW_B.di_104_error = IO_DI_Get(IO_DI_50, &rtb_di_104_value);
+
+            /* FunctionCaller: '<S7>/Function Caller13' */
+            convDIOSttToEnum(rtb_di_104_value, VCU_SW_B.di_104_error,
+                             &rtb_FunctionCaller13);
+
+            /* DataTypeConversion: '<S7>/Data Type Conversion' incorporates:
+             *  DataStoreWrite: '<S7>/Data Store Write13'
+             */
+            VCU_SW_DW.OutputNetworkData.Pin101_Pin104_FB.Pin3_feedback =
+                    (ubyte2) rtb_FunctionCaller13;
+            break;
+        case 2:
+            /* S-Function (analogInputGet_ttc500): '<S7>/EngineAirFilterClogSens' */
+
+            // Get value of digital input IO_DI_50 with error check
+            rc = IO_ADC_Get(IO_ADC_02, &adc_value, &adc_fresh);
+
+            /* FunctionCaller: '<S7>/Function Caller13' */
+
+            convAIVoltageData(adc_value, VCU_SW_B.adc_104_error,
+                              &adc_value_for_transmit);
+
+            /* DataTypeConversion: '<S7>/Data Type Conversion' incorporates:
+             *  DataStoreWrite: '<S7>/Data Store Write13'
+             */
+            VCU_SW_DW.OutputNetworkData.Pin101_Pin104_FB.Pin3_feedback =
+                    adc_value_for_transmit;
+            break;
+        }
+    else
     {
         switch (current_CAN_config)
         {
         case 1:
+            IO_ADC_ChannelDeInit(IO_ADC_02);
             IO_DI_Init(IO_DI_50, IO_DI_PU_10K, NULL);
-            rtb_di_104_error = IO_DI_Get(IO_DI_50, &rtb_di_104_value);
+            /* S-Function (digitalInputGet_ttc500): '<S7>/EngineAirFilterClogSens' */
+
+            // Get value of digital input IO_DI_50 with error check
+            VCU_SW_B.di_104_error = IO_DI_Get(IO_DI_50, &rtb_di_104_value);
+
+            /* FunctionCaller: '<S7>/Function Caller13' */
+            convDIOSttToEnum(rtb_di_104_value, VCU_SW_B.di_104_error,
+                             &rtb_FunctionCaller13);
+
+            /* DataTypeConversion: '<S7>/Data Type Conversion' incorporates:
+             *  DataStoreWrite: '<S7>/Data Store Write13'
+             */
+            VCU_SW_DW.OutputNetworkData.Pin101_Pin104_FB.Pin3_feedback =
+                    (ubyte2) rtb_FunctionCaller13;
             break;
         case 2:
-            IO_ADC_ChannelInit(IO_ADC_02, IO_ADC_RATIOMETRIC, IO_ADC_NO_RANGE,
-            IO_ADC_PU_10K,
-                               IO_ADC_SENSOR_SUPPLY_1, NULL);
+            IO_DI_DeInit(IO_DI_50);
+            IO_ADC_ChannelInit(IO_ADC_02, IO_ADC_ABSOLUTE,
+            IO_ADC_NO_RANGE,
+                               IO_ADC_NO_PULL,
+                               IO_PIN_NONE,
+                               NULL);
+            /* S-Function (analogInputGet_ttc500): '<S7>/EngineAirFilterClogSens' */
+
+            // Get value of digital input IO_DI_50 with error check
             rc = IO_ADC_Get(IO_ADC_02, &adc_value, &adc_fresh);
+
+            /* FunctionCaller: '<S7>/Function Caller13' */
+
+            convAIVoltageData(adc_value, VCU_SW_B.adc_104_error,
+                              &adc_value_for_transmit);
+
+            /* DataTypeConversion: '<S7>/Data Type Conversion' incorporates:
+             *  DataStoreWrite: '<S7>/Data Store Write13'
+             */
+            VCU_SW_DW.OutputNetworkData.Pin101_Pin104_FB.Pin3_feedback =
+                    adc_value_for_transmit;
             break;
         }
-        flag_first_run = 0;
-        old_CAN_config = current_CAN_config;
     }
-    else
-    {
-        if (old_CAN_config == current_CAN_config)
-            switch (current_CAN_config)
-            {
-            case 1:
-                rtb_di_104_error = IO_DI_Get(IO_DI_50, &rtb_di_104_value);
-                break;
-            case 2:
-                rc = IO_ADC_Get(IO_ADC_02, &adc_value, &adc_fresh);
-                break;
-            }
-        else
-        {
-            switch (current_CAN_config)
-            {
-            case 1:
-                IO_ADC_ChannelDeInit(IO_ADC_02);
-                IO_DI_Init(IO_DI_50, IO_DI_PU_10K, NULL);
-                rtb_di_104_error = IO_DI_Get(IO_DI_50, &rtb_di_104_value);
-                break;
-            case 2:
-                IO_DI_DeInit(IO_DI_50);
-                IO_ADC_ChannelInit(IO_ADC_02, IO_ADC_RATIOMETRIC,
-                IO_ADC_NO_RANGE,
-                                   IO_ADC_PU_10K,
-                                   IO_ADC_SENSOR_SUPPLY_1,
-                                   NULL);
-                rc = IO_ADC_Get(IO_ADC_02, &adc_value, &adc_fresh);
-                break;
-            }
-        }
-        old_CAN_config = current_CAN_config;
-    }
+    old_CAN_config = current_CAN_config;
 }
 
 /* Model initialize function */
