@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v5.1.6                      
 ******************************************************************************
->> Linked Mon Jul 27 13:01:50 2026
+>> Linked Mon Jul 27 13:38:24 2026
 
 OUTPUT FILE NAME:   <build/app.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000bf080
@@ -3261,19 +3261,34 @@ CAN_Properties.obj
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-00000090  local     $C$L1 (.text:Init_CAN_System)
-000001a4  local     $C$L2 (.text:Init_CAN_System)
+000000a0  local     $C$L1 (.text:Init_CAN_System)
+00000200  local     $C$L2 (.text:Init_CAN_System)
+00000070  local     $C$L3 (.text:Cyclic_CAN_Task)
+000000ec  local     $C$L4 (.text:Cyclic_CAN_Task)
+00000174  local     $C$L5 (.text:Cyclic_CAN_Task)
 00000000  local     $a (.text:Generate_Group_IDs)
-00000000  local     $a (.text:Init_CAN_Bus_Defaults)
+00000000  local     $a (.text:Init_CAN_Frame_Defaults)
+00000000  local     $a (.text:Unpack_CMD)
+00000000  local     $a (.text:Pack_FB)
+00000000  local     $a (.text:Pack_DIAG)
 00000000  local     $a (.text:Init_CAN_System)
+00000000  local     $a (.text:Cyclic_CAN_Task)
 00000000  local     .bss:g_groups (.bss:g_groups)
 00000000  local     .text (.text)
+00000000  local     .text:Cyclic_CAN_Task (.text:Cyclic_CAN_Task)
 00000000  local     .text:Generate_Group_IDs (.text:Generate_Group_IDs)
-00000000  local     .text:Init_CAN_Bus_Defaults (.text:Init_CAN_Bus_Defaults)
+00000000  local     .text:Init_CAN_Frame_Defaults (.text:Init_CAN_Frame_Defaults)
 00000000  local     .text:Init_CAN_System (.text:Init_CAN_System)
-00000000  local     Generate_Group_IDs (.text:Generate_Group_IDs)
-00000000  local     Init_CAN_Bus_Defaults (.text:Init_CAN_Bus_Defaults)
+00000000  local     .text:Pack_DIAG (.text:Pack_DIAG)
+00000000  local     .text:Pack_FB (.text:Pack_FB)
+00000000  local     .text:Unpack_CMD (.text:Unpack_CMD)
+00000000  global    Cyclic_CAN_Task (.text:Cyclic_CAN_Task)
+00000000  global    Generate_Group_IDs (.text:Generate_Group_IDs)
+00000000  global    Init_CAN_Frame_Defaults (.text:Init_CAN_Frame_Defaults)
 00000000  global    Init_CAN_System (.text:Init_CAN_System)
+00000000  global    Pack_DIAG (.text:Pack_DIAG)
+00000000  global    Pack_FB (.text:Pack_FB)
+00000000  global    Unpack_CMD (.text:Unpack_CMD)
 00000000  global    g_groups (.bss:g_groups)
 
 

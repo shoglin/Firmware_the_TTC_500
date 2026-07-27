@@ -4,36 +4,9 @@
 #include "IO_Driver.h"
 #include "IO_CAN.h"
 
-#define NUM_GROUPS 24U  // 24 группы (48 буферов на Канале 0, 24 на Канале 1)
-
-// TTCшня структура
-
-typedef struct
-{
-    ubyte1 Extended;
-    ubyte1 Length;
-    ubyte1 Remote;
-    ubyte1 Error;
-    ubyte4 ID;
-    float8 Timestamp;
-    ubyte1 Data[8];
-} CAN_MESSAGE_BUS;
-
-// Настройки CAN для одной группы
-
-typedef struct
-{
-    ubyte2 handle_CMD;
-    ubyte2 handle_FB;
-    ubyte2 handle_DIAG;
-
-    CAN_MESSAGE_BUS bus_CMD;
-    CAN_MESSAGE_BUS bus_FB;
-    CAN_MESSAGE_BUS bus_DIAG;
-} CAN_Msg_Props;
+#define NUM_GROUPS 24U  // 24 группы
 
 // Данные команд (RX)
-// Каждый параметр в отдельном байте. config занимает младшие 3 бита, 5 старших = резерв.
 
 typedef struct
 {
@@ -58,6 +31,7 @@ typedef struct
 } FB_Values;
 
 // Данные диагностики (TX)
+
 typedef struct
 {
     ubyte2 val_Pin0;
@@ -65,6 +39,22 @@ typedef struct
     ubyte2 val_Pin2;
     ubyte2 val_Pin3;
 } DIAG_Values;
+
+// Свойства CAN для одной группы
+
+typedef struct
+{
+    ubyte2 handle_CMD;
+    ubyte2 handle_FB;
+    ubyte2 handle_DIAG;
+
+    // Храним фреймы, чтобы в цикле менять только data и вызывать WriteMsg
+
+    IO_CAN_DATA_FRAME frame_CMD;  // Для сверки ID при приеме
+    IO_CAN_DATA_FRAME frame_FB;   // Готовый шаблон для отправки
+    IO_CAN_DATA_FRAME frame_DIAG; // Готовый шаблон для отправки
+
+} CAN_Msg_Props;
 
 // Объединенная структура для удобного доступа ко всем данным группы
 
@@ -76,33 +66,32 @@ typedef struct
     DIAG_Values diag;
 } GroupData_t;
 
-// Массив всех 24 групп
+// Глобальный массив всех 24 групп
+
 GroupData_t g_groups[NUM_GROUPS];
 
-// Генерация ID
+// Генерация ID с битовой маской
+
 extern void Generate_Group_IDs(ubyte1 index, ubyte4 *ptr_CMD, ubyte4 *ptr_FB,
                                ubyte4 *ptr_DIAG);
 
-// Заполнение дефолтных полей CAN_MESSAGE_BUS
-extern void Init_CAN_Bus_Defaults(CAN_MESSAGE_BUS *bus);
+// Настройка кадра по дефолту и подстановка айдишника
 
-// Распаковка принятого CAN-сообщения в CMD_Values
+extern void Init_CAN_Frame_Defaults(IO_CAN_DATA_FRAME *frame, ubyte4 id);
+
+// Функции упаковки и распаковки
 
 extern void Unpack_CMD(const ubyte1 *can_data, CMD_Values *cmd);
 
-// Упаковка FB_Values в массив байт
-
 extern void Pack_FB(const FB_Values *fb, ubyte1 *can_data);
-
-// Упаковка DIAG_Values в массив байт
 
 extern void Pack_DIAG(const DIAG_Values *diag, ubyte1 *can_data);
 
-// Функция инициализации
+// Главная функция инициализации
 
 extern IO_ErrorType Init_CAN_System(void);
 
-// Основной цикл приёма-передачи по CAN
+// Основной цикл приема и передачи
 
 extern void Cyclic_CAN_Task(void);
 
