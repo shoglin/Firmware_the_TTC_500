@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v5.1.6                      
 ******************************************************************************
->> Linked Tue Jul 21 12:28:25 2026
+>> Linked Mon Jul 27 13:01:50 2026
 
 OUTPUT FILE NAME:   <build/app.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000bf080
@@ -3252,6 +3252,29 @@ Value     Binding   Name (Section)
 00000000  local     .text (.text)
 00000000  local     .text:convAIVoltageData (.text:convAIVoltageData)
 00000000  global    convAIVoltageData (.text:convAIVoltageData)
+
+
+================================================================================
+
+CAN_Properties.obj
+
+Run/Load            
+Value     Binding   Name (Section)
+--------  --------  ---------------
+00000090  local     $C$L1 (.text:Init_CAN_System)
+000001a4  local     $C$L2 (.text:Init_CAN_System)
+00000000  local     $a (.text:Generate_Group_IDs)
+00000000  local     $a (.text:Init_CAN_Bus_Defaults)
+00000000  local     $a (.text:Init_CAN_System)
+00000000  local     .bss:g_groups (.bss:g_groups)
+00000000  local     .text (.text)
+00000000  local     .text:Generate_Group_IDs (.text:Generate_Group_IDs)
+00000000  local     .text:Init_CAN_Bus_Defaults (.text:Init_CAN_Bus_Defaults)
+00000000  local     .text:Init_CAN_System (.text:Init_CAN_System)
+00000000  local     Generate_Group_IDs (.text:Generate_Group_IDs)
+00000000  local     Init_CAN_Bus_Defaults (.text:Init_CAN_Bus_Defaults)
+00000000  global    Init_CAN_System (.text:Init_CAN_System)
+00000000  global    g_groups (.bss:g_groups)
 
 
 ================================================================================
