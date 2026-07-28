@@ -49,7 +49,7 @@
 #include "swcAppEnumTypes.h"
 #include "IO_CAN.h"
 
-/* Block signals (default storage) */
+/* Block signals (default storage) */               // Структуры скорее всего на удаление
 typedef struct {
   CAN_MESSAGE_BUS CANPack_VLVCMD_HYD1; /* '<S7>/CANPack_VLVCMD_HYD1' */
   CAN_MESSAGE_BUS msg_419365114;     /* '<S5>/read_message_Pin101_Pin104_CMD' */
