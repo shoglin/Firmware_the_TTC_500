@@ -1,0 +1,43 @@
+/*
+ * File: convDIOSttToEnum.c
+ *
+ * Code generated for Simulink model 'VCU_SW'.
+ *
+ * Model version                  : 2.3
+ * Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
+ * C/C++ source code generated on : Tue Jul 14 11:26:00 2026
+ *
+ * Target selection: ttc_500_series.tlc
+ * Embedded hardware selection: Texas Instruments->TMS570 Cortex-R4
+ * Code generation objectives: Unspecified
+ * Validation result: Not run
+ */
+
+#include "convAIVoltageData.h"
+
+/* Include model header file for global data */
+#include "VCU_SW.h"
+#include "VCU_SW_private.h"
+
+/* Output and update for Simulink Function: '<Root>/convDIOSttToEnum' */
+ubyte2 convAIVoltageData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 outADCValue) {
+
+    if (errorSts == 0) {
+        // Если ошибки нет, преобразуем microV в mV (1 mV = 1000 microV)
+        // Используем приведение типа, чтобы сразу получить uint16_t
+        outADCValue = (ubyte2)(inpValue);
+    } else {
+        // В противном случае возвращаем предопределённое значение ошибки
+        outADCValue = (ubyte2)VOLTAGE_ERROR_VALUE;
+    }
+
+    return outADCValue;
+}
+
+  /* End of MATLAB Function: '<S3>/MATLAB Function' */
+
+/*
+ * File trailer for generated code.
+ *
+ * [EOF]
+ */

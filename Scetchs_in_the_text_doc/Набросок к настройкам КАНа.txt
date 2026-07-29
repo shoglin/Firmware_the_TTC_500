@@ -1,0 +1,253 @@
+#include "IO_Driver.h"
+#include "IO_CAN.h"
+
+// ==========================================
+// 1. КОНСТАНТЫ
+// ==========================================
+#define NUM_GROUPS 24U  // 24 группы (48 буферов на Канале 0, 24 на Канале 1)
+
+// ==========================================
+// 2. СТРУКТУРЫ ДАННЫХ
+// ==========================================
+
+// Шина CAN (совместима с Simulink / твоим кодом)
+typedef struct {
+    ubyte1 Extended;
+    ubyte1 Length;
+    ubyte1 Remote;
+    ubyte1 Error;
+    ubyte4 ID;
+    float8 Timestamp;
+    ubyte1 Data[8];
+} CAN_MESSAGE_BUS;
+
+// Свойства CAN для одной группы (хэндлы и шины)
+typedef struct {
+    ubyte2 handle_CMD;
+    ubyte2 handle_FB;
+    ubyte2 handle_DIAG;
+    
+    CAN_MESSAGE_BUS bus_CMD;
+    CAN_MESSAGE_BUS bus_FB;
+    CAN_MESSAGE_BUS bus_DIAG;
+} CAN_Msg_Props;
+
+// Логические данные команд (RX)
+// Каждый параметр в отдельном байте. config занимает младшие 3 бита, 5 старших = резерв.
+typedef struct {
+    ubyte1 config_Pin0; ubyte1 value_Pin0;
+    ubyte1 config_Pin1; ubyte1 value_Pin1;
+    ubyte1 config_Pin2; ubyte1 value_Pin2;
+    ubyte1 config_Pin3; ubyte1 value_Pin3;
+} CMD_Values;
+
+// Логические данные обратной связи (TX)
+typedef struct {
+    ubyte2 val_Pin0; ubyte2 val_Pin1;
+    ubyte2 val_Pin2; ubyte2 val_Pin3;
+} FB_Values;
+
+// Логические данные диагностики (TX)
+typedef struct {
+    ubyte2 val_Pin0; ubyte2 val_Pin1;
+    ubyte2 val_Pin2; ubyte2 val_Pin3;
+} DIAG_Values;
+
+// Объединенная структура для удобного доступа ко всем данным группы
+typedef struct {
+    CAN_Msg_Props can;
+    CMD_Values    cmd;
+    FB_Values     fb;
+    DIAG_Values   diag;
+} GroupData_t;
+
+// Глобальный массив всех 24 групп
+GroupData_t g_groups[NUM_GROUPS];
+
+
+// ==========================================
+// 3. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+// ==========================================
+
+// Генерация ID с битовой маской (вставка индекса на место "__")
+static void Generate_Group_IDs(ubyte1 index, ubyte4* ptr_CMD, ubyte4* ptr_FB, ubyte4* ptr_DIAG) {
+    ubyte4 base_cmd  = 0x18FF00FAU;
+    ubyte4 base_fb   = 0x18FF0027U;
+    ubyte4 base_diag = 0x18FF0027U;
+    ubyte4 mask      = 0x0000FF00U; // Биты 8-15
+
+    *ptr_CMD  = (base_cmd  & ~mask) | ((ubyte4)index << 8);
+    *ptr_FB   = (base_fb   & ~mask) | ((ubyte4)(index * 2) << 8);
+    *ptr_DIAG = (base_diag & ~mask) | ((ubyte4)((index * 2) + 1) << 8);
+}
+
+// Заполнение статических полей CAN_MESSAGE_BUS
+static void Init_CAN_Bus_Defaults(CAN_MESSAGE_BUS* bus) {
+    bus->Extended = 1U; // IO_CAN_EXT_FRAME
+    bus->Length   = 8U;
+    bus->Remote   = 0U;
+    bus->Error    = 0U;
+}
+
+
+// ==========================================
+// 4. ФУНКЦИИ УПАКОВКИ И РАСПАКОВКИ (Без "каши", побайтово)
+// ==========================================
+
+// Распаковка принятого CAN-сообщения в CMD_Values
+static void Unpack_CMD(const ubyte1* can_data, CMD_Values* cmd) {
+    // Пин 0
+    cmd->config_Pin0 = can_data[0] & 0x07U; // Оставляем только 3 младших бита
+    cmd->value_Pin0  = can_data[1];         // Весь байт целиком
+    
+    // Пин 1
+    cmd->config_Pin1 = can_data[2] & 0x07U;
+    cmd->value_Pin1  = can_data[3];
+    
+    // Пин 2
+    cmd->config_Pin2 = can_data[4] & 0x07U;
+    cmd->value_Pin2  = can_data[5];
+    
+    // Пин 3
+    cmd->config_Pin3 = can_data[6] & 0x07U;
+    cmd->value_Pin3  = can_data[7];
+}
+
+// Упаковка FB_Values в массив байт CAN (Little Endian)
+static void Pack_FB(const FB_Values* fb, ubyte1* can_data) {
+    can_data[0] = (ubyte1)(fb->val_Pin0 & 0xFFU);
+    can_data[1] = (ubyte1)((fb->val_Pin0 >> 8) & 0xFFU);
+    can_data[2] = (ubyte1)(fb->val_Pin1 & 0xFFU);
+    can_data[3] = (ubyte1)((fb->val_Pin1 >> 8) & 0xFFU);
+    can_data[4] = (ubyte1)(fb->val_Pin2 & 0xFFU);
+    can_data[5] = (ubyte1)((fb->val_Pin2 >> 8) & 0xFFU);
+    can_data[6] = (ubyte1)(fb->val_Pin3 & 0xFFU);
+    can_data[7] = (ubyte1)((fb->val_Pin3 >> 8) & 0xFFU);
+}
+
+// Упаковка DIAG_Values в массив байт CAN (Little Endian)
+static void Pack_DIAG(const DIAG_Values* diag, ubyte1* can_data) {
+    can_data[0] = (ubyte1)(diag->val_Pin0 & 0xFFU);
+    can_data[1] = (ubyte1)((diag->val_Pin0 >> 8) & 0xFFU);
+    can_data[2] = (ubyte1)(diag->val_Pin1 & 0xFFU);
+    can_data[3] = (ubyte1)((diag->val_Pin1 >> 8) & 0xFFU);
+    can_data[4] = (ubyte1)(diag->val_Pin2 & 0xFFU);
+    can_data[5] = (ubyte1)((diag->val_Pin2 >> 8) & 0xFFU);
+    can_data[6] = (ubyte1)(diag->val_Pin3 & 0xFFU);
+    can_data[7] = (ubyte1)((diag->val_Pin3 >> 8) & 0xFFU);
+}
+
+
+// ==========================================
+// 5. ГЛАВНАЯ ФУНКЦИЯ ИНИЦИАЛИЗАЦИИ
+// ==========================================
+IO_ErrorType Init_CAN_System(void) {
+    IO_ErrorType err;
+    ubyte1 i;
+
+    // 1. Инициализация Канала 0 (RX CMD + TX FB) на 250 кбит/с
+    err = IO_CAN_Init(IO_CAN_CHANNEL_0, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
+    if (err != IO_E_OK) return err;
+
+    // 2. Инициализация Канала 1 (TX DIAG) на 250 кбит/с
+    err = IO_CAN_Init(IO_CAN_CHANNEL_1, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
+    if (err != IO_E_OK) return err;
+
+    // 3. Настройка 24 групп
+    for (i = 0; i < NUM_GROUPS; i++) {
+        
+        // Генерация уникальных ID
+        Generate_Group_IDs(i,
+                           &g_groups[i].can.bus_CMD.ID,
+                           &g_groups[i].can.bus_FB.ID,
+                           &g_groups[i].can.bus_DIAG.ID);
+        
+        // Заполнение статических полей шин
+        Init_CAN_Bus_Defaults(&g_groups[i].can.bus_CMD);
+        Init_CAN_Bus_Defaults(&g_groups[i].can.bus_FB);
+        Init_CAN_Bus_Defaults(&g_groups[i].can.bus_DIAG);
+        
+        // --- КАНАЛ 0: Прием (CMD) ---
+        // Строгая маска 0x1FFFFFFF гарантирует, что каждая группа имеет СВОЙ ЛИЧНЫЙ буфер.
+        // Это обеспечивает 100% защиту от перезаписи при одновременной отправке из Test Master.
+        err = IO_CAN_ConfigMsg(&g_groups[i].can.handle_CMD, IO_CAN_CHANNEL_0, 
+                               IO_CAN_MSG_READ, IO_CAN_EXT_FRAME, 
+                               g_groups[i].can.bus_CMD.ID, 0x1FFFFFFFU);
+        if (err != IO_E_OK) return err;
+        
+        // --- КАНАЛ 0: Передача (FB) ---
+        err = IO_CAN_ConfigMsg(&g_groups[i].can.handle_FB, IO_CAN_CHANNEL_0, 
+                               IO_CAN_MSG_WRITE, IO_CAN_EXT_FRAME, 
+                               g_groups[i].can.bus_FB.ID, 0U);
+        if (err != IO_E_OK) return err;
+        
+        // --- КАНАЛ 1: Передача (DIAG) ---
+        err = IO_CAN_ConfigMsg(&g_groups[i].can.handle_DIAG, IO_CAN_CHANNEL_1, 
+                               IO_CAN_MSG_WRITE, IO_CAN_EXT_FRAME, 
+                               g_groups[i].can.bus_DIAG.ID, 0U);
+        if (err != IO_E_OK) return err;
+    }
+
+    return IO_E_OK;
+}
+
+
+// ==========================================
+// 6. ЦИКЛИЧЕСКАЯ ЗАДАЧА (Вызывать, например, каждые 1-5 мс)
+// ==========================================
+void Cyclic_CAN_Task(void) {
+    // Локальные переменные-мосты. Живут на стеке, не засоряют глобальную память.
+    IO_CAN_DATA_FRAME rx_frame;
+    IO_CAN_DATA_FRAME tx_frame;
+
+    // Предварительная инициализация статических полей TX фрейма
+    tx_frame.id_format = IO_CAN_EXT_FRAME;
+    tx_frame.length = 8U;
+
+    for (ubyte1 i = 0; i < NUM_GROUPS; i++) {
+        
+        // ---------------------------------------------------------
+        // 1. ЧТЕНИЕ (RX) - Обработка команд из Test Master
+        // ---------------------------------------------------------
+        if (IO_CAN_MsgStatus(g_groups[i].can.handle_CMD) == IO_E_OK) {
+            if (IO_CAN_ReadMsg(g_groups[i].can.handle_CMD, &rx_frame) == IO_E_OK) {
+                
+                // Дополнительная проверка длины и ID (как в Simulink)
+                if ((rx_frame.length == 8U) && (rx_frame.id == g_groups[i].can.bus_CMD.ID)) {
+                    
+                    // Распаковываем сырые байты в удобную логическую структуру
+                    Unpack_CMD(rx_frame.data, &g_groups[i].cmd);
+                    
+                    // ТЕПЕРЬ ДАННЫЕ ГОТОВЫ К ИСПОЛЬЗОВАНИЮ:
+                    // g_groups[i].cmd.config_Pin0 (0-7)
+                    // g_groups[i].cmd.value_Pin0  (0-255)
+                    // и так далее для всех 4 пинов этой группы
+                }
+            }
+        }
+
+        // ---------------------------------------------------------
+        // 2. ЗАПИСЬ ОБРАТНОЙ СВЯЗИ (FB) на Канале 0
+        // ---------------------------------------------------------
+        // 1. Упаковываем логические данные в сырые байты CAN
+        Pack_FB(&g_groups[i].fb, tx_frame.data);
+        
+        // 2. Задаем ID текущей группы
+        tx_frame.id = g_groups[i].can.bus_FB.ID;
+        
+        // 3. Отправляем через хэндл
+        IO_CAN_WriteMsg(g_groups[i].can.handle_FB, &tx_frame);
+
+        // ---------------------------------------------------------
+        // 3. ЗАПИСЬ ДИАГНОСТИКИ (DIAG) на Канале 1
+        // ---------------------------------------------------------
+        // 1. Упаковываем логические данные
+        Pack_DIAG(&g_groups[i].diag, tx_frame.data);
+        
+        // 2. Задаем ID текущей группы
+        tx_frame.id = g_groups[i].can.bus_DIAG.ID;
+        
+        // 3. Отправляем через хэндл
+        IO_CAN_WriteMsg(g_groups[i].can.handle_DIAG, &tx_frame);
+    }
+}

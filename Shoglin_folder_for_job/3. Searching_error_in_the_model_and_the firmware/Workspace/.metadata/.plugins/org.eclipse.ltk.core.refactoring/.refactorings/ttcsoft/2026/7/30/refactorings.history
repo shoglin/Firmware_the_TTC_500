@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ttcsoft/inc/convAIVoltageData&apos; to &apos;convAIVoltageData.h&apos;" description="Rename resource &apos;convAIVoltageData&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="inc/convAIVoltageData" name="convAIVoltageData.h" stamp="1784534810607" updateReferences="true"/>
+</session>

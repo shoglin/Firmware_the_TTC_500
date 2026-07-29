@@ -1,0 +1,1184 @@
+09:32:05 **** Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+""C:\ti\ccs1210\ccs\tools\compiler\arm_5.1.6\armcl.exe"" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+make: *** [prebuild] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+09:32:23 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+""c:\ti\ccs1210\ccs\tools\compiler\arm_5.1.6\armcl.exe"" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+make: *** [prebuild] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+09:32:29 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+Системе не удается найти указанный путь.
+make: *** [prebuild] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+09:33:55 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Linking: build/app.out
+<Linking>
+"C:\\Users\\lobachev\\AppData\\Local\\Temp\\156723", line 3: fatal error: 
+   unrecognized file:  "./build/link_tmp.cmd"
+
+>> Compilation failure
+make: *** [build/app.out] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+09:35:31 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Linking: build/app.out
+<Linking>
+"C:\\Users\\lobachev\\AppData\\Local\\Temp\\183963", line 3: fatal error: 
+   unrecognized file:  "./build/link_tmp.cmd"
+
+>> Compilation failure
+make: *** [build/app.out] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+09:35:35 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Linking: build/app.out
+<Linking>
+"C:\\Users\\lobachev\\AppData\\Local\\Temp\\167323", line 3: fatal error: 
+   unrecognized file:  "./build/link_tmp.cmd"
+
+>> Compilation failure
+make: *** [build/app.out] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+09:40:11 **** Clean-only build of configuration Default for project TTCTest ****
+make clean 
+Cleaning up application module files...
+Done.
+09:40:15 **** Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Linking: build/app.out
+<Linking>
+"C:\\Users\\lobachev\\AppData\\Local\\Temp\\147923", line 3: fatal error: 
+   unrecognized file:  "./build/link_tmp.cmd"
+
+>> Compilation failure
+make: *** [build/app.out] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+09:44:41 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Linking: build/app.out
+<Linking>
+"C:\\Users\\lobachev\\AppData\\Local\\Temp\\107203", line 3: fatal error: 
+   unrecognized file:  "./build/link_tmp.cmd"
+
+>> Compilation failure
+make: *** [build/app.out] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+09:47:38 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Linking: build/app.out
+<Linking>
+"C:\\Users\\lobachev\\AppData\\Local\\Temp\\132563", line 3: fatal error: 
+   unrecognized file:  "./build/link_tmp.cmd"
+
+>> Compilation failure
+make: *** [build/app.out] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+09:50:45 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Linking: build/app.out
+<Linking>
+"C:\\Users\\lobachev\\AppData\\Local\\Temp\\010123", line 3: fatal error: 
+   unrecognized file:  "./build/link_tmp.cmd"
+
+>> Compilation failure
+make: *** [build/app.out] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+10:00:58 **** Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 54: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 54: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 54: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 43: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 44: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 49: warning #179-D: variable "oldDiType" was declared but never referenced
+Compiling application files: src/ert_main.c
+"src/ert_main.c", line 160: warning #225-D: function "IO_ADC_Init" declared implicitly
+"src/ert_main.c", line 170: warning #112-D: statement is unreachable
+"src/ert_main.c", line 100: warning #179-D: variable "EEPROM_Sts" was declared but never referenced
+Linking: build/app.out
+<Linking>
+
+ undefined   first referenced    
+  symbol         in file         
+ ---------   ----------------    
+ IO_ADC_Init ./build/ert_main.obj
+
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "build/app.out" not built
+
+>> Compilation failure
+make: *** [build/app.out] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+10:01:12 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Linking: build/app.out
+<Linking>
+
+ undefined   first referenced    
+  symbol         in file         
+ ---------   ----------------    
+ IO_ADC_Init ./build/ert_main.obj
+
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "build/app.out" not built
+
+>> Compilation failure
+make: *** [build/app.out] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+10:05:45 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Linking: build/app.out
+<Linking>
+
+ undefined   first referenced    
+  symbol         in file         
+ ---------   ----------------    
+ IO_ADC_Init ./build/ert_main.obj
+
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "build/app.out" not built
+
+>> Compilation failure
+make: *** [build/app.out] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+11:07:12 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/ert_main.c
+"src/ert_main.c", line 160: warning #225-D: function "IO_ADC_ChannelInit" declared implicitly
+
+"src/ert_main.c", line 161: error #20: identifier "IO_ADC_ABSOLUTE" is undefined
+"src/ert_main.c", line 162: error #20: identifier "IO_ADC_NO_RANGE" is undefined
+>> Compilation failure
+"src/ert_main.c", line 163: error #20: identifier "IO_ADC_NO_PULL" is undefined
+"src/ert_main.c", line 175: warning #112-D: statement is unreachable
+"src/ert_main.c", line 100: warning #179-D: variable "EEPROM_Sts" was declared but never referenced
+3 errors detected in the compilation of "src/ert_main.c".
+make: *** [build/ert_main.obj] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+11:15:13 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/ert_main.c
+"src/ert_main.c", line 171: warning #112-D: statement is unreachable
+"src/ert_main.c", line 101: warning #179-D: variable "EEPROM_Sts" was declared but never referenced
+Linking: build/app.out
+<Linking>
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+11:22:21 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+12:05:47 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 56: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 56: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 56: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 45: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 46: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 51: warning #179-D: variable "oldDiType" was declared but never referenced
+Linking: build/app.out
+<Linking>
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+12:35:11 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 62: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 62: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 62: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 51: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 52: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 57: warning #179-D: variable "oldDiType" was declared but never referenced
+"src/VCU_SW.c", line 34: warning #179-D: variable "old_CAN_config" was declared but never referenced
+"src/VCU_SW.c", line 35: warning #179-D: variable "current_CAN_config" was declared but never referenced
+"src/VCU_SW.c", line 36: warning #179-D: variable "value" was declared but never referenced
+"src/VCU_SW.c", line 38: warning #179-D: variable "flag_first_run" was declared but never referenced
+Linking: build/app.out
+<Linking>
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+13:05:37 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 278: warning #225-D: function "IO_ADC_ChannelInit" declared implicitly
+"src/VCU_SW.c", line 278: error #20: identifier "IO_ADC_RATIOMETRIC" is undefined
+"src/VCU_SW.c", line 278: error #20: identifier "IO_ADC_NO_RANGE" is undefined
+"src/VCU_SW.c", line 278: error #20: identifier "IO_ADC_PU_10K" is undefined
+"src/VCU_SW.c", line 279: warning #225-D: function "IO_ADC_Get" declared implicitly
+"src/VCU_SW.c", line 279: warning #551-D: variable "adc_value" is used before its value is set
+"src/VCU_SW.c", line 279: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 284: remark #270-D: declaration may not appear after executable statement in block
+"src/VCU_SW.c", line 51: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 52: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 59: warning #552-D: variable "rc" was set but never used
+
+>> Compilation failure
+"src/VCU_SW.c", line 61: warning #179-D: variable "oldDiType" was declared but never referenced
+"src/VCU_SW.c", line 284: error #68: expected a "}"
+"src/VCU_SW.c", line 34: warning #179-D: variable "old_CAN_config" was declared but never referenced
+"src/VCU_SW.c", line 36: warning #179-D: variable "value" was declared but never referenced
+4 errors detected in the compilation of "src/VCU_SW.c".
+make: *** [build/VCU_SW.obj] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+13:09:30 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 68: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 68: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 68: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 282: warning #551-D: variable "adc_value" is used before its value is set
+"src/VCU_SW.c", line 282: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 289: remark #270-D: declaration may not appear after executable statement in block
+"src/VCU_SW.c", line 53: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 54: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 61: warning #552-D: variable "rc" was set but never used
+
+"src/VCU_SW.c", line 63: warning #179-D: variable "oldDiType" was declared but never referenced
+>> Compilation failure
+"src/VCU_SW.c", line 289: error #68: expected a "}"
+"src/VCU_SW.c", line 36: warning #179-D: variable "old_CAN_config" was declared but never referenced
+"src/VCU_SW.c", line 38: warning #179-D: variable "value" was declared but never referenced
+1 error detected in the compilation of "src/VCU_SW.c".
+make: *** [build/VCU_SW.obj] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+13:12:00 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 68: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 68: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 68: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 282: warning #551-D: variable "adc_value" is used before its value is set
+"src/VCU_SW.c", line 282: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 53: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 54: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 61: warning #552-D: variable "rc" was set but never used
+"src/VCU_SW.c", line 63: warning #179-D: variable "oldDiType" was declared but never referenced
+"src/VCU_SW.c", line 36: warning #179-D: variable "old_CAN_config" was declared but never referenced
+"src/VCU_SW.c", line 38: warning #179-D: variable "value" was declared but never referenced
+Linking: build/app.out
+<Linking>
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+13:19:31 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 68: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 68: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 68: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 282: warning #551-D: variable "adc_value" is used before its value is set
+"src/VCU_SW.c", line 282: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 53: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 54: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 61: warning #552-D: variable "rc" was set but never used
+"src/VCU_SW.c", line 63: warning #179-D: variable "oldDiType" was declared but never referenced
+"src/VCU_SW.c", line 38: warning #179-D: variable "value" was declared but never referenced
+Linking: build/app.out
+<Linking>
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+13:20:57 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 299: warning #551-D: variable "adc_value" is used before its value is set
+"src/VCU_SW.c", line 299: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 323: error #128: expected a statement
+"src/VCU_SW.c", line 51: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 52: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+
+>> Compilation failure
+"src/VCU_SW.c", line 59: warning #552-D: variable "rc" was set but never used
+"src/VCU_SW.c", line 61: warning #179-D: variable "oldDiType" was declared but never referenced
+"src/VCU_SW.c", line 38: warning #179-D: variable "value" was declared but never referenced
+1 error detected in the compilation of "src/VCU_SW.c".
+make: *** [build/VCU_SW.obj] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+13:27:08 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 300: warning #551-D: variable "adc_value" is used before its value is set
+"src/VCU_SW.c", line 300: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 51: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 52: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 59: warning #552-D: variable "rc" was set but never used
+"src/VCU_SW.c", line 61: warning #179-D: variable "oldDiType" was declared but never referenced
+"src/VCU_SW.c", line 38: warning #179-D: variable "value" was declared but never referenced
+Linking: build/app.out
+<Linking>
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+13:29:02 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 300: warning #551-D: variable "adc_value" is used before its value is set
+"src/VCU_SW.c", line 300: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 51: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 52: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 59: warning #552-D: variable "rc" was set but never used
+"src/VCU_SW.c", line 61: warning #179-D: variable "oldDiType" was declared but never referenced
+"src/VCU_SW.c", line 38: warning #179-D: variable "value" was declared but never referenced
+Linking: build/app.out
+<Linking>
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+13:35:36 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 64: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 64: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 64: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 298: error #169: argument of type "ubyte2 *" is incompatible with parameter of type "ubyte4 *const"
+"src/VCU_SW.c", line 298: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 319: error #169: argument of type "ubyte2 *" is incompatible with parameter of type "ubyte4 *const"
+"src/VCU_SW.c", line 338: error #169: argument of type "ubyte2 *" is incompatible with parameter of type "ubyte4 *const"
+"src/VCU_SW.c", line 45: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 46: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 53: warning #552-D: variable "rc" was set but never used
+
+>> Compilation failure
+"src/VCU_SW.c", line 59: warning #179-D: variable "oldDiType" was declared but never referenced
+3 errors detected in the compilation of "src/VCU_SW.c".
+make: *** [build/VCU_SW.obj] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+13:36:40 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 66: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 300: warning #551-D: variable "adc_value" is used before its value is set
+"src/VCU_SW.c", line 300: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 51: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 52: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 59: warning #552-D: variable "rc" was set but never used
+"src/VCU_SW.c", line 61: warning #179-D: variable "oldDiType" was declared but never referenced
+"src/VCU_SW.c", line 38: warning #179-D: variable "value" was declared but never referenced
+Linking: build/app.out
+<Linking>
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+13:37:49 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 65: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 65: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 65: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 299: warning #551-D: variable "adc_value" is used before its value is set
+"src/VCU_SW.c", line 299: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 47: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 48: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 55: warning #552-D: variable "rc" was set but never used
+"src/VCU_SW.c", line 60: warning #179-D: variable "oldDiType" was declared but never referenced
+Linking: build/app.out
+<Linking>
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+13:40:21 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+13:40:27 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+13:45:22 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 64: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 64: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 64: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 298: warning #551-D: variable "adc_value" is used before its value is set
+"src/VCU_SW.c", line 298: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 46: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 47: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 54: warning #552-D: variable "rc" was set but never used
+"src/VCU_SW.c", line 59: warning #179-D: variable "oldDiType" was declared but never referenced
+Linking: build/app.out
+<Linking>
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+13:48:49 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 64: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 64: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 64: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 298: warning #551-D: variable "adc_value" is used before its value is set
+"src/VCU_SW.c", line 298: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 46: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 47: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 54: warning #552-D: variable "rc" was set but never used
+"src/VCU_SW.c", line 59: warning #179-D: variable "oldDiType" was declared but never referenced
+Linking: build/app.out
+<Linking>
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+13:55:03 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+13:56:45 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+Compiling application files: src/VCU_SW.c
+"src/VCU_SW.c", line 64: warning #551-D: variable "rtb_di_104_value" is used before its value is set
+"src/VCU_SW.c", line 64: warning #551-D: variable "rtb_di_104_error" is used before its value is set
+"src/VCU_SW.c", line 64: warning #551-D: variable "rtb_FunctionCaller13" is used before its value is set
+"src/VCU_SW.c", line 298: warning #551-D: variable "adc_value" is used before its value is set
+"src/VCU_SW.c", line 298: warning #551-D: variable "adc_fresh" is used before its value is set
+"src/VCU_SW.c", line 46: warning #552-D: variable "rtb_handler_err_419365114" was set but never used
+"src/VCU_SW.c", line 47: warning #552-D: variable "rtb_error_tx_transmit_message_v" was set but never used
+"src/VCU_SW.c", line 54: warning #552-D: variable "rc" was set but never used
+"src/VCU_SW.c", line 59: warning #179-D: variable "oldDiType" was declared but never referenced
+Linking: build/app.out
+<Linking>
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+15:46:15 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+15:48:05 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------
+15:54:10 **** Incremental Build of configuration Default for project TTCTest ****
+make all 
+ ----------------------------------------
+  Checking CGT version...
+ ----------------------------------------
+TI ARM C/C++ Compiler                   v5.1.6
+ ----------------------------------------
+  Creating application...
+ ----------------------------------------
+Build target: HY-TTC 580, 2nd generation.
+ ----------------------------------------
+  Creating .hex file with APDB...
+ ----------------------------------------
+
+Note: User-Application file _with_ APDB found.
+
+Note: Calculating application-dependent APDB-fields (CRC, size).
+
+Note: Finished successfully!
+ ----------------------------------------
+  Creating files for JTAG programming...
+ ----------------------------------------
+This is nowECC Version 2.22 
+
+Mapping: F021-16MB 
+
+
+ECC calculation from 0x000A0000 to 0x002FFFFF
+*** Writing only ECC section to file -> ./build/app_jtag_ecc.hex 
+
+No Errors
+
+ ------
+  Done
+ ------

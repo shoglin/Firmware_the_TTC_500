@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Info Type="StartUp" Visible="1" Icon="" File="VCU_SW.slx" Name="Run Main Model">
+    <Extension Value="5e0032cb-fb1d-48d0-b6b6-998d60380d19" Name="StartUpPrev" />
+</Info>

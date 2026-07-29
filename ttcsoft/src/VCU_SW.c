@@ -29,17 +29,17 @@ DW_VCU_SW_T VCU_SW_DW;
 static RT_MODEL_VCU_SW_T VCU_SW_M_;
 RT_MODEL_VCU_SW_T *const VCU_SW_M = &VCU_SW_M_;
 
-// Deñlaration of CAN message frame and handler for TX
+// Declaration of CAN message frame and handler for TX
 IO_CAN_DATA_FRAME transmit_message_vlvcmd_hyd1_msg_tx = { 0 };
 
 ubyte2 transmit_message_vlvcmd_hyd1_handler_tx = 0;
 
-// Deñlaration of CAN message frame and handler for RX
+// Deï¿½laration of CAN message frame and handler for RX
 IO_CAN_DATA_FRAME read_message_Pin101_Pin104_CMD_msg_rx = { 0 };
 
 ubyte2 read_message_Pin101_Pin104_CMD_handler_rx = 0;
 
-// Deñlaration of CAN message frame and handler for TX
+// Deï¿½laration of CAN message frame and handler for TX
 IO_CAN_DATA_FRAME transmit_message_vlvcmd_hyd1_k_msg_tx = { 0 };
 
 ubyte2 transmit_message_vlvcmd_hyd1_k_handler_tx = 0;
