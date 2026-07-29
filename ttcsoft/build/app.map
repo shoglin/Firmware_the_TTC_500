@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v5.1.6                      
 ******************************************************************************
->> Linked Tue Jul 28 12:59:28 2026
+>> Linked Wed Jul 29 10:59:39 2026
 
 OUTPUT FILE NAME:   <build/app.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000bf080
@@ -3261,35 +3261,67 @@ CAN_Properties.obj
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-000000a0  local     $C$L1 (.text:Init_CAN_System)
-00000200  local     $C$L2 (.text:Init_CAN_System)
-00000070  local     $C$L3 (.text:Cyclic_CAN_Task)
-000000ec  local     $C$L4 (.text:Cyclic_CAN_Task)
-00000174  local     $C$L5 (.text:Cyclic_CAN_Task)
+00000040  local     $C$L1 (.text:Init_CAN_Channels)
+00000060  local     $C$L2 (.text:Init_CAN_Channels)
+00000030  local     $C$L3 (.text:Init_CAN_Group)
+000001b8  local     $C$L4 (.text:Init_CAN_Group)
+00000020  local     $C$L5 (.text:Init_CAN_System_All)
+00000040  local     $C$L6 (.text:Init_CAN_System_All)
+00000044  local     $C$L7 (.text:Init_CAN_System_All)
+000000b4  local     $C$L8 (.text:Process_CAN_RX)
+000000bc  local     $C$L9 (.text:Process_CAN_TX)
 00000000  local     $a (.text:Generate_Group_IDs)
 00000000  local     $a (.text:Init_CAN_Frame_Defaults)
 00000000  local     $a (.text:Unpack_CMD)
 00000000  local     $a (.text:Pack_FB)
 00000000  local     $a (.text:Pack_DIAG)
-00000000  local     $a (.text:Init_CAN_System)
-00000000  local     $a (.text:Cyclic_CAN_Task)
+00000000  local     $a (.text:Init_CAN_Channels)
+00000000  local     $a (.text:Init_CAN_Group)
+00000000  local     $a (.text:Init_CAN_System_All)
+00000000  local     $a (.text:Process_CAN_RX)
+00000000  local     $a (.text:Process_CAN_TX)
 00000000  local     .bss:g_groups (.bss:g_groups)
 00000000  local     .text (.text)
-00000000  local     .text:Cyclic_CAN_Task (.text:Cyclic_CAN_Task)
 00000000  local     .text:Generate_Group_IDs (.text:Generate_Group_IDs)
+00000000  local     .text:Init_CAN_Channels (.text:Init_CAN_Channels)
 00000000  local     .text:Init_CAN_Frame_Defaults (.text:Init_CAN_Frame_Defaults)
-00000000  local     .text:Init_CAN_System (.text:Init_CAN_System)
+00000000  local     .text:Init_CAN_Group (.text:Init_CAN_Group)
+00000000  local     .text:Init_CAN_System_All (.text:Init_CAN_System_All)
 00000000  local     .text:Pack_DIAG (.text:Pack_DIAG)
 00000000  local     .text:Pack_FB (.text:Pack_FB)
+00000000  local     .text:Process_CAN_RX (.text:Process_CAN_RX)
+00000000  local     .text:Process_CAN_TX (.text:Process_CAN_TX)
 00000000  local     .text:Unpack_CMD (.text:Unpack_CMD)
-00000000  global    Cyclic_CAN_Task (.text:Cyclic_CAN_Task)
 00000000  global    Generate_Group_IDs (.text:Generate_Group_IDs)
+00000000  global    Init_CAN_Channels (.text:Init_CAN_Channels)
 00000000  global    Init_CAN_Frame_Defaults (.text:Init_CAN_Frame_Defaults)
-00000000  global    Init_CAN_System (.text:Init_CAN_System)
+00000000  global    Init_CAN_Group (.text:Init_CAN_Group)
+00000000  global    Init_CAN_System_All (.text:Init_CAN_System_All)
 00000000  global    Pack_DIAG (.text:Pack_DIAG)
 00000000  global    Pack_FB (.text:Pack_FB)
+00000000  global    Process_CAN_RX (.text:Process_CAN_RX)
+00000000  global    Process_CAN_TX (.text:Process_CAN_TX)
 00000000  global    Unpack_CMD (.text:Unpack_CMD)
 00000000  global    g_groups (.bss:g_groups)
+
+
+================================================================================
+
+PinCapabilities.obj
+
+Run/Load            
+Value     Binding   Name (Section)
+--------  --------  ---------------
+00000030  local     $C$L1 (.text:Init_PinCapabilities)
+00000060  local     $C$L2 (.text:Init_PinCapabilities)
+00000080  local     $C$L3 (.text:Init_PinCapabilities)
+00000090  local     $C$L4 (.text:Init_PinCapabilities)
+00000000  local     $a (.text:Init_PinCapabilities)
+00000000  local     .bss:g_pin_capabilities (.bss:g_pin_capabilities)
+00000000  local     .text (.text)
+00000000  local     .text:Init_PinCapabilities (.text:Init_PinCapabilities)
+00000000  global    Init_PinCapabilities (.text:Init_PinCapabilities)
+00000000  global    g_pin_capabilities (.bss:g_pin_capabilities)
 
 
 ================================================================================
