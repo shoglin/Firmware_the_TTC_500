@@ -1,0 +1,374 @@
+TI ARM C/C++ Compiler                   v5.1.6
+Tools Copyright (c) 1996-2014 Texas Instruments Incorporated
+
+Usage: C:\ti\ccs1210\ccs\tools\compiler\arm_5.1.6\bin\armcl.exe [-options] filename
+
+Use 'C:\ti\ccs1210\ccs\tools\compiler\arm_5.1.6\bin\armcl.exe -h <option>' for more information on a particular option.  Use
+'C:\ti\ccs1210\ccs\tools\compiler\arm_5.1.6\bin\armcl.exe -h <text>' to search options for information regarding <text>.
+
+Option arguments surrounded by [] declare they are optional.  Option arguments
+separated by commas specify that the option's argument must be chosen from
+those arguments listed.
+
+When shown, option arguments and defaults apply to the usage of both long and
+short option forms.
+
+Processor Options:
+  -mv,--silicon_version=4,5e,6,6M0,7A8,7M3,7M4,7R4,7R5
+                               Target processor version (when not specified,
+                                compiler defaults to --silicon_version=4)
+  --code_state=16,32           Designate code state, 16-bit (thumb) or 32-bit
+  --float_support=VFPv2,VFPv3,VFPv3D16,vfplib,fpalib,FPv4SPD16
+                               Specify floating point support
+  --abi=ti_arm9_abi,eabi       Application binary interface. (when not
+                                specified, compiler defaults to --abi=eabi)
+  -me,--little_endian          Little endian code
+
+Optimization Options:
+  -O,--opt_level[=off,0,1,2,3,4]
+                               Optimization level (argument optional, defaults
+                                to: 3)
+  --fp_mode=relaxed,strict     Floating Point mode (when not specified,
+                                compiler defaults to --fp_mode=strict)
+  --opt_for_speed,-mf[=0-5]    Speed vs. size trade-offs  (argument optional,
+                                defaults to: 4)
+
+Include Options:
+  --include_path,-I=dir        Add dir to #include search path
+  --preinclude=filename        Specify a preinclude file
+
+MISRA-C:2004 Options:
+  --check_misra[=RULE]         Enable checking of MISRA-C:2004 rules (argument
+                                optional, defaults to: all)
+  --misra_advisory=error,warning,remark,suppress
+                               Set severity of MISRA 'advisory' rule class
+  --misra_required=error,warning,remark,suppress
+                               Set severity of MISRA 'required' rule class
+
+Control Options:
+  --compile_only,-c            Disable linking (overrides -z)
+  --help,-h                    Show help screen
+  --run_linker,-z[=arguments]  Perform link using options following
+  --skip_assembler,-n          Compile only; do not assemble
+
+Advanced Debug Options:
+  -g,--symdebug:dwarf          Full symbolic debug
+  --symdebug:coff              Full symbolic debug (COFF, deprecated)
+  --symdebug:none              Suppress all symbolic debug generation
+  --symdebug:profile_coff      Function profile debug (COFF, deprecated)
+  --symdebug:skeletal          Symbolic debug for program analysis (DEPRECATED)
+  --optimize_with_debug,-mn[=on,off]
+                               Optimize fully in the presence of debug
+                                (DEPRECATED) (argument optional, defaults to:
+                                on)
+  --symdebug:keep_all_types    Keep unreferenced type info (default for elf w/
+                                debug)
+  --symdebug:dwarf_version=2,3 Specify DWARF version
+
+Language Options:
+  --cpp_default,-fg            Treat C files as C++ files
+  --create_pch=filename        Create a precompiled header file as named
+  --embedded_cpp,-pe           Embedded C++
+  --exceptions                 Enable C++ exception handling
+  --extern_c_can_throw         Allow extern C functions to propagate exceptions
+  --float_operations_allowed=all,32,64,none
+                               Floating point precision accepted by compiler
+  --gcc                        Enable support for GCC extensions
+  --gen_acp_raw,-pl            Output raw listing to .rl file
+  --gen_acp_xref,-px           Output xref listing to .crl file
+  --keep_unneeded_statics      Do not delete unreferenced static variables
+  --kr_compatible,-pk          K & R compatibility
+  --multibyte_chars,-pc        Multibyte character support
+  --no_inlining,-pi            Ignore inline keyword
+  --no_intrinsics,-pn          Disable intrinsic functions
+  --pch                        Automatically create/use precompiled headers
+  --pch_dir=dir                Specify precompiled header path
+  --pch_verbose                Info on considered & unused precompiled headers
+  --pending_instantiations=#   Limit pending template instantiations
+  --program_level_compile,-pm  Program mode compilation
+  --relaxed_ansi,-pr           Relaxed parsing (non-strict ANSI)
+  --rtti,-rtti                 Support C++ run-time type information
+  --static_template_instantiation
+                               Do static early template instantiation
+  --strict_ansi,-ps            Strict ANSI mode (errors)
+  --use_pch=filename           Precompiled header file for compilation
+
+Parser Preprocessing Options:
+  --preproc_dependency,-ppd[=filename]
+                               Generate include file dependency information
+  --preproc_includes,-ppi[=filename]
+                               Generate first-level include file list
+  --preproc_macros,-ppm[=filename]
+                               Generate list of pre- & user-defined macros
+  --preproc_only,-ppo          Preprocess only
+  --preproc_with_comment,-ppc  Preprocess only; maintain comments
+  --preproc_with_compile,-ppa  Continue compilation after using -pp<X> options.
+  --preproc_with_line,-ppl     Preprocess only; maintain line directives
+
+Predefined Symbols Options:
+  --define,-D=NAME[=value]     Pre-define NAME
+  --undefine,-U=NAME           Undefine NAME
+
+Diagnostic Options:
+  --compiler_revision          Print compiler revision and exit
+  --diag_error,-pdse=id        Treat diagnostic <id> as error
+  --diag_remark,-pdsr=id       Treat diagnostic <id> as remark
+  --diag_suppress,-pds=id      Suppress diagnostic <id>
+  --diag_warning,-pdsw=id      Treat diagnostic <id> as warning
+  --diag_wrap[=on,off]         Wrap diagnostic messages (argument optional,
+                                defaults to: on)
+  --display_error_number,-pden Emit diagnostic identifier numbers
+  --emit_warnings_as_errors,-pdew
+                               Treat warnings as errors
+  --gen_aux_user_info,-b       Generate user information file
+  --issue_remarks,-pdr         Issue remarks
+  --no_warnings,-pdw           Suppress warnings
+  --quiet,-q                   Quiet Mode
+  --set_error_limit,-pdel=count
+                               Set error limit to <count>
+  --super_quiet,-qq            Super Quiet Mode
+  --tool_version,-version      Print version numbers for each tool
+  --verbose                    Display banner and function progress information
+  --verbose_diagnostics,-pdv   Verbose diagnostics
+  --write_diagnostics_file,-pdf
+                               Output diagnostic to .err file
+
+Runtime Model Options:
+  --align_structs=bytecount    Force alignment of structures to <bytecount>
+                                bytes
+  --common=on,off              Use ELF common symbols
+  --disable_branch_chaining    Prevent generation of branch chains in Thumb
+                                mode
+  --disable_dual_state,-md     No dual state support
+  --embedded_constants=on,off  Specify whether constants can be embedded in
+                                code sections (when not specified, compiler
+                                defaults to --embedded_constants=on)
+  --enum_type=unpacked,packed,int
+                               Designate enum type (Default is packed for EABI)
+                                (when not specified, compiler defaults to
+                                --enum_type=unpacked)
+  --fp_reassoc=on,off          Allow reassociation of FP arithmetic (when not
+                                specified, compiler defaults to
+                                --fp_reassoc=off)
+  --gen_func_subsections,-ms[=on,off]
+                               Place each function in a separate subsection
+                                (argument optional, defaults to: on)
+  --global_register,-r=r5,r6,r9
+                               Reserve as global register
+  --max_branch_chain,-ab=#     Specify length of maximum branch chain
+  -mt,--thumb_state            Enable 16 bit code
+  --neon                       Generates SIMD instructions targeting Neon
+  --plain_char=signed,unsigned Specify how to treat plain chars
+                                (signed/unsigned) (when not specified, compiler
+                                defaults to --plain_char=unsigned)
+  --profile:breakpt            Compile for breakpoint-based profiling
+  --profile:power              Compile for power profiling
+  --sat_reassoc=on,off         Allow reassociation of sat arithmetic (when not
+                                specified, compiler defaults to
+                                --sat_reassoc=off)
+  --signed_chars,-mc           Chars signed by default
+  --small_enum,--small-enum    Enums may be char/short, instead of int
+  --stack_overflow_check,-mo   Enable dynamic stack overflow checking
+  --unaligned_access=on,off    Generate unaligned loads and stores (when not
+                                specified, compiler defaults to
+                                --unaligned_access=off)
+  --use_dead_funcs_list[=fname]
+                               Use linker-generated file to remove dead
+                                functions
+  --wchar_t=16,32              Set the size (in bits) of the C/C++ type wchar_t
+                                (16,32) (when not specified, compiler defaults
+                                to --wchar_t=16)
+
+Advanced Optimizations Options:
+  --auto_inline,-oi[=size]     Specify threshold for automatic inlining
+  --call_assumptions,-op=0-3   Specify call assumptions when optimizing
+  --gen_opt_info,-on=0-2       Generate optimizer information file at level
+                                [0-2]
+  --opt_for_cache              Optimize for instruction cache
+  --optimizer_interlist,-os    Generate optimized source interlisted assembly
+  --remove_hooks_when_inlining Remove entry/exit hooks from inlined functions
+  --single_inline              Inline functions only called once.
+  --aliased_variables,-ma      Assume called funcs create hidden aliases (rare)
+
+Entry/Exit Hook Options:
+  --entry_hook[=hook_function_name]
+                               Insert this call at entry to each function
+                                (argument optional, defaults to: __entry_hook)
+  --entry_parm=name,address,none
+                               Pass caller's name or address to entry hook
+  --exit_hook[=hook_function_name]
+                               Insert this call at exit from each function
+                                (argument optional, defaults to: __exit_hook)
+  --exit_parm=name,address,none
+                               Pass caller's name or address to exit hook
+
+Library Function Assumptions Options:
+  --printf_support=nofloat,minimal,full
+                               Level of printf/scanf support required
+  --std_lib_func_defined,-ol1  File contains an RTS library function.
+  --std_lib_func_not_defined,-ol2
+                               File does not define any RTS library func (def.)
+  --std_lib_func_redefined,-ol0
+                               File redefines an RTS library function.
+
+Assembler Options:
+  -k,--keep_asm                Keep the generated assembly language (.asm) file
+  --asm_listing,-al            Generate listing file
+  --c_src_interlist,-ss        Generate C source interlisted assembly file
+  --src_interlist,-s           Generate interlisted assembly file
+  --absolute_listing,-aa       Generate absolute listing file
+  --asm_define,-ad=NAME[=value]
+                               Pre-define assembly symbol NAME
+  --asm_dependency,-apd[=filename]
+                               Generate assembly dependency information
+  --asm_includes,-api          Generate first-level assembly include file list
+  --asm_undefine,-au=NAME      Undefine assembly symbol NAME
+  --copy_file,-ahc=filename    Simulate source '.copy filename'
+  --cross_reference,-ax        Generate cross reference file
+  --include_file,-ahi=filename Simulate source '.include filename'
+  --no_const_clink             Do not generate .clink for .const sections
+  --output_all_syms,-as        Keep local symbols in output file
+  --syms_ignore_case,-ac       Symbol names are not case-significant
+  --ual                        Use unified assembly language
+
+File Type Specifier Options:
+  --asm_file,-fa=filename      File is an assembly file (default for .asm)
+  --c_file,-fc=filename        File is a C file (default for .c/no ext)
+  --cpp_file,-fp=filename      File is a C++ file (default for .C .cpp .cc)
+  --obj_file,-fo=filename      File is an object file (default for .obj)
+
+Directory Specifier Options:
+  --abs_directory,-fb=dir      Absolute listing directory (default is .obj dir)
+  --asm_directory,-fs=dir      Assembly file directory (default is .)
+  --list_directory,-ff=dir     Listing/xref file directory (default is .obj
+                                dir)
+  --obj_directory,-fr=dir      Object file directory (default is .)
+  --output_file,-fe=filename   Compilation output file name, can override
+                                --obj_directory
+  --pp_directory=dir           Preprocessor file directory (default is .)
+  --temp_directory,-ft=dir     Temporary file directory (default is .)
+
+Default File Extensions Options:
+  --asm_extension,-ea=.ext     Extension for assembly files (default is .asm)
+  --c_extension,-ec=.ext       Extension for C files (default is .c)
+  --cpp_extension,-ep=.ext     Extension for C++ files (default is .cpp)
+  --listing_extension,-es=.ext Extension for listing files (default is .lst)
+  --obj_extension,-eo=.ext     Extension for object files (default is .obj)
+
+Command Files Options:
+  --cmd_file,-@=filename       Read options from specified file 
+
+The following Linker options can be specified following the -z
+option.  Linking is only enabled if -z is used and -c is not:
+
+Basic Options:
+  -m,--map_file=file           Input and output sections listed into <file>
+  -o,--output_file=file        Specify output file name
+  --heap_size,-heap,--heap=size
+                               Heap size for C/C++ dynamic memory allocation
+  --stack_size,-stack,--stack=size
+                               Set C system stack size
+
+File Search Path Options:
+  -l,--library=file            Include library file or command file as input
+  -i,--search_path=dir         Add <dir> to library search path
+  --priority,-priority         Search libraries in priority order
+  --reread_libs,-x             Reread libraries; resolve backward references
+  --disable_auto_rts           Disable automatic RTS selection
+
+Command File Preprocessing Options:
+  --define=name=value          Pre-define preprocessor macro _name_ to _value_
+  --undefine=name              Undefine preprocessor macro _name_
+  --disable_pp                 Don't use C preprocessor for command files
+
+Diagnostics Options:
+  --diag_error=id              Treat diagnostic <id> as error
+  --diag_remark=id             Treat diagnostic <id> as remark
+  --diag_suppress=id           Suppress diagnostic <id>
+  --diag_warning=id            Treat diagnostic <id> as warning
+  --diag_wrap[=on,off]         Wrap diagnostic messages (argument optional,
+                                defaults to: on)
+  --display_error_number       Emit diagnostic identifier numbers
+  --emit_warnings_as_errors,-pdew
+                               Treat warnings as errors
+  --issue_remarks              Issue remarks
+  --no_demangle                Don't demangle symbol names in diagnostics
+  --no_warnings                Suppress warnings
+  --set_error_limit=count      Set error limit to <count>
+  --verbose_diagnostics        Verbose diagnostics
+  --warn_sections,-w           Warn if an unspecified output section is created
+
+Linker Output Options:
+  --absolute_exe,-a            Produce absolute executable object file
+                                (default)
+  --ecc:data_error=(address|symbol+offset),[page,]bitmask
+                               Introduce bit errors
+  --ecc:ecc_error=(address|symbol+offset),[page,]bitmask
+                               Introduce bit errors in ECC memory
+  --generate_dead_funcs_list[=fname]
+                               List removed dead functions into file
+  --mapfile_contents=attribute Display attribute settings in map file
+  --relocatable,-r             Produce a relocatable output module
+  --rom                        Create a ROM object
+  --run_abs,-abs               Produce absolute listing file
+  --xml_link_info,-xml_link_info=file
+                               Detailed link information data-base into <file>
+
+Symbol Management Options:
+  --entry_point,-e=symbol      Specify program entry point for the output
+                                module
+  --globalize=pattern          Do not localize symbols matching pattern
+  --hide=pattern               Hide symbols matching pattern
+  --localize=pattern           Make the symbols matching pattern local
+  --make_global,-g=symbol      Don't make global symbol static if -h is
+                                specified
+  --make_static,-h             Make all global symbols static
+  --no_sym_merge,-b            No type merging in symbolic debugging
+                                information
+  --no_symtable,-s             Strip symbol table and line number entries
+  --retain=sym_or_scn_spec     Specify symbols/sections to be retained by
+                                linker
+  --scan_libraries,-scanlibs   Scan libraries for duplicate symbol definitions
+  --undef_sym,-u=sym           Add <sym> to symbol table as an unresolved
+                                symbol
+  --unhide=pattern             Exclude symbols matching pattern from hiding
+
+Runtime Environment Options:
+  --arg_size,--args=size       Set C argc/argv memory size
+  --be32                       Link big-endian code in be-32 format
+  --be8                        Link big-endian code in be-8 format
+  --fill_value,-f=value        Default fill value for holes in output sections
+  --ram_model,-cr              Link using RAM autoinitialization model
+  --rom_model,-c               Link using ROM autoinitialization model
+  --trampolines[=on,off]       Generate far call trampolines (argument
+                                optional, defaults to: on)
+
+Linktime Optimization Options:
+  --cinit_compression[=compression_kind]
+                               Compress ELF C style auto initialization data
+                                (argument optional, defaults to: rle)
+  --compress_dwarf[=on,off]    Aggressively reduce size of the DWARF
+                                information (argument optional, defaults to:
+                                on)
+  --copy_compression[=compression_kind]
+                               Compress ELF sections copied using copy tables
+                                (argument optional, defaults to: rle)
+  --unused_section_elimination[=on,off]
+                               Eliminate sections not needed in the executable
+                                (argument optional, defaults to: on)
+
+Miscellaneous Options:
+  --disable_clink,-j           Disable conditional linking & ignore .clink
+  --linker_help,-help,--help   Display usage information
+  --minimize_trampolines[=postorder,off]
+                               Select trampoline minimization algorithm
+                                (argument optional, defaults to: postorder)
+  --preferred_order=function   Add <function> to preferred placement order list
+  --strict_compatibility[=on,off]
+                               Strict compatibility checking (argument
+                                optional, defaults to: on)
+  --trampoline_min_spacing=size
+                               Minimum space between non-adjacent trampolines
+  --zero_init[=on,off]         Zero initialize ELF uninitialized sections
+                                (argument optional, defaults to: on)
+

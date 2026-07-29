@@ -1,4 +1,5 @@
 #include "CAN_Properties.h"
+#include <stdbool.h>
 
 // Generate ID with bits mask
 
@@ -176,7 +177,7 @@ void Process_CAN_RX(ubyte1 group_idx)
             if (g_groups[group_idx].can.frame_CMD.length == 8U)
             {
                 Unpack_CMD(g_groups[group_idx].can.frame_CMD.data,
-                           &g_groups[group_idx].cmd);
+                           &g_groups[group_idx].current_cmd);
             }
         }
     }
@@ -199,4 +200,67 @@ void Process_CAN_TX(ubyte1 group_idx)
               g_groups[group_idx].can.frame_DIAG.data);
     IO_CAN_WriteMsg(g_groups[group_idx].can.handle_DIAG,
                     &g_groups[group_idx].can.frame_DIAG);
+}
+
+/**
+ * @brief Updates old configuration with new values from CAN message.
+ *
+ * Copies all config and value fields from cmd (new) to old_cmd
+ * for the specified group.
+ *
+ * @param group_idx Group index (0..23)
+ */
+
+void Update_Old_CMD_Values(ubyte1 group_idx)
+{
+    if (group_idx >= NUM_GROUPS)
+        return;
+
+    // Copy all 4 config fields
+
+    g_groups[group_idx].old_cmd.config_Pin0 =
+            g_groups[group_idx].current_cmd.config_Pin0;
+    g_groups[group_idx].old_cmd.config_Pin1 =
+            g_groups[group_idx].current_cmd.config_Pin1;
+    g_groups[group_idx].old_cmd.config_Pin2 =
+            g_groups[group_idx].current_cmd.config_Pin2;
+    g_groups[group_idx].old_cmd.config_Pin3 =
+            g_groups[group_idx].current_cmd.config_Pin3;
+
+    // Copy all 4 value fields
+
+    g_groups[group_idx].old_cmd.value_Pin0 =
+            g_groups[group_idx].current_cmd.value_Pin0;
+    g_groups[group_idx].old_cmd.value_Pin1 =
+            g_groups[group_idx].current_cmd.value_Pin1;
+    g_groups[group_idx].old_cmd.value_Pin2 =
+            g_groups[group_idx].current_cmd.value_Pin2;
+    g_groups[group_idx].old_cmd.value_Pin3 =
+            g_groups[group_idx].current_cmd.value_Pin3;
+}
+
+/**
+ * @brief Compare old and current configs for this pin.
+ *
+ * @param group_idx index group (0..23)
+ * @param pin_idx   index pin internal group (0..3)
+ * @return true     if config this pin changed
+ * @return false    else not changed
+ */
+
+bool Compare_Confs(ubyte1 group_idx, ubyte1 pin_idx) {
+
+    // 1. Protection against going beyond the boundaries
+
+    if (group_idx >= NUM_GROUPS || pin_idx >= 4) {
+        return false;
+    }
+
+    // 2. Get pointers to a specific pin (0..3) in both structures.
+
+    ubyte1* curr_cfg = &g_groups[group_idx].current_cmd.config_Pin0 + pin_idx;
+    ubyte1* old_cfg  = &g_groups[group_idx].old_cmd.config_Pin0 + pin_idx;
+
+    // 3. Compare.
+    return (*curr_cfg != *old_cfg);
 }

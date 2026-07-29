@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v5.1.6                      
 ******************************************************************************
->> Linked Wed Jul 29 10:59:39 2026
+>> Linked Wed Jul 29 14:37:11 2026
 
 OUTPUT FILE NAME:   <build/app.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000bf080
@@ -3262,14 +3262,18 @@ Run/Load
 Value     Binding   Name (Section)
 --------  --------  ---------------
 00000040  local     $C$L1 (.text:Init_CAN_Channels)
+00000114  local     $C$L10 (.text:Update_Old_CMD_Values)
+00000010  local     $C$L11 (.text:Compare_Confs)
+00000020  local     $C$L12 (.text:Compare_Confs)
+0000005c  local     $C$L13 (.text:Compare_Confs)
 00000060  local     $C$L2 (.text:Init_CAN_Channels)
 00000030  local     $C$L3 (.text:Init_CAN_Group)
-000001b8  local     $C$L4 (.text:Init_CAN_Group)
+00000140  local     $C$L4 (.text:Init_CAN_Group)
 00000020  local     $C$L5 (.text:Init_CAN_System_All)
 00000040  local     $C$L6 (.text:Init_CAN_System_All)
 00000044  local     $C$L7 (.text:Init_CAN_System_All)
-000000b4  local     $C$L8 (.text:Process_CAN_RX)
-000000bc  local     $C$L9 (.text:Process_CAN_TX)
+0000008c  local     $C$L8 (.text:Process_CAN_RX)
+00000088  local     $C$L9 (.text:Process_CAN_TX)
 00000000  local     $a (.text:Generate_Group_IDs)
 00000000  local     $a (.text:Init_CAN_Frame_Defaults)
 00000000  local     $a (.text:Unpack_CMD)
@@ -3280,8 +3284,11 @@ Value     Binding   Name (Section)
 00000000  local     $a (.text:Init_CAN_System_All)
 00000000  local     $a (.text:Process_CAN_RX)
 00000000  local     $a (.text:Process_CAN_TX)
+00000000  local     $a (.text:Update_Old_CMD_Values)
+00000000  local     $a (.text:Compare_Confs)
 00000000  local     .bss:g_groups (.bss:g_groups)
 00000000  local     .text (.text)
+00000000  local     .text:Compare_Confs (.text:Compare_Confs)
 00000000  local     .text:Generate_Group_IDs (.text:Generate_Group_IDs)
 00000000  local     .text:Init_CAN_Channels (.text:Init_CAN_Channels)
 00000000  local     .text:Init_CAN_Frame_Defaults (.text:Init_CAN_Frame_Defaults)
@@ -3292,6 +3299,8 @@ Value     Binding   Name (Section)
 00000000  local     .text:Process_CAN_RX (.text:Process_CAN_RX)
 00000000  local     .text:Process_CAN_TX (.text:Process_CAN_TX)
 00000000  local     .text:Unpack_CMD (.text:Unpack_CMD)
+00000000  local     .text:Update_Old_CMD_Values (.text:Update_Old_CMD_Values)
+00000000  global    Compare_Confs (.text:Compare_Confs)
 00000000  global    Generate_Group_IDs (.text:Generate_Group_IDs)
 00000000  global    Init_CAN_Channels (.text:Init_CAN_Channels)
 00000000  global    Init_CAN_Frame_Defaults (.text:Init_CAN_Frame_Defaults)
@@ -3302,6 +3311,7 @@ Value     Binding   Name (Section)
 00000000  global    Process_CAN_RX (.text:Process_CAN_RX)
 00000000  global    Process_CAN_TX (.text:Process_CAN_TX)
 00000000  global    Unpack_CMD (.text:Unpack_CMD)
+00000000  global    Update_Old_CMD_Values (.text:Update_Old_CMD_Values)
 00000000  global    g_groups (.bss:g_groups)
 
 

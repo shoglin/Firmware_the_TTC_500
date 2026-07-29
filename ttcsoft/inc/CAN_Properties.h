@@ -4,6 +4,8 @@
 #include "IO_Driver.h"
 #include "IO_CAN.h"
 
+#include <stdbool.h>
+
 // 1. Constant
 
 #define NUM_GROUPS 24U  // 24 groups
@@ -52,7 +54,8 @@ typedef struct
 typedef struct
 {
     CAN_Msg_Props can;
-    CMD_Values cmd;
+    CMD_Values old_cmd;           // new massage
+    CMD_Values current_cmd;    // current massage
     FB_Values fb;
     DIAG_Values diag;
 } GroupData_t;
@@ -103,5 +106,27 @@ extern void Process_CAN_RX(ubyte1 group_idx);
 // Write massage method
 
 extern void Process_CAN_TX(ubyte1 group_idx);
+
+/**
+ * @brief Updates old configuration with new values from CAN message.
+ *
+ * Copies all config and value fields from cmd (new) to old_cmd
+ * for the specified group.
+ *
+ * @param group_idx Group index (0..23)
+ */
+
+extern void Update_Old_CMD_Values(ubyte1 group_idx);
+
+/**
+ * @brief Compare old and current configs for this pin.
+ *
+ * @param group_idx index group (0..23)
+ * @param pin_idx   index pin internal group (0..3)
+ * @return true     if config this pin changed
+ * @return false    else not changed
+ */
+
+extern bool Compare_Confs(ubyte1 group_idx, ubyte1 pin_idx);
 
 #endif                                 /* CAN_Properties_h_ */
