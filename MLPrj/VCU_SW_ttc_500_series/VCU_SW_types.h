@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'VCU_SW'.
  *
- * Model version                  : 2.437
+ * Model version                  : 2.3
  * Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
- * C/C++ source code generated on : Mon Jul  6 11:47:51 2026
+ * C/C++ source code generated on : Tue Jul 14 11:26:00 2026
  *
  * Target selection: ttc_500_series.tlc
  * Embedded hardware selection: Texas Instruments->TMS570 Cortex-R4
@@ -17,7 +17,6 @@
 #define RTW_HEADER_VCU_SW_types_h_
 #include "rtwtypes.h"
 #include "swcAppEnumTypes.h"
-#include "DIAG_Constants.h"
 
 /* Model Code Variants */
 #ifndef DEFINED_TYPEDEF_FOR_CAN_MESSAGE_BUS_

@@ -45,6 +45,15 @@ BO_ 2566848762 Pin101_Pin104_CMD: 8 Vector__XXX
 
 BO_ 2566848551 Pin101_Pin104_FB: 8 Vector__XXX
  SG_ Pin101_FB : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ Pin102_FB : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ Pin103_FB : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ Pin104_FB : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 2566869031 Pin101_Pin104_Diag: 8 Vector__XXX
+ SG_ Pin101_err : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Pin102_err : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Pin103_err : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Pin104_err : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
 
 
