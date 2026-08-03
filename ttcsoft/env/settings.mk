@@ -84,7 +84,7 @@ LINK_CMDFILE_BL = $(BSP_DIR)/mem_ttc500_bl.lsf
 
 # path with C compiler
 ifndef C_COMP_PATH
-    C_COMP_PATH = C:\ti\ccs1210\ccs\tools\compiler\arm_5.1.6\bin
+    C_COMP_PATH = C:\ti\ccs1220\ccs\tools\compiler\arm_5.1.6\bin
 endif
 
 # path for the nowECC tool

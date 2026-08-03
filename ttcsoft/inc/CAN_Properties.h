@@ -3,45 +3,28 @@
 
 #include "IO_Driver.h"
 #include "IO_CAN.h"
-
 #include <stdbool.h>
 
-// 1. Constant
+// 1. Constants
 
 #define NUM_GROUPS 24U  // 24 groups
 
 // 2. Data structures
 
-typedef struct
-{
-    ubyte1 config_Pin0;
-    ubyte1 value_Pin0;
-    ubyte1 config_Pin1;
-    ubyte1 value_Pin1;
-    ubyte1 config_Pin2;
-    ubyte1 value_Pin2;
-    ubyte1 config_Pin3;
-    ubyte1 value_Pin3;
+typedef struct {
+    ubyte1 config[4];
+    ubyte1 value[4];
 } CMD_Values;
 
-typedef struct
-{
-    ubyte2 val_Pin0;
-    ubyte2 val_Pin1;
-    ubyte2 val_Pin2;
-    ubyte2 val_Pin3;
+typedef struct {
+    ubyte2 val[4];
 } FB_Values;
 
-typedef struct
-{
-    ubyte2 val_Pin0;
-    ubyte2 val_Pin1;
-    ubyte2 val_Pin2;
-    ubyte2 val_Pin3;
+typedef struct {
+    ubyte2 val[4];
 } DIAG_Values;
 
-typedef struct
-{
+typedef struct {
     ubyte2 handle_CMD;
     ubyte2 handle_FB;
     ubyte2 handle_DIAG;
@@ -51,27 +34,27 @@ typedef struct
     IO_CAN_DATA_FRAME frame_DIAG;
 } CAN_Msg_Props;
 
-typedef struct
-{
+typedef struct {
     CAN_Msg_Props can;
-    CMD_Values old_cmd;           // new massage
-    CMD_Values current_cmd;    // current massage
+    CMD_Values old_cmd;        // Previously applied configuration
+    CMD_Values current_cmd;    // Newly received configuration
     FB_Values fb;
     DIAG_Values diag;
 } GroupData_t;
 
 // Global array of all 24 groups
-GroupData_t g_groups[NUM_GROUPS];
+
+extern GroupData_t g_groups[NUM_GROUPS];
 
 // Generate ID with bits mask
 
-extern void Generate_Group_IDs(ubyte1 index, ubyte4 *ptr_CMD, ubyte4 *ptr_FB,
-                               ubyte4 *ptr_DIAG);
+extern void Generate_Group_IDs(ubyte1 index, ubyte4 *ptr_CMD, ubyte4 *ptr_FB, ubyte4 *ptr_DIAG);
 
 // Settings messages by default
 
 extern void Init_CAN_Frame_Defaults(IO_CAN_DATA_FRAME *frame, ubyte4 id);
-// Functions for pack and unpack massages
+
+// Functions for pack and unpack messages
 
 extern void Unpack_CMD(const ubyte1 *can_data, CMD_Values *cmd);
 
@@ -79,54 +62,46 @@ extern void Pack_FB(const FB_Values *fb, ubyte1 *can_data);
 
 extern void Pack_DIAG(const DIAG_Values *diag, ubyte1 *can_data);
 
-// MAY BE DELETED??7 YOU SHOULD TO SEE ERTMAIN.C AND THINKING!!!!!!!!!!
+// Setters and getters (extern inline to prevent multiple definition errors)
 
-/*
- * Initialization of physical CAN channels.
- * Called ONCE at system startup.
+/**
+ * @brief Gets the configuration of a specific pin from the CMD structure.
  */
-IO_ErrorType Init_CAN_Channels(void);
-/*
- * Initialization of ONE specific group.
- * Called for each group separately.
- * @param group_idx Group index (0 .. NUM_GROUPS-1)
+
+extern inline ubyte1 Get_Pin_Config(const CMD_Values *cmd, ubyte1 pin_idx);
+
+/**
+ * @brief Gets the value of a specific pin from the CMD structure.
  */
+
+extern inline ubyte1 Get_Pin_Value(const CMD_Values *cmd, ubyte1 pin_idx);
+
+/**
+ * @brief Sets the value for the feedback (FB) of a specific pin.
+ */
+
+extern inline void Set_Pin_FB(FB_Values *fb, ubyte1 pin_idx, ubyte2 value);
+
+// Initialization functions
+
+extern IO_ErrorType Init_CAN_Channels(void);
 
 extern IO_ErrorType Init_CAN_Group(ubyte1 group_idx);
 
-/*
- * CONVENIENT WRAPPER: Initialization of the ENTIRE system at once.
- * If you don't need step-by-step initialization, just call this function.
- */
-IO_ErrorType Init_CAN_System_All(void);
+extern IO_ErrorType Init_CAN_System_All(void);
 
-// Read massage method
+// Read/Write message methods
 
 extern void Process_CAN_RX(ubyte1 group_idx);
-// Write massage method
 
 extern void Process_CAN_TX(ubyte1 group_idx);
 
-/**
- * @brief Updates old configuration with new values from CAN message.
- *
- * Copies all config and value fields from cmd (new) to old_cmd
- * for the specified group.
- *
- * @param group_idx Group index (0..23)
- */
+// Update old configuration with new values
 
 extern void Update_Old_CMD_Values(ubyte1 group_idx);
 
-/**
- * @brief Compare old and current configs for this pin.
- *
- * @param group_idx index group (0..23)
- * @param pin_idx   index pin internal group (0..3)
- * @return true     if config this pin changed
- * @return false    else not changed
- */
+// Compare old and current configs for this pin
 
 extern bool Compare_Confs(ubyte1 group_idx, ubyte1 pin_idx);
 
-#endif                                 /* CAN_Properties_h_ */
+#endif /* CAN_Properties_h_ */

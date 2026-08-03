@@ -1,10 +1,14 @@
 #include "CAN_Properties.h"
 #include <stdbool.h>
 
-// Generate ID with bits mask
+// Global array definition
+
+GroupData_t g_groups[NUM_GROUPS];
+
+// 1. ID Generation & Frame Defaults
 
 void Generate_Group_IDs(ubyte1 index, ubyte4 *ptr_CMD, ubyte4 *ptr_FB,
-                               ubyte4 *ptr_DIAG)
+                        ubyte4 *ptr_DIAG)
 {
     ubyte4 base_cmd = 0x18FF00FAU;
     ubyte4 base_fb = 0x18FF0027U;
@@ -16,8 +20,6 @@ void Generate_Group_IDs(ubyte1 index, ubyte4 *ptr_CMD, ubyte4 *ptr_FB,
     *ptr_DIAG = (base_diag & ~mask) | ((ubyte4) ((index * 2) + 1) << 8);
 }
 
-// Settings messages by default
-
 void Init_CAN_Frame_Defaults(IO_CAN_DATA_FRAME *frame, ubyte4 id)
 {
     frame->id = id;
@@ -25,75 +27,101 @@ void Init_CAN_Frame_Defaults(IO_CAN_DATA_FRAME *frame, ubyte4 id)
     frame->length = 8U;
 }
 
-// Functions for pack and unpack massages
+// 2. Pack and Unpack Functions
 
 void Unpack_CMD(const ubyte1 *can_data, CMD_Values *cmd)
 {
-    cmd->config_Pin0 = can_data[0] & 0x07U;
-    cmd->value_Pin0 = can_data[1];
-    cmd->config_Pin1 = can_data[2] & 0x07U;
-    cmd->value_Pin1 = can_data[3];
-    cmd->config_Pin2 = can_data[4] & 0x07U;
-    cmd->value_Pin2 = can_data[5];
-    cmd->config_Pin3 = can_data[6] & 0x07U;
-    cmd->value_Pin3 = can_data[7];
+
+    ubyte1 pin_idx;
+
+    for (pin_idx = 0U; pin_idx < 4U; pin_idx++)
+    {
+        ubyte1 offset = pin_idx * 2U;
+        cmd->config[pin_idx] = can_data[offset] & 0x07U;
+        cmd->value[pin_idx] = can_data[offset + 1U];
+    }
 }
 
 void Pack_FB(const FB_Values *fb, ubyte1 *can_data)
 {
-    can_data[0] = (ubyte1) (fb->val_Pin0 & 0xFFU);
-    can_data[1] = (ubyte1) ((fb->val_Pin0 >> 8) & 0xFFU);
-    can_data[2] = (ubyte1) (fb->val_Pin1 & 0xFFU);
-    can_data[3] = (ubyte1) ((fb->val_Pin1 >> 8) & 0xFFU);
-    can_data[4] = (ubyte1) (fb->val_Pin2 & 0xFFU);
-    can_data[5] = (ubyte1) ((fb->val_Pin2 >> 8) & 0xFFU);
-    can_data[6] = (ubyte1) (fb->val_Pin3 & 0xFFU);
-    can_data[7] = (ubyte1) ((fb->val_Pin3 >> 8) & 0xFFU);
+
+    ubyte1 pin_idx;
+
+    for (pin_idx = 0U; pin_idx < 4U; pin_idx++)
+    {
+        ubyte1 offset = pin_idx * 2U;
+        can_data[offset] = (ubyte1) (fb->val[pin_idx] & 0xFFU);
+        can_data[offset + 1U] = (ubyte1) ((fb->val[pin_idx] >> 8U) & 0xFFU);
+    }
 }
 
 void Pack_DIAG(const DIAG_Values *diag, ubyte1 *can_data)
 {
-    can_data[0] = (ubyte1) (diag->val_Pin0 & 0xFFU);
-    can_data[1] = (ubyte1) ((diag->val_Pin0 >> 8) & 0xFFU);
-    can_data[2] = (ubyte1) (diag->val_Pin1 & 0xFFU);
-    can_data[3] = (ubyte1) ((diag->val_Pin1 >> 8) & 0xFFU);
-    can_data[4] = (ubyte1) (diag->val_Pin2 & 0xFFU);
-    can_data[5] = (ubyte1) ((diag->val_Pin2 >> 8) & 0xFFU);
-    can_data[6] = (ubyte1) (diag->val_Pin3 & 0xFFU);
-    can_data[7] = (ubyte1) ((diag->val_Pin3 >> 8) & 0xFFU);
+
+    ubyte1 pin_idx;
+
+    for (pin_idx = 0U; pin_idx < 4U; pin_idx++)
+    {
+        ubyte1 offset = pin_idx * 2U;
+        can_data[offset] = (ubyte1) (diag->val[pin_idx] & 0xFFU);
+        can_data[offset + 1U] = (ubyte1) ((diag->val[pin_idx] >> 8U) & 0xFFU);
+    }
 }
 
-// MAY BE DELETED??7 YOU SHOULD TO SEE ERTMAIN.C AND THINKING!!!!!!!!!!
+// Setters and getters (static inline to prevent multiple definition errors)
 
-/*
- * Initialization of physical CAN channels.
- * Called ONCE at system startup.
+/**
+ * @brief Gets the configuration of a specific pin from the CMD structure.
  */
+
+inline ubyte1 Get_Pin_Config(const CMD_Values *cmd, ubyte1 pin_idx) {
+    if (pin_idx < 4U) {
+        return cmd->config[pin_idx];
+    }
+    return 0U;
+}
+
+/**
+ * @brief Gets the value of a specific pin from the CMD structure.
+ */
+
+inline ubyte1 Get_Pin_Value(const CMD_Values *cmd, ubyte1 pin_idx) {
+    if (pin_idx < 4U) {
+        return cmd->value[pin_idx];
+    }
+    return 0U;
+}
+
+/**
+ * @brief Sets the value for the feedback (FB) of a specific pin.
+ */
+
+inline void Set_Pin_FB(FB_Values *fb, ubyte1 pin_idx, ubyte2 value) {
+    if (pin_idx < 4U) {
+        fb->val[pin_idx] = value;
+    }
+}
+
+// 3. CAN Initialization
+
 IO_ErrorType Init_CAN_Channels(void)
 {
-    IO_ErrorType err;
+    ubyte2 err;
 
     // Channel 0: RX (CMD) + TX (FB)
-    IO_CAN_Init(IO_CAN_CHANNEL_0, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
+    err = IO_CAN_Init(IO_CAN_CHANNEL_0, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
     if (err != IO_E_OK)
         return err;
 
     // Channel 1: TX (DIAG)
-    IO_CAN_Init(IO_CAN_CHANNEL_1, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
+    err = IO_CAN_Init(IO_CAN_CHANNEL_1, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
     return err;
 }
 
-/*
- * Initialization of ONE specific group.
- * Called for each group separately.
- * @param group_idx Group index (0 .. NUM_GROUPS-1)
- */
-
 IO_ErrorType Init_CAN_Group(ubyte1 group_idx)
 {
-    IO_ErrorType err;
+    ubyte2 err;
 
-    // Protection against array out of bounds
     if (group_idx >= NUM_GROUPS)
     {
         return IO_E_INVALID_PARAMETER;
@@ -139,10 +167,6 @@ IO_ErrorType Init_CAN_Group(ubyte1 group_idx)
     return err;
 }
 
-/*
- * CONVENIENT WRAPPER: Initialization of the ENTIRE system at once.
- * If you don't need step-by-step initialization, just call this function.
- */
 IO_ErrorType Init_CAN_System_All(void)
 {
     IO_ErrorType err = Init_CAN_Channels();
@@ -160,7 +184,7 @@ IO_ErrorType Init_CAN_System_All(void)
     return IO_E_OK;
 }
 
-// Read massage method
+// 4. Read / Write Message Methods
 
 void Process_CAN_RX(ubyte1 group_idx)
 {
@@ -169,11 +193,9 @@ void Process_CAN_RX(ubyte1 group_idx)
 
     if (IO_CAN_MsgStatus(g_groups[group_idx].can.handle_CMD) == IO_E_OK)
     {
-        // Read DIRECTLY into the global template (without local variables)
         if (IO_CAN_ReadMsg(g_groups[group_idx].can.handle_CMD,
                            &g_groups[group_idx].can.frame_CMD) == IO_E_OK)
         {
-
             if (g_groups[group_idx].can.frame_CMD.length == 8U)
             {
                 Unpack_CMD(g_groups[group_idx].can.frame_CMD.data,
@@ -182,8 +204,6 @@ void Process_CAN_RX(ubyte1 group_idx)
         }
     }
 }
-
-// Write massage method
 
 void Process_CAN_TX(ubyte1 group_idx)
 {
@@ -202,65 +222,39 @@ void Process_CAN_TX(ubyte1 group_idx)
                     &g_groups[group_idx].can.frame_DIAG);
 }
 
+// 5. Configuration Management
+
 /**
  * @brief Updates old configuration with new values from CAN message.
- *
- * Copies all config and value fields from cmd (new) to old_cmd
- * for the specified group.
- *
- * @param group_idx Group index (0..23)
  */
-
 void Update_Old_CMD_Values(ubyte1 group_idx)
 {
     if (group_idx >= NUM_GROUPS)
         return;
 
-    // Copy all 4 config fields
+    ubyte1 i;
 
-    g_groups[group_idx].old_cmd.config_Pin0 =
-            g_groups[group_idx].current_cmd.config_Pin0;
-    g_groups[group_idx].old_cmd.config_Pin1 =
-            g_groups[group_idx].current_cmd.config_Pin1;
-    g_groups[group_idx].old_cmd.config_Pin2 =
-            g_groups[group_idx].current_cmd.config_Pin2;
-    g_groups[group_idx].old_cmd.config_Pin3 =
-            g_groups[group_idx].current_cmd.config_Pin3;
-
-    // Copy all 4 value fields
-
-    g_groups[group_idx].old_cmd.value_Pin0 =
-            g_groups[group_idx].current_cmd.value_Pin0;
-    g_groups[group_idx].old_cmd.value_Pin1 =
-            g_groups[group_idx].current_cmd.value_Pin1;
-    g_groups[group_idx].old_cmd.value_Pin2 =
-            g_groups[group_idx].current_cmd.value_Pin2;
-    g_groups[group_idx].old_cmd.value_Pin3 =
-            g_groups[group_idx].current_cmd.value_Pin3;
+    for (i = 0; i < 4; i++)
+    {
+        g_groups[group_idx].old_cmd.config[i] =
+                g_groups[group_idx].current_cmd.config[i];
+        g_groups[group_idx].old_cmd.value[i] =
+                g_groups[group_idx].current_cmd.value[i];
+    }
 }
 
 /**
  * @brief Compare old and current configs for this pin.
- *
- * @param group_idx index group (0..23)
- * @param pin_idx   index pin internal group (0..3)
- * @return true     if config this pin changed
- * @return false    else not changed
  */
-
-bool Compare_Confs(ubyte1 group_idx, ubyte1 pin_idx) {
-
-    // 1. Protection against going beyond the boundaries
-
-    if (group_idx >= NUM_GROUPS || pin_idx >= 4) {
-        return false;
+bool Compare_Confs(ubyte1 group_idx, ubyte1 pin_idx)
+{
+    if (group_idx >= NUM_GROUPS || pin_idx >= 4)
+    {
+        return FALSE;
     }
 
-    // 2. Get pointers to a specific pin (0..3) in both structures.
+    ubyte1 curr_cfg = Get_Pin_Config(&g_groups[group_idx].current_cmd, pin_idx);
+    ubyte1 old_cfg = Get_Pin_Config(&g_groups[group_idx].old_cmd, pin_idx);
 
-    ubyte1* curr_cfg = &g_groups[group_idx].current_cmd.config_Pin0 + pin_idx;
-    ubyte1* old_cfg  = &g_groups[group_idx].old_cmd.config_Pin0 + pin_idx;
-
-    // 3. Compare.
-    return (*curr_cfg != *old_cfg);
+    return (curr_cfg != old_cfg);
 }
