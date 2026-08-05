@@ -114,44 +114,31 @@ void task (void)
 // Main function
 void main(void)
 {
-  // Global Initialization of IO drivers
-  IO_Driver_Init(&c_driver_safety_conf);
 
-  // Enable powerstages
-  IO_POWER_Set (IO_INT_POWERSTAGE_ENABLE, IO_POWER_ON);
+    // Channel 0: RX (CMD) + TX (FB)
+    IO_CAN_Init(IO_CAN_CHANNEL_0, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
 
-  // Enable 0 safety switch for shut off group ¹ 0
-  IO_POWER_Set (IO_INT_SAFETY_SW_0, IO_POWER_ON);
+    // Channel 1: TX (DIAG)
+    IO_CAN_Init(IO_CAN_CHANNEL_1, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
 
-  // Enable 1 safety switch for shut off group ¹ 1
-  IO_POWER_Set (IO_INT_SAFETY_SW_1, IO_POWER_ON);
+    // Other channels (optional)
 
-  // Enable 2 safety switch for shut off group ¹ 2
-  IO_POWER_Set (IO_INT_SAFETY_SW_2, IO_POWER_ON);
+    // Initialization of CAN driver for IO_CAN_CHANNEL_2
+    IO_CAN_Init(IO_CAN_CHANNEL_2, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
 
-  // Initialize external RTC device
-  IO_RTC_InitDateAndTime();
+    // Initialization of CAN driver for IO_CAN_CHANNEL_3
+    IO_CAN_Init(IO_CAN_CHANNEL_3, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
 
-  // Initialization of CAN driver for IO_CAN_CHANNEL_0
-  IO_CAN_Init(IO_CAN_CHANNEL_0, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
+    // Initialization of CAN driver for IO_CAN_CHANNEL_4
+    IO_CAN_Init(IO_CAN_CHANNEL_4, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
 
-  // Initialization of CAN driver for IO_CAN_CHANNEL_1
-  IO_CAN_Init(IO_CAN_CHANNEL_1, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
+    // Initialization of CAN driver for IO_CAN_CHANNEL_5
+    IO_CAN_Init(IO_CAN_CHANNEL_5, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
 
-  // Initialization of CAN driver for IO_CAN_CHANNEL_2
-  IO_CAN_Init(IO_CAN_CHANNEL_2, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
+    // Initialization of CAN driver for IO_CAN_CHANNEL_6
+    IO_CAN_Init(IO_CAN_CHANNEL_6, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
 
-  // Initialization of CAN driver for IO_CAN_CHANNEL_3
-  IO_CAN_Init(IO_CAN_CHANNEL_3, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-  // Initialization of CAN driver for IO_CAN_CHANNEL_4
-  IO_CAN_Init(IO_CAN_CHANNEL_4, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-  // Initialization of CAN driver for IO_CAN_CHANNEL_5
-  IO_CAN_Init(IO_CAN_CHANNEL_5, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-  // Initialization of CAN driver for IO_CAN_CHANNEL_6
-  IO_CAN_Init(IO_CAN_CHANNEL_6, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
+  Pin_Properties();
 
   // Other initialization
   VCU_SW_initialize();

@@ -53,7 +53,7 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
 
         if (g_pin_configs[internal_pin].adc_cfg.input_type == IO_ADC_CURRENT)
         {
-            convAICurrenteData(adc_val, diag_value, &fb_value);
+            convAICurrentData(adc_val, diag_value, &fb_value);
         }
 
         if (g_pin_configs[internal_pin].adc_cfg.input_type == IO_ADC_RESISTIVE)
@@ -142,5 +142,5 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
 
     // Записываем результаты в структуры группы
     Set_Pin_FB(&g_groups[group_idx].fb, pin_idx, fb_value);
-    Set_Pin_Diag(&g_groups[group_idx].diag, pin_idx, diag_value);
+    Set_Pin_DIAG(&g_groups[group_idx].diag, pin_idx, diag_value);
 }

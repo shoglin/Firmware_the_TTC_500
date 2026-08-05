@@ -8,7 +8,7 @@
 #include "IO_PWM.h"
 #include "IO_VOUT.h"
 
-#define PINS 96
+#define PINS 96U
 
 /**
  *
@@ -811,6 +811,12 @@ typedef struct
 
 } PinConfigUnion_t;
 
+// Глобальный массив конфигураций для всех 96 пинов
+extern PinConfigUnion_t g_pin_configs[PINS];
+
+// Функция с настройками всех пинов для последующей инициализации
+extern void Pin_Properties(void);
+
 // Лимиты для DI (согласно IO_DIO_LIMITS из DIO.pdf)
 static const IO_DIO_LIMITS s_di_limits_default = { 0U, // Нижняя граница LOW
         3000U,   // Верхняя граница LOW (до 3В = 0)
@@ -852,8 +858,5 @@ static const IO_DO_SAFETY_CONF do_safety_conf = { IO_DO_08 };
 
 // Safety configuration for PWM inputs
 static const IO_PWM_SAFETY_CONF pwm_safety_conf = { TRUE, 7500, IO_PIN_NONE };
-
-// Глобальный массив конфигураций для всех 96 пинов
-extern PinConfigUnion_t g_pin_configs[PINS];
 
 #endif /* PIN_SETTINGS_h_ */

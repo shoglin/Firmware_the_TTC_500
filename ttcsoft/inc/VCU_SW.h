@@ -30,6 +30,8 @@
 /* Child system includes */
 #include "convRawData_private.h"
 #include "convRawData.h"
+#include "CAN_Properties.h"
+#include "Pin_Settings.h"
 
 #include "IO_PIN.h"
 #include "IO_POWER.h"
@@ -48,37 +50,13 @@
 #include "swcAppEnumTypes.h"
 #include "IO_CAN.h"
 
-/* Block signals (default storage) */               // Структуры скорее всего на удаление
-typedef struct {
-  CAN_MESSAGE_BUS CANPack_VLVCMD_HYD1; /* '<S7>/CANPack_VLVCMD_HYD1' */
-  CAN_MESSAGE_BUS msg_419365114;     /* '<S5>/read_message_Pin101_Pin104_CMD' */
-  CAN_MESSAGE_BUS CANPack_VLVCMD_HYD1_h;/* '<S2>/CANPack_VLVCMD_HYD1' */
-  ubyte2 di_104_error;
-  ubyte2 adc_104_error;  /* '<S7>/EngineAirFilterClogSens' */
-  ubyte2 DataStoreRead;                /* '<S2>/Data Store Read' */
-  ubyte1 CANUnpack_Pin101_Pin104_CMD_o1;/* '<S5>/CANUnpack_Pin101_Pin104_CMD' */
-  ubyte1 CANUnpack_Pin101_Pin104_CMD_o2;/* '<S5>/CANUnpack_Pin101_Pin104_CMD' */
-} B_VCU_SW_T;
 
-/* Block states (default storage) for system '<Root>' */
-typedef struct {
-  CANOutputStruct OutputNetworkData;   /* '<Root>/OutputNetworkDS' */
-  int_T CANPack_VLVCMD_HYD1_ModeSignalI;/* '<S7>/CANPack_VLVCMD_HYD1' */
-  int_T CANUnpack_Pin101_Pin104_CMD_Mod;/* '<S5>/CANUnpack_Pin101_Pin104_CMD' */
-  int_T CANUnpack_Pin101_Pin104_CMD_Sta;/* '<S5>/CANUnpack_Pin101_Pin104_CMD' */
-  int_T CANPack_VLVCMD_HYD1_ModeSigna_f;/* '<S2>/CANPack_VLVCMD_HYD1' */
-} DW_VCU_SW_T;
 
 /* Real-time Model Data Structure */
 struct tag_RTM_VCU_SW_T {
   const char_T *errorStatus;
 };
 
-/* Block signals (default storage) */
-extern B_VCU_SW_T VCU_SW_B;
-
-/* Block states (default storage) */
-extern DW_VCU_SW_T VCU_SW_DW;
 
 /* External data declarations for dependent source files */
 extern const float8 VCU_SW_RGND;       /* float8 ground */

@@ -68,13 +68,14 @@ void Pack_DIAG(const DIAG_Values *diag, ubyte1 *can_data)
     }
 }
 
+
 // Setters and getters (static inline to prevent multiple definition errors)
 
 /**
  * @brief Gets the configuration of a specific pin from the CMD structure.
  */
 
-inline ubyte1 Get_Pin_Config(const CMD_Values *cmd, ubyte1 pin_idx) {
+ubyte1 Get_Pin_Config(const CMD_Values *cmd, ubyte1 pin_idx) {
     if (pin_idx < 4U) {
         return cmd->config[pin_idx];
     }
@@ -85,7 +86,7 @@ inline ubyte1 Get_Pin_Config(const CMD_Values *cmd, ubyte1 pin_idx) {
  * @brief Gets the value of a specific pin from the CMD structure.
  */
 
-inline ubyte1 Get_Pin_Value(const CMD_Values *cmd, ubyte1 pin_idx) {
+ubyte1 Get_Pin_Value(const CMD_Values *cmd, ubyte1 pin_idx) {
     if (pin_idx < 4U) {
         return cmd->value[pin_idx];
     }
@@ -96,7 +97,7 @@ inline ubyte1 Get_Pin_Value(const CMD_Values *cmd, ubyte1 pin_idx) {
  * @brief Sets the value for the feedback (FB) of a specific pin.
  */
 
-inline void Set_Pin_FB(FB_Values *fb, ubyte1 pin_idx, ubyte2 value) {
+void Set_Pin_FB(FB_Values *fb, ubyte1 pin_idx, ubyte2 value) {
     if (pin_idx < 4U) {
         fb->val[pin_idx] = value;
     }
@@ -106,7 +107,7 @@ inline void Set_Pin_FB(FB_Values *fb, ubyte1 pin_idx, ubyte2 value) {
  * @brief Sets the value for the diagnostic (DIAG) of a specific pin.
  */
 
-inline void Set_Pin_DIAG(DIAG_Values *diag, ubyte1 pin_idx, ubyte2 value) {
+void Set_Pin_DIAG(DIAG_Values *diag, ubyte1 pin_idx, ubyte2 value) {
     if (pin_idx < 4U) {
         diag->val[pin_idx] = value;
     }
@@ -114,19 +115,6 @@ inline void Set_Pin_DIAG(DIAG_Values *diag, ubyte1 pin_idx, ubyte2 value) {
 
 // 3. CAN Initialization
 
-IO_ErrorType Init_CAN_Channels(void)
-{
-    ubyte2 err;
-
-    // Channel 0: RX (CMD) + TX (FB)
-    err = IO_CAN_Init(IO_CAN_CHANNEL_0, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-    if (err != IO_E_OK)
-        return err;
-
-    // Channel 1: TX (DIAG)
-    err = IO_CAN_Init(IO_CAN_CHANNEL_1, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-    return err;
-}
 
 IO_ErrorType Init_CAN_Group(ubyte1 group_idx)
 {
@@ -179,17 +167,12 @@ IO_ErrorType Init_CAN_Group(ubyte1 group_idx)
 
 IO_ErrorType Init_CAN_System_All(void)
 {
-    IO_ErrorType err = Init_CAN_Channels();
-    if (err != IO_E_OK)
-        return err;
 
     ubyte1 i;
 
     for (i = 0; i < NUM_GROUPS; i++)
     {
-        err = Init_CAN_Group(i);
-        if (err != IO_E_OK)
-            return err; // Break at the first error
+       Init_CAN_Group(i);
     }
     return IO_E_OK;
 }

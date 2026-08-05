@@ -2,7 +2,7 @@
 
 PinConfigUnion_t g_pin_configs[96];
 
-void Pin_Properties()
+void Pin_Properties(void)
 {
 
     ubyte1 i;
