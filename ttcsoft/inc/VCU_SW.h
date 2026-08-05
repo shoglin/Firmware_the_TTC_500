@@ -28,10 +28,9 @@
 #include "VCU_SW_types.h"
 
 /* Child system includes */
-#include "convDIOSttToEnum_private.h"
-#include "convDIOSttToEnum.h"
-#include "convAIVoltageData.h"
-#include "convAIVoltageData_private.h"
+#include "convRawData_private.h"
+#include "convRawData.h"
+
 #include "IO_PIN.h"
 #include "IO_POWER.h"
 #include "IO_CAN.h"

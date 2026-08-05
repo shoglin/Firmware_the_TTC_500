@@ -13,21 +13,19 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_convAIVoltageData_private_h_
-#define RTW_HEADER_convAIVoltageData_private_h_
-
-#ifndef VCU_SW_COMMON_INCLUDES_ADC_
-#define VCU_SW_COMMON_INCLUDES_ADC_
-
+#ifndef RTW_HEADER_convRawData_private_h_
+#define RTW_HEADER_convRawData_private_h_
+#ifndef VCU_SW_COMMON_INCLUDES_
+#define VCU_SW_COMMON_INCLUDES_
 #include <math.h>
 #include "rtwtypes.h"
-#include "IO_ADC.h"
+#include "IO_DIO.h"
 #include "can_message.h"
-#endif                                 /* VCU_SW_COMMON_INCLUDES_ADC_ */
+#endif                                 /* VCU_SW_COMMON_INCLUDES_ */
 
 /* Shared type includes */
 #include "swcAppEnumTypes.h"
-#endif                              /* RTW_HEADER_convAIVoltageData_private_h_ */
+#endif                              /* RTW_HEADER_convRawData_private_h_ */
 
 /*
  * File trailer for generated code.

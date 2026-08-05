@@ -1,4 +1,4 @@
-./build/convAIVoltageData.obj ./build/CAN_Properties.obj ./build/convAICurrentData.obj ./build/VCU_SW.obj ./build/ert_main.obj ./build/Pin_Init_DeInit.obj ./build/Pin_Settings.obj ./build/convDIOSttToEnum.obj                                       
+./build/Pin_Gets_Val_Err.obj ./build/CAN_Properties.obj ./build/convRawData.obj ./build/VCU_SW.obj ./build/ert_main.obj ./build/Pin_Init_DeInit.obj ./build/Pin_Settings.obj                                       
 -o build/app.out                                                 
 -l ./lib/ttc500.lib                             
 -l ./lib/bsp.lib                         

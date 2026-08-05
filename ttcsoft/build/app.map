@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v5.1.6                      
 ******************************************************************************
->> Linked Tue Aug 04 15:46:24 2026
+>> Linked Wed Aug 05 11:05:56 2026
 
 OUTPUT FILE NAME:   <build/app.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000bf080
@@ -1453,9 +1453,9 @@ $fill000   0    000a0080    00000080
                   000cdf60    000000d8     VCU_SW.obj (.text:VCU_SW_initialize)
                   000ce038    00000006     rtsv7R4_T_be_v3D16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
                   000ce03e    00000002     --HOLE-- [fill = 00000000]
-                  000ce040    00000024     convAICurrentData.obj (.text:convAICurrentData)
+                  000ce040    00000024     convRawData.obj (.text:convAICurrentData)
                   000ce064    0000000c     --HOLE-- [fill = 00000000]
-                  000ce070    0000002c     convDIOSttToEnum.obj (.text:convDIOSttToEnum)
+                  000ce070    0000002c     convRawData.obj (.text:convDIOSttToEnum)
                   000ce09c    00000004     --HOLE-- [fill = 00000000]
                   000ce0a0    00000650     VCU_SW.obj (.text:VCU_SW_step)
                   000ce6f0    00000060     ert_main.obj (.text:task)
@@ -3241,17 +3241,28 @@ SYMBOL DEFINITIONS BY INPUT FILE
 
 ================================================================================
 
-convAIVoltageData.obj
+Pin_Gets_Val_Err.obj
 
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-00000018  local     $C$L1 (.text:convAIVoltageData)
-00000020  local     $C$L2 (.text:convAIVoltageData)
-00000000  local     $a (.text:convAIVoltageData)
+000000a0  local     $C$L1 (.text:Update_Pin_FB_and_DIAG)
+00000270  local     $C$L10 (.text:Update_Pin_FB_and_DIAG)
+000002c0  local     $C$L11 (.text:Update_Pin_FB_and_DIAG)
+000002f4  local     $C$L12 (.text:Update_Pin_FB_and_DIAG)
+00000324  local     $C$L13 (.text:Update_Pin_FB_and_DIAG)
+000000f4  local     $C$L2 (.text:Update_Pin_FB_and_DIAG)
+00000114  local     $C$L3 (.text:Update_Pin_FB_and_DIAG)
+00000134  local     $C$L4 (.text:Update_Pin_FB_and_DIAG)
+00000158  local     $C$L5 (.text:Update_Pin_FB_and_DIAG)
+00000170  local     $C$L6 (.text:Update_Pin_FB_and_DIAG)
+000001b0  local     $C$L7 (.text:Update_Pin_FB_and_DIAG)
+000001f0  local     $C$L8 (.text:Update_Pin_FB_and_DIAG)
+00000230  local     $C$L9 (.text:Update_Pin_FB_and_DIAG)
+00000000  local     $a (.text:Update_Pin_FB_and_DIAG)
 00000000  local     .text (.text)
-00000000  local     .text:convAIVoltageData (.text:convAIVoltageData)
-00000000  global    convAIVoltageData (.text:convAIVoltageData)
+00000000  local     .text:Update_Pin_FB_and_DIAG (.text:Update_Pin_FB_and_DIAG)
+00000000  global    Update_Pin_FB_and_DIAG (.text:Update_Pin_FB_and_DIAG)
 
 
 ================================================================================
@@ -3329,17 +3340,38 @@ Value     Binding   Name (Section)
 
 ================================================================================
 
-convAICurrentData.obj
+convRawData.obj
 
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-000ce058  local     $C$L1 (.text:convAICurrentData)
-000ce060  local     $C$L2 (.text:convAICurrentData)
+000ce088  local     $C$L1 (.text:convDIOSttToEnum)
+00000028  local     $C$L10 (.text:convPWDData)
+00000030  local     $C$L11 (.text:convPWDData)
+000ce090  local     $C$L2 (.text:convDIOSttToEnum)
+000ce098  local     $C$L3 (.text:convDIOSttToEnum)
+00000018  local     $C$L4 (.text:convAIVoltageData)
+00000020  local     $C$L5 (.text:convAIVoltageData)
+000ce058  local     $C$L6 (.text:convAICurrentData)
+000ce060  local     $C$L7 (.text:convAICurrentData)
+00000028  local     $C$L8 (.text:convAIResistanceData)
+00000030  local     $C$L9 (.text:convAIResistanceData)
+000ce070  local     $a (.text:convDIOSttToEnum)
+00000000  local     $a (.text:convAIVoltageData)
 000ce040  local     $a (.text:convAICurrentData)
+00000000  local     $a (.text:convAIResistanceData)
+00000000  local     $a (.text:convPWDData)
 00000000  local     .text (.text)
 000ce040  local     .text:convAICurrentData (.text:convAICurrentData)
+00000000  local     .text:convAIResistanceData (.text:convAIResistanceData)
+00000000  local     .text:convAIVoltageData (.text:convAIVoltageData)
+000ce070  local     .text:convDIOSttToEnum (.text:convDIOSttToEnum)
+00000000  local     .text:convPWDData (.text:convPWDData)
 000ce040  global    convAICurrentData (.text:convAICurrentData)
+00000000  global    convAIResistanceData (.text:convAIResistanceData)
+00000000  global    convAIVoltageData (.text:convAIVoltageData)
+000ce070  global    convDIOSttToEnum (.text:convDIOSttToEnum)
+00000000  global    convPWDData (.text:convPWDData)
 
 
 ================================================================================
@@ -3468,22 +3500,6 @@ Value     Binding   Name (Section)
 00000000  global    Pin_Properties (.text:Pin_Properties)
 00000000  global    g_pin_configs (.bss:g_pin_configs)
 00000000  local     s_di_limits_default (.const)
-
-
-================================================================================
-
-convDIOSttToEnum.obj
-
-Run/Load            
-Value     Binding   Name (Section)
---------  --------  ---------------
-000ce088  local     $C$L1 (.text:convDIOSttToEnum)
-000ce090  local     $C$L2 (.text:convDIOSttToEnum)
-000ce098  local     $C$L3 (.text:convDIOSttToEnum)
-000ce070  local     $a (.text:convDIOSttToEnum)
-00000000  local     .text (.text)
-000ce070  local     .text:convDIOSttToEnum (.text:convDIOSttToEnum)
-000ce070  global    convDIOSttToEnum (.text:convDIOSttToEnum)
 
 
 ================================================================================

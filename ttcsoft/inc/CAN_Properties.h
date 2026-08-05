@@ -82,6 +82,12 @@ extern inline ubyte1 Get_Pin_Value(const CMD_Values *cmd, ubyte1 pin_idx);
 
 extern inline void Set_Pin_FB(FB_Values *fb, ubyte1 pin_idx, ubyte2 value);
 
+/**
+ * @brief Sets the value for the diagnostic (DIAG) of a specific pin.
+ */
+
+extern inline void Set_Pin_DIAG(DIAG_Values *diag, ubyte1 pin_idx, ubyte2 value);
+
 // Initialization functions
 
 extern IO_ErrorType Init_CAN_Channels(void);

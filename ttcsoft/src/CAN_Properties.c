@@ -102,6 +102,16 @@ inline void Set_Pin_FB(FB_Values *fb, ubyte1 pin_idx, ubyte2 value) {
     }
 }
 
+/**
+ * @brief Sets the value for the diagnostic (DIAG) of a specific pin.
+ */
+
+inline void Set_Pin_DIAG(DIAG_Values *diag, ubyte1 pin_idx, ubyte2 value) {
+    if (pin_idx < 4U) {
+        diag->val[pin_idx] = value;
+    }
+}
+
 // 3. CAN Initialization
 
 IO_ErrorType Init_CAN_Channels(void)
