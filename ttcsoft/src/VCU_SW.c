@@ -60,6 +60,7 @@ void VCU_SW_step(void)
 /* Model initialize function */
 void VCU_SW_initialize(void)
 {
+
     /* Turning the POWER_SUPPLY_0 */
     IO_POWER_Set(IO_SENSOR_SUPPLY_0, IO_POWER_ON);
 

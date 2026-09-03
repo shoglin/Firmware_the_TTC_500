@@ -115,30 +115,7 @@ void task (void)
 void main(void)
 {
 
-    // Channel 0: RX (CMD) + TX (FB)
-    IO_CAN_Init(IO_CAN_CHANNEL_0, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-    // Channel 1: TX (DIAG)
-    IO_CAN_Init(IO_CAN_CHANNEL_1, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-    // Other channels (optional)
-
-    // Initialization of CAN driver for IO_CAN_CHANNEL_2
-    IO_CAN_Init(IO_CAN_CHANNEL_2, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-    // Initialization of CAN driver for IO_CAN_CHANNEL_3
-    IO_CAN_Init(IO_CAN_CHANNEL_3, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-    // Initialization of CAN driver for IO_CAN_CHANNEL_4
-    IO_CAN_Init(IO_CAN_CHANNEL_4, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-    // Initialization of CAN driver for IO_CAN_CHANNEL_5
-    IO_CAN_Init(IO_CAN_CHANNEL_5, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-    // Initialization of CAN driver for IO_CAN_CHANNEL_6
-    IO_CAN_Init(IO_CAN_CHANNEL_6, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-  Pin_Properties();
+  IO_Driver_Init(&c_driver_safety_conf);
 
   // Other initialization
   VCU_SW_initialize();

@@ -30,14 +30,14 @@ void Pin_Properties(void)
 
     // Digital Input конфигурация
     g_pin_configs[0].di_cfg.pin_channel = IO_DI_48;
-    g_pin_configs[0].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[0].di_cfg.voltage_limits = NULL;
+    g_pin_configs[0].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[0].di_cfg.limits = NULL;
 
     // ADC конфигурация (3-mode, используем как voltage 0-5V)
     g_pin_configs[0].adc_cfg.pin_channel = IO_ADC_00;
     g_pin_configs[0].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[0].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[0].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[0].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[0].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[0].adc_cfg.safety_settings = NULL;
 
@@ -48,13 +48,13 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[1].di_cfg.pin_channel = IO_DI_49;
-    g_pin_configs[1].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[1].di_cfg.voltage_limits = NULL;
+    g_pin_configs[1].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[1].di_cfg.limits = NULL;
 
     g_pin_configs[1].adc_cfg.pin_channel = IO_ADC_01;
     g_pin_configs[1].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[1].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[1].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[1].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[1].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[1].adc_cfg.safety_settings = NULL;
 
@@ -65,13 +65,13 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[2].di_cfg.pin_channel = IO_DI_50;
-    g_pin_configs[2].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[2].di_cfg.voltage_limits = NULL;
+    g_pin_configs[2].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[2].di_cfg.limits = NULL;
 
     g_pin_configs[2].adc_cfg.pin_channel = IO_ADC_02;
     g_pin_configs[2].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[2].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[2].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[2].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[2].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[2].adc_cfg.safety_settings = NULL;
 
@@ -82,13 +82,13 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[3].di_cfg.pin_channel = IO_DI_51;
-    g_pin_configs[3].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[3].di_cfg.voltage_limits = NULL;
+    g_pin_configs[3].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[3].di_cfg.limits = NULL;
 
     g_pin_configs[3].adc_cfg.pin_channel = IO_ADC_03;
     g_pin_configs[3].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[3].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[3].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[3].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[3].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[3].adc_cfg.safety_settings = NULL;
 
@@ -99,13 +99,13 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[4].di_cfg.pin_channel = IO_DI_52;
-    g_pin_configs[4].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[4].di_cfg.voltage_limits = NULL;
+    g_pin_configs[4].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[4].di_cfg.limits = NULL;
 
     g_pin_configs[4].adc_cfg.pin_channel = IO_ADC_04;
     g_pin_configs[4].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[4].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[4].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[4].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[4].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[4].adc_cfg.safety_settings = NULL;
 
@@ -116,13 +116,13 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[5].di_cfg.pin_channel = IO_DI_53;
-    g_pin_configs[5].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[5].di_cfg.voltage_limits = NULL;
+    g_pin_configs[5].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[5].di_cfg.limits = NULL;
 
     g_pin_configs[5].adc_cfg.pin_channel = IO_ADC_05;
     g_pin_configs[5].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[5].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[5].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[5].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[5].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[5].adc_cfg.safety_settings = NULL;
 
@@ -133,13 +133,13 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[6].di_cfg.pin_channel = IO_DI_54;
-    g_pin_configs[6].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[6].di_cfg.voltage_limits = NULL;
+    g_pin_configs[6].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[6].di_cfg.limits = NULL;
 
     g_pin_configs[6].adc_cfg.pin_channel = IO_ADC_06;
     g_pin_configs[6].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[6].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[6].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[6].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[6].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[6].adc_cfg.safety_settings = NULL;
 
@@ -150,13 +150,13 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[7].di_cfg.pin_channel = IO_DI_55;
-    g_pin_configs[7].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[7].di_cfg.voltage_limits = NULL;
+    g_pin_configs[7].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[7].di_cfg.limits = NULL;
 
     g_pin_configs[7].adc_cfg.pin_channel = IO_ADC_07;
     g_pin_configs[7].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[7].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[7].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[7].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[7].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[7].adc_cfg.safety_settings = NULL;
 
@@ -167,14 +167,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[8].di_cfg.pin_channel = IO_DI_56;
-    g_pin_configs[8].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[8].di_cfg.voltage_limits = NULL;
+    g_pin_configs[8].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[8].di_cfg.limits = NULL;
 
     g_pin_configs[8].adc_cfg.pin_channel = IO_ADC_08;
     g_pin_configs[8].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[8].adc_cfg.voltage_range = IO_ADC_RANGE_10V;  // 10V range
-    g_pin_configs[8].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[8].adc_cfg.supply_source = IO_PIN_NONE; // Не используется для absolute
+    g_pin_configs[8].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[8].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[8].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -184,14 +184,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[9].di_cfg.pin_channel = IO_DI_57;
-    g_pin_configs[9].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[9].di_cfg.voltage_limits = NULL;
+    g_pin_configs[9].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[9].di_cfg.limits = NULL;
 
     g_pin_configs[9].adc_cfg.pin_channel = IO_ADC_09;
     g_pin_configs[9].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[9].adc_cfg.voltage_range = IO_ADC_RANGE_10V;
-    g_pin_configs[9].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[9].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[9].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[9].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[9].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -201,14 +201,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[10].di_cfg.pin_channel = IO_DI_58;
-    g_pin_configs[10].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[10].di_cfg.voltage_limits = NULL;
+    g_pin_configs[10].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[10].di_cfg.limits = NULL;
 
     g_pin_configs[10].adc_cfg.pin_channel = IO_ADC_10;
     g_pin_configs[10].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[10].adc_cfg.voltage_range = IO_ADC_RANGE_10V;
-    g_pin_configs[10].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[10].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[10].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[10].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[10].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -218,14 +218,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[11].di_cfg.pin_channel = IO_DI_59;
-    g_pin_configs[11].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[11].di_cfg.voltage_limits = NULL;
+    g_pin_configs[11].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[11].di_cfg.limits = NULL;
 
     g_pin_configs[11].adc_cfg.pin_channel = IO_ADC_11;
     g_pin_configs[11].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[11].adc_cfg.voltage_range = IO_ADC_RANGE_10V;
-    g_pin_configs[11].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[11].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[11].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[11].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[11].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -235,14 +235,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[12].di_cfg.pin_channel = IO_DI_60;
-    g_pin_configs[12].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[12].di_cfg.voltage_limits = NULL;
+    g_pin_configs[12].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[12].di_cfg.limits = NULL;
 
     g_pin_configs[12].adc_cfg.pin_channel = IO_ADC_12;
     g_pin_configs[12].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[12].adc_cfg.voltage_range = IO_ADC_RANGE_10V;
-    g_pin_configs[12].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[12].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[12].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[12].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[12].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -252,14 +252,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[13].di_cfg.pin_channel = IO_DI_61;
-    g_pin_configs[13].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[13].di_cfg.voltage_limits = NULL;
+    g_pin_configs[13].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[13].di_cfg.limits = NULL;
 
     g_pin_configs[13].adc_cfg.pin_channel = IO_ADC_13;
     g_pin_configs[13].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[13].adc_cfg.voltage_range = IO_ADC_RANGE_10V;
-    g_pin_configs[13].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[13].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[13].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[13].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[13].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -269,14 +269,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[14].di_cfg.pin_channel = IO_DI_62;
-    g_pin_configs[14].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[14].di_cfg.voltage_limits = NULL;
+    g_pin_configs[14].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[14].di_cfg.limits = NULL;
 
     g_pin_configs[14].adc_cfg.pin_channel = IO_ADC_14;
     g_pin_configs[14].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[14].adc_cfg.voltage_range = IO_ADC_RANGE_10V;
-    g_pin_configs[14].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[14].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[14].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[14].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[14].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -286,14 +286,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[15].di_cfg.pin_channel = IO_DI_63;
-    g_pin_configs[15].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[15].di_cfg.voltage_limits = NULL;
+    g_pin_configs[15].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[15].di_cfg.limits = NULL;
 
     g_pin_configs[15].adc_cfg.pin_channel = IO_ADC_15;
     g_pin_configs[15].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[15].adc_cfg.voltage_range = IO_ADC_RANGE_10V;
-    g_pin_configs[15].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[15].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[15].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[15].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[15].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -303,14 +303,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[16].di_cfg.pin_channel = IO_DI_64;
-    g_pin_configs[16].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[16].di_cfg.voltage_limits = NULL;
+    g_pin_configs[16].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[16].di_cfg.limits = NULL;
 
     g_pin_configs[16].adc_cfg.pin_channel = IO_ADC_16;
     g_pin_configs[16].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[16].adc_cfg.voltage_range = IO_ADC_RANGE_32V;  // 32V range
-    g_pin_configs[16].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[16].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[16].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[16].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[16].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -320,14 +320,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[17].di_cfg.pin_channel = IO_DI_65;
-    g_pin_configs[17].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[17].di_cfg.voltage_limits = NULL;
+    g_pin_configs[17].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[17].di_cfg.limits = NULL;
 
     g_pin_configs[17].adc_cfg.pin_channel = IO_ADC_17;
     g_pin_configs[17].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[17].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[17].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[17].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[17].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[17].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[17].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -337,14 +337,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[18].di_cfg.pin_channel = IO_DI_66;
-    g_pin_configs[18].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[18].di_cfg.voltage_limits = NULL;
+    g_pin_configs[18].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[18].di_cfg.limits = NULL;
 
     g_pin_configs[18].adc_cfg.pin_channel = IO_ADC_18;
     g_pin_configs[18].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[18].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[18].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[18].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[18].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[18].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[18].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -354,14 +354,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[19].di_cfg.pin_channel = IO_DI_67;
-    g_pin_configs[19].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[19].di_cfg.voltage_limits = NULL;
+    g_pin_configs[19].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[19].di_cfg.limits = NULL;
 
     g_pin_configs[19].adc_cfg.pin_channel = IO_ADC_19;
     g_pin_configs[19].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[19].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[19].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[19].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[19].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[19].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[19].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -371,14 +371,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[20].di_cfg.pin_channel = IO_DI_68;
-    g_pin_configs[20].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[20].di_cfg.voltage_limits = NULL;
+    g_pin_configs[20].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[20].di_cfg.limits = NULL;
 
     g_pin_configs[20].adc_cfg.pin_channel = IO_ADC_20;
     g_pin_configs[20].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[20].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[20].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[20].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[20].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[20].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[20].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -388,14 +388,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[21].di_cfg.pin_channel = IO_DI_69;
-    g_pin_configs[21].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[21].di_cfg.voltage_limits = NULL;
+    g_pin_configs[21].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[21].di_cfg.limits = NULL;
 
     g_pin_configs[21].adc_cfg.pin_channel = IO_ADC_21;
     g_pin_configs[21].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[21].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[21].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[21].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[21].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[21].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[21].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -405,14 +405,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[22].di_cfg.pin_channel = IO_DI_70;
-    g_pin_configs[22].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[22].di_cfg.voltage_limits = NULL;
+    g_pin_configs[22].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[22].di_cfg.limits = NULL;
 
     g_pin_configs[22].adc_cfg.pin_channel = IO_ADC_22;
     g_pin_configs[22].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[22].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[22].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[22].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[22].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[22].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[22].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -422,14 +422,14 @@ void Pin_Properties(void)
      * ===========================
      */
     g_pin_configs[23].di_cfg.pin_channel = IO_DI_71;
-    g_pin_configs[23].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[23].di_cfg.voltage_limits = NULL;
+    g_pin_configs[23].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[23].di_cfg.limits = NULL;
 
     g_pin_configs[23].adc_cfg.pin_channel = IO_ADC_23;
     g_pin_configs[23].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[23].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[23].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
-    g_pin_configs[23].adc_cfg.supply_source = IO_PIN_NONE;
+    g_pin_configs[23].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[23].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
     g_pin_configs[23].adc_cfg.safety_settings = NULL;
 
     /*============================
@@ -445,21 +445,21 @@ void Pin_Properties(void)
     g_pin_configs[24].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME; // измеряем high time
     g_pin_configs[24].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR; // частота измеряется по rising edges
     g_pin_configs[24].pwd_complex_cfg.sample_accumulation_count = 8; // накапливаем 8 samples
-    g_pin_configs[24].pwd_complex_cfg.pull_resistor = IO_PWD_PU_10K; // pull-up 10k
+    g_pin_configs[24].pwd_complex_cfg.pupd = IO_PWD_PU_10K; // pull-up 10k
     g_pin_configs[24].pwd_complex_cfg.complex_safety_settings = NULL; // не safety critical
 
     // ADC конфигурация (дополнительная)
     g_pin_configs[24].adc_cfg.pin_channel = IO_ADC_24;
     g_pin_configs[24].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[24].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[24].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[24].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[24].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[24].adc_cfg.safety_settings = NULL;
 
     // Digital Input конфигурация
     g_pin_configs[24].di_cfg.pin_channel = IO_DI_36;
-    g_pin_configs[24].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[24].di_cfg.voltage_limits = NULL;
+    g_pin_configs[24].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[24].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_139 (Internal 25)
@@ -472,19 +472,19 @@ void Pin_Properties(void)
     g_pin_configs[25].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[25].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[25].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[25].pwd_complex_cfg.pull_resistor = IO_PWD_PU_10K;
+    g_pin_configs[25].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
     g_pin_configs[25].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[25].adc_cfg.pin_channel = IO_ADC_25;
     g_pin_configs[25].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[25].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[25].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[25].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[25].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[25].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[25].di_cfg.pin_channel = IO_DI_37;
-    g_pin_configs[25].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[25].di_cfg.voltage_limits = NULL;
+    g_pin_configs[25].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[25].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_116 (Internal 26)
@@ -497,19 +497,19 @@ void Pin_Properties(void)
     g_pin_configs[26].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[26].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[26].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[26].pwd_complex_cfg.pull_resistor = IO_PWD_PU_10K;
+    g_pin_configs[26].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
     g_pin_configs[26].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[26].adc_cfg.pin_channel = IO_ADC_26;
     g_pin_configs[26].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[26].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[26].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[26].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[26].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[26].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[26].di_cfg.pin_channel = IO_DI_38;
-    g_pin_configs[26].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[26].di_cfg.voltage_limits = NULL;
+    g_pin_configs[26].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[26].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_140 (Internal 27)
@@ -522,19 +522,19 @@ void Pin_Properties(void)
     g_pin_configs[27].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[27].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[27].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[27].pwd_complex_cfg.pull_resistor = IO_PWD_PU_10K;
+    g_pin_configs[27].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
     g_pin_configs[27].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[27].adc_cfg.pin_channel = IO_ADC_27;
     g_pin_configs[27].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[27].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[27].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[27].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[27].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[27].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[27].di_cfg.pin_channel = IO_DI_39;
-    g_pin_configs[27].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[27].di_cfg.voltage_limits = NULL;
+    g_pin_configs[27].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[27].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_117 (Internal 28)
@@ -547,19 +547,19 @@ void Pin_Properties(void)
     g_pin_configs[28].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[28].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[28].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[28].pwd_complex_cfg.pull_resistor = IO_PWD_PU_10K;
+    g_pin_configs[28].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
     g_pin_configs[28].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[28].adc_cfg.pin_channel = IO_ADC_28;
     g_pin_configs[28].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[28].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[28].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[28].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[28].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[28].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[28].di_cfg.pin_channel = IO_DI_40;
-    g_pin_configs[28].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[28].di_cfg.voltage_limits = NULL;
+    g_pin_configs[28].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[28].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_141 (Internal 29)
@@ -572,19 +572,19 @@ void Pin_Properties(void)
     g_pin_configs[29].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[29].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[29].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[29].pwd_complex_cfg.pull_resistor = IO_PWD_PU_10K;
+    g_pin_configs[29].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
     g_pin_configs[29].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[29].adc_cfg.pin_channel = IO_ADC_29;
     g_pin_configs[29].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[29].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[29].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[29].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[29].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[29].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[29].di_cfg.pin_channel = IO_DI_41;
-    g_pin_configs[29].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[29].di_cfg.voltage_limits = NULL;
+    g_pin_configs[29].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[29].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_122 (Internal 30)
@@ -597,19 +597,19 @@ void Pin_Properties(void)
     g_pin_configs[30].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[30].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[30].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[30].pwd_complex_cfg.pull_resistor = IO_PWD_PU_10K;
+    g_pin_configs[30].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
     g_pin_configs[30].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[30].adc_cfg.pin_channel = IO_ADC_30;
     g_pin_configs[30].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[30].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[30].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[30].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[30].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[30].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[30].di_cfg.pin_channel = IO_DI_42;
-    g_pin_configs[30].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[30].di_cfg.voltage_limits = NULL;
+    g_pin_configs[30].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[30].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_146 (Internal 31)
@@ -622,19 +622,19 @@ void Pin_Properties(void)
     g_pin_configs[31].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[31].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[31].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[31].pwd_complex_cfg.pull_resistor = IO_PWD_PU_10K;
+    g_pin_configs[31].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
     g_pin_configs[31].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[31].adc_cfg.pin_channel = IO_ADC_31;
     g_pin_configs[31].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[31].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[31].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[31].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[31].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[31].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[31].di_cfg.pin_channel = IO_DI_43;
-    g_pin_configs[31].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[31].di_cfg.voltage_limits = NULL;
+    g_pin_configs[31].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[31].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_123 (Internal 32)
@@ -647,19 +647,19 @@ void Pin_Properties(void)
     g_pin_configs[32].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[32].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[32].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[32].pwd_complex_cfg.pull_resistor = IO_PWD_PU_10K;
+    g_pin_configs[32].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
     g_pin_configs[32].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[32].adc_cfg.pin_channel = IO_ADC_32;
     g_pin_configs[32].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[32].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[32].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[32].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[32].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[32].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[32].di_cfg.pin_channel = IO_DI_44;
-    g_pin_configs[32].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[32].di_cfg.voltage_limits = NULL;
+    g_pin_configs[32].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[32].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_147 (Internal 33)
@@ -672,19 +672,19 @@ void Pin_Properties(void)
     g_pin_configs[33].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[33].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[33].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[33].pwd_complex_cfg.pull_resistor = IO_PWD_PU_10K;
+    g_pin_configs[33].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
     g_pin_configs[33].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[33].adc_cfg.pin_channel = IO_ADC_33;
     g_pin_configs[33].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[33].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[33].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[33].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[33].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[33].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[33].di_cfg.pin_channel = IO_DI_45;
-    g_pin_configs[33].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[33].di_cfg.voltage_limits = NULL;
+    g_pin_configs[33].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[33].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_124 (Internal 34)
@@ -697,19 +697,19 @@ void Pin_Properties(void)
     g_pin_configs[34].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[34].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[34].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[34].pwd_complex_cfg.pull_resistor = IO_PWD_PU_10K;
+    g_pin_configs[34].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
     g_pin_configs[34].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[34].adc_cfg.pin_channel = IO_ADC_34;
     g_pin_configs[34].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[34].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[34].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[34].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[34].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[34].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[34].di_cfg.pin_channel = IO_DI_46;
-    g_pin_configs[34].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[34].di_cfg.voltage_limits = NULL;
+    g_pin_configs[34].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[34].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_148 (Internal 35)
@@ -722,19 +722,19 @@ void Pin_Properties(void)
     g_pin_configs[35].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[35].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[35].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[35].pwd_complex_cfg.pull_resistor = IO_PWD_PU_10K;
+    g_pin_configs[35].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
     g_pin_configs[35].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[35].adc_cfg.pin_channel = IO_ADC_35;
     g_pin_configs[35].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[35].adc_cfg.voltage_range = IO_ADC_RANGE_32V;
-    g_pin_configs[35].adc_cfg.pull_resistor = IO_ADC_NO_PULL;
+    g_pin_configs[35].adc_cfg.pupd = IO_ADC_NO_PULL;
     g_pin_configs[35].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[35].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[35].di_cfg.pin_channel = IO_DI_47;
-    g_pin_configs[35].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[35].di_cfg.voltage_limits = NULL;
+    g_pin_configs[35].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[35].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_149 (Internal 36)
@@ -746,13 +746,13 @@ void Pin_Properties(void)
     g_pin_configs[36].adc_cfg.pin_channel = IO_ADC_36;
     g_pin_configs[36].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[36].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[36].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[36].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[36].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[36].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[36].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[36].di_cfg.pin_channel = IO_DI_72;
-    g_pin_configs[36].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[36].di_cfg.voltage_limits = NULL;
+    g_pin_configs[36].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[36].di_cfg.limits = NULL;
 
     g_pin_configs[36].do_cfg.pin_channel = IO_DO_00;
     g_pin_configs[36].do_cfg.enable_diagnostics = TRUE;
@@ -768,13 +768,13 @@ void Pin_Properties(void)
     g_pin_configs[37].adc_cfg.pin_channel = IO_ADC_37;
     g_pin_configs[37].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[37].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[37].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[37].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[37].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[37].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[37].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[37].di_cfg.pin_channel = IO_DI_73;
-    g_pin_configs[37].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[37].di_cfg.voltage_limits = NULL;
+    g_pin_configs[37].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[37].di_cfg.limits = NULL;
 
     g_pin_configs[37].do_cfg.pin_channel = IO_DO_01;
     g_pin_configs[37].do_cfg.enable_diagnostics = TRUE;
@@ -790,13 +790,13 @@ void Pin_Properties(void)
     g_pin_configs[38].adc_cfg.pin_channel = IO_ADC_38;
     g_pin_configs[38].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[38].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[38].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[38].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[38].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[38].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[38].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[38].di_cfg.pin_channel = IO_DI_74;
-    g_pin_configs[38].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[38].di_cfg.voltage_limits = NULL;
+    g_pin_configs[38].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[38].di_cfg.limits = NULL;
 
     g_pin_configs[38].do_cfg.pin_channel = IO_DO_02;
     g_pin_configs[38].do_cfg.enable_diagnostics = TRUE;
@@ -812,13 +812,13 @@ void Pin_Properties(void)
     g_pin_configs[39].adc_cfg.pin_channel = IO_ADC_39;
     g_pin_configs[39].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[39].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[39].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[39].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[39].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[39].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[39].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[39].di_cfg.pin_channel = IO_DI_75;
-    g_pin_configs[39].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[39].di_cfg.voltage_limits = NULL;
+    g_pin_configs[39].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[39].di_cfg.limits = NULL;
 
     g_pin_configs[39].do_cfg.pin_channel = IO_DO_03;
     g_pin_configs[39].do_cfg.enable_diagnostics = TRUE;
@@ -834,13 +834,13 @@ void Pin_Properties(void)
     g_pin_configs[40].adc_cfg.pin_channel = IO_ADC_40;
     g_pin_configs[40].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[40].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[40].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[40].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[40].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[40].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[40].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[40].di_cfg.pin_channel = IO_DI_76;
-    g_pin_configs[40].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[40].di_cfg.voltage_limits = NULL;
+    g_pin_configs[40].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[40].di_cfg.limits = NULL;
 
     g_pin_configs[40].do_cfg.pin_channel = IO_DO_04;
     g_pin_configs[40].do_cfg.enable_diagnostics = TRUE;
@@ -856,13 +856,13 @@ void Pin_Properties(void)
     g_pin_configs[41].adc_cfg.pin_channel = IO_ADC_41;
     g_pin_configs[41].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[41].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[41].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[41].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[41].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[41].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[41].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[41].di_cfg.pin_channel = IO_DI_77;
-    g_pin_configs[41].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[41].di_cfg.voltage_limits = NULL;
+    g_pin_configs[41].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[41].di_cfg.limits = NULL;
 
     g_pin_configs[41].do_cfg.pin_channel = IO_DO_05;
     g_pin_configs[41].do_cfg.enable_diagnostics = TRUE;
@@ -878,13 +878,13 @@ void Pin_Properties(void)
     g_pin_configs[42].adc_cfg.pin_channel = IO_ADC_42;
     g_pin_configs[42].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[42].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[42].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[42].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[42].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[42].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[42].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[42].di_cfg.pin_channel = IO_DI_78;
-    g_pin_configs[42].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[42].di_cfg.voltage_limits = NULL;
+    g_pin_configs[42].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[42].di_cfg.limits = NULL;
 
     g_pin_configs[42].do_cfg.pin_channel = IO_DO_06;
     g_pin_configs[42].do_cfg.enable_diagnostics = TRUE;
@@ -900,13 +900,13 @@ void Pin_Properties(void)
     g_pin_configs[43].adc_cfg.pin_channel = IO_ADC_43;
     g_pin_configs[43].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[43].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[43].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[43].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[43].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[43].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[43].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[43].di_cfg.pin_channel = IO_DI_79;
-    g_pin_configs[43].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[43].di_cfg.voltage_limits = NULL;
+    g_pin_configs[43].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[43].di_cfg.limits = NULL;
 
     g_pin_configs[43].do_cfg.pin_channel = IO_DO_07;
     g_pin_configs[43].do_cfg.enable_diagnostics = TRUE;
@@ -922,13 +922,13 @@ void Pin_Properties(void)
     g_pin_configs[44].adc_cfg.pin_channel = IO_ADC_44;
     g_pin_configs[44].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[44].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[44].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[44].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[44].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[44].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[44].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[44].di_cfg.pin_channel = IO_DI_80;
-    g_pin_configs[44].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[44].di_cfg.voltage_limits = NULL;
+    g_pin_configs[44].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[44].di_cfg.limits = NULL;
 
     g_pin_configs[44].do_cfg.pin_channel = IO_DO_08;
     g_pin_configs[44].do_cfg.enable_diagnostics = TRUE;
@@ -944,13 +944,13 @@ void Pin_Properties(void)
     g_pin_configs[45].adc_cfg.pin_channel = IO_ADC_45;
     g_pin_configs[45].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[45].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[45].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[45].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[45].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[45].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[45].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[45].di_cfg.pin_channel = IO_DI_81;
-    g_pin_configs[45].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[45].di_cfg.voltage_limits = NULL;
+    g_pin_configs[45].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[45].di_cfg.limits = NULL;
 
     g_pin_configs[45].do_cfg.pin_channel = IO_DO_09;
     g_pin_configs[45].do_cfg.enable_diagnostics = TRUE;
@@ -966,13 +966,13 @@ void Pin_Properties(void)
     g_pin_configs[46].adc_cfg.pin_channel = IO_ADC_46;
     g_pin_configs[46].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[46].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[46].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[46].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[46].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[46].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[46].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[46].di_cfg.pin_channel = IO_DI_82;
-    g_pin_configs[46].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[46].di_cfg.voltage_limits = NULL;
+    g_pin_configs[46].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[46].di_cfg.limits = NULL;
 
     g_pin_configs[46].do_cfg.pin_channel = IO_DO_10;
     g_pin_configs[46].do_cfg.enable_diagnostics = TRUE;
@@ -988,13 +988,13 @@ void Pin_Properties(void)
     g_pin_configs[47].adc_cfg.pin_channel = IO_ADC_47;
     g_pin_configs[47].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[47].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[47].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[47].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[47].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[47].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[47].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[47].di_cfg.pin_channel = IO_DI_83;
-    g_pin_configs[47].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[47].di_cfg.voltage_limits = NULL;
+    g_pin_configs[47].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[47].di_cfg.limits = NULL;
 
     g_pin_configs[47].do_cfg.pin_channel = IO_DO_11;
     g_pin_configs[47].do_cfg.enable_diagnostics = TRUE;
@@ -1010,13 +1010,13 @@ void Pin_Properties(void)
     g_pin_configs[48].adc_cfg.pin_channel = IO_ADC_48;
     g_pin_configs[48].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[48].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[48].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[48].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[48].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[48].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[48].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[48].di_cfg.pin_channel = IO_DI_84;
-    g_pin_configs[48].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[48].di_cfg.voltage_limits = NULL;
+    g_pin_configs[48].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[48].di_cfg.limits = NULL;
 
     g_pin_configs[48].do_cfg.pin_channel = IO_DO_12;
     g_pin_configs[48].do_cfg.enable_diagnostics = TRUE;
@@ -1032,13 +1032,13 @@ void Pin_Properties(void)
     g_pin_configs[49].adc_cfg.pin_channel = IO_ADC_49;
     g_pin_configs[49].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[49].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[49].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[49].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[49].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[49].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[49].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[49].di_cfg.pin_channel = IO_DI_85;
-    g_pin_configs[49].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[49].di_cfg.voltage_limits = NULL;
+    g_pin_configs[49].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[49].di_cfg.limits = NULL;
 
     g_pin_configs[49].do_cfg.pin_channel = IO_DO_13;
     g_pin_configs[49].do_cfg.enable_diagnostics = TRUE;
@@ -1054,13 +1054,13 @@ void Pin_Properties(void)
     g_pin_configs[50].adc_cfg.pin_channel = IO_ADC_50;
     g_pin_configs[50].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[50].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[50].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[50].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[50].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[50].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[50].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[50].di_cfg.pin_channel = IO_DI_86;
-    g_pin_configs[50].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[50].di_cfg.voltage_limits = NULL;
+    g_pin_configs[50].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[50].di_cfg.limits = NULL;
 
     g_pin_configs[50].do_cfg.pin_channel = IO_DO_14;
     g_pin_configs[50].do_cfg.enable_diagnostics = TRUE;
@@ -1076,13 +1076,13 @@ void Pin_Properties(void)
     g_pin_configs[51].adc_cfg.pin_channel = IO_ADC_51;
     g_pin_configs[51].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[51].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[51].adc_cfg.pull_resistor = IO_ADC_PU_10K;
-    g_pin_configs[51].adc_cfg.supply_source = IO_SENSOR_SUPPLY_0;
+    g_pin_configs[51].adc_cfg.pupd = IO_ADC_PU_10K;
+    g_pin_configs[51].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[51].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[51].di_cfg.pin_channel = IO_DI_87;
-    g_pin_configs[51].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[51].di_cfg.voltage_limits = NULL;
+    g_pin_configs[51].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[51].di_cfg.limits = NULL;
 
     g_pin_configs[51].do_cfg.pin_channel = IO_DO_15;
     g_pin_configs[51].do_cfg.enable_diagnostics = TRUE;
@@ -1095,6 +1095,7 @@ void Pin_Properties(void)
      * IO_DI_00
      * ===========================
      */
+
     g_pin_configs[52].pwm_cfg.pin_channel = IO_PWM_00;
     g_pin_configs[52].pwm_cfg.target_frequency = 100;
     g_pin_configs[52].pwm_cfg.signal_polarity = TRUE;
@@ -1107,8 +1108,8 @@ void Pin_Properties(void)
     g_pin_configs[52].do_cfg.safety_settings = NULL;
 
     g_pin_configs[52].di_cfg.pin_channel = IO_DI_00;
-    g_pin_configs[52].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[52].di_cfg.voltage_limits = NULL;
+    g_pin_configs[52].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[52].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_177 (Internal 53)
@@ -1129,8 +1130,8 @@ void Pin_Properties(void)
     g_pin_configs[53].do_cfg.safety_settings = NULL;
 
     g_pin_configs[53].di_cfg.pin_channel = IO_DI_01;
-    g_pin_configs[53].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[53].di_cfg.voltage_limits = NULL;
+    g_pin_configs[53].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[53].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_156 (Internal 54)
@@ -1151,8 +1152,8 @@ void Pin_Properties(void)
     g_pin_configs[54].do_cfg.safety_settings = NULL;
 
     g_pin_configs[54].di_cfg.pin_channel = IO_DI_02;
-    g_pin_configs[54].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[54].di_cfg.voltage_limits = NULL;
+    g_pin_configs[54].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[54].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_180 (Internal 55)
@@ -1173,8 +1174,8 @@ void Pin_Properties(void)
     g_pin_configs[55].do_cfg.safety_settings = NULL;
 
     g_pin_configs[55].di_cfg.pin_channel = IO_DI_03;
-    g_pin_configs[55].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[55].di_cfg.voltage_limits = NULL;
+    g_pin_configs[55].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[55].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_159 (Internal 56)
@@ -1195,8 +1196,8 @@ void Pin_Properties(void)
     g_pin_configs[56].do_cfg.safety_settings = NULL;
 
     g_pin_configs[56].di_cfg.pin_channel = IO_DI_04;
-    g_pin_configs[56].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[56].di_cfg.voltage_limits = NULL;
+    g_pin_configs[56].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[56].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_183 (Internal 57)
@@ -1217,8 +1218,8 @@ void Pin_Properties(void)
     g_pin_configs[57].do_cfg.safety_settings = NULL;
 
     g_pin_configs[57].di_cfg.pin_channel = IO_DI_05;
-    g_pin_configs[57].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[57].di_cfg.voltage_limits = NULL;
+    g_pin_configs[57].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[57].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_186 (Internal 58)
@@ -1239,8 +1240,8 @@ void Pin_Properties(void)
     g_pin_configs[58].do_cfg.safety_settings = NULL;
 
     g_pin_configs[58].di_cfg.pin_channel = IO_DI_06;
-    g_pin_configs[58].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[58].di_cfg.voltage_limits = NULL;
+    g_pin_configs[58].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[58].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_162 (Internal 59)
@@ -1261,8 +1262,8 @@ void Pin_Properties(void)
     g_pin_configs[59].do_cfg.safety_settings = NULL;
 
     g_pin_configs[59].di_cfg.pin_channel = IO_DI_07;
-    g_pin_configs[59].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[59].di_cfg.voltage_limits = NULL;
+    g_pin_configs[59].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[59].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_189 (Internal 60)
@@ -1283,8 +1284,8 @@ void Pin_Properties(void)
     g_pin_configs[60].do_cfg.safety_settings = NULL;
 
     g_pin_configs[60].di_cfg.pin_channel = IO_DI_08;
-    g_pin_configs[60].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[60].di_cfg.voltage_limits = NULL;
+    g_pin_configs[60].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[60].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_165 (Internal 61)
@@ -1305,8 +1306,8 @@ void Pin_Properties(void)
     g_pin_configs[61].do_cfg.safety_settings = NULL;
 
     g_pin_configs[61].di_cfg.pin_channel = IO_DI_09;
-    g_pin_configs[61].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[61].di_cfg.voltage_limits = NULL;
+    g_pin_configs[61].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[61].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_192 (Internal 62)
@@ -1327,8 +1328,8 @@ void Pin_Properties(void)
     g_pin_configs[62].do_cfg.safety_settings = NULL;
 
     g_pin_configs[62].di_cfg.pin_channel = IO_DI_10;
-    g_pin_configs[62].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[62].di_cfg.voltage_limits = NULL;
+    g_pin_configs[62].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[62].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_168 (Internal 63)
@@ -1349,8 +1350,8 @@ void Pin_Properties(void)
     g_pin_configs[63].do_cfg.safety_settings = NULL;
 
     g_pin_configs[63].di_cfg.pin_channel = IO_DI_11;
-    g_pin_configs[63].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[63].di_cfg.voltage_limits = NULL;
+    g_pin_configs[63].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[63].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_195 (Internal 64)
@@ -1371,8 +1372,8 @@ void Pin_Properties(void)
     g_pin_configs[64].do_cfg.safety_settings = NULL;
 
     g_pin_configs[64].di_cfg.pin_channel = IO_DI_12;
-    g_pin_configs[64].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[64].di_cfg.voltage_limits = NULL;
+    g_pin_configs[64].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[64].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_171 (Internal 65)
@@ -1393,8 +1394,8 @@ void Pin_Properties(void)
     g_pin_configs[65].do_cfg.safety_settings = NULL;
 
     g_pin_configs[65].di_cfg.pin_channel = IO_DI_13;
-    g_pin_configs[65].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[65].di_cfg.voltage_limits = NULL;
+    g_pin_configs[65].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[65].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_154 (Internal 66)
@@ -1415,8 +1416,8 @@ void Pin_Properties(void)
     g_pin_configs[66].do_cfg.safety_settings = NULL;
 
     g_pin_configs[66].di_cfg.pin_channel = IO_DI_14;
-    g_pin_configs[66].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[66].di_cfg.voltage_limits = NULL;
+    g_pin_configs[66].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[66].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_178 (Internal 67)
@@ -1437,8 +1438,8 @@ void Pin_Properties(void)
     g_pin_configs[67].do_cfg.safety_settings = NULL;
 
     g_pin_configs[67].di_cfg.pin_channel = IO_DI_15;
-    g_pin_configs[67].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[67].di_cfg.voltage_limits = NULL;
+    g_pin_configs[67].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[67].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_157 (Internal 68)
@@ -1459,8 +1460,8 @@ void Pin_Properties(void)
     g_pin_configs[68].do_cfg.safety_settings = NULL;
 
     g_pin_configs[68].di_cfg.pin_channel = IO_DI_16;
-    g_pin_configs[68].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[68].di_cfg.voltage_limits = NULL;
+    g_pin_configs[68].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[68].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_181 (Internal 69)
@@ -1481,8 +1482,8 @@ void Pin_Properties(void)
     g_pin_configs[69].do_cfg.safety_settings = NULL;
 
     g_pin_configs[69].di_cfg.pin_channel = IO_DI_17;
-    g_pin_configs[69].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[69].di_cfg.voltage_limits = NULL;
+    g_pin_configs[69].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[69].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_160 (Internal 70)
@@ -1503,8 +1504,8 @@ void Pin_Properties(void)
     g_pin_configs[70].do_cfg.safety_settings = NULL;
 
     g_pin_configs[70].di_cfg.pin_channel = IO_DI_18;
-    g_pin_configs[70].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[70].di_cfg.voltage_limits = NULL;
+    g_pin_configs[70].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[70].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_184 (Internal 71)
@@ -1525,8 +1526,8 @@ void Pin_Properties(void)
     g_pin_configs[71].do_cfg.safety_settings = NULL;
 
     g_pin_configs[71].di_cfg.pin_channel = IO_DI_19;
-    g_pin_configs[71].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[71].di_cfg.voltage_limits = NULL;
+    g_pin_configs[71].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[71].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_187 (Internal 72)
@@ -1547,8 +1548,8 @@ void Pin_Properties(void)
     g_pin_configs[72].do_cfg.safety_settings = NULL;
 
     g_pin_configs[72].di_cfg.pin_channel = IO_DI_20;
-    g_pin_configs[72].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[72].di_cfg.voltage_limits = NULL;
+    g_pin_configs[72].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[72].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_163 (Internal 73)
@@ -1569,8 +1570,8 @@ void Pin_Properties(void)
     g_pin_configs[73].do_cfg.safety_settings = NULL;
 
     g_pin_configs[73].di_cfg.pin_channel = IO_DI_21;
-    g_pin_configs[73].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[73].di_cfg.voltage_limits = NULL;
+    g_pin_configs[73].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[73].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_190 (Internal 74)
@@ -1591,8 +1592,8 @@ void Pin_Properties(void)
     g_pin_configs[74].do_cfg.safety_settings = NULL;
 
     g_pin_configs[74].di_cfg.pin_channel = IO_DI_22;
-    g_pin_configs[74].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[74].di_cfg.voltage_limits = NULL;
+    g_pin_configs[74].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[74].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_166 (Internal 75)
@@ -1613,8 +1614,8 @@ void Pin_Properties(void)
     g_pin_configs[75].do_cfg.safety_settings = NULL;
 
     g_pin_configs[75].di_cfg.pin_channel = IO_DI_23;
-    g_pin_configs[75].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[75].di_cfg.voltage_limits = NULL;
+    g_pin_configs[75].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[75].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_193 (Internal 76)
@@ -1635,8 +1636,8 @@ void Pin_Properties(void)
     g_pin_configs[76].do_cfg.safety_settings = NULL;
 
     g_pin_configs[76].di_cfg.pin_channel = IO_DI_24;
-    g_pin_configs[76].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[76].di_cfg.voltage_limits = NULL;
+    g_pin_configs[76].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[76].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_169 (Internal 77)
@@ -1657,8 +1658,8 @@ void Pin_Properties(void)
     g_pin_configs[77].do_cfg.safety_settings = NULL;
 
     g_pin_configs[77].di_cfg.pin_channel = IO_DI_25;
-    g_pin_configs[77].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[77].di_cfg.voltage_limits = NULL;
+    g_pin_configs[77].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[77].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_196 (Internal 78)
@@ -1679,8 +1680,8 @@ void Pin_Properties(void)
     g_pin_configs[78].do_cfg.safety_settings = NULL;
 
     g_pin_configs[78].di_cfg.pin_channel = IO_DI_26;
-    g_pin_configs[78].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[78].di_cfg.voltage_limits = NULL;
+    g_pin_configs[78].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[78].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_172 (Internal 79)
@@ -1701,8 +1702,8 @@ void Pin_Properties(void)
     g_pin_configs[79].do_cfg.safety_settings = NULL;
 
     g_pin_configs[79].di_cfg.pin_channel = IO_DI_27;
-    g_pin_configs[79].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[79].di_cfg.voltage_limits = NULL;
+    g_pin_configs[79].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[79].di_cfg.limits = NULL;
 
     /*============================
      * IO_PIN_101 (Internal 80)
@@ -1727,15 +1728,15 @@ void Pin_Properties(void)
 
     // DI конфигурация
     g_pin_configs[80].di_cfg.pin_channel = IO_DI_28;
-    g_pin_configs[80].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[80].di_cfg.voltage_limits = NULL;
+    g_pin_configs[80].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[80].di_cfg.limits = NULL;
 
     // PWD конфигурация (Complex mode, только для IO_PWD_12..19)
     g_pin_configs[80].pwd_complex_cfg.pin_channel = IO_PWD_12;
     g_pin_configs[80].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[80].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[80].pwd_complex_cfg.sample_accumulation_count = 1; // Игнорируется для PWD_12..19
-    g_pin_configs[80].pwd_complex_cfg.pull_resistor = IO_PWD_NO_PULL;
+    g_pin_configs[80].pwd_complex_cfg.pupd = IO_PWD_NO_PULL;
     g_pin_configs[80].pwd_complex_cfg.complex_safety_settings = NULL;
 
     /*============================
@@ -1762,15 +1763,15 @@ void Pin_Properties(void)
 
     // DI конфигурация
     g_pin_configs[81].di_cfg.pin_channel = IO_DI_29;
-    g_pin_configs[81].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[81].di_cfg.voltage_limits = NULL;
+    g_pin_configs[81].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[81].di_cfg.limits = NULL;
 
     // PWD конфигурация
     g_pin_configs[81].pwd_complex_cfg.pin_channel = IO_PWD_13;
     g_pin_configs[81].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[81].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[81].pwd_complex_cfg.sample_accumulation_count = 1;
-    g_pin_configs[81].pwd_complex_cfg.pull_resistor = IO_PWD_NO_PULL;
+    g_pin_configs[81].pwd_complex_cfg.pupd = IO_PWD_NO_PULL;
     g_pin_configs[81].pwd_complex_cfg.complex_safety_settings = NULL;
 
     /*============================
@@ -1797,15 +1798,15 @@ void Pin_Properties(void)
 
     // DI конфигурация
     g_pin_configs[82].di_cfg.pin_channel = IO_DI_30;
-    g_pin_configs[82].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[82].di_cfg.voltage_limits = NULL;
+    g_pin_configs[82].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[82].di_cfg.limits = NULL;
 
     // PWD конфигурация
     g_pin_configs[82].pwd_complex_cfg.pin_channel = IO_PWD_14;
     g_pin_configs[82].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[82].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[82].pwd_complex_cfg.sample_accumulation_count = 1;
-    g_pin_configs[82].pwd_complex_cfg.pull_resistor = IO_PWD_NO_PULL;
+    g_pin_configs[82].pwd_complex_cfg.pupd = IO_PWD_NO_PULL;
     g_pin_configs[82].pwd_complex_cfg.complex_safety_settings = NULL;
 
     /*============================
@@ -1832,15 +1833,15 @@ void Pin_Properties(void)
 
     // DI конфигурация
     g_pin_configs[83].di_cfg.pin_channel = IO_DI_31;
-    g_pin_configs[83].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[83].di_cfg.voltage_limits = NULL;
+    g_pin_configs[83].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[83].di_cfg.limits = NULL;
 
     // PWD конфигурация
     g_pin_configs[83].pwd_complex_cfg.pin_channel = IO_PWD_15;
     g_pin_configs[83].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[83].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[83].pwd_complex_cfg.sample_accumulation_count = 1;
-    g_pin_configs[83].pwd_complex_cfg.pull_resistor = IO_PWD_NO_PULL;
+    g_pin_configs[83].pwd_complex_cfg.pupd = IO_PWD_NO_PULL;
     g_pin_configs[83].pwd_complex_cfg.complex_safety_settings = NULL;
 
     /*============================
@@ -1867,15 +1868,15 @@ void Pin_Properties(void)
 
     // DI конфигурация
     g_pin_configs[84].di_cfg.pin_channel = IO_DI_32;
-    g_pin_configs[84].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[84].di_cfg.voltage_limits = NULL;
+    g_pin_configs[84].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[84].di_cfg.limits = NULL;
 
     // PWD конфигурация
     g_pin_configs[84].pwd_complex_cfg.pin_channel = IO_PWD_16;
     g_pin_configs[84].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[84].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[84].pwd_complex_cfg.sample_accumulation_count = 1;
-    g_pin_configs[84].pwd_complex_cfg.pull_resistor = IO_PWD_NO_PULL;
+    g_pin_configs[84].pwd_complex_cfg.pupd = IO_PWD_NO_PULL;
     g_pin_configs[84].pwd_complex_cfg.complex_safety_settings = NULL;
 
     /*============================
@@ -1902,15 +1903,15 @@ void Pin_Properties(void)
 
     // DI конфигурация
     g_pin_configs[85].di_cfg.pin_channel = IO_DI_33;
-    g_pin_configs[85].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[85].di_cfg.voltage_limits = NULL;
+    g_pin_configs[85].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[85].di_cfg.limits = NULL;
 
     // PWD конфигурация
     g_pin_configs[85].pwd_complex_cfg.pin_channel = IO_PWD_17;
     g_pin_configs[85].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[85].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[85].pwd_complex_cfg.sample_accumulation_count = 1;
-    g_pin_configs[85].pwd_complex_cfg.pull_resistor = IO_PWD_NO_PULL;
+    g_pin_configs[85].pwd_complex_cfg.pupd = IO_PWD_NO_PULL;
     g_pin_configs[85].pwd_complex_cfg.complex_safety_settings = NULL;
 
     /*============================
@@ -1937,15 +1938,15 @@ void Pin_Properties(void)
 
     // DI конфигурация
     g_pin_configs[86].di_cfg.pin_channel = IO_DI_34;
-    g_pin_configs[86].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[86].di_cfg.voltage_limits = NULL;
+    g_pin_configs[86].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[86].di_cfg.limits = NULL;
 
     // PWD конфигурация
     g_pin_configs[86].pwd_complex_cfg.pin_channel = IO_PWD_18;
     g_pin_configs[86].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[86].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[86].pwd_complex_cfg.sample_accumulation_count = 1;
-    g_pin_configs[86].pwd_complex_cfg.pull_resistor = IO_PWD_NO_PULL;
+    g_pin_configs[86].pwd_complex_cfg.pupd = IO_PWD_NO_PULL;
     g_pin_configs[86].pwd_complex_cfg.complex_safety_settings = NULL;
 
     /*============================
@@ -1972,15 +1973,15 @@ void Pin_Properties(void)
 
     // DI конфигурация
     g_pin_configs[87].di_cfg.pin_channel = IO_DI_35;
-    g_pin_configs[87].di_cfg.pull_resistor = IO_DI_NO_PULL;
-    g_pin_configs[87].di_cfg.voltage_limits = NULL;
+    g_pin_configs[87].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[87].di_cfg.limits = NULL;
 
     // PWD конфигурация
     g_pin_configs[87].pwd_complex_cfg.pin_channel = IO_PWD_19;
     g_pin_configs[87].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[87].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
     g_pin_configs[87].pwd_complex_cfg.sample_accumulation_count = 1;
-    g_pin_configs[87].pwd_complex_cfg.pull_resistor = IO_PWD_NO_PULL;
+    g_pin_configs[87].pwd_complex_cfg.pupd = IO_PWD_NO_PULL;
     g_pin_configs[87].pwd_complex_cfg.complex_safety_settings = NULL;
 
     /*============================
@@ -2010,14 +2011,14 @@ void Pin_Properties(void)
     g_pin_configs[88].adc_cfg.pin_channel = IO_ADC_52;
     g_pin_configs[88].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[88].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[88].adc_cfg.pull_resistor = IO_ADC_PU_10K;
+    g_pin_configs[88].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[88].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[88].adc_cfg.safety_settings = NULL;
 
     // DI конфигурация
     g_pin_configs[88].di_cfg.pin_channel = IO_DI_88;
-    g_pin_configs[88].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[88].di_cfg.voltage_limits = &s_di_limits_default;
+    g_pin_configs[88].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[88].di_cfg.limits = &s_di_limits_default;
 
     /*============================
      * IO_PIN_185 (Internal 89)
@@ -2046,14 +2047,14 @@ void Pin_Properties(void)
     g_pin_configs[89].adc_cfg.pin_channel = IO_ADC_53;
     g_pin_configs[89].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[89].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[89].adc_cfg.pull_resistor = IO_ADC_PU_10K;
+    g_pin_configs[89].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[89].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[89].adc_cfg.safety_settings = NULL;
 
     // DI конфигурация
     g_pin_configs[89].di_cfg.pin_channel = IO_DI_89;
-    g_pin_configs[89].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[89].di_cfg.voltage_limits = &s_di_limits_default;
+    g_pin_configs[89].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[89].di_cfg.limits = &s_di_limits_default;
 
     /*============================
      * IO_PIN_188 (Internal 90)
@@ -2082,14 +2083,14 @@ void Pin_Properties(void)
     g_pin_configs[90].adc_cfg.pin_channel = IO_ADC_54;
     g_pin_configs[90].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[90].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[90].adc_cfg.pull_resistor = IO_ADC_PU_10K;
+    g_pin_configs[90].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[90].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[90].adc_cfg.safety_settings = NULL;
 
     // DI конфигурация
     g_pin_configs[90].di_cfg.pin_channel = IO_DI_90;
-    g_pin_configs[90].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[90].di_cfg.voltage_limits = &s_di_limits_default;
+    g_pin_configs[90].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[90].di_cfg.limits = &s_di_limits_default;
 
     /*============================
      * IO_PIN_164 (Internal 91)
@@ -2118,14 +2119,14 @@ void Pin_Properties(void)
     g_pin_configs[91].adc_cfg.pin_channel = IO_ADC_55;
     g_pin_configs[91].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[91].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[91].adc_cfg.pull_resistor = IO_ADC_PU_10K;
+    g_pin_configs[91].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[91].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[91].adc_cfg.safety_settings = NULL;
 
     // DI конфигурация
     g_pin_configs[91].di_cfg.pin_channel = IO_DI_91;
-    g_pin_configs[91].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[91].di_cfg.voltage_limits = &s_di_limits_default;
+    g_pin_configs[91].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[91].di_cfg.limits = &s_di_limits_default;
 
     /*============================
      * IO_PIN_191 (Internal 92)
@@ -2154,14 +2155,14 @@ void Pin_Properties(void)
     g_pin_configs[92].adc_cfg.pin_channel = IO_ADC_56;
     g_pin_configs[92].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[92].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[92].adc_cfg.pull_resistor = IO_ADC_PU_10K;
+    g_pin_configs[92].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[92].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[92].adc_cfg.safety_settings = NULL;
 
     // DI конфигурация
     g_pin_configs[92].di_cfg.pin_channel = IO_DI_92;
-    g_pin_configs[92].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[92].di_cfg.voltage_limits = &s_di_limits_default;
+    g_pin_configs[92].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[92].di_cfg.limits = &s_di_limits_default;
 
     /*============================
      * IO_PIN_167 (Internal 93)
@@ -2190,14 +2191,14 @@ void Pin_Properties(void)
     g_pin_configs[93].adc_cfg.pin_channel = IO_ADC_57;
     g_pin_configs[93].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[93].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[93].adc_cfg.pull_resistor = IO_ADC_PU_10K;
+    g_pin_configs[93].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[93].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[93].adc_cfg.safety_settings = NULL;
 
     // DI конфигурация
     g_pin_configs[93].di_cfg.pin_channel = IO_DI_93;
-    g_pin_configs[93].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[93].di_cfg.voltage_limits = &s_di_limits_default;
+    g_pin_configs[93].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[93].di_cfg.limits = &s_di_limits_default;
 
     /*============================
      * IO_PIN_194 (Internal 94)
@@ -2226,14 +2227,14 @@ void Pin_Properties(void)
     g_pin_configs[94].adc_cfg.pin_channel = IO_ADC_58;
     g_pin_configs[94].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[94].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[94].adc_cfg.pull_resistor = IO_ADC_PU_10K;
+    g_pin_configs[94].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[94].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[94].adc_cfg.safety_settings = NULL;
 
     // DI конфигурация
     g_pin_configs[94].di_cfg.pin_channel = IO_DI_94;
-    g_pin_configs[94].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[94].di_cfg.voltage_limits = &s_di_limits_default;
+    g_pin_configs[94].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[94].di_cfg.limits = &s_di_limits_default;
 
     /*============================
      * IO_PIN_170 (Internal 95)
@@ -2262,12 +2263,12 @@ void Pin_Properties(void)
     g_pin_configs[95].adc_cfg.pin_channel = IO_ADC_59;
     g_pin_configs[95].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[95].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[95].adc_cfg.pull_resistor = IO_ADC_PU_10K;
+    g_pin_configs[95].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[95].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[95].adc_cfg.safety_settings = NULL;
 
     // DI конфигурация
     g_pin_configs[95].di_cfg.pin_channel = IO_DI_95;
-    g_pin_configs[95].di_cfg.pull_resistor = IO_DI_PU_10K;
-    g_pin_configs[95].di_cfg.voltage_limits = &s_di_limits_default;
+    g_pin_configs[95].di_cfg.pupd = IO_DI_PU_10K;
+    g_pin_configs[95].di_cfg.limits = &s_di_limits_default;
 }

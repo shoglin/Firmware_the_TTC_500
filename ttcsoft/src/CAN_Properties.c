@@ -168,6 +168,12 @@ IO_ErrorType Init_CAN_Group(ubyte1 group_idx)
 IO_ErrorType Init_CAN_System_All(void)
 {
 
+    // Channel 0: RX (CMD) + TX (FB)
+    IO_CAN_Init(IO_CAN_CHANNEL_0, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
+
+    // Channel 1: TX (DIAG)
+    IO_CAN_Init(IO_CAN_CHANNEL_1, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
+
     ubyte1 i;
 
     for (i = 0; i < NUM_GROUPS; i++)
