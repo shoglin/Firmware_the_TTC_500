@@ -1,259 +1,244 @@
 #include "CAN_Properties.h"
-#include <stdbool.h>
+#include <string.h>
 
-// Global array definition
+/* Global structures for CAN */
 
-GroupData_t g_groups[NUM_GROUPS];
+GroupData_t       g_groups[NUM_GROUPS];
+CAN_Debug_Stats_t g_can_stats;
 
-// 1. ID Generation & Frame Defaults
+/* Handles for massages */
 
-void Generate_Group_IDs(ubyte1 index, ubyte4 *ptr_CMD, ubyte4 *ptr_FB,
-                        ubyte4 *ptr_DIAG)
+static ubyte2 handle_cmd_rx  = 0xFFFFU;
+static ubyte2 handle_can0_tx = 0xFFFFU;
+static ubyte2 handle_can1_tx = 0xFFFFU;
+
+/* Values for queue process */
+
+static ubyte1 tx_group_index = 0U;
+static ubyte2 heartbeat_tick = 0U;
+static ubyte4 alive_counter  = 0U;
+
+void Generate_Group_IDs(ubyte1 index, ubyte4 *ptr_CMD, ubyte4 *ptr_FB, ubyte4 *ptr_DIAG)
 {
-    ubyte4 base_cmd = 0x18FF00FAU;
-    ubyte4 base_fb = 0x18FF0027U;
-    ubyte4 base_diag = 0x18FF0027U;
-    ubyte4 mask = 0x0000FF00U; // Bits 8-15
+    ubyte4 mask = 0x0000FF00U;
 
-    *ptr_CMD = (base_cmd & ~mask) | ((ubyte4) index << 8);
-    *ptr_FB = (base_fb & ~mask) | ((ubyte4) (index * 2) << 8);
-    *ptr_DIAG = (base_diag & ~mask) | ((ubyte4) ((index * 2) + 1) << 8);
+    if (ptr_CMD != NULL) {
+        *ptr_CMD = (CAN_CMD_BASE_ID & ~mask) | ((ubyte4)index << 8);
+    }
+    if (ptr_FB != NULL) {
+        *ptr_FB = (CAN_FB_BASE_ID & ~mask) | ((ubyte4)(index * 2U) << 8);
+    }
+    if (ptr_DIAG != NULL) {
+        *ptr_DIAG = (CAN_DIAG_BASE_ID & ~mask) | ((ubyte4)((index * 2U) + 1U) << 8);
+    }
 }
-
-void Init_CAN_Frame_Defaults(IO_CAN_DATA_FRAME *frame, ubyte4 id)
-{
-    frame->id = id;
-    frame->id_format = IO_CAN_EXT_FRAME;
-    frame->length = 8U;
-}
-
-// 2. Pack and Unpack Functions
 
 void Unpack_CMD(const ubyte1 *can_data, CMD_Values *cmd)
 {
-
     ubyte1 pin_idx;
+    if ((can_data == NULL) || (cmd == NULL)) {
+        return;
+    }
 
-    for (pin_idx = 0U; pin_idx < 4U; pin_idx++)
-    {
+    for (pin_idx = 0U; pin_idx < PINS_PER_GROUP; pin_idx++) {
         ubyte1 offset = pin_idx * 2U;
         cmd->config[pin_idx] = can_data[offset] & 0x07U;
-        cmd->value[pin_idx] = can_data[offset + 1U];
+        cmd->value[pin_idx]  = can_data[offset + 1U];
     }
-}
-
-void Pack_FB(const FB_Values *fb, ubyte1 *can_data)
-{
-
-    ubyte1 pin_idx;
-
-    for (pin_idx = 0U; pin_idx < 4U; pin_idx++)
-    {
-        ubyte1 offset = pin_idx * 2U;
-        can_data[offset] = (ubyte1) (fb->val[pin_idx] & 0xFFU);
-        can_data[offset + 1U] = (ubyte1) ((fb->val[pin_idx] >> 8U) & 0xFFU);
-    }
-}
-
-void Pack_DIAG(const DIAG_Values *diag, ubyte1 *can_data)
-{
-
-    ubyte1 pin_idx;
-
-    for (pin_idx = 0U; pin_idx < 4U; pin_idx++)
-    {
-        ubyte1 offset = pin_idx * 2U;
-        can_data[offset] = (ubyte1) (diag->val[pin_idx] & 0xFFU);
-        can_data[offset + 1U] = (ubyte1) ((diag->val[pin_idx] >> 8U) & 0xFFU);
-    }
-}
-
-
-// Setters and getters (static inline to prevent multiple definition errors)
-
-/**
- * @brief Gets the configuration of a specific pin from the CMD structure.
- */
-
-ubyte1 Get_Pin_Config(const CMD_Values *cmd, ubyte1 pin_idx) {
-    if (pin_idx < 4U) {
-        return cmd->config[pin_idx];
-    }
-    return 0U;
-}
-
-/**
- * @brief Gets the value of a specific pin from the CMD structure.
- */
-
-ubyte1 Get_Pin_Value(const CMD_Values *cmd, ubyte1 pin_idx) {
-    if (pin_idx < 4U) {
-        return cmd->value[pin_idx];
-    }
-    return 0U;
-}
-
-/**
- * @brief Sets the value for the feedback (FB) of a specific pin.
- */
-
-void Set_Pin_FB(FB_Values *fb, ubyte1 pin_idx, ubyte2 value) {
-    if (pin_idx < 4U) {
-        fb->val[pin_idx] = value;
-    }
-}
-
-/**
- * @brief Sets the value for the diagnostic (DIAG) of a specific pin.
- */
-
-void Set_Pin_DIAG(DIAG_Values *diag, ubyte1 pin_idx, ubyte2 value) {
-    if (pin_idx < 4U) {
-        diag->val[pin_idx] = value;
-    }
-}
-
-// 3. CAN Initialization
-
-
-IO_ErrorType Init_CAN_Group(ubyte1 group_idx)
-{
-    ubyte2 err;
-
-    if (group_idx >= NUM_GROUPS)
-    {
-        return IO_E_INVALID_PARAMETER;
-    }
-
-    // 1. Generate IDs for this group
-    Generate_Group_IDs(group_idx, &g_groups[group_idx].can.frame_CMD.id,
-                       &g_groups[group_idx].can.frame_FB.id,
-                       &g_groups[group_idx].can.frame_DIAG.id);
-
-    // 2. Fill frame templates
-    Init_CAN_Frame_Defaults(&g_groups[group_idx].can.frame_CMD,
-                            g_groups[group_idx].can.frame_CMD.id);
-    Init_CAN_Frame_Defaults(&g_groups[group_idx].can.frame_FB,
-                            g_groups[group_idx].can.frame_FB.id);
-    Init_CAN_Frame_Defaults(&g_groups[group_idx].can.frame_DIAG,
-                            g_groups[group_idx].can.frame_DIAG.id);
-
-    // 3. Configure reception buffer (CMD) on Channel 0
-    err = IO_CAN_ConfigMsg(&g_groups[group_idx].can.handle_CMD,
-                           IO_CAN_CHANNEL_0,
-                           IO_CAN_MSG_READ,
-                           IO_CAN_EXT_FRAME,
-                           g_groups[group_idx].can.frame_CMD.id, 0x1FFFFFFFU); // Strict mask
-    if (err != IO_E_OK)
-        return err;
-
-    // 4. Configure transmission buffer (FB) on Channel 0
-    err = IO_CAN_ConfigMsg(&g_groups[group_idx].can.handle_FB, IO_CAN_CHANNEL_0,
-    IO_CAN_MSG_WRITE,
-                           IO_CAN_EXT_FRAME,
-                           g_groups[group_idx].can.frame_FB.id, 0U);
-    if (err != IO_E_OK)
-        return err;
-
-    // 5. Configure transmission buffer (DIAG) on Channel 1
-    err = IO_CAN_ConfigMsg(&g_groups[group_idx].can.handle_DIAG,
-                           IO_CAN_CHANNEL_1,
-                           IO_CAN_MSG_WRITE,
-                           IO_CAN_EXT_FRAME,
-                           g_groups[group_idx].can.frame_DIAG.id, 0U);
-
-    return err;
 }
 
 IO_ErrorType Init_CAN_System_All(void)
 {
-
-    // Channel 0: RX (CMD) + TX (FB)
-    IO_CAN_Init(IO_CAN_CHANNEL_0, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-    // Channel 1: TX (DIAG)
-    IO_CAN_Init(IO_CAN_CHANNEL_1, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
+    IO_ErrorType err;
     ubyte1 i;
 
-    for (i = 0; i < NUM_GROUPS; i++)
-    {
-       Init_CAN_Group(i);
+    memset(g_groups, 0, sizeof(g_groups));
+    memset(&g_can_stats, 0, sizeof(g_can_stats));
+
+    /* 1. ID's generation for 24's groups */
+
+    for (i = 0U; i < NUM_GROUPS; i++) {
+        Generate_Group_IDs(i,
+                           &g_groups[i].id_CMD,
+                           &g_groups[i].id_FB,
+                           &g_groups[i].id_DIAG);
     }
+
+    /* 2. Initialization of CAN0 and CAN1 at a speed of 250 kbps */
+
+    err = IO_CAN_Init(IO_CAN_CHANNEL_0, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
+    if (err != IO_E_OK) {
+        return err;
+    }
+
+    err = IO_CAN_Init(IO_CAN_CHANNEL_1, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
+    if (err != IO_E_OK) {
+        return err;
+    }
+
+    /* 3. 1. Make handlers for CMD massages */
+
+    err = IO_CAN_ConfigMsg(&handle_cmd_rx,
+                           IO_CAN_CHANNEL_0,
+                           IO_CAN_MSG_READ,
+                           IO_CAN_EXT_FRAME,
+                           CAN_CMD_BASE_ID,
+                           CAN_CMD_ACCEPTANCE_MASK);
+    if (err != IO_E_OK) {
+        return err;
+    }
+
+    /* 4. 1 Make handlers for FB massages */
+
+    err = IO_CAN_ConfigMsg(&handle_can0_tx,
+                           IO_CAN_CHANNEL_0,
+                           IO_CAN_MSG_WRITE,
+                           IO_CAN_EXT_FRAME,
+                           CAN_FB_BASE_ID,
+                           0U);
+    if (err != IO_E_OK) {
+        return err;
+    }
+
+    /* 5. 1 Make handlers for DIAG massages */
+
+    err = IO_CAN_ConfigMsg(&handle_can1_tx,
+                           IO_CAN_CHANNEL_1,
+                           IO_CAN_MSG_WRITE,
+                           IO_CAN_EXT_FRAME,
+                           CAN_DIAG_BASE_ID,
+                           0U);
+    if (err != IO_E_OK) {
+        return err;
+    }
+
     return IO_E_OK;
 }
 
-// 4. Read / Write Message Methods
-
-void Process_CAN_RX(ubyte1 group_idx)
+void Process_CAN_RX_All(void)
 {
-    if (group_idx >= NUM_GROUPS)
-        return;
+    IO_CAN_DATA_FRAME rx_frame;
+    IO_ErrorType status;
 
-    if (IO_CAN_MsgStatus(g_groups[group_idx].can.handle_CMD) == IO_E_OK)
-    {
-        if (IO_CAN_ReadMsg(g_groups[group_idx].can.handle_CMD,
-                           &g_groups[group_idx].can.frame_CMD) == IO_E_OK)
-        {
-            if (g_groups[group_idx].can.frame_CMD.length == 8U)
-            {
-                Unpack_CMD(g_groups[group_idx].can.frame_CMD.data,
-                           &g_groups[group_idx].current_cmd);
+    /* Read massage */
+
+    status = IO_CAN_MsgStatus(handle_cmd_rx);
+    while ((status == IO_E_OK) || (status == IO_E_CAN_OVERFLOW)) {
+        if (IO_CAN_ReadMsg(handle_cmd_rx, &rx_frame) == IO_E_OK) {
+            g_can_stats.rx_frames_count++;
+            g_can_stats.last_rx_id = rx_frame.id;
+            memcpy(g_can_stats.last_rx_data, rx_frame.data, 8);
+
+            /* Compare ID */
+
+            if ((rx_frame.id & 0x1FFF00FFU) == CAN_CMD_BASE_ID) {
+                ubyte1 grp = (ubyte1)((rx_frame.id >> 8U) & 0xFFU);
+                if ((grp < NUM_GROUPS) && (rx_frame.length == 8U)) {
+                    Unpack_CMD(rx_frame.data, &g_groups[grp].current_cmd);
+                    g_groups[grp].new_cmd_received = true;
+                }
             }
+        } else {
+            break;
+        }
+        status = IO_CAN_MsgStatus(handle_cmd_rx);
+    }
+}
+
+void Process_CAN_TX_Scheduler(void)
+{
+    IO_CAN_DATA_FRAME tx_frame;
+    ubyte1 grp = tx_group_index;
+
+    /* Read the current hardware error counters */
+
+    IO_CAN_Status(IO_CAN_CHANNEL_0, &g_can_stats.can0_rx_err, &g_can_stats.can0_tx_err);
+    IO_CAN_Status(IO_CAN_CHANNEL_1, &g_can_stats.can1_rx_err, &g_can_stats.can1_tx_err);
+
+    /* 1. Sending a "heartbeat" signal once every 100 ms (every 10 calls) */
+
+    heartbeat_tick++;
+    if (heartbeat_tick >= 10U) {
+        heartbeat_tick = 0U;
+        alive_counter++;
+
+        if (IO_CAN_MsgStatus(handle_can0_tx) == IO_E_OK) {
+            tx_frame.id        = CAN_HEARTBEAT_ID;
+            tx_frame.id_format = IO_CAN_EXT_FRAME;
+            tx_frame.length    = 8U;
+
+            /* Bytes 0..3: operation counter */
+
+            tx_frame.data[0] = (ubyte1)(alive_counter & 0xFFU);
+            tx_frame.data[1] = (ubyte1)((alive_counter >> 8U) & 0xFFU);
+            tx_frame.data[2] = (ubyte1)((alive_counter >> 16U) & 0xFFU);
+            tx_frame.data[3] = (ubyte1)((alive_counter >> 24U) & 0xFFU);
+
+            /* Bytes 4..5: number of received packets */
+
+            tx_frame.data[4] = (ubyte1)(g_can_stats.rx_frames_count & 0xFFU);
+            tx_frame.data[5] = (ubyte1)((g_can_stats.rx_frames_count >> 8U) & 0xFFU);
+
+            /* Байт 6, 7: ошибки передачи CAN0 и CAN1 */
+
+            tx_frame.data[6] = g_can_stats.can0_tx_err;
+            tx_frame.data[7] = g_can_stats.can1_tx_err;
+
+            (void)IO_CAN_WriteMsg(handle_can0_tx, &tx_frame);
+            g_can_stats.tx_frames_count++;
         }
     }
-}
 
-void Process_CAN_TX(ubyte1 group_idx)
-{
-    if (group_idx >= NUM_GROUPS)
-        return;
 
-    // FB (Channel 0)
-    Pack_FB(&g_groups[group_idx].fb, g_groups[group_idx].can.frame_FB.data);
-    IO_CAN_WriteMsg(g_groups[group_idx].can.handle_FB,
-                    &g_groups[group_idx].can.frame_FB);
+    /* 2. Sending the FB for the current group via CAN0               */
 
-    // DIAG (Channel 1)
-    Pack_DIAG(&g_groups[group_idx].diag,
-              g_groups[group_idx].can.frame_DIAG.data);
-    IO_CAN_WriteMsg(g_groups[group_idx].can.handle_DIAG,
-                    &g_groups[group_idx].can.frame_DIAG);
-}
+    if (IO_CAN_MsgStatus(handle_can0_tx) == IO_E_OK) {
+        tx_frame.id        = g_groups[grp].id_FB;
+        tx_frame.id_format = IO_CAN_EXT_FRAME;
+        tx_frame.length    = 8U;
 
-// 5. Configuration Management
+        /* Sending the FB for the current group via CAN0 */
 
-/**
- * @brief Updates old configuration with new values from CAN message.
- */
-void Update_Old_CMD_Values(ubyte1 group_idx)
-{
-    if (group_idx >= NUM_GROUPS)
-        return;
+        tx_frame.data[0] = grp;
+        tx_frame.data[1] = (ubyte1)(alive_counter & 0xFFU);
+        tx_frame.data[2] = 0xAAU;
+        tx_frame.data[3] = 0x55U;
+        tx_frame.data[4] = 0x00U;
+        tx_frame.data[5] = 0x00U;
+        tx_frame.data[6] = 0x00U;
+        tx_frame.data[7] = 0x00U;
 
-    ubyte1 i;
-
-    for (i = 0; i < 4; i++)
-    {
-        g_groups[group_idx].old_cmd.config[i] =
-                g_groups[group_idx].current_cmd.config[i];
-        g_groups[group_idx].old_cmd.value[i] =
-                g_groups[group_idx].current_cmd.value[i];
-    }
-}
-
-/**
- * @brief Compare old and current configs for this pin.
- */
-bool Compare_Confs(ubyte1 group_idx, ubyte1 pin_idx)
-{
-    if (group_idx >= NUM_GROUPS || pin_idx >= 4)
-    {
-        return FALSE;
+        (void)IO_CAN_WriteMsg(handle_can0_tx, &tx_frame);
+        g_can_stats.tx_frames_count++;
     }
 
-    ubyte1 curr_cfg = Get_Pin_Config(&g_groups[group_idx].current_cmd, pin_idx);
-    ubyte1 old_cfg = Get_Pin_Config(&g_groups[group_idx].old_cmd, pin_idx);
 
-    return (curr_cfg != old_cfg);
+    /* 3. Sending DIAG for the current group via CAN1                  */
+
+    if (IO_CAN_MsgStatus(handle_can1_tx) == IO_E_OK) {
+        tx_frame.id        = g_groups[grp].id_DIAG;
+        tx_frame.id_format = IO_CAN_EXT_FRAME;
+        tx_frame.length    = 8U;
+
+        /* Test data for diagnostics */
+
+        tx_frame.data[0] = grp;
+        tx_frame.data[1] = (ubyte1)(alive_counter & 0xFFU);
+        tx_frame.data[2] = 0x00U;
+        tx_frame.data[3] = 0x00U;
+        tx_frame.data[4] = 0x00U;
+        tx_frame.data[5] = 0x00U;
+        tx_frame.data[6] = 0x00U;
+        tx_frame.data[7] = 0x00U;
+
+        (void)IO_CAN_WriteMsg(handle_can1_tx, &tx_frame);
+        g_can_stats.tx_frames_count++;
+    }
+
+    /* Move to the next group (Round-Robin) */
+
+    tx_group_index++;
+    if (tx_group_index >= NUM_GROUPS) {
+        tx_group_index = 0U;
+    }
 }

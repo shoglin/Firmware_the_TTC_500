@@ -1,110 +1,78 @@
-#ifndef CAN_Properties_h_
-#define CAN_Properties_h_
+#ifndef CAN_PROPERTIES_H_
+#define CAN_PROPERTIES_H_
 
 #include "IO_Driver.h"
 #include "IO_CAN.h"
 #include <stdbool.h>
 
-// 1. Constants
+/* 1. CAN constants    */
 
-#define NUM_GROUPS 24U  // 24 groups
+#define NUM_GROUPS                  24U   /* 24 groups (4 pins each = 96 channels) */
+#define PINS_PER_GROUP              4U
 
-// 2. Data structures
+/* Base 29-bit IDs */
+#define CAN_CMD_BASE_ID             0x18FF00FAU
+#define CAN_FB_BASE_ID              0x18FF0027U
+#define CAN_DIAG_BASE_ID            0x18FF0027U
+#define CAN_HEARTBEAT_ID            0x18FFFE27U
+
+/* Acceptance mask for CAN0 */
+
+#define CAN_CMD_ACCEPTANCE_MASK     0x1FFF00FFU
+
+/* 2. Data structures*/
 
 typedef struct {
-    ubyte1 config[4];
-    ubyte1 value[4];
+    ubyte1 config[PINS_PER_GROUP];
+    ubyte1 value[PINS_PER_GROUP];
 } CMD_Values;
 
 typedef struct {
-    ubyte2 val[4];
+    ubyte2 val[PINS_PER_GROUP];
 } FB_Values;
 
 typedef struct {
-    ubyte2 val[4];
+    ubyte2 val[PINS_PER_GROUP];
 } DIAG_Values;
 
 typedef struct {
-    ubyte2 handle_CMD;
-    ubyte2 handle_FB;
-    ubyte2 handle_DIAG;
+    ubyte4      id_CMD;
+    ubyte4      id_FB;
+    ubyte4      id_DIAG;
 
-    IO_CAN_DATA_FRAME frame_CMD;
-    IO_CAN_DATA_FRAME frame_FB;
-    IO_CAN_DATA_FRAME frame_DIAG;
-} CAN_Msg_Props;
-
-typedef struct {
-    CAN_Msg_Props can;
-    CMD_Values old_cmd;        // Previously applied configuration
-    CMD_Values current_cmd;    // Newly received configuration
-    FB_Values fb;
+    CMD_Values  current_cmd;
+    CMD_Values  old_cmd;
+    FB_Values   fb;
     DIAG_Values diag;
+
+    bool        new_cmd_received;
 } GroupData_t;
 
-// Global array of all 24 groups
+/* Statistics for real-time debugging */
 
-extern GroupData_t g_groups[NUM_GROUPS];
+typedef struct {
+    ubyte4 tx_frames_count;
+    ubyte4 rx_frames_count;
+    ubyte4 last_rx_id;
+    ubyte1 last_rx_data[8];
+    ubyte1 can0_rx_err;
+    ubyte1 can0_tx_err;
+    ubyte1 can1_rx_err;
+    ubyte1 can1_tx_err;
+} CAN_Debug_Stats_t;
 
-// Generate ID with bits mask
 
-extern void Generate_Group_IDs(ubyte1 index, ubyte4 *ptr_CMD, ubyte4 *ptr_FB, ubyte4 *ptr_DIAG);
+/* 3. Global variables and functions                                         */
 
-// Settings messages by default
 
-extern void Init_CAN_Frame_Defaults(IO_CAN_DATA_FRAME *frame, ubyte4 id);
+extern GroupData_t       g_groups[NUM_GROUPS];
+extern CAN_Debug_Stats_t g_can_stats;
 
-// Functions for pack and unpack messages
+void Generate_Group_IDs(ubyte1 index, ubyte4 *ptr_CMD, ubyte4 *ptr_FB, ubyte4 *ptr_DIAG);
+void Unpack_CMD(const ubyte1 *can_data, CMD_Values *cmd);
 
-extern void Unpack_CMD(const ubyte1 *can_data, CMD_Values *cmd);
+IO_ErrorType Init_CAN_System_All(void);
+void Process_CAN_RX_All(void);
+void Process_CAN_TX_Scheduler(void);
 
-extern void Pack_FB(const FB_Values *fb, ubyte1 *can_data);
-
-extern void Pack_DIAG(const DIAG_Values *diag, ubyte1 *can_data);
-
-// Setters and getters (static inline to prevent multiple definition errors)
-
-/**
- * @brief Gets the configuration of a specific pin from the CMD structure.
- */
-
-extern ubyte1 Get_Pin_Config(const CMD_Values *cmd, ubyte1 pin_idx);
-
-/**
- * @brief Gets the value of a specific pin from the CMD structure.
- */
-
-extern ubyte1 Get_Pin_Value(const CMD_Values *cmd, ubyte1 pin_idx);
-/**
- * @brief Sets the value for the feedback (FB) of a specific pin.
- */
-
-extern void Set_Pin_FB(FB_Values *fb, ubyte1 pin_idx, ubyte2 value);
-
-/**
- * @brief Sets the value for the diagnostic (DIAG) of a specific pin.
- */
-
-extern void Set_Pin_DIAG(DIAG_Values *diag, ubyte1 pin_idx, ubyte2 value);
-
-// Initialization functions
-
-extern IO_ErrorType Init_CAN_Group(ubyte1 group_idx);
-
-extern IO_ErrorType Init_CAN_System_All(void);
-
-// Read/Write message methods
-
-extern void Process_CAN_RX(ubyte1 group_idx);
-
-extern void Process_CAN_TX(ubyte1 group_idx);
-
-// Update old configuration with new values
-
-extern void Update_Old_CMD_Values(ubyte1 group_idx);
-
-// Compare old and current configs for this pin
-
-extern bool Compare_Confs(ubyte1 group_idx, ubyte1 pin_idx);
-
-#endif /* CAN_Properties_h_ */
+#endif /* CAN_PROPERTIES_H_ */

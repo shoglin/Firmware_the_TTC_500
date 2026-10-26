@@ -1,33 +1,15 @@
-/*
- * File: ert_main.c
- *
- * Code generated for Simulink model 'VCU_SW'.
- *
- * Model version                  : 2.3
- * Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
- * C/C++ source code generated on : Tue Jul 14 11:26:00 2026
- *
- * Target selection: ttc_500_series.tlc
- * Embedded hardware selection: Texas Instruments->TMS570 Cortex-R4
- * Code generation objectives: Unspecified
- * Validation result: Not run
- */
-
-// Includes
 #include "APDB.h"
 #include "IO_Driver.h"
 #include "IO_RTC.h"
 #include "IO_Power.h"
 #include "VCU_SW.h"
 
-// Defines
-#define MAJOR_NUMBER                   0
-#define MINOR_NUMBER                   0
-#define REVISION_NUMBER                1
-#define STEP_SIZE                      10000                     /* Sample Time in microseconds */
+#define MAJOR_NUMBER        0
+#define MINOR_NUMBER        0
+#define REVISION_NUMBER     1
+#define STEP_SIZE           10000   /* Base step: 10 000 mks (10 ms) */
 
-// Definitions
-// APDB
+/* For TTC-Downloader */
 
 #pragma SET_DATA_SECTION (".APDB_SEC")
 
@@ -87,51 +69,59 @@ volatile const BL_APDB Apdb_t = {
 
 static ubyte4 timestamp = 0;
 
-// Safety configuration
-static const IO_DRIVER_SAFETY_CONF c_driver_safety_conf = {
-  10,
-  STEP_SIZE,
-  SAFETY_CONF_WINDOW_SIZE_100_PERCENT,
-  SAFETY_CONF_RESETS_1,
-  NULL,
-  NULL
-};
-
-static IO_ErrorType EEPROM_Sts;
-
-// Function with application
-void task (void)
+void task(void)
 {
-  IO_Driver_TaskBegin();
-  VCU_SW_step();
+    /* Task function for IO Driver. This function shall be called at the beginning of the task. */
 
-  /* Get model outputs here */
-  IO_Driver_TaskEnd();
-  while (IO_RTC_GetTimeUS(timestamp) < STEP_SIZE) ;// wait until STEP_SIZE have passed
-  timestamp += STEP_SIZE;
+    IO_Driver_TaskBegin();
+
+    /* Executing a program step */
+
+    VCU_SW_step();
+
+    /* Task function for IO Driver. This function shall be called at the end of the task. */
+
+    IO_Driver_TaskEnd();
+
+    /* Waiting for the completion of a 10 ms real-time interval */
+
+    while (IO_RTC_GetTimeUS(timestamp) < STEP_SIZE) {
+        /* wait */
+    }
+    timestamp += STEP_SIZE;
 }
 
-// Main function
+#pragma TASK(main);
 void main(void)
 {
+    IO_DRIVER_SAFETY_CONF safety_conf;
 
-  IO_Driver_Init(&c_driver_safety_conf);
+    /* Initial Driver Safety Configuration */
 
-  // Other initialization
-  VCU_SW_initialize();
+    safety_conf.command_period     = STEP_SIZE;                           /* 10000 mks */
+    safety_conf.window_size       = SAFETY_CONF_WINDOW_SIZE_100_PERCENT;
+    safety_conf.reset_behavior     = SAFETY_CONF_RESETS_DISABLED;
+    safety_conf.glitch_filter_time = 30;
+    safety_conf.error_callback     = NULL;
+    safety_conf.notify_callback    = NULL;
 
-  // Get timestamp
-  IO_RTC_StartTime(&timestamp);
-  while (1) {
-    task();
-  }
+    /* 1. Global initialization of IO driver */
 
-  // Actions after model termination
-  VCU_SW_terminate();
+    (void)IO_Driver_Init(&safety_conf);
+
+    /* 2. Function initial */
+
+    VCU_SW_initialize();
+
+    /* 3. Returns a timestamp */
+
+    IO_RTC_StartTime(&timestamp);
+
+    /* 4. Infinity loop */
+
+    while (1) {
+        task();
+    }
+
+    VCU_SW_terminate();
 }
-
-/*
- * File trailer for generated code.
- *
- * [EOF]
- */
