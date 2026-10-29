@@ -853,65 +853,30 @@ typedef struct
 
     VOUT_Config_t vout_cfg;
 
-} PinConfigUnion_t;
+} PinConfiguration_t;
 
 // Global array confs
-extern PinConfigUnion_t g_pin_configs[PINS];
+extern PinConfiguration_t g_pin_configs[PINS];
 
 // Function with settings all pins for next init
-
 extern void Pin_Properties(void);
 
 // DI Limits
+extern const IO_DIO_LIMITS s_di_limits_default;
 
-static const IO_DIO_LIMITS s_di_limits_default = { 0U, // Нижняя граница LOW
-        3000U,   // Верхняя граница LOW (до 3В = 0)
-        7000U,   // Нижняя граница HIGH (от 7В = 1)
-        32000U   // Верхняя граница HIGH
-        };
+// Safety configuration for ADC
+extern const IO_ADC_SAFETY_CONF s_adc_safety_5v;
+extern const IO_ADC_SAFETY_CONF s_adc_safety_10v;
+extern const IO_ADC_SAFETY_CONF s_adc_safety_32v;
 
-// Safety configuration for ADC 0-5V
-// Fields: adc_val_lower (%), adc_val_upper (%), redundant_channel
+// Safety configuration for PWD
+extern const IO_PWD_CPLX_SAFETY_CONF pwd_complex_safety_conf;
+extern const IO_PWD_INC_SAFETY_CONF pwd_inc_safety_conf;
+extern const IO_PWD_INC_SAFETY_CONF pwd_cnt_safety_conf;
+extern const IO_PWD_UNIVERSAL_SAFETY_CONF pwd_universal_safety_conf;
 
-static const IO_ADC_SAFETY_CONF s_adc_safety_5v = { 10U, // 10%
-        90U,          // 90%
-        IO_PIN_NONE
-        };
-
-// Safety configuration for ADC 0-10V
-
-static const IO_ADC_SAFETY_CONF s_adc_safety_10v = { 10U, 90U,
-IO_PIN_NONE };
-
-// Safety configuration for ADC 0-32V
-
-static const IO_ADC_SAFETY_CONF s_adc_safety_32v = { 10U, 90U,
-IO_PIN_NONE };
-
-// Safety configuration for Complex PWD inputs
-
-static const IO_PWD_CPLX_SAFETY_CONF pwd_complex_safety_conf = { 100U, 100, 20U,
-                                                                 20U };
-
-// Safety configuration for Incremental PWD inputs
-
-static const IO_PWD_INC_SAFETY_CONF pwd_inc_safety_conf = { 65534U, 65534U };
-
-// Safety configuration for Counter PWD inputs
-
-static const IO_PWD_INC_SAFETY_CONF pwd_cnt_safety_conf = { 65534U, 65534U };
-
-// Safety configuration for Universal PWD inputs
-
-static const IO_PWD_UNIVERSAL_SAFETY_CONF pwd_universal_safety_conf = {
-        &pwd_inc_safety_conf, &pwd_cnt_safety_conf, &pwd_complex_safety_conf };
-
-// Safety configuration for DO inputs
-
-static const IO_DO_SAFETY_CONF do_safety_conf = { IO_DO_08 };
-
-// Safety configuration for PWM inputs
-
-static const IO_PWM_SAFETY_CONF pwm_safety_conf = { TRUE, 7500, IO_PIN_NONE };
+// Safety configuration for DO and PWM
+extern const IO_DO_SAFETY_CONF do_safety_conf;
+extern const IO_PWM_SAFETY_CONF pwm_safety_conf;
 
 #endif /* PIN_SETTINGS_h_ */

@@ -69,22 +69,24 @@ volatile const BL_APDB Apdb_t = {
 
 static ubyte4 timestamp = 0;
 
+#pragma TASK(main);
 void task(void)
 {
-    /* Task function for IO Driver. This function shall be called at the beginning of the task. */
+    /* ФАЗА 1: До безопасного цикла (здесь разрешена реконфигурация) */
+    VCU_SW_pre_step();
 
-    IO_Driver_TaskBegin();
+    /* ФАЗА 2: Защищенный цикл безопасности TTC */
+    (void)IO_Driver_TaskBegin();
 
-    /* Executing a program step */
+    /* Только быстрые операции: IO_*_Get() и IO_*_Set() / IO_PWM_SetDuty() */
+    VCU_SW_step_io();
 
-    VCU_SW_step();
+    (void)IO_Driver_TaskEnd();
 
-    /* Task function for IO Driver. This function shall be called at the end of the task. */
+    /* ФАЗА 3: После безопасного цикла (отправка CAN по очереди) */
+    VCU_SW_post_step();
 
-    IO_Driver_TaskEnd();
-
-    /* Waiting for the completion of a 10 ms real-time interval */
-
+    /* Ожидание завершения кванта 10 мс */
     while (IO_RTC_GetTimeUS(timestamp) < STEP_SIZE) {
         /* wait */
     }
@@ -96,8 +98,6 @@ void main(void)
 {
     IO_DRIVER_SAFETY_CONF safety_conf;
 
-    /* Initial Driver Safety Configuration */
-
     safety_conf.command_period     = STEP_SIZE;                           /* 10000 mks */
     safety_conf.window_size       = SAFETY_CONF_WINDOW_SIZE_100_PERCENT;
     safety_conf.reset_behavior     = SAFETY_CONF_RESETS_DISABLED;
@@ -105,19 +105,11 @@ void main(void)
     safety_conf.error_callback     = NULL;
     safety_conf.notify_callback    = NULL;
 
-    /* 1. Global initialization of IO driver */
-
     (void)IO_Driver_Init(&safety_conf);
-
-    /* 2. Function initial */
 
     VCU_SW_initialize();
 
-    /* 3. Returns a timestamp */
-
-    IO_RTC_StartTime(&timestamp);
-
-    /* 4. Infinity loop */
+    (void)IO_RTC_StartTime(&timestamp);
 
     while (1) {
         task();

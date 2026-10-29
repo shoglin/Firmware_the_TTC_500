@@ -4,6 +4,7 @@
 #include "IO_Driver.h"
 #include "IO_CAN.h"
 #include "IO_POWER.h"
+#include "Pin_Settings.h"
 #include "CAN_Properties.h"
 
 /* Using functions */

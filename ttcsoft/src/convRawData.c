@@ -1,18 +1,3 @@
-/*
- * File: convRawData.c
- *
- * Code generated for Simulink model 'VCU_SW'.
- *
- * Model version                  : 2.3
- * Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
- * C/C++ source code generated on : Tue Jul 14 11:26:00 2026
- *
- * Target selection: ttc_500_series.tlc
- * Embedded hardware selection: Texas Instruments->TMS570 Cortex-R4
- * Code generation objectives: Unspecified
- * Validation result: Not run
- */
-
 #include "convRawData.h"
 
 /* Include model header file for global data */
@@ -20,27 +5,29 @@
 #include "VCU_SW_private.h"
 
 /* Output and update for Simulink Function: '<Root>/convDIOSttToEnum' */
-void convDIOSttToEnum(BOOL rtu_rawValue, ubyte2 rtu_errorSts, StateModeTypes
-                      *rty_enumValue)
+void convDIOSttToEnum(BOOL rtu_rawValue, ubyte2 rtu_errorSts, StateModeTypes *rty_enumValue)
 {
-  /* MATLAB Function: '<S3>/MATLAB Function' incorporates:
-   *  SignalConversion generated from: '<S3>/errorSts'
-   *  SignalConversion generated from: '<S3>/rawValue'
-   */
-  if (rtu_errorSts == 0) {
-    if (rtu_rawValue) {
-      /* SignalConversion generated from: '<S3>/enumValue' */
-      *rty_enumValue = STT_ENABLE;
-    } else {
-      /* SignalConversion generated from: '<S3>/enumValue' */
-      *rty_enumValue = STT_DISABLE;
-    }
-  } else {
-    /* SignalConversion generated from: '<S3>/enumValue' */
-    *rty_enumValue = STT_ERROR;
-  }
 
-  /* End of MATLAB Function: '<S3>/MATLAB Function' */
+    if (rty_enumValue == NULL)
+    {
+        return;
+    }
+
+    if (rtu_errorSts == 0U)
+    {
+        if (rtu_rawValue)
+        {
+            *rty_enumValue = STT_ENABLE;
+        }
+        else
+        {
+            *rty_enumValue = STT_DISABLE;
+        }
+    }
+    else
+    {
+        *rty_enumValue = STT_ERROR;
+    }
 }
 
 /* Output and update for Simulink Function: '<Root>/convAIVoltageData' */
@@ -50,7 +37,8 @@ void convAIVoltageData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 *outADCValue)
     {
         return;
     }
-    if (errorSts == 0)
+
+    if (errorSts == 0U)
     {
         *outADCValue = (ubyte2) inpValue;
     }
@@ -67,7 +55,8 @@ void convAICurrentData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 *outADCValue)
     {
         return;
     }
-    if (errorSts == 0)
+
+    if (errorSts == 0U)
     {
         *outADCValue = (ubyte2) inpValue;
     }
@@ -84,10 +73,11 @@ void convAIResistanceData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 *outADCValue)
     {
         return;
     }
-    if (errorSts == 0)
+
+    if (errorSts == 0U)
     {
-        // because IO_ADC_RESISTIVE: 0..100000 (0Ohm..100000Ohm) inpValue / 1000 for -> ubyte2
-        *outADCValue = (ubyte2) (inpValue / 1000);
+        // Convert 0–100,000 ohms to kOm (0–100 kOm)
+        *outADCValue = (ubyte2) (inpValue / 1000U);
     }
     else
     {
@@ -102,20 +92,14 @@ void convPWDData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 *outPWDValue)
     {
         return;
     }
-    if (errorSts == 0)
+
+    if (errorSts == 0U)
     {
-        *outPWDValue = (ubyte2) (inpValue / 1000);
+        // inpValue is provided in mHz (1/1000 Hz); we convert it to Hz
+        *outPWDValue = (ubyte2) (inpValue / 1000U);
     }
     else
     {
         *outPWDValue = (ubyte2) FREQ_ERROR_VALUE;
     }
 }
-
-
-
-/*
- * File trailer for generated code.
- *
- * [EOF]
- */

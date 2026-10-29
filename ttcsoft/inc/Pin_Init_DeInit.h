@@ -26,4 +26,6 @@ extern void Pin_Init(ubyte1 group_idx, ubyte1 pin_idx, ubyte1 pin_value);
 
 extern void Pin_DeInit(ubyte1 group_idx, ubyte1 pin_idx);
 
+extern void Pin_Write_Value(ubyte1 group_idx, ubyte1 pin_idx, ubyte1 pin_value);
+
 #endif /* PIN_INIT_H_ */
