@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v5.1.6                      
 ******************************************************************************
->> Linked Thu Nov 12 13:49:10 2026
+>> Linked Thu Nov 12 16:43:20 2026
 
 OUTPUT FILE NAME:   <build/app.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000c40e0
@@ -13,7 +13,7 @@ MEMORY CONFIGURATION
 ----------------------  --------  ---------  --------  --------  ----  --------
   apdb_sec              000a0000   00000080  00000080  00000000  R     ffffffff 
   crc_sec               000a0080   00000080  00000080  00000000  R     ffffffff 
-  flash                 000a0100   0025ff00  000389b0  00227550  R  X
+  flash                 000a0100   0025ff00  000389d0  00227530  R  X
   stacks                08000020   00002fe0  00000000  00002fe0  RW  
   ram                   08003000   00035000  000030d8  00031f28  RW  
   io_driver_data_normal 08038000   00007ae0  00005c5c  00001e84  RW  
@@ -33,12 +33,12 @@ run origin  load origin   length   init length attrs members
   000a0080    000a0080    00000080   00000080    r-- $fill000
   000a0100    000a0100    0000fb50   0000fb50    r-x .csm_code
   000afc50    000afc50    00000908   00000908    r-- .csm_const
-000b0560    000b0560    00028550   00028550    r-x
+000b0560    000b0560    00028570   00028570    r-x
   000b0560    000b0560    0001fa10   0001fa10    r-x .io_driver_code
   000cff70    000cff70    00002830   00002830    r-- .io_driver_const
-  000d27a0    000d27a0    00005550   00005550    r-x .text
-  000d7cf0    000d7cf0    00000280   00000280    r-- .const
-  000d7f70    000d7f70    00000b40   00000b40    r-- .cinit
+  000d27a0    000d27a0    00005570   00005570    r-x .text
+  000d7d10    000d7d10    00000280   00000280    r-- .const
+  000d7f90    000d7f90    00000b40   00000b40    r-- .cinit
 08003000    08003000    000030d8   00000000    rw-
   08003000    08003000    0000000c   00000000    rw- .data
   0800300c    0800300c    000030c0   00000000    rw- .bss
@@ -1563,7 +1563,7 @@ $fill000   0    000a0080    00000080
                   000d2794    00000008                : drv_IO_DIO.obj (.IO_DRIVER_CONST)
                   000d279c    00000004     --HOLE-- [fill = 00000000]
 
-.text      0    000d27a0    00005550     
+.text      0    000d27a0    00005570     
                   000d27a0    000000ba     rtsv7R4_T_be_v3D16_eabi.lib : no_stm_memcpy_t2.obj (.text)
                   000d285a    0000009c                                 : memcpy_t2.obj (.text)
                   000d28f6    00000002     --HOLE-- [fill = 00000000]
@@ -1620,50 +1620,50 @@ $fill000   0    000a0080    00000080
                   000d745c    00000004     --HOLE-- [fill = 00000000]
                   000d7460    0000001c     CAN_Properties.obj (.text:Set_Pin_DIAG)
                   000d747c    00000004     --HOLE-- [fill = 00000000]
-                  000d7480    000004e8     Pin_Gets_Val_Err.obj (.text:Update_Pin_FB_and_DIAG)
-                  000d7968    00000008     --HOLE-- [fill = 00000000]
-                  000d7970    00000060     VCU_SW.obj (.text:VCU_SW_step_io)
-                  000d79d0    0000005c     CAN_Properties.obj (.text:Pack_FB)
-                  000d7a2c    00000004     --HOLE-- [fill = 00000000]
-                  000d7a30    0000005c     CAN_Properties.obj (.text:Pack_DIAG)
-                  000d7a8c    00000004     --HOLE-- [fill = 00000000]
-                  000d7a90    000000ec     CAN_Properties.obj (.text:Process_CAN_TX)
-                  000d7b7c    00000004     --HOLE-- [fill = 00000000]
-                  000d7b80    0000003c     VCU_SW.obj (.text:VCU_SW_post_step)
-                  000d7bbc    00000004     --HOLE-- [fill = 00000000]
-                  000d7bc0    00000060     ert_main.obj (.text:task)
-                  000d7c20    00000048     ert_main.obj (.text:main)
-                  000d7c68    00000012     rtsv7R4_T_be_v3D16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
-                  000d7c7a    0000000e                                 : copy_decompress_none.obj (.text:decompress:none)
-                  000d7c88    00000060                                 : copy_decompress_rle.obj (.text)
-                  000d7ce8    00000008     --HOLE-- [fill = 00000000]
+                  000d7480    00000508     Pin_Gets_Val_Err.obj (.text:Update_Pin_FB_and_DIAG)
+                  000d7988    00000008     --HOLE-- [fill = 00000000]
+                  000d7990    00000060     VCU_SW.obj (.text:VCU_SW_step_io)
+                  000d79f0    0000005c     CAN_Properties.obj (.text:Pack_FB)
+                  000d7a4c    00000004     --HOLE-- [fill = 00000000]
+                  000d7a50    0000005c     CAN_Properties.obj (.text:Pack_DIAG)
+                  000d7aac    00000004     --HOLE-- [fill = 00000000]
+                  000d7ab0    000000ec     CAN_Properties.obj (.text:Process_CAN_TX)
+                  000d7b9c    00000004     --HOLE-- [fill = 00000000]
+                  000d7ba0    0000003c     VCU_SW.obj (.text:VCU_SW_post_step)
+                  000d7bdc    00000004     --HOLE-- [fill = 00000000]
+                  000d7be0    00000060     ert_main.obj (.text:task)
+                  000d7c40    00000048     ert_main.obj (.text:main)
+                  000d7c88    00000012     rtsv7R4_T_be_v3D16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  000d7c9a    0000000e                                 : copy_decompress_none.obj (.text:decompress:none)
+                  000d7ca8    00000060                                 : copy_decompress_rle.obj (.text)
+                  000d7d08    00000008     --HOLE-- [fill = 00000000]
 
-.const     0    000d7cf0    00000280     
-                  000d7cf0    00000100     bsp.lib : bsp_sys_startup.obj (.const:$P$T0$1)
-                  000d7df0    00000062     ttc500.lib : drv_IO_INT_WD.obj (.const)
-                  000d7e52    00000002     --HOLE-- [fill = 00000000]
-                  000d7e54    00000057                : drv_IO_CAN.obj (.const)
-                  000d7eab    00000001     --HOLE-- [fill = 00000000]
-                  000d7eac    00000048                : drv_IO_INT_SPI.obj (.const)
-                  000d7ef4    00000040     Pin_Settings.obj (.const)
-                  000d7f34    00000030     ttc500.lib : drv_IO_INT_PWD.obj (.const)
-                  000d7f64    00000008                : drv_IO_INT_UART.obj (.const)
-                  000d7f6c    00000004     --HOLE-- [fill = 00000000]
+.const     0    000d7d10    00000280     
+                  000d7d10    00000100     bsp.lib : bsp_sys_startup.obj (.const:$P$T0$1)
+                  000d7e10    00000062     ttc500.lib : drv_IO_INT_WD.obj (.const)
+                  000d7e72    00000002     --HOLE-- [fill = 00000000]
+                  000d7e74    00000057                : drv_IO_CAN.obj (.const)
+                  000d7ecb    00000001     --HOLE-- [fill = 00000000]
+                  000d7ecc    00000048                : drv_IO_INT_SPI.obj (.const)
+                  000d7f14    00000040     Pin_Settings.obj (.const)
+                  000d7f54    00000030     ttc500.lib : drv_IO_INT_PWD.obj (.const)
+                  000d7f84    00000008                : drv_IO_INT_UART.obj (.const)
+                  000d7f8c    00000004     --HOLE-- [fill = 00000000]
 
 .init_array 
-*          0    000d7cf0    00000000     UNINITIALIZED
+*          0    000d7d10    00000000     UNINITIALIZED
 
-.cinit     0    000d7f70    00000b40     
-                  000d7f70    00000acb     (.cinit..IO_DRIVER_VAR_NORMAL.load) [load image, compression = rle]
-                  000d8a3b    00000005     --HOLE-- [fill = 00000000]
-                  000d8a40    0000000c     (.cinit..data.load) [load image, compression = rle]
-                  000d8a4c    0000000c     (__TI_handler_table)
-                  000d8a58    0000000b     (.cinit..IO_DRIVER_VAR_COMMON.load) [load image, compression = rle]
-                  000d8a63    00000005     --HOLE-- [fill = 00000000]
-                  000d8a68    00000008     (.cinit..CSM_VAR.load) [load image, compression = zero_init]
-                  000d8a70    00000008     (.cinit..TI.bound:Csm_Mcu_SharedMem.load) [load image, compression = zero_init]
-                  000d8a78    00000008     (.cinit..bss.load) [load image, compression = zero_init]
-                  000d8a80    00000030     (__TI_cinit_table)
+.cinit     0    000d7f90    00000b40     
+                  000d7f90    00000acb     (.cinit..IO_DRIVER_VAR_NORMAL.load) [load image, compression = rle]
+                  000d8a5b    00000005     --HOLE-- [fill = 00000000]
+                  000d8a60    0000000c     (.cinit..data.load) [load image, compression = rle]
+                  000d8a6c    0000000c     (__TI_handler_table)
+                  000d8a78    0000000b     (.cinit..IO_DRIVER_VAR_COMMON.load) [load image, compression = rle]
+                  000d8a83    00000005     --HOLE-- [fill = 00000000]
+                  000d8a88    00000008     (.cinit..CSM_VAR.load) [load image, compression = zero_init]
+                  000d8a90    00000008     (.cinit..TI.bound:Csm_Mcu_SharedMem.load) [load image, compression = zero_init]
+                  000d8a98    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000d8aa0    00000030     (__TI_cinit_table)
 
 .stack     0    08000020    00000000     UNINITIALIZED
 
@@ -1761,18 +1761,18 @@ $fill000   0    000a0080    00000080
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 000d8a80 records: 6, size/record: 8, table size: 48
-	.IO_DRIVER_VAR_NORMAL: load addr=000d7f70, load size=00000acb bytes, run addr=08038390, run size=000058cc bytes, compression=rle
-	.data: load addr=000d8a40, load size=0000000c bytes, run addr=08003000, run size=0000000c bytes, compression=rle
-	.IO_DRIVER_VAR_COMMON: load addr=000d8a58, load size=0000000b bytes, run addr=0803fae0, run size=00000100 bytes, compression=rle
-	.CSM_VAR: load addr=000d8a68, load size=00000008 bytes, run addr=08038000, run size=00000390 bytes, compression=zero_init
-	.TI.bound:Csm_Mcu_SharedMem: load addr=000d8a70, load size=00000008 bytes, run addr=0803fee0, run size=00000120 bytes, compression=zero_init
-	.bss: load addr=000d8a78, load size=00000008 bytes, run addr=0800300c, run size=000030c0 bytes, compression=zero_init
+__TI_cinit_table @ 000d8aa0 records: 6, size/record: 8, table size: 48
+	.IO_DRIVER_VAR_NORMAL: load addr=000d7f90, load size=00000acb bytes, run addr=08038390, run size=000058cc bytes, compression=rle
+	.data: load addr=000d8a60, load size=0000000c bytes, run addr=08003000, run size=0000000c bytes, compression=rle
+	.IO_DRIVER_VAR_COMMON: load addr=000d8a78, load size=0000000b bytes, run addr=0803fae0, run size=00000100 bytes, compression=rle
+	.CSM_VAR: load addr=000d8a88, load size=00000008 bytes, run addr=08038000, run size=00000390 bytes, compression=zero_init
+	.TI.bound:Csm_Mcu_SharedMem: load addr=000d8a90, load size=00000008 bytes, run addr=0803fee0, run size=00000120 bytes, compression=zero_init
+	.bss: load addr=000d8a98, load size=00000008 bytes, run addr=0800300c, run size=000030c0 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 000d8a4c records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 000d8a6c records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_decompress_rle24
 	index: 1, handler: __TI_decompress_none
 	index: 2, handler: __TI_zero_init
@@ -2384,14 +2384,14 @@ address    name
 000b0210   PWM_GPIO_prg
 000b0528   PWM_SSW_prg
 000b0408   PWM_output_prg
-000d7a30   Pack_DIAG
-000d79d0   Pack_FB
+000d7a50   Pack_DIAG
+000d79f0   Pack_FB
 000d6bf0   Pin_DeInit
 000d6db0   Pin_Init
 000d2ab0   Pin_Properties
 000d6a60   Pin_Write_Value
 000d68b0   Process_CAN_RX
-000d7a90   Process_CAN_TX
+000d7ab0   Process_CAN_TX
 000b0560   RAM_Fail
 UNDEFED    SHT$$INIT_ARRAY$$Base
 UNDEFED    SHT$$INIT_ARRAY$$Limit
@@ -2401,9 +2401,9 @@ UNDEFED    SHT$$INIT_ARRAY$$Limit
 000d7170   Update_Old_CMD_Values
 000d7480   Update_Pin_FB_and_DIAG
 000d6800   VCU_SW_initialize
-000d7b80   VCU_SW_post_step
+000d7ba0   VCU_SW_post_step
 000d7210   VCU_SW_pre_step
-000d7970   VCU_SW_step_io
+000d7990   VCU_SW_step_io
 08038000   _ProtectedRAM_
 08000a00   _StackABORT_
 08000800   _StackABORT_END_
@@ -2418,15 +2418,15 @@ UNDEFED    SHT$$INIT_ARRAY$$Limit
 08000100   _StackUSER_
 08000020   _StackUSER_END_
 00000008   __SYSMEM_SIZE
-000d8a80   __TI_CINIT_Base
-000d8ab0   __TI_CINIT_Limit
-000d8a4c   __TI_Handler_Table_Base
-000d8a58   __TI_Handler_Table_Limit
+000d8aa0   __TI_CINIT_Base
+000d8ad0   __TI_CINIT_Limit
+000d8a6c   __TI_Handler_Table_Base
+000d8a78   __TI_Handler_Table_Limit
 000d2941   __TI_auto_init
-000d7c7b   __TI_decompress_none
+000d7c9b   __TI_decompress_none
 000d65d5   __TI_decompress_rle24
-000d7f70   __TI_static_base__
-000d7c69   __TI_zero_init
+000d7f90   __TI_static_base__
+000d7c89   __TI_zero_init
 000d2a8f   __aeabi_llsl
 000d285b   __aeabi_memcpy
 000d285b   __aeabi_memcpy4
@@ -2615,7 +2615,7 @@ ffffffff   binit
 000cf380   custom_pabort
 000cfca0   custom_undef
 0803d0b7   diag_request_safestate
-000d7f2c   do_safety_conf
+000d7f4c   do_safety_conf
 0800588c   g_groups
 0800300c   g_pin_configs
 000b3bd0   get_mcu_configuration
@@ -2656,21 +2656,21 @@ ffffffff   binit
 0803d8f0   io_pvg_stat_tb
 0803d4a4   io_pwd_stat_tb
 0803b644   io_pwm_stat_tb
-000d7c20   main
+000d7c40   main
 000d2a6d   memcmp
 000d285b   memcpy
 000d27a1   no_stm_memcpy
 000d29d5   no_stm_memset
-000d7f1c   pwd_cnt_safety_conf
-000d7f08   pwd_complex_safety_conf
-000d7f18   pwd_inc_safety_conf
-000d7f20   pwd_universal_safety_conf
-000d7f2e   pwm_safety_conf
-000d7eff   s_adc_safety_10v
-000d7f02   s_adc_safety_32v
-000d7efc   s_adc_safety_5v
-000d7ef4   s_di_limits_default
-000d7bc0   task
+000d7f3c   pwd_cnt_safety_conf
+000d7f28   pwd_complex_safety_conf
+000d7f38   pwd_inc_safety_conf
+000d7f40   pwd_universal_safety_conf
+000d7f4e   pwm_safety_conf
+000d7f1f   s_adc_safety_10v
+000d7f22   s_adc_safety_32v
+000d7f1c   s_adc_safety_5v
+000d7f14   s_di_limits_default
+000d7be0   task
 0803dc09   variant_option_KL30VP_ADC
 000cf7b0   vim_parity_error
 
@@ -3287,30 +3287,30 @@ address    name
 000d7440   Set_Pin_FB
 000d7460   Set_Pin_DIAG
 000d7480   Update_Pin_FB_and_DIAG
-000d7970   VCU_SW_step_io
-000d79d0   Pack_FB
-000d7a30   Pack_DIAG
-000d7a90   Process_CAN_TX
-000d7b80   VCU_SW_post_step
-000d7bc0   task
-000d7c20   main
-000d7c69   __TI_zero_init
-000d7c7b   __TI_decompress_none
-000d7ef4   s_di_limits_default
-000d7efc   s_adc_safety_5v
-000d7eff   s_adc_safety_10v
-000d7f02   s_adc_safety_32v
-000d7f08   pwd_complex_safety_conf
-000d7f18   pwd_inc_safety_conf
-000d7f1c   pwd_cnt_safety_conf
-000d7f20   pwd_universal_safety_conf
-000d7f2c   do_safety_conf
-000d7f2e   pwm_safety_conf
-000d7f70   __TI_static_base__
-000d8a4c   __TI_Handler_Table_Base
-000d8a58   __TI_Handler_Table_Limit
-000d8a80   __TI_CINIT_Base
-000d8ab0   __TI_CINIT_Limit
+000d7990   VCU_SW_step_io
+000d79f0   Pack_FB
+000d7a50   Pack_DIAG
+000d7ab0   Process_CAN_TX
+000d7ba0   VCU_SW_post_step
+000d7be0   task
+000d7c40   main
+000d7c89   __TI_zero_init
+000d7c9b   __TI_decompress_none
+000d7f14   s_di_limits_default
+000d7f1c   s_adc_safety_5v
+000d7f1f   s_adc_safety_10v
+000d7f22   s_adc_safety_32v
+000d7f28   pwd_complex_safety_conf
+000d7f38   pwd_inc_safety_conf
+000d7f3c   pwd_cnt_safety_conf
+000d7f40   pwd_universal_safety_conf
+000d7f4c   do_safety_conf
+000d7f4e   pwm_safety_conf
+000d7f90   __TI_static_base__
+000d8a6c   __TI_Handler_Table_Base
+000d8a78   __TI_Handler_Table_Limit
+000d8aa0   __TI_CINIT_Base
+000d8ad0   __TI_CINIT_Limit
 08000020   _StackUSER_END_
 08000100   _StackFIQ_END_
 08000100   _StackUSER_
@@ -3584,12 +3584,13 @@ Value     Binding   Name (Section)
 000d7890  local     $C$L18 (.text:Update_Pin_FB_and_DIAG)
 000d78b0  local     $C$L19 (.text:Update_Pin_FB_and_DIAG)
 000d7580  local     $C$L2 (.text:Update_Pin_FB_and_DIAG)
-000d78c4  local     $C$L20 (.text:Update_Pin_FB_and_DIAG)
-000d78d0  local     $C$L21 (.text:Update_Pin_FB_and_DIAG)
-000d7900  local     $C$L22 (.text:Update_Pin_FB_and_DIAG)
-000d7928  local     $C$L23 (.text:Update_Pin_FB_and_DIAG)
-000d7930  local     $C$L24 (.text:Update_Pin_FB_and_DIAG)
-000d7960  local     $C$L25 (.text:Update_Pin_FB_and_DIAG)
+000d78d0  local     $C$L20 (.text:Update_Pin_FB_and_DIAG)
+000d78e4  local     $C$L21 (.text:Update_Pin_FB_and_DIAG)
+000d78f0  local     $C$L22 (.text:Update_Pin_FB_and_DIAG)
+000d7920  local     $C$L23 (.text:Update_Pin_FB_and_DIAG)
+000d7948  local     $C$L24 (.text:Update_Pin_FB_and_DIAG)
+000d7950  local     $C$L25 (.text:Update_Pin_FB_and_DIAG)
+000d7980  local     $C$L26 (.text:Update_Pin_FB_and_DIAG)
 000d75bc  local     $C$L3 (.text:Update_Pin_FB_and_DIAG)
 000d7618  local     $C$L4 (.text:Update_Pin_FB_and_DIAG)
 000d7648  local     $C$L5 (.text:Update_Pin_FB_and_DIAG)
@@ -3611,7 +3612,7 @@ Run/Load
 Value     Binding   Name (Section)
 --------  --------  ---------------
 000d6598  local     $C$L1 (.text:Generate_Group_IDs)
-000d7a88  local     $C$L10 (.text:Pack_DIAG)
+000d7aa8  local     $C$L10 (.text:Pack_DIAG)
 000d6640  local     $C$L11 (.text:Init_CAN_Group)
 000d66b8  local     $C$L12 (.text:Init_CAN_Group)
 000d67d0  local     $C$L13 (.text:Init_CAN_System_All)
@@ -3629,9 +3630,9 @@ Value     Binding   Name (Section)
 000d68f0  local     $C$L24 (.text:Process_CAN_RX)
 000d692c  local     $C$L25 (.text:Process_CAN_RX)
 000d693c  local     $C$L26 (.text:Process_CAN_RX)
-000d7b0c  local     $C$L27 (.text:Process_CAN_TX)
-000d7b50  local     $C$L28 (.text:Process_CAN_TX)
-000d7b78  local     $C$L29 (.text:Process_CAN_TX)
+000d7b2c  local     $C$L27 (.text:Process_CAN_TX)
+000d7b70  local     $C$L28 (.text:Process_CAN_TX)
+000d7b98  local     $C$L29 (.text:Process_CAN_TX)
 000d65d0  local     $C$L3 (.text:Generate_Group_IDs)
 000d71d0  local     $C$L30 (.text:Update_Old_CMD_Values)
 000d7200  local     $C$L31 (.text:Update_Old_CMD_Values)
@@ -3644,14 +3645,14 @@ Value     Binding   Name (Section)
 000d6604  local     $C$L4 (.text:Init_CAN_Frame_Defaults)
 000d6870  local     $C$L5 (.text:Unpack_CMD)
 000d68a4  local     $C$L6 (.text:Unpack_CMD)
-000d79f0  local     $C$L7 (.text:Pack_FB)
-000d7a28  local     $C$L8 (.text:Pack_FB)
-000d7a50  local     $C$L9 (.text:Pack_DIAG)
+000d7a10  local     $C$L7 (.text:Pack_FB)
+000d7a48  local     $C$L8 (.text:Pack_FB)
+000d7a70  local     $C$L9 (.text:Pack_DIAG)
 000d6570  local     $a (.text:Generate_Group_IDs)
 000d65e0  local     $a (.text:Init_CAN_Frame_Defaults)
 000d6850  local     $a (.text:Unpack_CMD)
-000d79d0  local     $a (.text:Pack_FB)
-000d7a30  local     $a (.text:Pack_DIAG)
+000d79f0  local     $a (.text:Pack_FB)
+000d7a50  local     $a (.text:Pack_DIAG)
 000d6610  local     $a (.text:Init_CAN_Group)
 000d66c0  local     $a (.text:Init_CAN_System_All)
 000d6a40  local     $a (.text:Get_Pin_Config)
@@ -3659,7 +3660,7 @@ Value     Binding   Name (Section)
 000d7440  local     $a (.text:Set_Pin_FB)
 000d7460  local     $a (.text:Set_Pin_DIAG)
 000d68b0  local     $a (.text:Process_CAN_RX)
-000d7a90  local     $a (.text:Process_CAN_TX)
+000d7ab0  local     $a (.text:Process_CAN_TX)
 000d7170  local     $a (.text:Update_Old_CMD_Values)
 000d6980  local     $a (.text:Compare_Confs)
 000d69e0  local     $a (.text:Compare_Values)
@@ -3678,10 +3679,10 @@ Value     Binding   Name (Section)
 000d65e0  local     .text:Init_CAN_Frame_Defaults (.text:Init_CAN_Frame_Defaults)
 000d6610  local     .text:Init_CAN_Group (.text:Init_CAN_Group)
 000d66c0  local     .text:Init_CAN_System_All (.text:Init_CAN_System_All)
-000d7a30  local     .text:Pack_DIAG (.text:Pack_DIAG)
-000d79d0  local     .text:Pack_FB (.text:Pack_FB)
+000d7a50  local     .text:Pack_DIAG (.text:Pack_DIAG)
+000d79f0  local     .text:Pack_FB (.text:Pack_FB)
 000d68b0  local     .text:Process_CAN_RX (.text:Process_CAN_RX)
-000d7a90  local     .text:Process_CAN_TX (.text:Process_CAN_TX)
+000d7ab0  local     .text:Process_CAN_TX (.text:Process_CAN_TX)
 000d7460  local     .text:Set_Pin_DIAG (.text:Set_Pin_DIAG)
 000d7440  local     .text:Set_Pin_FB (.text:Set_Pin_FB)
 000d6850  local     .text:Unpack_CMD (.text:Unpack_CMD)
@@ -3694,10 +3695,10 @@ Value     Binding   Name (Section)
 000d65e0  global    Init_CAN_Frame_Defaults (.text:Init_CAN_Frame_Defaults)
 000d6610  global    Init_CAN_Group (.text:Init_CAN_Group)
 000d66c0  global    Init_CAN_System_All (.text:Init_CAN_System_All)
-000d7a30  global    Pack_DIAG (.text:Pack_DIAG)
-000d79d0  global    Pack_FB (.text:Pack_FB)
+000d7a50  global    Pack_DIAG (.text:Pack_DIAG)
+000d79f0  global    Pack_FB (.text:Pack_FB)
 000d68b0  global    Process_CAN_RX (.text:Process_CAN_RX)
-000d7a90  global    Process_CAN_TX (.text:Process_CAN_TX)
+000d7ab0  global    Process_CAN_TX (.text:Process_CAN_TX)
 000d7460  global    Set_Pin_DIAG (.text:Set_Pin_DIAG)
 000d7440  global    Set_Pin_FB (.text:Set_Pin_FB)
 000d6850  global    Unpack_CMD (.text:Unpack_CMD)
@@ -3753,11 +3754,11 @@ Run/Load
 Value     Binding   Name (Section)
 --------  --------  ---------------
 000d7240  local     $C$L1 (.text:VCU_SW_pre_step)
-000d79a0  local     $C$L10 (.text:VCU_SW_step_io)
-000d79bc  local     $C$L11 (.text:VCU_SW_step_io)
-000d79cc  local     $C$L12 (.text:VCU_SW_step_io)
-000d7ba0  local     $C$L13 (.text:VCU_SW_post_step)
-000d7bb8  local     $C$L14 (.text:VCU_SW_post_step)
+000d79c0  local     $C$L10 (.text:VCU_SW_step_io)
+000d79dc  local     $C$L11 (.text:VCU_SW_step_io)
+000d79ec  local     $C$L12 (.text:VCU_SW_step_io)
+000d7bc0  local     $C$L13 (.text:VCU_SW_post_step)
+000d7bd8  local     $C$L14 (.text:VCU_SW_post_step)
 000d7258  local     $C$L2 (.text:VCU_SW_pre_step)
 000d7270  local     $C$L3 (.text:VCU_SW_pre_step)
 000d7280  local     $C$L4 (.text:VCU_SW_pre_step)
@@ -3765,23 +3766,23 @@ Value     Binding   Name (Section)
 000d72ec  local     $C$L6 (.text:VCU_SW_pre_step)
 000d72fc  local     $C$L7 (.text:VCU_SW_pre_step)
 000d7314  local     $C$L8 (.text:VCU_SW_pre_step)
-000d7990  local     $C$L9 (.text:VCU_SW_step_io)
+000d79b0  local     $C$L9 (.text:VCU_SW_step_io)
 000d6800  local     $a (.text:VCU_SW_initialize)
 000d7210  local     $a (.text:VCU_SW_pre_step)
-000d7970  local     $a (.text:VCU_SW_step_io)
-000d7b80  local     $a (.text:VCU_SW_post_step)
+000d7990  local     $a (.text:VCU_SW_step_io)
+000d7ba0  local     $a (.text:VCU_SW_post_step)
 00000000  local     $d (.const)
 00000000  local     .const (.const)
 00000000  local     .text (.text)
 000d6800  local     .text:VCU_SW_initialize (.text:VCU_SW_initialize)
-000d7b80  local     .text:VCU_SW_post_step (.text:VCU_SW_post_step)
+000d7ba0  local     .text:VCU_SW_post_step (.text:VCU_SW_post_step)
 000d7210  local     .text:VCU_SW_pre_step (.text:VCU_SW_pre_step)
-000d7970  local     .text:VCU_SW_step_io (.text:VCU_SW_step_io)
+000d7990  local     .text:VCU_SW_step_io (.text:VCU_SW_step_io)
 00000000  global    VCU_SW_RGND (.const)
 000d6800  global    VCU_SW_initialize (.text:VCU_SW_initialize)
-000d7b80  global    VCU_SW_post_step (.text:VCU_SW_post_step)
+000d7ba0  global    VCU_SW_post_step (.text:VCU_SW_post_step)
 000d7210  global    VCU_SW_pre_step (.text:VCU_SW_pre_step)
-000d7970  global    VCU_SW_step_io (.text:VCU_SW_step_io)
+000d7990  global    VCU_SW_step_io (.text:VCU_SW_step_io)
 
 
 ================================================================================
@@ -3791,21 +3792,21 @@ ert_main.obj
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-000d7c00  local     $C$L1 (.text:task)
-000d7c10  local     $C$L2 (.text:task)
-000d7c60  local     $C$L3 (.text:main)
-000d7bc0  local     $a (.text:task)
-000d7c20  local     $a (.text:main)
+000d7c20  local     $C$L1 (.text:task)
+000d7c30  local     $C$L2 (.text:task)
+000d7c80  local     $C$L3 (.text:main)
+000d7be0  local     $a (.text:task)
+000d7c40  local     $a (.text:main)
 000a0000  local     $d (.APDB_SEC)
 08003008  local     $d (.data)
 000a0000  local     .APDB_SEC (.APDB_SEC)
 08003008  local     .data (.data)
 00000000  local     .text (.text)
-000d7c20  local     .text:main (.text:main)
-000d7bc0  local     .text:task (.text:task)
+000d7c40  local     .text:main (.text:main)
+000d7be0  local     .text:task (.text:task)
 000a0000  global    Apdb_t (.APDB_SEC)
-000d7c20  global    main (.text:main)
-000d7bc0  global    task (.text:task)
+000d7c40  global    main (.text:main)
+000d7be0  global    task (.text:task)
 08003008  local     timestamp (.data)
 
 
@@ -3860,32 +3861,32 @@ Value     Binding   Name (Section)
 000d2b10  local     $C$L1 (.text:Pin_Properties)
 000d2bc0  local     $C$L2 (.text:Pin_Properties)
 000d2ab0  local     $a (.text:Pin_Properties)
-000d7ef4  local     $d (.const)
-000d7efc  local     $d (.const)
-000d7eff  local     $d (.const)
-000d7f02  local     $d (.const)
-000d7f08  local     $d (.const)
-000d7f18  local     $d (.const)
+000d7f14  local     $d (.const)
 000d7f1c  local     $d (.const)
-000d7f20  local     $d (.const)
-000d7f2c  local     $d (.const)
-000d7f2e  local     $d (.const)
+000d7f1f  local     $d (.const)
+000d7f22  local     $d (.const)
+000d7f28  local     $d (.const)
+000d7f38  local     $d (.const)
+000d7f3c  local     $d (.const)
+000d7f40  local     $d (.const)
+000d7f4c  local     $d (.const)
+000d7f4e  local     $d (.const)
 0800300c  local     .bss:g_pin_configs (.bss:g_pin_configs)
-000d7ef4  local     .const (.const)
+000d7f14  local     .const (.const)
 00000000  local     .text (.text)
 000d2ab0  local     .text:Pin_Properties (.text:Pin_Properties)
 000d2ab0  global    Pin_Properties (.text:Pin_Properties)
-000d7f2c  global    do_safety_conf (.const)
+000d7f4c  global    do_safety_conf (.const)
 0800300c  global    g_pin_configs (.bss:g_pin_configs)
-000d7f1c  global    pwd_cnt_safety_conf (.const)
-000d7f08  global    pwd_complex_safety_conf (.const)
-000d7f18  global    pwd_inc_safety_conf (.const)
-000d7f20  global    pwd_universal_safety_conf (.const)
-000d7f2e  global    pwm_safety_conf (.const)
-000d7eff  global    s_adc_safety_10v (.const)
-000d7f02  global    s_adc_safety_32v (.const)
-000d7efc  global    s_adc_safety_5v (.const)
-000d7ef4  global    s_di_limits_default (.const)
+000d7f3c  global    pwd_cnt_safety_conf (.const)
+000d7f28  global    pwd_complex_safety_conf (.const)
+000d7f38  global    pwd_inc_safety_conf (.const)
+000d7f40  global    pwd_universal_safety_conf (.const)
+000d7f4e  global    pwm_safety_conf (.const)
+000d7f1f  global    s_adc_safety_10v (.const)
+000d7f22  global    s_adc_safety_32v (.const)
+000d7f1c  global    s_adc_safety_5v (.const)
+000d7f14  global    s_di_limits_default (.const)
 
 
 ================================================================================
@@ -3985,9 +3986,9 @@ Value     Binding   Name (Section)
 000001c4  local     $C$L7 (.IO_DRIVER_CODE:IO_INT_SPI_Sync_Transfer)
 000001d0  local     $C$L8 (.IO_DRIVER_CODE:IO_INT_SPI_Sync_Transfer)
 00000220  local     $C$L9 (.IO_DRIVER_CODE:IO_INT_SPI_Sync_Transfer)
-000d7eac  local     $P$T0$1 (.const)
-000d7ec4  local     $P$T1$2 (.const)
-000d7edc  local     $P$T2$3 (.const)
+000d7ecc  local     $P$T0$1 (.const)
+000d7ee4  local     $P$T1$2 (.const)
+000d7efc  local     $P$T2$3 (.const)
 000b1f00  local     $a (.IO_DRIVER_CODE:IO_INT_SPI_GetConfigItems)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_SPI_Sync_Transfer)
 000b4540  local     $a (.IO_DRIVER_CODE:IO_INT_SPI_SetBuffers)
@@ -4005,9 +4006,9 @@ Value     Binding   Name (Section)
 000cde30  local     $a (.IO_DRIVER_CODE:IO_INT_SPI_Async_ReceptionCompleted)
 0803da00  local     $d (.IO_DRIVER_DATA_NORMAL)
 0803da04  local     $d (.IO_DRIVER_DATA_NORMAL)
-000d7eac  local     $d (.const)
-000d7ec4  local     $d (.const)
-000d7edc  local     $d (.const)
+000d7ecc  local     $d (.const)
+000d7ee4  local     $d (.const)
+000d7efc  local     $d (.const)
 000cdc20  local     .IO_DRIVER_CODE:IO_INT_SPI_Async_Read (.IO_DRIVER_CODE:IO_INT_SPI_Async_Read)
 000cde30  local     .IO_DRIVER_CODE:IO_INT_SPI_Async_ReceptionCompleted (.IO_DRIVER_CODE:IO_INT_SPI_Async_ReceptionCompleted)
 000cdd90  local     .IO_DRIVER_CODE:IO_INT_SPI_Async_Rx_Task (.IO_DRIVER_CODE:IO_INT_SPI_Async_Rx_Task)
@@ -4024,7 +4025,7 @@ Value     Binding   Name (Section)
 000b4540  local     .IO_DRIVER_CODE:IO_INT_SPI_SetBuffers (.IO_DRIVER_CODE:IO_INT_SPI_SetBuffers)
 00000000  local     .IO_DRIVER_CODE:IO_INT_SPI_Sync_Transfer (.IO_DRIVER_CODE:IO_INT_SPI_Sync_Transfer)
 0803da00  local     .IO_DRIVER_DATA_NORMAL (.IO_DRIVER_DATA_NORMAL)
-000d7eac  local     .const (.const)
+000d7ecc  local     .const (.const)
 00000000  local     .text (.text)
 000cdc20  local     IO_INT_SPI_Async_Read (.IO_DRIVER_CODE:IO_INT_SPI_Async_Read)
 000cde30  global    IO_INT_SPI_Async_ReceptionCompleted (.IO_DRIVER_CODE:IO_INT_SPI_Async_ReceptionCompleted)
@@ -4615,12 +4616,12 @@ Value     Binding   Name (Section)
 000bc80c  local     $C$L97 (.IO_DRIVER_CODE:IO_INT_PWD_ConfigFPGAPWM)
 000bc840  local     $C$L98 (.IO_DRIVER_CODE:IO_INT_PWD_ConfigFPGAPWM)
 000bc850  local     $C$L99 (.IO_DRIVER_CODE:IO_INT_PWD_ConfigFPGAPWM)
-000d7f34  local     $P$T0$1 (.const)
-000d7f3c  local     $P$T1$2 (.const)
-000d7f44  local     $P$T2$3 (.const)
-000d7f4c  local     $P$T3$4 (.const)
-000d7f54  local     $P$T4$5 (.const)
-000d7f5c  local     $P$T5$6 (.const)
+000d7f54  local     $P$T0$1 (.const)
+000d7f5c  local     $P$T1$2 (.const)
+000d7f64  local     $P$T2$3 (.const)
+000d7f6c  local     $P$T3$4 (.const)
+000d7f74  local     $P$T4$5 (.const)
+000d7f7c  local     $P$T5$6 (.const)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_ResetQuadTMS)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_ResetQuadFPGA)
 00000000  local     $a (.IO_DRIVER_CODE:IO_INT_PWD_ResetCountTMS)
@@ -4668,12 +4669,12 @@ Value     Binding   Name (Section)
 0803cb10  local     $d (.IO_DRIVER_DATA_NORMAL)
 0803cb50  local     $d (.IO_DRIVER_DATA_NORMAL)
 0803cb90  local     $d (.IO_DRIVER_DATA_NORMAL)
-000d7f34  local     $d (.const)
-000d7f3c  local     $d (.const)
-000d7f44  local     $d (.const)
-000d7f4c  local     $d (.const)
 000d7f54  local     $d (.const)
 000d7f5c  local     $d (.const)
+000d7f64  local     $d (.const)
+000d7f6c  local     $d (.const)
+000d7f74  local     $d (.const)
+000d7f7c  local     $d (.const)
 000c0204  local     $d (.IO_DRIVER_CODE:IO_INT_PWD_GetDutyCyclePWMHR)
 000c0968  local     $d (.IO_DRIVER_CODE:IO_INT_PWD_GetDutyCycleFPGA)
 000c02dc  local     $t (.IO_DRIVER_CODE:IO_INT_GetDutyCycleAvgValues)
@@ -4711,7 +4712,7 @@ Value     Binding   Name (Section)
 00000000  local     .IO_DRIVER_CODE:IO_INT_PWD_ResetQuadFPGA (.IO_DRIVER_CODE:IO_INT_PWD_ResetQuadFPGA)
 00000000  local     .IO_DRIVER_CODE:IO_INT_PWD_ResetQuadTMS (.IO_DRIVER_CODE:IO_INT_PWD_ResetQuadTMS)
 0803c890  local     .IO_DRIVER_DATA_NORMAL (.IO_DRIVER_DATA_NORMAL)
-000d7f34  local     .const (.const)
+000d7f54  local     .const (.const)
 00000000  local     .text (.text)
 000c0230  local     IO_INT_GetDutyCycleAvgValues (.IO_DRIVER_CODE:IO_INT_GetDutyCycleAvgValues)
 000bc790  global    IO_INT_PWD_ConfigFPGAPWM (.IO_DRIVER_CODE:IO_INT_PWD_ConfigFPGAPWM)
@@ -6156,14 +6157,14 @@ Value     Binding   Name (Section)
 000b8a30  local     $C$L97 (.IO_DRIVER_CODE:IO_CAN_Init)
 000b8ad0  local     $C$L98 (.IO_DRIVER_CODE:IO_CAN_Init)
 000b8ad8  local     $C$L99 (.IO_DRIVER_CODE:IO_CAN_Init)
-000d7e54  local     $P$T0$1 (.const)
-000d7e58  local     $P$T1$2 (.const)
-000d7e68  local     $P$T2$3 (.const)
-000d7e78  local     $P$T3$4 (.const)
-000d7e88  local     $P$T4$5 (.const)
-000d7e98  local     $P$T5$6 (.const)
-000d7ea4  local     $P$T6$7 (.const)
-000d7ea8  local     $P$T7$8 (.const)
+000d7e74  local     $P$T0$1 (.const)
+000d7e78  local     $P$T1$2 (.const)
+000d7e88  local     $P$T2$3 (.const)
+000d7e98  local     $P$T3$4 (.const)
+000d7ea8  local     $P$T4$5 (.const)
+000d7eb8  local     $P$T5$6 (.const)
+000d7ec4  local     $P$T6$7 (.const)
+000d7ec8  local     $P$T7$8 (.const)
 000b9210  local     $a (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxComplete)
 000b9260  local     $a (.IO_DRIVER_CODE:IO_CAN_FPGA_GetRxLost)
 000b92b0  local     $a (.IO_DRIVER_CODE:IO_CAN_FPGA_GetTxStat)
@@ -6213,14 +6214,14 @@ Value     Binding   Name (Section)
 080384db  local     $d (.IO_DRIVER_DATA_NORMAL:init)
 08038b1c  local     $d (.IO_DRIVER_DATA_NORMAL:init)
 08038f1c  local     $d (.IO_DRIVER_DATA_NORMAL:init)
-000d7e54  local     $d (.const)
-000d7e58  local     $d (.const)
-000d7e68  local     $d (.const)
+000d7e74  local     $d (.const)
 000d7e78  local     $d (.const)
 000d7e88  local     $d (.const)
 000d7e98  local     $d (.const)
-000d7ea4  local     $d (.const)
 000d7ea8  local     $d (.const)
+000d7eb8  local     $d (.const)
+000d7ec4  local     $d (.const)
+000d7ec8  local     $d (.const)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_CPU_DeInitChannel (.IO_DRIVER_CODE:IO_CAN_CPU_DeInitChannel)
 000b44f0  local     .IO_DRIVER_CODE:IO_CAN_CPU_InitDefault (.IO_DRIVER_CODE:IO_CAN_CPU_InitDefault)
 00000000  local     .IO_DRIVER_CODE:IO_CAN_CPU_ReadFIFO (.IO_DRIVER_CODE:IO_CAN_CPU_ReadFIFO)
@@ -6264,7 +6265,7 @@ Value     Binding   Name (Section)
 000c3eb0  local     .IO_DRIVER_CODE:IO_CAN_WriteMsg (.IO_DRIVER_CODE:IO_CAN_WriteMsg)
 08038390  local     .IO_DRIVER_DATA_NORMAL:init (.IO_DRIVER_DATA_NORMAL:init)
 00000000  local     .IO_DRIVER_DATA_NORMAL:uninit (.IO_DRIVER_DATA_NORMAL:uninit)
-000d7e54  local     .const (.const)
+000d7e74  local     .const (.const)
 00000000  local     .text (.text)
 00000000  local     IO_CAN_CPU_DeInitChannel (.IO_DRIVER_CODE:IO_CAN_CPU_DeInitChannel)
 000b44f0  global    IO_CAN_CPU_InitDefault (.IO_DRIVER_CODE:IO_CAN_CPU_InitDefault)
@@ -6701,10 +6702,10 @@ Value     Binding   Name (Section)
 000bf498  local     $C$L88 (.IO_DRIVER_CODE:IO_INT_WD_DWWD_Task)
 000b7870  local     $C$L9 (.IO_DRIVER_CODE:IO_INT_WD_TPS_Activate)
 000b71c4  local     $C$SW1 (.IO_DRIVER_CODE:IO_INT_WD_TPS_Init)
-000d7df0  local     $P$T0$1 (.const)
-000d7e10  local     $P$T1$2 (.const)
-000d7e30  local     $P$T2$3 (.const)
-000d7e50  local     $P$T3$4 (.const)
+000d7e10  local     $P$T0$1 (.const)
+000d7e30  local     $P$T1$2 (.const)
+000d7e50  local     $P$T2$3 (.const)
+000d7e70  local     $P$T3$4 (.const)
 000cb3d0  local     $a (.IO_DRIVER_CODE:IO_INT_WD_TPS_TaskStatusSave)
 000cbd60  local     $a (.IO_DRIVER_CODE:IO_INT_WD_TPS_TaskStatusRequest)
 000b7090  local     $a (.IO_DRIVER_CODE:IO_INT_WD_TPS_GetStatusSync)
@@ -6745,10 +6746,10 @@ Value     Binding   Name (Section)
 0803da7c  local     $d (.IO_DRIVER_DATA_NORMAL)
 0803da80  local     $d (.IO_DRIVER_DATA_NORMAL)
 0803da84  local     $d (.IO_DRIVER_DATA_NORMAL)
-000d7df0  local     $d (.const)
 000d7e10  local     $d (.const)
 000d7e30  local     $d (.const)
 000d7e50  local     $d (.const)
+000d7e70  local     $d (.const)
 000b71c4  local     $d (.IO_DRIVER_CODE:IO_INT_WD_TPS_Init)
 000b6fa0  local     $t (.IO_DRIVER_CODE:IO_INT_WD_DWWD_Init)
 000b6fec  local     $t (.IO_DRIVER_CODE:IO_INT_WD_DWWD_Init)
@@ -6775,7 +6776,7 @@ Value     Binding   Name (Section)
 000cb3d0  local     .IO_DRIVER_CODE:IO_INT_WD_TPS_TaskStatusSave (.IO_DRIVER_CODE:IO_INT_WD_TPS_TaskStatusSave)
 000b7700  local     .IO_DRIVER_CODE:IO_INT_WD_TPS_Trigger (.IO_DRIVER_CODE:IO_INT_WD_TPS_Trigger)
 0803da44  local     .IO_DRIVER_DATA_NORMAL (.IO_DRIVER_DATA_NORMAL)
-000d7df0  local     .const (.const)
+000d7e10  local     .const (.const)
 00000000  local     .text (.text)
 000bf2d0  local     IO_INT_WD_DWWD_Activate (.IO_DRIVER_CODE:IO_INT_WD_DWWD_Activate)
 000b6d30  local     IO_INT_WD_DWWD_Init (.IO_DRIVER_CODE:IO_INT_WD_DWWD_Init)
@@ -12035,8 +12036,8 @@ Value     Binding   Name (Section)
 000c815c  local     $C$L7 (.IO_DRIVER_CODE:IO_INT_UART_CircularBufferRead)
 000c8230  local     $C$L8 (.IO_DRIVER_CODE:IO_INT_UART_StartTxDMA)
 000c8060  local     $C$L9 (.IO_DRIVER_CODE:IO_INT_UART_StopTxDMA)
-000d7f64  local     $P$T0$1 (.const)
-000d7f68  local     $P$T1$2 (.const)
+000d7f84  local     $P$T0$1 (.const)
+000d7f88  local     $P$T1$2 (.const)
 000cec30  local     $a (.IO_DRIVER_CODE:IO_INT_UART_interrupt)
 000cecc0  local     $a (.IO_DRIVER_CODE:IO_INT_UART_int)
 000c8070  local     $a (.IO_DRIVER_CODE:IO_INT_UART_CircularBufferRead)
@@ -12055,8 +12056,8 @@ Value     Binding   Name (Section)
 0803c80c  local     $d (.IO_DRIVER_DATA_NORMAL)
 0803c84c  local     $d (.IO_DRIVER_DATA_NORMAL)
 0803c850  local     $d (.IO_DRIVER_DATA_NORMAL)
-000d7f64  local     $d (.const)
-000d7f68  local     $d (.const)
+000d7f84  local     $d (.const)
+000d7f88  local     $d (.const)
 00000000  local     .IO_DRIVER_CODE:IO_INT_UART_CircularBufferGetFree (.IO_DRIVER_CODE:IO_INT_UART_CircularBufferGetFree)
 00000000  local     .IO_DRIVER_CODE:IO_INT_UART_CircularBufferGetUsed (.IO_DRIVER_CODE:IO_INT_UART_CircularBufferGetUsed)
 000c8070  local     .IO_DRIVER_CODE:IO_INT_UART_CircularBufferRead (.IO_DRIVER_CODE:IO_INT_UART_CircularBufferRead)
@@ -12070,7 +12071,7 @@ Value     Binding   Name (Section)
 000cecc0  local     .IO_DRIVER_CODE:IO_INT_UART_int (.IO_DRIVER_CODE:IO_INT_UART_int)
 000cec30  local     .IO_DRIVER_CODE:IO_INT_UART_interrupt (.IO_DRIVER_CODE:IO_INT_UART_interrupt)
 0803c3f0  local     .IO_DRIVER_DATA_NORMAL (.IO_DRIVER_DATA_NORMAL)
-000d7f64  local     .const (.const)
+000d7f84  local     .const (.const)
 00000000  local     .text (.text)
 00000000  global    IO_INT_UART_CircularBufferGetFree (.IO_DRIVER_CODE:IO_INT_UART_CircularBufferGetFree)
 00000000  global    IO_INT_UART_CircularBufferGetUsed (.IO_DRIVER_CODE:IO_INT_UART_CircularBufferGetUsed)
@@ -13551,7 +13552,7 @@ Value     Binding   Name (Section)
 000c4220  local     $C$L7 (.IO_DRIVER_CODE:crossover_interrupt)
 000b0a20  local     $C$L8 (.IO_DRIVER_CODE:stack_init)
 000b0a34  local     $C$L9 (.IO_DRIVER_CODE:stack_init)
-000d7cf0  local     $P$T0$1 (.const:$P$T0$1)
+000d7d10  local     $P$T0$1 (.const:$P$T0$1)
 000cf7b0  local     $a (.IO_DRIVER_CODE:vim_parity_error)
 000b0cc0  local     $a (.IO_DRIVER_CODE:get_shared_memory)
 000b3bd0  local     $a (.IO_DRIVER_CODE:get_mcu_configuration)
@@ -13564,7 +13565,7 @@ Value     Binding   Name (Section)
 000b0cd0  local     $a (.IO_DRIVER_CODE:mem_init)
 000c40e0  local     $a (.IO_DRIVER_CODE:_c_int00)
 000b0560  local     $a (.IO_DRIVER_CODE:RAM_Fail)
-000d7cf0  local     $d (.const:$P$T0$1)
+000d7d10  local     $d (.const:$P$T0$1)
 000b0560  local     .IO_DRIVER_CODE:RAM_Fail (.IO_DRIVER_CODE:RAM_Fail)
 000c40e0  local     .IO_DRIVER_CODE:_c_int00 (.IO_DRIVER_CODE:_c_int00)
 000c4220  local     .IO_DRIVER_CODE:crossover_interrupt (.IO_DRIVER_CODE:crossover_interrupt)
@@ -13577,7 +13578,7 @@ Value     Binding   Name (Section)
 000b0cd0  local     .IO_DRIVER_CODE:mem_init (.IO_DRIVER_CODE:mem_init)
 000b09d0  local     .IO_DRIVER_CODE:stack_init (.IO_DRIVER_CODE:stack_init)
 000cf7b0  local     .IO_DRIVER_CODE:vim_parity_error (.IO_DRIVER_CODE:vim_parity_error)
-000d7cf0  local     .const:$P$T0$1 (.const:$P$T0$1)
+000d7d10  local     .const:$P$T0$1 (.const:$P$T0$1)
 00000000  local     .text (.text)
 000b0560  global    RAM_Fail (.IO_DRIVER_CODE:RAM_Fail)
 000c40e0  global    _c_int00 (.IO_DRIVER_CODE:_c_int00)
@@ -13632,10 +13633,10 @@ rtsv7R4_T_be_v3D16_eabi.lib : copy_decompress_none.obj
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-000d7c7a  local     $t (.text:decompress:none)
+000d7c9a  local     $t (.text:decompress:none)
 00000000  local     .text (.text)
-000d7c7a  local     .text:decompress:none (.text:decompress:none)
-000d7c7b  global    __TI_decompress_none (.text:decompress:none)
+000d7c9a  local     .text:decompress:none (.text:decompress:none)
+000d7c9b  global    __TI_decompress_none (.text:decompress:none)
 
 
 ================================================================================
@@ -13645,24 +13646,24 @@ rtsv7R4_T_be_v3D16_eabi.lib : copy_decompress_rle.obj
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-000d7c91  local     $C$L1 (.text)
-000d7c9d  local     $C$L2 (.text)
-000d7cab  local     $C$L3 (.text)
-000d7caf  local     $C$L4 (.text)
-000d7cb5  local     $C$L5 (.text)
-000d7cb9  local     $C$L6 (.text)
-000d7cbd  local     $C$L7 (.text)
-000d7cc7  local     $C$L8 (.text)
-000d7ccb  local     $C$L9 (.text)
-000d7c88  local     $t (.text)
+000d7cb1  local     $C$L1 (.text)
+000d7cbd  local     $C$L2 (.text)
+000d7ccb  local     $C$L3 (.text)
+000d7ccf  local     $C$L4 (.text)
+000d7cd5  local     $C$L5 (.text)
+000d7cd9  local     $C$L6 (.text)
+000d7cdd  local     $C$L7 (.text)
+000d7ce7  local     $C$L8 (.text)
+000d7ceb  local     $C$L9 (.text)
+000d7ca8  local     $t (.text)
 000d65d4  local     $t (.text:decompress:rle24)
 00000000  local     $t (.text:decompress:rle)
-000d7c88  local     .text (.text)
+000d7ca8  local     .text (.text)
 00000000  local     .text:decompress:rle (.text:decompress:rle)
 000d65d4  local     .text:decompress:rle24 (.text:decompress:rle24)
 00000001  global    __TI_decompress_rle (.text:decompress:rle)
 000d65d5  global    __TI_decompress_rle24 (.text:decompress:rle24)
-000d7c89  local     __TI_decompress_rle_core (.text)
+000d7ca9  local     __TI_decompress_rle_core (.text)
 
 
 ================================================================================
@@ -13672,12 +13673,12 @@ rtsv7R4_T_be_v3D16_eabi.lib : copy_zero_init.obj
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-000d7c71  local     $C$L1 (.text:decompress:ZI)
-000d7c79  local     $C$L2 (.text:decompress:ZI)
-000d7c68  local     $t (.text:decompress:ZI)
+000d7c91  local     $C$L1 (.text:decompress:ZI)
+000d7c99  local     $C$L2 (.text:decompress:ZI)
+000d7c88  local     $t (.text:decompress:ZI)
 00000000  local     .text (.text)
-000d7c68  local     .text:decompress:ZI (.text:decompress:ZI)
-000d7c69  global    __TI_zero_init (.text:decompress:ZI)
+000d7c88  local     .text:decompress:ZI (.text:decompress:ZI)
+000d7c89  global    __TI_zero_init (.text:decompress:ZI)
 
 
 ================================================================================
@@ -13939,9 +13940,9 @@ Value     Binding   Name (Section)
 Run/Load            
 Value     Binding   Name (Section)
 --------  --------  ---------------
-000d8a40  local     $d (.cinit..data.load)
-000d7f70  local     $d (.cinit..IO_DRIVER_VAR_NORMAL.load)
-000d8a58  local     $d (.cinit..IO_DRIVER_VAR_COMMON.load)
+000d8a60  local     $d (.cinit..data.load)
+000d7f90  local     $d (.cinit..IO_DRIVER_VAR_NORMAL.load)
+000d8a78  local     $d (.cinit..IO_DRIVER_VAR_COMMON.load)
 
 
 ================================================================================

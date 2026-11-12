@@ -27,12 +27,14 @@ void Pin_Properties(void)
      * IO_DI_48
      */
 
-    // Digital Input конфигурация
+    // Digital Input config
+
     g_pin_configs[0].di_cfg.pin_channel = IO_DI_48;
     g_pin_configs[0].di_cfg.pupd = IO_DI_NO_PULL;
     g_pin_configs[0].di_cfg.limits = NULL;
 
-    // ADC конфигурация (3-mode, используем как voltage 0-5V)
+    // ADC config (3-mode, use like IO_ADC_ABSOLUTE 0-5V)
+
     g_pin_configs[0].adc_cfg.pin_channel = IO_ADC_00;
     g_pin_configs[0].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[0].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -45,6 +47,7 @@ void Pin_Properties(void)
      * IO_ADC_01 (3-mode)
      * IO_DI_49
      */
+
     g_pin_configs[1].di_cfg.pin_channel = IO_DI_49;
     g_pin_configs[1].di_cfg.pupd = IO_DI_NO_PULL;
     g_pin_configs[1].di_cfg.limits = NULL;
@@ -442,6 +445,7 @@ void Pin_Properties(void)
      * IO_ADC_25
      * IO_DI_37
      */
+
     g_pin_configs[25].pwd_complex_cfg.pin_channel = IO_PWD_01;
     g_pin_configs[25].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[25].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
@@ -466,6 +470,7 @@ void Pin_Properties(void)
      * IO_ADC_26
      * IO_DI_38
      */
+
     g_pin_configs[26].pwd_complex_cfg.pin_channel = IO_PWD_02;
     g_pin_configs[26].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[26].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
@@ -490,6 +495,7 @@ void Pin_Properties(void)
      * IO_ADC_27
      * IO_DI_39
      */
+
     g_pin_configs[27].pwd_complex_cfg.pin_channel = IO_PWD_03;
     g_pin_configs[27].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[27].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
@@ -514,6 +520,7 @@ void Pin_Properties(void)
      * IO_ADC_28
      * IO_DI_40
      */
+
     g_pin_configs[28].pwd_complex_cfg.pin_channel = IO_PWD_04;
     g_pin_configs[28].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[28].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
@@ -538,6 +545,7 @@ void Pin_Properties(void)
      * IO_ADC_29
      * IO_DI_41
      */
+
     g_pin_configs[29].pwd_complex_cfg.pin_channel = IO_PWD_05;
     g_pin_configs[29].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[29].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
@@ -562,6 +570,7 @@ void Pin_Properties(void)
      * IO_ADC_30
      * IO_DI_42
      */
+
     g_pin_configs[30].pwd_complex_cfg.pin_channel = IO_PWD_06;
     g_pin_configs[30].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[30].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
@@ -586,6 +595,7 @@ void Pin_Properties(void)
      * IO_ADC_31
      * IO_DI_43
      */
+
     g_pin_configs[31].pwd_complex_cfg.pin_channel = IO_PWD_07;
     g_pin_configs[31].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[31].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
@@ -610,6 +620,7 @@ void Pin_Properties(void)
      * IO_ADC_32
      * IO_DI_44
      */
+
     g_pin_configs[32].pwd_complex_cfg.pin_channel = IO_PWD_08;
     g_pin_configs[32].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[32].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
@@ -634,6 +645,7 @@ void Pin_Properties(void)
      * IO_ADC_33
      * IO_DI_45
      */
+
     g_pin_configs[33].pwd_complex_cfg.pin_channel = IO_PWD_09;
     g_pin_configs[33].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[33].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
@@ -658,6 +670,7 @@ void Pin_Properties(void)
      * IO_ADC_34
      * IO_DI_46
      */
+
     g_pin_configs[34].pwd_complex_cfg.pin_channel = IO_PWD_10;
     g_pin_configs[34].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[34].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
@@ -682,6 +695,7 @@ void Pin_Properties(void)
      * IO_ADC_35
      * IO_DI_47
      */
+
     g_pin_configs[35].pwd_complex_cfg.pin_channel = IO_PWD_11;
     g_pin_configs[35].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[35].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
@@ -706,6 +720,7 @@ void Pin_Properties(void)
      * IO_ADC_36
      * IO_DI_72
      */
+
     g_pin_configs[36].adc_cfg.pin_channel = IO_ADC_36;
     g_pin_configs[36].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[36].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -727,6 +742,7 @@ void Pin_Properties(void)
      * IO_ADC_37
      * IO_DI_73
      */
+
     g_pin_configs[37].adc_cfg.pin_channel = IO_ADC_37;
     g_pin_configs[37].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[37].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -748,6 +764,7 @@ void Pin_Properties(void)
      * IO_ADC_38
      * IO_DI_74
      */
+
     g_pin_configs[38].adc_cfg.pin_channel = IO_ADC_38;
     g_pin_configs[38].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[38].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -769,6 +786,7 @@ void Pin_Properties(void)
      * IO_ADC_39
      * IO_DI_75
      */
+
     g_pin_configs[39].adc_cfg.pin_channel = IO_ADC_39;
     g_pin_configs[39].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[39].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -790,6 +808,7 @@ void Pin_Properties(void)
      * IO_ADC_40
      * IO_DI_76
      */
+
     g_pin_configs[40].adc_cfg.pin_channel = IO_ADC_40;
     g_pin_configs[40].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[40].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -811,6 +830,7 @@ void Pin_Properties(void)
      * IO_ADC_41
      * IO_DI_77
      */
+
     g_pin_configs[41].adc_cfg.pin_channel = IO_ADC_41;
     g_pin_configs[41].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[41].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -832,6 +852,7 @@ void Pin_Properties(void)
      * IO_ADC_42
      * IO_DI_78
      */
+
     g_pin_configs[42].adc_cfg.pin_channel = IO_ADC_42;
     g_pin_configs[42].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[42].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -853,6 +874,7 @@ void Pin_Properties(void)
      * IO_ADC_43
      * IO_DI_79
      */
+
     g_pin_configs[43].adc_cfg.pin_channel = IO_ADC_43;
     g_pin_configs[43].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[43].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -874,6 +896,7 @@ void Pin_Properties(void)
      * IO_ADC_44
      * IO_DI_80
      */
+
     g_pin_configs[44].adc_cfg.pin_channel = IO_ADC_44;
     g_pin_configs[44].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[44].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -895,6 +918,7 @@ void Pin_Properties(void)
      * IO_ADC_45
      * IO_DI_81
      */
+
     g_pin_configs[45].adc_cfg.pin_channel = IO_ADC_45;
     g_pin_configs[45].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[45].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -916,6 +940,7 @@ void Pin_Properties(void)
      * IO_ADC_46
      * IO_DI_82
      */
+
     g_pin_configs[46].adc_cfg.pin_channel = IO_ADC_46;
     g_pin_configs[46].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[46].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -937,6 +962,7 @@ void Pin_Properties(void)
      * IO_ADC_47
      * IO_DI_83
      */
+
     g_pin_configs[47].adc_cfg.pin_channel = IO_ADC_47;
     g_pin_configs[47].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[47].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -958,6 +984,7 @@ void Pin_Properties(void)
      * IO_ADC_48
      * IO_DI_84
      */
+
     g_pin_configs[48].adc_cfg.pin_channel = IO_ADC_48;
     g_pin_configs[48].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[48].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -979,6 +1006,7 @@ void Pin_Properties(void)
      * IO_ADC_49
      * IO_DI_85
      */
+
     g_pin_configs[49].adc_cfg.pin_channel = IO_ADC_49;
     g_pin_configs[49].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[49].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -1000,6 +1028,7 @@ void Pin_Properties(void)
      * IO_ADC_50
      * IO_DI_86
      */
+
     g_pin_configs[50].adc_cfg.pin_channel = IO_ADC_50;
     g_pin_configs[50].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[50].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -1021,6 +1050,7 @@ void Pin_Properties(void)
      * IO_ADC_51
      * IO_DI_87
      */
+
     g_pin_configs[51].adc_cfg.pin_channel = IO_ADC_51;
     g_pin_configs[51].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[51].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
@@ -1064,6 +1094,7 @@ void Pin_Properties(void)
      * IO_DO_17
      * IO_DI_01
      */
+
     g_pin_configs[53].pwm_cfg.pin_channel = IO_PWM_01;
     g_pin_configs[53].pwm_cfg.target_frequency = 100;
     g_pin_configs[53].pwm_cfg.signal_polarity = TRUE;
@@ -1085,6 +1116,7 @@ void Pin_Properties(void)
      * IO_DO_18
      * IO_DI_02
      */
+
     g_pin_configs[54].pwm_cfg.pin_channel = IO_PWM_02;
     g_pin_configs[54].pwm_cfg.target_frequency = 100;
     g_pin_configs[54].pwm_cfg.signal_polarity = TRUE;
@@ -1106,6 +1138,7 @@ void Pin_Properties(void)
      * IO_DO_19
      * IO_DI_03
      */
+
     g_pin_configs[55].pwm_cfg.pin_channel = IO_PWM_03;
     g_pin_configs[55].pwm_cfg.target_frequency = 100;
     g_pin_configs[55].pwm_cfg.signal_polarity = TRUE;
@@ -1127,6 +1160,7 @@ void Pin_Properties(void)
      * IO_DO_20
      * IO_DI_04
      */
+
     g_pin_configs[56].pwm_cfg.pin_channel = IO_PWM_04;
     g_pin_configs[56].pwm_cfg.target_frequency = 100;
     g_pin_configs[56].pwm_cfg.signal_polarity = TRUE;
@@ -1148,6 +1182,7 @@ void Pin_Properties(void)
      * IO_DO_21
      * IO_DI_05
      */
+
     g_pin_configs[57].pwm_cfg.pin_channel = IO_PWM_05;
     g_pin_configs[57].pwm_cfg.target_frequency = 100;
     g_pin_configs[57].pwm_cfg.signal_polarity = TRUE;
@@ -1169,6 +1204,7 @@ void Pin_Properties(void)
      * IO_DO_22
      * IO_DI_06
      */
+
     g_pin_configs[58].pwm_cfg.pin_channel = IO_PWM_06;
     g_pin_configs[58].pwm_cfg.target_frequency = 100;
     g_pin_configs[58].pwm_cfg.signal_polarity = TRUE;
@@ -1190,6 +1226,7 @@ void Pin_Properties(void)
      * IO_DO_23
      * IO_DI_07
      */
+
     g_pin_configs[59].pwm_cfg.pin_channel = IO_PWM_07;
     g_pin_configs[59].pwm_cfg.target_frequency = 100;
     g_pin_configs[59].pwm_cfg.signal_polarity = TRUE;
@@ -1211,6 +1248,7 @@ void Pin_Properties(void)
      * IO_DO_24
      * IO_DI_08
      */
+
     g_pin_configs[60].pwm_cfg.pin_channel = IO_PWM_08;
     g_pin_configs[60].pwm_cfg.target_frequency = 100;
     g_pin_configs[60].pwm_cfg.signal_polarity = TRUE;
@@ -1232,6 +1270,7 @@ void Pin_Properties(void)
      * IO_DO_25
      * IO_DI_09
      */
+
     g_pin_configs[61].pwm_cfg.pin_channel = IO_PWM_09;
     g_pin_configs[61].pwm_cfg.target_frequency = 100;
     g_pin_configs[61].pwm_cfg.signal_polarity = TRUE;
@@ -1274,6 +1313,7 @@ void Pin_Properties(void)
      * IO_DO_27
      * IO_DI_11
      */
+
     g_pin_configs[63].pwm_cfg.pin_channel = IO_PWM_11;
     g_pin_configs[63].pwm_cfg.target_frequency = 100;
     g_pin_configs[63].pwm_cfg.signal_polarity = TRUE;
@@ -1295,6 +1335,7 @@ void Pin_Properties(void)
      * IO_DO_28
      * IO_DI_12
      */
+
     g_pin_configs[64].pwm_cfg.pin_channel = IO_PWM_12;
     g_pin_configs[64].pwm_cfg.target_frequency = 100;
     g_pin_configs[64].pwm_cfg.signal_polarity = TRUE;
@@ -1316,6 +1357,7 @@ void Pin_Properties(void)
      * IO_DO_29
      * IO_DI_13
      */
+
     g_pin_configs[65].pwm_cfg.pin_channel = IO_PWM_13;
     g_pin_configs[65].pwm_cfg.target_frequency = 100;
     g_pin_configs[65].pwm_cfg.signal_polarity = TRUE;
@@ -1337,6 +1379,7 @@ void Pin_Properties(void)
      * IO_DO_30
      * IO_DI_14
      */
+
     g_pin_configs[66].pwm_cfg.pin_channel = IO_PWM_14;
     g_pin_configs[66].pwm_cfg.target_frequency = 100;
     g_pin_configs[66].pwm_cfg.signal_polarity = TRUE;
@@ -1358,6 +1401,7 @@ void Pin_Properties(void)
      * IO_DO_31
      * IO_DI_15
      */
+
     g_pin_configs[67].pwm_cfg.pin_channel = IO_PWM_15;
     g_pin_configs[67].pwm_cfg.target_frequency = 100;
     g_pin_configs[67].pwm_cfg.signal_polarity = TRUE;
@@ -1379,6 +1423,7 @@ void Pin_Properties(void)
      * IO_DO_32
      * IO_DI_16
      */
+
     g_pin_configs[68].pwm_cfg.pin_channel = IO_PWM_16;
     g_pin_configs[68].pwm_cfg.target_frequency = 100;
     g_pin_configs[68].pwm_cfg.signal_polarity = TRUE;
@@ -1400,6 +1445,7 @@ void Pin_Properties(void)
      * IO_DO_33
      * IO_DI_17
      */
+
     g_pin_configs[69].pwm_cfg.pin_channel = IO_PWM_17;
     g_pin_configs[69].pwm_cfg.target_frequency = 100;
     g_pin_configs[69].pwm_cfg.signal_polarity = TRUE;
@@ -1421,6 +1467,7 @@ void Pin_Properties(void)
      * IO_DO_34
      * IO_DI_18
      */
+
     g_pin_configs[70].pwm_cfg.pin_channel = IO_PWM_18;
     g_pin_configs[70].pwm_cfg.target_frequency = 100;
     g_pin_configs[70].pwm_cfg.signal_polarity = TRUE;
@@ -1442,6 +1489,7 @@ void Pin_Properties(void)
      * IO_DO_35
      * IO_DI_19
      */
+
     g_pin_configs[71].pwm_cfg.pin_channel = IO_PWM_19;
     g_pin_configs[71].pwm_cfg.target_frequency = 100;
     g_pin_configs[71].pwm_cfg.signal_polarity = TRUE;
@@ -1463,6 +1511,7 @@ void Pin_Properties(void)
      * IO_DO_36
      * IO_DI_20
      */
+
     g_pin_configs[72].pwm_cfg.pin_channel = IO_PWM_20;
     g_pin_configs[72].pwm_cfg.target_frequency = 100;
     g_pin_configs[72].pwm_cfg.signal_polarity = TRUE;
@@ -1484,6 +1533,7 @@ void Pin_Properties(void)
      * IO_DO_37
      * IO_DI_21
      */
+
     g_pin_configs[73].pwm_cfg.pin_channel = IO_PWM_21;
     g_pin_configs[73].pwm_cfg.target_frequency = 100;
     g_pin_configs[73].pwm_cfg.signal_polarity = TRUE;
@@ -1505,6 +1555,7 @@ void Pin_Properties(void)
      * IO_DO_38
      * IO_DI_22
      */
+
     g_pin_configs[74].pwm_cfg.pin_channel = IO_PWM_22;
     g_pin_configs[74].pwm_cfg.target_frequency = 100;
     g_pin_configs[74].pwm_cfg.signal_polarity = TRUE;
@@ -1526,6 +1577,7 @@ void Pin_Properties(void)
      * IO_DO_39
      * IO_DI_23
      */
+
     g_pin_configs[75].pwm_cfg.pin_channel = IO_PWM_23;
     g_pin_configs[75].pwm_cfg.target_frequency = 100;
     g_pin_configs[75].pwm_cfg.signal_polarity = TRUE;
@@ -1547,6 +1599,7 @@ void Pin_Properties(void)
      * IO_DO_40
      * IO_DI_24
      */
+
     g_pin_configs[76].pwm_cfg.pin_channel = IO_PWM_24;
     g_pin_configs[76].pwm_cfg.target_frequency = 100;
     g_pin_configs[76].pwm_cfg.signal_polarity = TRUE;
@@ -1568,6 +1621,7 @@ void Pin_Properties(void)
      * IO_DO_41
      * IO_DI_25
      */
+
     g_pin_configs[77].pwm_cfg.pin_channel = IO_PWM_25;
     g_pin_configs[77].pwm_cfg.target_frequency = 100;
     g_pin_configs[77].pwm_cfg.signal_polarity = TRUE;
@@ -1589,6 +1643,7 @@ void Pin_Properties(void)
      * IO_DO_42
      * IO_DI_26
      */
+
     g_pin_configs[78].pwm_cfg.pin_channel = IO_PWM_26;
     g_pin_configs[78].pwm_cfg.target_frequency = 100;
     g_pin_configs[78].pwm_cfg.signal_polarity = TRUE;
@@ -1610,6 +1665,7 @@ void Pin_Properties(void)
      * IO_DO_43
      * IO_DI_27
      */
+
     g_pin_configs[79].pwm_cfg.pin_channel = IO_PWM_27;
     g_pin_configs[79].pwm_cfg.target_frequency = 100;
     g_pin_configs[79].pwm_cfg.signal_polarity = TRUE;

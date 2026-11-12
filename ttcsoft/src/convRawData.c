@@ -2,7 +2,8 @@
 #include "VCU_SW.h"
 #include "VCU_SW_private.h"
 
-/* Output and update for Simulink Function: '<Root>/convDIOSttToEnum' */
+//  Output and update for Simulink Function: '<Root>/convDIOSttToEnum'
+
 void convDIOSttToEnum(BOOL rtu_rawValue, ubyte2 rtu_errorSts, StateModeTypes *rty_enumValue)
 {
 
@@ -28,7 +29,8 @@ void convDIOSttToEnum(BOOL rtu_rawValue, ubyte2 rtu_errorSts, StateModeTypes *rt
     }
 }
 
-/* Output and update for Simulink Function: '<Root>/convAIVoltageData' */
+//  Output and update for Simulink Function: '<Root>/convAIVoltageData'
+
 void convAIVoltageData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 *outADCValue)
 {
     if (outADCValue == NULL)
@@ -46,7 +48,8 @@ void convAIVoltageData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 *outADCValue)
     }
 }
 
-/* Output and update for Simulink Function: '<Root>/convAICurrentData' */
+// Output and update for Simulink Function: '<Root>/convAICurrentData'
+
 void convAICurrentData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 *outADCValue)
 {
     if (outADCValue == NULL)
@@ -64,7 +67,8 @@ void convAICurrentData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 *outADCValue)
     }
 }
 
-/* Output and update for Simulink Function: '<Root>/convAIResistance' */
+// Output and update for Simulink Function: '<Root>/convAIResistance'
+
 void convAIResistanceData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 *outADCValue)
 {
     if (outADCValue == NULL)
@@ -84,6 +88,7 @@ void convAIResistanceData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 *outADCValue)
 }
 
 /* Output and update for Simulink Function: '<Root>/convPWDData' */
+
 void convPWDData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 *outPWDValue)
 {
     if (outPWDValue == NULL)
@@ -94,6 +99,7 @@ void convPWDData(ubyte4 inpValue, ubyte2 errorSts, ubyte2 *outPWDValue)
     if (errorSts == 0U)
     {
         // inpValue is provided in mHz (1/1000 Hz); we convert it to Hz
+
         *outPWDValue = (ubyte2) (inpValue / 1000U);
     }
     else

@@ -31,37 +31,44 @@ void VCU_SW_initialize(void)
     Pin_Properties();
 
     // 5.Can Init
+
     (void)Init_CAN_System_All();
 }
 
 // Function - step
 
-/* 1. Фаза до TaskBegin: прием CAN и применение новой конфигурации */
+// 1. Before TaskBegin: read CAN and update config
+
 void VCU_SW_pre_step(void)
 {
     ubyte1 idx_grp;
     ubyte1 idx_pin;
 
-    /* Вычитываем все пришедшие кадры команд из CAN0 */
+    // Read CAN for CAN0 channels and check changes configs
+
     for (idx_grp = 0U; idx_grp < NUM_GROUPS; idx_grp++)
     {
         Process_CAN_RX(idx_grp);
     }
 
-    /* Проверяем, изменился ли режим какого-либо пина */
+    // Check changes configs some pins
+
     for (idx_grp = 0U; idx_grp < NUM_GROUPS; idx_grp++)
     {
         for (idx_pin = 0U; idx_pin < 4U; idx_pin++)
         {
             ubyte1 val_pin = Get_Pin_Value(&g_groups[idx_grp].current_cmd, idx_pin);
 
-            /* Если изменился рабочий режим — переинициализируем (здесь ошибки 0x001B не будет) */
+            // If current config changed - reinitialize
+
             if (Compare_Confs(idx_grp, idx_pin))
             {
                 Pin_DeInit(idx_grp, idx_pin);
                 Pin_Init(idx_grp, idx_pin, val_pin);
             }
-            /* Если режим прежний, но изменилась уставка */
+
+            // If current config not changed, but changed value
+
             else if (Compare_Values(idx_grp, idx_pin))
             {
                 Pin_Write_Value(idx_grp, idx_pin, val_pin);
@@ -71,7 +78,8 @@ void VCU_SW_pre_step(void)
     }
 }
 
-/* 2. Фаза внутри TaskBegin / TaskEnd: только регулярный опрос датчиков */
+// 2. In TaskBegin - only update FB and DIAG
+
 void VCU_SW_step_io(void)
 {
     ubyte1 idx_grp;
@@ -86,7 +94,8 @@ void VCU_SW_step_io(void)
     }
 }
 
-/* 3. Фаза после TaskEnd: передача кадров текущей группы в CAN */
+// 3. After TaskBegin - only transmit massages
+
 void VCU_SW_post_step(void)
 {
     ubyte1 idx_grp;

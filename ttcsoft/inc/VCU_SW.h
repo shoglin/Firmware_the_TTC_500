@@ -7,17 +7,21 @@
 #include "Pin_Settings.h"
 #include "CAN_Properties.h"
 
-/* Using functions */
+// Helper functions
 
 void VCU_SW_initialize(void);
 void VCU_SW_terminate(void);
 
-/* 1. ‘аза до TaskBegin: прием CAN и применение новой конфигурации */
+// 1. Before TaskBegin: read CAN and update config
+
 void VCU_SW_pre_step(void);
-/* 2. ‘аза внутри TaskBegin / TaskEnd: только регул€рный опрос датчиков */
+
+// 2. In TaskBegin - only update FB and DIAG
+
 void VCU_SW_step_io(void);
 
-/* 3. ‘аза после TaskEnd: передача кадров текущей группы в CAN */
+// 3. After TaskBegin - only transmit massages
+
 void VCU_SW_post_step(void);
 
 #endif /* RTW_HEADER_VCU_SW_h_ */

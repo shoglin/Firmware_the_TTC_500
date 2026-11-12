@@ -56,6 +56,9 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
             switch (g_pin_configs[internal_pin].adc_cfg.input_type)
             {
             case IO_ADC_RATIOMETRIC:
+                convAIVoltageData(adc_val, diag_value, &fb_value);
+                break;
+
             case IO_ADC_ABSOLUTE:
                 convAIVoltageData(adc_val, diag_value, &fb_value);
                 break;
@@ -137,7 +140,8 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
             bool target_state = (cmd_val > 0U) ? TRUE : FALSE;
             IO_ErrorType do_err = IO_DO_Set(channel, target_state);
 
-            /* After pause */
+            // After pause
+
             if (do_err == IO_E_FET_PROT_REENABLE)
             {
                 (void) IO_DO_ResetProtection(channel, NULL);
@@ -149,7 +153,7 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
             {
                 diag_value = (ubyte2) do_err;
             }
-            convAIVoltageData((ubyte4) current_ma, diag_value, &fb_value);
+            convAICurrentData((ubyte4) current_ma, diag_value, &fb_value);
         }
         else
         {

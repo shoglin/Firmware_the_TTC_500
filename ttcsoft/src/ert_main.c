@@ -7,9 +7,9 @@
 #define MAJOR_NUMBER        0
 #define MINOR_NUMBER        0
 #define REVISION_NUMBER     1
-#define STEP_SIZE           10000   /* Base step: 10 000 mks (10 ms) */
+#define STEP_SIZE           10000   // Base step: 10 000 mks (10 ms)
 
-/* For TTC-Downloader */
+// For TTC-Downloader
 
 #pragma SET_DATA_SECTION (".APDB_SEC")
 
@@ -69,14 +69,17 @@ volatile const BL_APDB Apdb_t = {
 
 static ubyte4 timestamp = 0;
 
-/* Вспомогательная циклическая задача */
+// Cycle task
+
 void task(void)
 {
-    /* Фаза до защищенного цикла: вычитка CAN и реконфигурация */
+    // 1. Before TaskBegin: read CAN and update config
+
     VCU_SW_pre_step();
 
-    /* Безопасный цикл ядра TTControl (только IO_*_Get / IO_*_Set) */
     (void)IO_Driver_TaskBegin();
+
+    // 2. In TaskBegin - only update FB and DIAG
 
     VCU_SW_step_io();
 
@@ -85,20 +88,22 @@ void task(void)
     /* Фаза после безопасного цикла: передача FB и DIAG по CAN */
     VCU_SW_post_step();
 
-    /* Ожидание завершения 10-мс кванта времени */
+    // 3. After TaskBegin - only transmit massages
+
     while (IO_RTC_GetTimeUS(timestamp) < STEP_SIZE) {
         /* wait */
     }
     timestamp += STEP_SIZE;
 }
 
-/* Главная точка входа приложения */
+// Main point
+
 #pragma TASK(main);
 void main(void)
 {
     IO_DRIVER_SAFETY_CONF safety_conf;
 
-    safety_conf.command_period     = STEP_SIZE;                           /* 10000 мкс (10 мс) */
+    safety_conf.command_period     = STEP_SIZE;
     safety_conf.window_size        = SAFETY_CONF_WINDOW_SIZE_100_PERCENT;
     safety_conf.reset_behavior     = SAFETY_CONF_RESETS_DISABLED;
     safety_conf.glitch_filter_time = 30;
