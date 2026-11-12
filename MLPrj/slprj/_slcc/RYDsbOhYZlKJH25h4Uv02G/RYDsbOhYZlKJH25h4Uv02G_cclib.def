@@ -1,0 +1,4 @@
+LIBRARY RYDsbOhYZlKJH25h4Uv02G_cclib.dll
+EXPORTS
+    get_dll_checksum_RYDsbOhYZlKJH25h4Uv02G
+    get_checksum_source_info

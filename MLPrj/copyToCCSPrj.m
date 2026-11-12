@@ -1,4 +1,4 @@
-% copy of generated files to ccs project folder
+of generated files to ccs project folder
 modelName = bdroot;
 
 mainDirectory = pwd;

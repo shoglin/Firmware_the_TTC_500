@@ -1,33 +1,15 @@
-/*
- * File: ert_main.c
- *
- * Code generated for Simulink model 'VCU_SW'.
- *
- * Model version                  : 2.3
- * Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
- * C/C++ source code generated on : Tue Jul 14 11:26:00 2026
- *
- * Target selection: ttc_500_series.tlc
- * Embedded hardware selection: Texas Instruments->TMS570 Cortex-R4
- * Code generation objectives: Unspecified
- * Validation result: Not run
- */
-
-// Includes
 #include "APDB.h"
 #include "IO_Driver.h"
 #include "IO_RTC.h"
 #include "IO_Power.h"
 #include "VCU_SW.h"
 
-// Defines
-#define MAJOR_NUMBER                   0
-#define MINOR_NUMBER                   0
-#define REVISION_NUMBER                1
-#define STEP_SIZE                      10000                     /* Sample Time in microseconds */
+#define MAJOR_NUMBER        0
+#define MINOR_NUMBER        0
+#define REVISION_NUMBER     1
+#define STEP_SIZE           10000   // Base step: 10 000 mks (10 ms)
 
-// Definitions
-// APDB
+// For TTC-Downloader
 
 #pragma SET_DATA_SECTION (".APDB_SEC")
 
@@ -87,87 +69,56 @@ volatile const BL_APDB Apdb_t = {
 
 static ubyte4 timestamp = 0;
 
-// Safety configuration
-static const IO_DRIVER_SAFETY_CONF c_driver_safety_conf = {
-  10,
-  STEP_SIZE,
-  SAFETY_CONF_WINDOW_SIZE_100_PERCENT,
-  SAFETY_CONF_RESETS_1,
-  NULL,
-  NULL
-};
+// Cycle task
 
-static IO_ErrorType EEPROM_Sts;
-
-// Function with application
-void task (void)
+void task(void)
 {
-  IO_Driver_TaskBegin();
-  VCU_SW_step();
+    // 1. Before TaskBegin: read CAN and update config
 
-  /* Get model outputs here */
-  IO_Driver_TaskEnd();
-  while (IO_RTC_GetTimeUS(timestamp) < STEP_SIZE) ;// wait until STEP_SIZE have passed
-  timestamp += STEP_SIZE;
+    VCU_SW_pre_step();
+
+    (void)IO_Driver_TaskBegin();
+
+    // 2. In TaskBegin - only update FB and DIAG
+
+    VCU_SW_step_io();
+
+    (void)IO_Driver_TaskEnd();
+
+    /* Фаза после безопасного цикла: передача FB и DIAG по CAN */
+    VCU_SW_post_step();
+
+    // 3. After TaskBegin - only transmit massages
+
+    while (IO_RTC_GetTimeUS(timestamp) < STEP_SIZE) {
+        /* wait */
+    }
+    timestamp += STEP_SIZE;
 }
 
-// Main function
+// Main point
+
+#pragma TASK(main);
 void main(void)
 {
-  // Global Initialization of IO drivers
-  IO_Driver_Init(&c_driver_safety_conf);
+    IO_DRIVER_SAFETY_CONF safety_conf;
 
-  // Enable powerstages
-  IO_POWER_Set (IO_INT_POWERSTAGE_ENABLE, IO_POWER_ON);
+    safety_conf.command_period     = STEP_SIZE;
+    safety_conf.window_size        = SAFETY_CONF_WINDOW_SIZE_100_PERCENT;
+    safety_conf.reset_behavior     = SAFETY_CONF_RESETS_DISABLED;
+    safety_conf.glitch_filter_time = 30;
+    safety_conf.error_callback     = NULL;
+    safety_conf.notify_callback    = NULL;
 
-  // Enable 0 safety switch for shut off group № 0
-  IO_POWER_Set (IO_INT_SAFETY_SW_0, IO_POWER_ON);
+    (void)IO_Driver_Init(&safety_conf);
 
-  // Enable 1 safety switch for shut off group № 1
-  IO_POWER_Set (IO_INT_SAFETY_SW_1, IO_POWER_ON);
+    VCU_SW_initialize();
 
-  // Enable 2 safety switch for shut off group № 2
-  IO_POWER_Set (IO_INT_SAFETY_SW_2, IO_POWER_ON);
+    (void)IO_RTC_StartTime(&timestamp);
 
-  // Initialize external RTC device
-  IO_RTC_InitDateAndTime();
+    while (1) {
+        task();
+    }
 
-  // Initialization of CAN driver for IO_CAN_CHANNEL_0
-  IO_CAN_Init(IO_CAN_CHANNEL_0, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-  // Initialization of CAN driver for IO_CAN_CHANNEL_1
-  IO_CAN_Init(IO_CAN_CHANNEL_1, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-  // Initialization of CAN driver for IO_CAN_CHANNEL_2
-  IO_CAN_Init(IO_CAN_CHANNEL_2, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-  // Initialization of CAN driver for IO_CAN_CHANNEL_3
-  IO_CAN_Init(IO_CAN_CHANNEL_3, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-  // Initialization of CAN driver for IO_CAN_CHANNEL_4
-  IO_CAN_Init(IO_CAN_CHANNEL_4, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-  // Initialization of CAN driver for IO_CAN_CHANNEL_5
-  IO_CAN_Init(IO_CAN_CHANNEL_5, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-  // Initialization of CAN driver for IO_CAN_CHANNEL_6
-  IO_CAN_Init(IO_CAN_CHANNEL_6, IO_CAN_BIT_250_KB, 0, 0, 0, 0);
-
-  // Other initialization
-  VCU_SW_initialize();
-
-  // Get timestamp
-  IO_RTC_StartTime(&timestamp);
-  while (1) {
-    task();
-  }
-
-  // Actions after model termination
-  VCU_SW_terminate();
+    VCU_SW_terminate();
 }
-
-/*
- * File trailer for generated code.
- *
- * [EOF]
- */

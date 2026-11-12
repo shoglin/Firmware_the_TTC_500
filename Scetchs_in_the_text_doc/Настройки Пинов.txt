@@ -1,0 +1,450 @@
+// ==========================================
+// 7. ДЕТАЛЬНЫЕ ВОЗМОЖНОСТИ ПИНОВ (ПОЛНАЯ ИНФОРМАЦИЯ О НАСТРОЙКАХ)
+// ==========================================
+
+typedef struct {
+    // ==================== БАЗОВЫЕ РЕЖИМЫ ====================
+    bool can_pwm;
+    bool can_pvg;
+    bool can_vout;
+    bool can_adc;
+    bool can_pwd_complex;
+    bool can_pwd_inc;
+    bool can_pwd_count;
+    bool can_pwd_universal;  // Только для IO_PWD_00..IO_PWD_05
+    bool can_di;
+    bool can_do;
+
+    // ==================== ADC ПАРАМЕТРЫ ====================
+    // Битовая маска поддерживаемых типов (IO_ADC_XXX)
+    // Бит 0: IO_ADC_RATIOMETRIC (0x01)
+    // Бит 1: IO_ADC_CURRENT    (0x02)
+    // Бит 2: IO_ADC_RESISTIVE  (0x04) - только для IO_ADC_00..IO_ADC_07
+    // Бит 3: IO_ADC_ABSOLUTE   (0x08)
+    ubyte1 adc_supported_types;
+
+    // Битовая маска поддерживаемых диапазонов (IO_ADC_RANGE_XXX)
+    // Бит 0: IO_ADC_RANGE_5V   (0x01)
+    // Бит 1: IO_ADC_RANGE_10V  (0x02) - только для IO_ADC_08..IO_ADC_15
+    // Бит 2: IO_ADC_RANGE_32V  (0x04) - только для IO_ADC_16..IO_ADC_23 и альтернативных
+    ubyte1 adc_supported_ranges;
+
+    // Битовая маска поддерживаемых подтяжек (IO_ADC_XXX_PULL)
+    // Бит 0: IO_ADC_NO_PULL  (0x01)
+    // Бит 1: IO_ADC_PU_10K   (0x02) - для IO_ADC_24..IO_ADC_59
+    // Бит 2: IO_ADC_PD_10K   (0x04) - для IO_ADC_24..IO_ADC_59
+    ubyte1 adc_supported_pupd;
+
+    // Поддержка sensor supply (IO_SENSOR_SUPPLY_0/1/2)
+    bool adc_supports_sensor_supply_0;
+    bool adc_supports_sensor_supply_1;
+    bool adc_supports_sensor_supply_2;
+
+    // Поддержка safety configuration
+    bool adc_supports_safety;  // Только для IO_ADC_00..IO_ADC_23
+
+    // ID канала ADC
+    ubyte1 adc_channel_id;
+
+    // ==================== PWM ПАРАМЕТРЫ ====================
+    // Поддерживаемые частоты (битовая маска предопределенных значений)
+    // Бит 0: 50 Hz, Бит 1: 100 Hz, Бит 2: 166 Hz, Бит 3: 200 Hz, и т.д.
+    // Для простоты: min/max частота
+    ubyte2 pwm_min_freq_hz;    // 50
+    ubyte2 pwm_max_freq_hz;    // 1000
+    
+    // Поддержка функций
+    bool pwm_has_current_meas;      // Все PWM имеют измерение тока
+    bool pwm_has_timer_feedback;    // Все PWM имеют timer feedback
+    bool pwm_supports_diag_margin;  // Поддержка diag_margin
+    bool pwm_supports_safety;       // Поддержка safety_conf
+
+    // ID канала PWM
+    ubyte1 pwm_channel_id;
+
+    // ==================== PVG ПАРАМЕТРЫ ====================
+    ubyte2 pvg_min_output;     // 1000 (10.00%)
+    ubyte2 pvg_max_output;     // 9000 (90.00%)
+    ubyte1 pvg_channel_id;
+
+    // ==================== VOUT ПАРАМЕТРЫ ====================
+    ubyte2 vout_min_mv;        // 0
+    ubyte2 vout_max_mv;        // 32000
+    ubyte1 vout_channel_id;
+
+    // ==================== PWD ПАРАМЕТРЫ ====================
+    // Для Complex mode
+    // Битовая маска pulse_mode (IO_PWD_XXX_TIME)
+    // Бит 0: IO_PWD_LOW_TIME    (0x01)
+    // Бит 1: IO_PWD_HIGH_TIME   (0x02)
+    // Бит 2: IO_PWD_PERIOD_TIME (0x04)
+    ubyte1 pwd_supported_pulse_modes;
+
+    // Битовая маска freq_mode (IO_PWD_XXX_VAR)
+    // Бит 0: IO_PWD_RISING_VAR  (0x01)
+    // Бит 1: IO_PWD_FALLING_VAR (0x02)
+    ubyte1 pwd_supported_freq_modes;
+
+    ubyte1 pwd_min_capture_count;  // 1
+    ubyte1 pwd_max_capture_count;  // 8 (кроме IO_PWD_12..IO_PWD_19, где всегда 1)
+
+    // Битовая маска pupd для PWD (IO_PWD_XXX)
+    // Бит 0: IO_PWD_NO_PULL  (0x01)
+    // Бит 1: IO_PWD_PU_10K   (0x02)
+    // Бит 2: IO_PWD_PD_10K   (0x04)
+    // Бит 3: IO_PWD_PD_90    (0x08) - только для IO_PWD_00..IO_PWD_05
+    ubyte1 pwd_supported_pupd;
+
+    ubyte4 pwd_max_freq_hz;    // 20000 для IO_PWD_00..IO_PWD_11, 10000 для IO_PWD_12..IO_PWD_19
+    
+    bool pwd_supports_current_sensor;  // Только IO_PWD_00..IO_PWD_05 с PD_90
+    bool pwd_supports_voltage_fb;      // Все PWD имеют voltage feedback
+    bool pwd_supports_safety;          // Только IO_PWD_00..IO_PWD_05
+
+    ubyte1 pwd_channel_id;
+
+    // ==================== DI/DO ПАРАМЕТРЫ ====================
+    bool do_is_high_side;  // TRUE для IO_DO_00..IO_DO_07, IO_DO_16..IO_DO_51, IO_DO_52..IO_DO_59
+                           // FALSE для IO_DO_08..IO_DO_15 (low side)
+
+} PinCapabilities_t;
+
+// ==========================================
+// 8. ФУНКЦИЯ ЗАПОЛНЕНИЯ ВОЗМОЖНОСТЕЙ (ПОЛНАЯ ВЕРСИЯ)
+// ==========================================
+static void Pin_GetCapabilities(ubyte1 internal_pin, PinCapabilities_t* caps) {
+    memset(caps, 0, sizeof(PinCapabilities_t));
+    if (internal_pin > 95) return;
+
+    // ==================== ГРУППА 1: Пинов 0..7 (3-mode ADC) ====================
+    if (internal_pin <= 7) {
+        caps->can_adc = true;
+        caps->can_di = true;
+        caps->adc_channel_id = internal_pin;
+        
+        // Типы: все 4 типа поддерживаются
+        caps->adc_supported_types = 0x0F; // RATIOMETRIC | CURRENT | RESISTIVE | ABSOLUTE
+        
+        // Диапазон: только 5V
+        caps->adc_supported_ranges = 0x01; // RANGE_5V
+        
+        // Подтяжки: только NO_PULL
+        caps->adc_supported_pupd = 0x01; // NO_PULL
+        
+        // Sensor supply: все три поддерживаются
+        caps->adc_supports_sensor_supply_0 = true;
+        caps->adc_supports_sensor_supply_1 = true;
+        caps->adc_supports_sensor_supply_2 = true;
+        
+        // Safety: поддерживается
+        caps->adc_supports_safety = true;
+    }
+    
+    // ==================== ГРУППА 2: Пинов 8..15 (2-mode 10V ADC) ====================
+    else if (internal_pin <= 15) {
+        caps->can_adc = true;
+        caps->can_di = true;
+        caps->adc_channel_id = internal_pin;
+        
+        // Типы: RATIOMETRIC, CURRENT, ABSOLUTE (без RESISTIVE)
+        caps->adc_supported_types = 0x0B; // RATIOMETRIC | CURRENT | ABSOLUTE
+        
+        // Диапазоны: 5V или 10V
+        caps->adc_supported_ranges = 0x03; // RANGE_5V | RANGE_10V
+        
+        // Подтяжки: только NO_PULL
+        caps->adc_supported_pupd = 0x01;
+        
+        // Sensor supply: все три
+        caps->adc_supports_sensor_supply_0 = true;
+        caps->adc_supports_sensor_supply_1 = true;
+        caps->adc_supports_sensor_supply_2 = true;
+        
+        // Safety: поддерживается
+        caps->adc_supports_safety = true;
+    }
+    
+    // ==================== ГРУППА 3: Пинов 16..23 (2-mode 32V ADC) ====================
+    else if (internal_pin <= 23) {
+        caps->can_adc = true;
+        caps->can_di = true;
+        caps->adc_channel_id = internal_pin;
+        
+        // Типы: RATIOMETRIC, CURRENT, ABSOLUTE
+        caps->adc_supported_types = 0x0B;
+        
+        // Диапазоны: 5V или 32V
+        caps->adc_supported_ranges = 0x05; // RANGE_5V | RANGE_32V
+        
+        // Подтяжки: только NO_PULL
+        caps->adc_supported_pupd = 0x01;
+        
+        // Sensor supply: все три
+        caps->adc_supports_sensor_supply_0 = true;
+        caps->adc_supports_sensor_supply_1 = true;
+        caps->adc_supports_sensor_supply_2 = true;
+        
+        // Safety: поддерживается
+        caps->adc_supports_safety = true;
+    }
+    
+    // ==================== ГРУППА 4: Пинов 24..35 (PWD + ADC) ====================
+    else if (internal_pin <= 35) {
+        // PWD возможности
+        caps->can_pwd_complex = true;
+        caps->can_pwd_inc = true;
+        caps->can_pwd_count = true;
+        
+        // Universal только для IO_PWD_00..IO_PWD_05 (пины 24..29)
+        if (internal_pin <= 29) {
+            caps->can_pwd_universal = true;
+        }
+        
+        caps->pwd_channel_id = internal_pin - 24;
+        
+        // Pulse modes: все три
+        caps->pwd_supported_pulse_modes = 0x07; // LOW | HIGH | PERIOD
+        
+        // Freq modes: оба
+        caps->pwd_supported_freq_modes = 0x03; // RISING | FALLING
+        
+        // Capture count: 1..8
+        caps->pwd_min_capture_count = 1;
+        caps->pwd_max_capture_count = 8;
+        
+        // Max frequency: 20 kHz
+        caps->pwd_max_freq_hz = 20000;
+        
+        // PUPD: зависит от группы
+        if (internal_pin <= 29) {
+            // IO_PWD_00..IO_PWD_05: поддерживают PD_90 для токовых датчиков
+            caps->pwd_supported_pupd = 0x0F; // NO_PULL | PU_10K | PD_10K | PD_90
+            caps->pwd_supports_current_sensor = true;
+            caps->pwd_supports_safety = true;
+        } else {
+            // IO_PWD_06..IO_PWD_11: только PU_10K и PD_10K
+            caps->pwd_supported_pupd = 0x07; // NO_PULL | PU_10K | PD_10K
+            caps->pwd_supports_current_sensor = false;
+            caps->pwd_supports_safety = false;
+        }
+        
+        caps->pwd_supports_voltage_fb = true;
+        
+        // ADC возможности
+        caps->can_adc = true;
+        caps->can_di = true;
+        caps->adc_channel_id = internal_pin;
+        
+        // Типы: только RATIOMETRIC и ABSOLUTE
+        caps->adc_supported_types = 0x09; // RATIOMETRIC | ABSOLUTE
+        
+        // Диапазон: 32V (для альтернативных ADC)
+        caps->adc_supported_ranges = 0x04; // RANGE_32V
+        
+        // Подтяжки: PU_10K или PD_10K
+        caps->adc_supported_pupd = 0x06; // PU_10K | PD_10K
+        
+        // Sensor supply: все три (для RATIOMETRIC)
+        caps->adc_supports_sensor_supply_0 = true;
+        caps->adc_supports_sensor_supply_1 = true;
+        caps->adc_supports_sensor_supply_2 = true;
+        
+        // Safety: не поддерживается для альтернативных ADC
+        caps->adc_supports_safety = false;
+    }
+    
+    // ==================== ГРУППА 5: Пинов 36..51 (DO + ADC) ====================
+    else if (internal_pin <= 51) {
+        caps->can_do = true;
+        caps->can_adc = true;
+        caps->can_di = true;
+        caps->adc_channel_id = internal_pin;
+        
+        // DO: high side для 36..43, low side для 44..51
+        caps->do_is_high_side = (internal_pin <= 43);
+        
+        // ADC: только RATIOMETRIC и ABSOLUTE
+        caps->adc_supported_types = 0x09;
+        caps->adc_supported_ranges = 0x04; // RANGE_32V
+        
+        // Подтяжки: PU_10K или PD_10K (для 36..43 и 52..59)
+        if (internal_pin <= 43) {
+            caps->adc_supported_pupd = 0x06; // PU_10K | PD_10K
+        } else {
+            caps->adc_supported_pupd = 0x01; // NO_PULL (для 44..51)
+        }
+        
+        // Sensor supply: все три
+        caps->adc_supports_sensor_supply_0 = true;
+        caps->adc_supports_sensor_supply_1 = true;
+        caps->adc_supports_sensor_supply_2 = true;
+        
+        caps->adc_supports_safety = false;
+    }
+    
+    // ==================== ГРУППА 6: Пинов 52..79 (PWM + DO + DI) ====================
+    else if (internal_pin <= 79) {
+        caps->can_pwm = true;
+        caps->can_do = true;
+        caps->can_di = true;
+        caps->pwm_channel_id = internal_pin - 52;
+        
+        // PWM параметры
+        caps->pwm_min_freq_hz = 50;
+        caps->pwm_max_freq_hz = 1000;
+        caps->pwm_has_current_meas = true;
+        caps->pwm_has_timer_feedback = true;
+        caps->pwm_supports_diag_margin = true;
+        caps->pwm_supports_safety = true;
+        
+        // DO: все high side
+        caps->do_is_high_side = true;
+    }
+    
+    // ==================== ГРУППА 7: Пинов 80..87 (PWM + PWD + DO + DI) ====================
+    else if (internal_pin <= 87) {
+        caps->can_pwm = true;
+        caps->can_do = true;
+        caps->can_di = true;
+        caps->can_pwd_complex = true;
+        caps->pwm_channel_id = internal_pin - 52;
+        caps->pwd_channel_id = (internal_pin - 80) + 12;
+        
+        // PWM параметры
+        caps->pwm_min_freq_hz = 50;
+        caps->pwm_max_freq_hz = 1000;
+        caps->pwm_has_current_meas = true;
+        caps->pwm_has_timer_feedback = true;
+        caps->pwm_supports_diag_margin = true;
+        caps->pwm_supports_safety = true;
+        
+        // PWD параметры (IO_PWD_12..IO_PWD_19)
+        caps->pwd_supported_pulse_modes = 0x07; // LOW | HIGH | PERIOD
+        caps->pwd_supported_freq_modes = 0x03; // RISING | FALLING
+        caps->pwd_min_capture_count = 1;
+        caps->pwd_max_capture_count = 1; // Не накапливает!
+        caps->pwd_max_freq_hz = 10000; // Только 10 kHz
+        caps->pwd_supported_pupd = 0x01; // Только NO_PULL
+        caps->pwd_supports_current_sensor = false;
+        caps->pwd_supports_voltage_fb = true;
+        caps->pwd_supports_safety = false;
+        
+        // DO: все high side
+        caps->do_is_high_side = true;
+    }
+    
+    // ==================== ГРУППА 8: Пинов 88..95 (PVG + VOUT + ADC + DO + DI) ====================
+    else {
+        caps->can_pvg = true;
+        caps->can_vout = true;
+        caps->can_do = true;
+        caps->can_adc = true;
+        caps->can_di = true;
+        
+        ubyte1 idx = internal_pin - 88;
+        caps->pvg_channel_id = idx;
+        caps->vout_channel_id = idx;
+        caps->adc_channel_id = idx + 52;
+        
+        // PVG параметры
+        caps->pvg_min_output = 1000; // 10.00%
+        caps->pvg_max_output = 9000; // 90.00%
+        
+        // VOUT параметры
+        caps->vout_min_mv = 0;
+        caps->vout_max_mv = 32000;
+        
+        // ADC параметры
+        caps->adc_supported_types = 0x09; // RATIOMETRIC | ABSOLUTE
+        caps->adc_supported_ranges = 0x04; // RANGE_32V
+        caps->adc_supported_pupd = 0x06; // PU_10K | PD_10K
+        caps->adc_supports_sensor_supply_0 = true;
+        caps->adc_supports_sensor_supply_1 = true;
+        caps->adc_supports_sensor_supply_2 = true;
+        caps->adc_supports_safety = false;
+        
+        // DO: все high side
+        caps->do_is_high_side = true;
+    }
+}
+
+// ==========================================
+// 9. ФУНКЦИИ ПРОВЕРКИ ПАРАМЕТРОВ
+// ==========================================
+
+// Проверка типа ADC
+static bool Pin_IsAdcTypeValid(ubyte1 pin, ubyte1 type) {
+    PinCapabilities_t caps;
+    Pin_GetCapabilities(pin, &caps);
+    return (caps.adc_supported_types & (1 << type)) != 0;
+}
+
+// Проверка диапазона ADC
+static bool Pin_IsAdcRangeValid(ubyte1 pin, ubyte1 range) {
+    PinCapabilities_t caps;
+    Pin_GetCapabilities(pin, &caps);
+    return (caps.adc_supported_ranges & (1 << range)) != 0;
+}
+
+// Проверка подтяжки ADC
+static bool Pin_IsAdcPupdValid(ubyte1 pin, ubyte1 pupd) {
+    PinCapabilities_t caps;
+    Pin_GetCapabilities(pin, &caps);
+    return (caps.adc_supported_pupd & (1 << pupd)) != 0;
+}
+
+// Проверка частоты PWM
+static bool Pin_IsPwmFreqValid(ubyte1 pin, ubyte2 freq_hz) {
+    PinCapabilities_t caps;
+    Pin_GetCapabilities(pin, &caps);
+    return (freq_hz >= caps.pwm_min_freq_hz && freq_hz <= caps.pwm_max_freq_hz);
+}
+
+// Проверка значения PVG
+static bool Pin_IsPvgValueValid(ubyte1 pin, ubyte2 value) {
+    PinCapabilities_t caps;
+    Pin_GetCapabilities(pin, &caps);
+    return (value >= caps.pvg_min_output && value <= caps.pvg_max_output);
+}
+
+// Проверка напряжения VOUT
+static bool Pin_IsVoutVoltageValid(ubyte1 pin, ubyte2 voltage_mv) {
+    PinCapabilities_t caps;
+    Pin_GetCapabilities(pin, &caps);
+    return (voltage_mv >= caps.vout_min_mv && voltage_mv <= caps.vout_max_mv);
+}
+
+// Проверка pulse mode для PWD
+static bool Pin_IsPwdPulseModeValid(ubyte1 pin, ubyte1 pulse_mode) {
+    PinCapabilities_t caps;
+    Pin_GetCapabilities(pin, &caps);
+    return (caps.pwd_supported_pulse_modes & (1 << pulse_mode)) != 0;
+}
+
+// Проверка freq mode для PWD
+static bool Pin_IsPwdFreqModeValid(ubyte1 pin, ubyte1 freq_mode) {
+    PinCapabilities_t caps;
+    Pin_GetCapabilities(pin, &caps);
+    return (caps.pwd_supported_freq_modes & (1 << freq_mode)) != 0;
+}
+
+// Проверка capture count для PWD
+static bool Pin_IsPwdCaptureCountValid(ubyte1 pin, ubyte1 count) {
+    PinCapabilities_t caps;
+    Pin_GetCapabilities(pin, &caps);
+    return (count >= caps.pwd_min_capture_count && count <= caps.pwd_max_capture_count);
+}
+
+// Проверка pupd для PWD
+static bool Pin_IsPwdPupdValid(ubyte1 pin, ubyte1 pupd) {
+    PinCapabilities_t caps;
+    Pin_GetCapabilities(pin, &caps);
+    return (caps.pwd_supported_pupd & (1 << pupd)) != 0;
+}
+
+// Проверка частоты PWD
+static bool Pin_IsPwdFreqValid(ubyte1 pin, ubyte4 freq_hz) {
+    PinCapabilities_t caps;
+    Pin_GetCapabilities(pin, &caps);
+    return (freq_hz <= caps.pwd_max_freq_hz);
+}

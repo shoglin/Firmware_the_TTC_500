@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'VCU_SW'.
  *
- * Model version                  : 2.437
+ * Model version                  : 2.3
  * Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
- * C/C++ source code generated on : Mon Jul  6 11:47:51 2026
+ * C/C++ source code generated on : Tue Jul 14 11:26:00 2026
  *
  * Target selection: ttc_500_series.tlc
  * Embedded hardware selection: Texas Instruments->TMS570 Cortex-R4
@@ -30,10 +30,6 @@
 /* Child system includes */
 #include "convDIOSttToEnum_private.h"
 #include "convDIOSttToEnum.h"
-#include "fatal_error_callback_private.h"
-#include "fatal_error_callback.h"
-#include "non_fatal_error_callback_private.h"
-#include "non_fatal_error_callback.h"
 #include "IO_PIN.h"
 #include "IO_POWER.h"
 #include "IO_CAN.h"
@@ -53,19 +49,22 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  CAN_MESSAGE_BUS CANPack_hyd_Fluid_temp;/* '<S11>/CANPack_hyd_Fluid_temp' */
-  CAN_MESSAGE_BUS msg_419365114;       /* '<S8>/read_message_PLC_StateM' */
-  ubyte2 DataStoreRead;                /* '<S11>/Data Store Read' */
-  ubyte1 CAN_Unpack_PLC_StateM_o1;     /* '<S8>/CAN_Unpack_PLC_StateM' */
-  ubyte1 CAN_Unpack_PLC_StateM_o2;     /* '<S8>/CAN_Unpack_PLC_StateM' */
+  CAN_MESSAGE_BUS CANPack_VLVCMD_HYD1; /* '<S7>/CANPack_VLVCMD_HYD1' */
+  CAN_MESSAGE_BUS msg_419365114;     /* '<S5>/read_message_Pin101_Pin104_CMD' */
+  CAN_MESSAGE_BUS CANPack_VLVCMD_HYD1_h;/* '<S2>/CANPack_VLVCMD_HYD1' */
+  ubyte2 di_104_error;                 /* '<S7>/EngineAirFilterClogSens' */
+  ubyte2 DataStoreRead;                /* '<S2>/Data Store Read' */
+  ubyte1 CANUnpack_Pin101_Pin104_CMD_o1;/* '<S5>/CANUnpack_Pin101_Pin104_CMD' */
+  ubyte1 CANUnpack_Pin101_Pin104_CMD_o2;/* '<S5>/CANUnpack_Pin101_Pin104_CMD' */
 } B_VCU_SW_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  CANOutputStruct CANOutput;           /* '<Root>/CANOutput' */
-  int_T CANPack_hyd_Fluid_temp_ModeSign;/* '<S11>/CANPack_hyd_Fluid_temp' */
-  int_T CAN_Unpack_PLC_StateM_ModeSigna;/* '<S8>/CAN_Unpack_PLC_StateM' */
-  int_T CAN_Unpack_PLC_StateM_StatusPor;/* '<S8>/CAN_Unpack_PLC_StateM' */
+  CANOutputStruct OutputNetworkData;   /* '<Root>/OutputNetworkDS' */
+  int_T CANPack_VLVCMD_HYD1_ModeSignalI;/* '<S7>/CANPack_VLVCMD_HYD1' */
+  int_T CANUnpack_Pin101_Pin104_CMD_Mod;/* '<S5>/CANUnpack_Pin101_Pin104_CMD' */
+  int_T CANUnpack_Pin101_Pin104_CMD_Sta;/* '<S5>/CANUnpack_Pin101_Pin104_CMD' */
+  int_T CANPack_VLVCMD_HYD1_ModeSigna_f;/* '<S2>/CANPack_VLVCMD_HYD1' */
 } DW_VCU_SW_T;
 
 /* Real-time Model Data Structure */
@@ -80,7 +79,7 @@ extern B_VCU_SW_T VCU_SW_B;
 extern DW_VCU_SW_T VCU_SW_DW;
 
 /* External data declarations for dependent source files */
-extern const DIAG_ERRORCODE VCU_SW_rtZDIAG_ERRORCODE;/* DIAG_ERRORCODE ground */
+extern const float8 VCU_SW_RGND;       /* float8 ground */
 
 /* Model entry point functions */
 extern void VCU_SW_initialize(void);
@@ -105,18 +104,14 @@ extern RT_MODEL_VCU_SW_T *const VCU_SW_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'VCU_SW'
- * '<S1>'   : 'VCU_SW/InputLayer'
- * '<S2>'   : 'VCU_SW/OutputLayer'
- * '<S3>'   : 'VCU_SW/call_callbacks'
- * '<S4>'   : 'VCU_SW/convDIOSttToEnum'
- * '<S5>'   : 'VCU_SW/fatal_error_callback'
- * '<S6>'   : 'VCU_SW/non_fatal_error_callback'
- * '<S7>'   : 'VCU_SW/InputLayer/InputInterfaces1'
- * '<S8>'   : 'VCU_SW/InputLayer/InputNetwork'
- * '<S9>'   : 'VCU_SW/InputLayer/InputInterfaces1/DigitalInput'
- * '<S10>'  : 'VCU_SW/InputLayer/InputInterfaces1/DigitalInput/GetDI10msec'
- * '<S11>'  : 'VCU_SW/OutputLayer/OutputNetwork'
- * '<S12>'  : 'VCU_SW/convDIOSttToEnum/MATLAB Function'
+ * '<S1>'   : 'VCU_SW/InputData'
+ * '<S2>'   : 'VCU_SW/OutputData'
+ * '<S3>'   : 'VCU_SW/convDIOSttToEnum'
+ * '<S4>'   : 'VCU_SW/InputData/InputData'
+ * '<S5>'   : 'VCU_SW/InputData/Pin101_Pin104_CMD_fa'
+ * '<S6>'   : 'VCU_SW/InputData/InputData/AnalogInputs'
+ * '<S7>'   : 'VCU_SW/InputData/InputData/DigitalInputs'
+ * '<S8>'   : 'VCU_SW/convDIOSttToEnum/MATLAB Function'
  */
 #endif                                 /* RTW_HEADER_VCU_SW_h_ */
 

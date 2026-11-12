@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'VCU_SW'.
  *
- * Model version                  : 2.437
+ * Model version                  : 2.3
  * Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
- * C/C++ source code generated on : Mon Jul  6 11:47:51 2026
+ * C/C++ source code generated on : Tue Jul 14 11:26:00 2026
  *
  * Target selection: ttc_500_series.tlc
  * Embedded hardware selection: Texas Instruments->TMS570 Cortex-R4
@@ -16,11 +16,7 @@
 #include "VCU_SW.h"
 #include "VCU_SW_private.h"
 
-const DIAG_ERRORCODE VCU_SW_rtZDIAG_ERRORCODE = {
-  0U,                                  /* error_code */
-  0U,                                  /* device_num */
-  0U                                   /* faulty_value */
-} ;                                    /* DIAG_ERRORCODE ground */
+const float8 VCU_SW_RGND = 0.0;        /* float8 ground */
 
 /* Block signals (default storage) */
 B_VCU_SW_T VCU_SW_B;
@@ -32,132 +28,183 @@ DW_VCU_SW_T VCU_SW_DW;
 static RT_MODEL_VCU_SW_T VCU_SW_M_;
 RT_MODEL_VCU_SW_T *const VCU_SW_M = &VCU_SW_M_;
 
-// Deñlaration of CAN message frame and handler for RX
-IO_CAN_DATA_FRAME read_message_PLC_StateM_msg_rx = { 0 };
+// Deñlaration of CAN message frame and handler for TX
+IO_CAN_DATA_FRAME transmit_message_vlvcmd_hyd1_msg_tx = { 0 };
 
-ubyte2 read_message_PLC_StateM_handler_rx = 0;
+ubyte2 transmit_message_vlvcmd_hyd1_handler_tx = 0;
+
+// Deñlaration of CAN message frame and handler for RX
+IO_CAN_DATA_FRAME read_message_Pin101_Pin104_CMD_msg_rx = { 0 };
+
+ubyte2 read_message_Pin101_Pin104_CMD_handler_rx = 0;
 
 // Deñlaration of CAN message frame and handler for TX
-IO_CAN_DATA_FRAME transmit_message_hyd_fluid_temp_msg_tx = { 0 };
+IO_CAN_DATA_FRAME transmit_message_vlvcmd_hyd1_k_msg_tx = { 0 };
 
-ubyte2 transmit_message_hyd_fluid_temp_handler_tx = 0;
+ubyte2 transmit_message_vlvcmd_hyd1_k_handler_tx = 0;
 
-/* System initialize for function-call system: '<S9>/GetDI10msec' */
-void VCU_SW_GetDI10msec_Init(void)
-{
-  /* Start for S-Function (digitalInputGet_ttc500): '<S10>/EngineAirFilterClogSens' */
-
-  // Initialization of digital input IO_DI_28 channel
-  IO_DI_Init(IO_DI_28, IO_DI_PU_10K, NULL);
-}
-
-/* Output and update for function-call system: '<S9>/GetDI10msec' */
-void VCU_SW_GetDI10msec(void)
+/* Model step function */
+void VCU_SW_step(void)
 {
   /* local block i/o variables */
-  ubyte2 rtb_di_101_error;
-  BOOL rtb_di_101_value;
+  ubyte2 rtb_error_tx_transmit_message_v;
+  ubyte2 rtb_handler_err_419365114;
+  ubyte2 rtb_error_tx_transmit_message_d;
+  BOOL rtb_di_104_value;
   StateModeTypes rtb_FunctionCaller13;
 
-  /* S-Function (digitalInputGet_ttc500): '<S10>/EngineAirFilterClogSens' */
+  /* S-Function (digitalInputGet_ttc500): '<S7>/EngineAirFilterClogSens' */
 
-  // Get value of digital input IO_DI_28 with error check
-  rtb_di_101_error = IO_DI_Get(IO_DI_28, &rtb_di_101_value);
+  // Get value of digital input IO_DI_50 with error check
+  VCU_SW_B.di_104_error = IO_DI_Get(IO_DI_50, &rtb_di_104_value);
 
-  /* FunctionCaller: '<S10>/Function Caller13' */
-  convDIOSttToEnum(rtb_di_101_value, rtb_di_101_error, &rtb_FunctionCaller13);
+  /* FunctionCaller: '<S7>/Function Caller13' */
+  convDIOSttToEnum(rtb_di_104_value, VCU_SW_B.di_104_error,
+                   &rtb_FunctionCaller13);
 
-  /* DataTypeConversion: '<S10>/Data Type Conversion' incorporates:
-   *  DataStoreWrite: '<S10>/Data Store Write'
+  /* DataTypeConversion: '<S7>/Data Type Conversion' incorporates:
+   *  DataStoreWrite: '<S7>/Data Store Write13'
    */
-  VCU_SW_DW.CANOutput.Pin101_Pin104_FB.Pin0_feedback = (ubyte2)
+  VCU_SW_DW.OutputNetworkData.Pin101_Pin104_FB.Pin3_feedback = (ubyte2)
     rtb_FunctionCaller13;
-}
 
-/* System initialize for atomic system: '<S7>/DigitalInput' */
-void VCU_SW_DigitalInput_Init(void)
-{
-  /* SystemInitialize for S-Function (fcgen): '<S9>/10msec' incorporates:
-   *  SubSystem: '<S9>/GetDI10msec'
-   */
-  VCU_SW_GetDI10msec_Init();
+  /* S-Function (scanpack): '<S7>/CANPack_VLVCMD_HYD1' */
+  /* S-Function (scanpack): '<S7>/CANPack_VLVCMD_HYD1' */
+  VCU_SW_B.CANPack_VLVCMD_HYD1.ID = 419385383U;
+  VCU_SW_B.CANPack_VLVCMD_HYD1.Length = 8U;
+  VCU_SW_B.CANPack_VLVCMD_HYD1.Extended = 1U;
+  VCU_SW_B.CANPack_VLVCMD_HYD1.Remote = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1.Data[0] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1.Data[1] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1.Data[2] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1.Data[3] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1.Data[4] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1.Data[5] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1.Data[6] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1.Data[7] = 0;
 
-  /* End of SystemInitialize for S-Function (fcgen): '<S9>/10msec' */
-}
-
-/* Output and update for atomic system: '<S7>/DigitalInput' */
-void VCU_SW_DigitalInput(void)
-{
-  /* S-Function (fcgen): '<S9>/10msec' incorporates:
-   *  SubSystem: '<S9>/GetDI10msec'
-   */
-  VCU_SW_GetDI10msec();
-
-  /* End of Outputs for S-Function (fcgen): '<S9>/10msec' */
-}
-
-/* System initialize for atomic system: '<S1>/InputInterfaces1' */
-void VCU_SW_InputInterfaces1_Init(void)
-{
-  /* SystemInitialize for Atomic SubSystem: '<S7>/DigitalInput' */
-  VCU_SW_DigitalInput_Init();
-
-  /* End of SystemInitialize for SubSystem: '<S7>/DigitalInput' */
-}
-
-/* Output and update for atomic system: '<S1>/InputInterfaces1' */
-void VCU_SW_InputInterfaces1(void)
-{
-  /* Outputs for Atomic SubSystem: '<S7>/DigitalInput' */
-  VCU_SW_DigitalInput();
-
-  /* End of Outputs for SubSystem: '<S7>/DigitalInput' */
-}
-
-/* System initialize for atomic system: '<S1>/InputNetwork' */
-void VCU_SW_InputNetwork_Init(void)
-{
-  /* Start for S-Function (canRead_ttc500): '<S8>/read_message_PLC_StateM' */
-
-  // Initialization of CAN read_message_PLC_StateM msg object for RX
-  IO_CAN_ConfigMsg(&read_message_PLC_StateM_handler_rx,
-                   IO_CAN_CHANNEL_0,
-                   IO_CAN_MSG_READ,
-                   IO_CAN_EXT_FRAME,
-                   419365114U,
-                   536870911U);
-
-  /* Start for S-Function (scanunpack): '<S8>/CAN_Unpack_PLC_StateM' */
-
-  /*-----------S-Function Block: <S8>/CAN_Unpack_PLC_StateM -----------------*/
-}
-
-/* Output and update for atomic system: '<S1>/InputNetwork' */
-void VCU_SW_InputNetwork(void)
-{
-  /* local block i/o variables */
-  ubyte2 rtb_handler_err_419365114;
-
-  /* S-Function (canRead_ttc500): '<S8>/read_message_PLC_StateM' */
-
-  // Receive read_message_PLC_StateM CAN message with error check
-  rtb_handler_err_419365114 = IO_CAN_ReadMsg(read_message_PLC_StateM_handler_rx,
-    &read_message_PLC_StateM_msg_rx);
-  VCU_SW_B.msg_419365114.Extended = read_message_PLC_StateM_msg_rx.id_format;
-  VCU_SW_B.msg_419365114.Length = read_message_PLC_StateM_msg_rx.length;
-  VCU_SW_B.msg_419365114.ID = read_message_PLC_StateM_msg_rx.id;
-  VCU_SW_B.msg_419365114.Data[0] = read_message_PLC_StateM_msg_rx.data[0];
-  VCU_SW_B.msg_419365114.Data[1] = read_message_PLC_StateM_msg_rx.data[1];
-  VCU_SW_B.msg_419365114.Data[2] = read_message_PLC_StateM_msg_rx.data[2];
-  VCU_SW_B.msg_419365114.Data[3] = read_message_PLC_StateM_msg_rx.data[3];
-  VCU_SW_B.msg_419365114.Data[4] = read_message_PLC_StateM_msg_rx.data[4];
-  VCU_SW_B.msg_419365114.Data[5] = read_message_PLC_StateM_msg_rx.data[5];
-  VCU_SW_B.msg_419365114.Data[6] = read_message_PLC_StateM_msg_rx.data[6];
-  VCU_SW_B.msg_419365114.Data[7] = read_message_PLC_StateM_msg_rx.data[7];
-
-  /* S-Function (scanunpack): '<S8>/CAN_Unpack_PLC_StateM' */
   {
-    /* S-Function (scanunpack): '<S8>/CAN_Unpack_PLC_StateM' */
+    /* --------------- START Packing signal 0 ------------------
+     *  startBit                = 0
+     *  length                  = 16
+     *  desiredSignalByteLayout = LITTLEENDIAN
+     *  dataType                = UNSIGNED
+     *  factor                  = 1.0
+     *  offset                  = 0.0
+     *  minimum                 = 0.0
+     *  maximum                 = 0.0
+     * -----------------------------------------------------------------------*/
+
+    /* --------------- START Packing signal 1 ------------------
+     *  startBit                = 16
+     *  length                  = 16
+     *  desiredSignalByteLayout = LITTLEENDIAN
+     *  dataType                = UNSIGNED
+     *  factor                  = 1.0
+     *  offset                  = 0.0
+     *  minimum                 = 0.0
+     *  maximum                 = 0.0
+     * -----------------------------------------------------------------------*/
+
+    /* --------------- START Packing signal 2 ------------------
+     *  startBit                = 32
+     *  length                  = 16
+     *  desiredSignalByteLayout = LITTLEENDIAN
+     *  dataType                = UNSIGNED
+     *  factor                  = 1.0
+     *  offset                  = 0.0
+     *  minimum                 = 0.0
+     *  maximum                 = 0.0
+     * -----------------------------------------------------------------------*/
+
+    /* --------------- START Packing signal 3 ------------------
+     *  startBit                = 48
+     *  length                  = 16
+     *  desiredSignalByteLayout = LITTLEENDIAN
+     *  dataType                = UNSIGNED
+     *  factor                  = 1.0
+     *  offset                  = 0.0
+     *  minimum                 = 0.0
+     *  maximum                 = 0.0
+     * -----------------------------------------------------------------------*/
+    {
+      ubyte4 packingValue = 0;
+
+      {
+        ubyte4 result = (ubyte4) (VCU_SW_B.di_104_error);
+
+        /* no scaling required */
+        packingValue = result;
+      }
+
+      {
+        ubyte2 packedValue;
+        packedValue = (ubyte2) (packingValue);
+
+        {
+          {
+            VCU_SW_B.CANPack_VLVCMD_HYD1.Data[6] =
+              VCU_SW_B.CANPack_VLVCMD_HYD1.Data[6] | (ubyte1)((ubyte2)
+              (packedValue & (ubyte2)0xFFU));
+            VCU_SW_B.CANPack_VLVCMD_HYD1.Data[7] =
+              VCU_SW_B.CANPack_VLVCMD_HYD1.Data[7] | (ubyte1)((ubyte2)((ubyte2)
+              (packedValue & (ubyte2)0xFF00U) >> 8));
+          }
+        }
+      }
+    }
+  }
+
+  /* S-Function (canWrite_ttc500): '<S7>/transmit_message_vlvcmd_hyd1' */
+  transmit_message_vlvcmd_hyd1_msg_tx.id_format =
+    VCU_SW_B.CANPack_VLVCMD_HYD1.Extended;
+  transmit_message_vlvcmd_hyd1_msg_tx.length =
+    VCU_SW_B.CANPack_VLVCMD_HYD1.Length;
+  transmit_message_vlvcmd_hyd1_msg_tx.id = VCU_SW_B.CANPack_VLVCMD_HYD1.ID;
+  transmit_message_vlvcmd_hyd1_msg_tx.data[0] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1.Data[0];
+  transmit_message_vlvcmd_hyd1_msg_tx.data[1] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1.Data[1];
+  transmit_message_vlvcmd_hyd1_msg_tx.data[2] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1.Data[2];
+  transmit_message_vlvcmd_hyd1_msg_tx.data[3] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1.Data[3];
+  transmit_message_vlvcmd_hyd1_msg_tx.data[4] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1.Data[4];
+  transmit_message_vlvcmd_hyd1_msg_tx.data[5] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1.Data[5];
+  transmit_message_vlvcmd_hyd1_msg_tx.data[6] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1.Data[6];
+  transmit_message_vlvcmd_hyd1_msg_tx.data[7] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1.Data[7];
+
+  // Transmit transmit_message_vlvcmd_hyd1 CAN message with error check
+  rtb_error_tx_transmit_message_v = IO_CAN_WriteMsg
+    (transmit_message_vlvcmd_hyd1_handler_tx,
+     &transmit_message_vlvcmd_hyd1_msg_tx);
+
+  /* S-Function (canRead_ttc500): '<S5>/read_message_Pin101_Pin104_CMD' */
+
+  // Receive read_message_Pin101_Pin104_CMD CAN message with error check
+  rtb_handler_err_419365114 = IO_CAN_ReadMsg
+    (read_message_Pin101_Pin104_CMD_handler_rx,
+     &read_message_Pin101_Pin104_CMD_msg_rx);
+  VCU_SW_B.msg_419365114.Extended =
+    read_message_Pin101_Pin104_CMD_msg_rx.id_format;
+  VCU_SW_B.msg_419365114.Length = read_message_Pin101_Pin104_CMD_msg_rx.length;
+  VCU_SW_B.msg_419365114.ID = read_message_Pin101_Pin104_CMD_msg_rx.id;
+  VCU_SW_B.msg_419365114.Data[0] = read_message_Pin101_Pin104_CMD_msg_rx.data[0];
+  VCU_SW_B.msg_419365114.Data[1] = read_message_Pin101_Pin104_CMD_msg_rx.data[1];
+  VCU_SW_B.msg_419365114.Data[2] = read_message_Pin101_Pin104_CMD_msg_rx.data[2];
+  VCU_SW_B.msg_419365114.Data[3] = read_message_Pin101_Pin104_CMD_msg_rx.data[3];
+  VCU_SW_B.msg_419365114.Data[4] = read_message_Pin101_Pin104_CMD_msg_rx.data[4];
+  VCU_SW_B.msg_419365114.Data[5] = read_message_Pin101_Pin104_CMD_msg_rx.data[5];
+  VCU_SW_B.msg_419365114.Data[6] = read_message_Pin101_Pin104_CMD_msg_rx.data[6];
+  VCU_SW_B.msg_419365114.Data[7] = read_message_Pin101_Pin104_CMD_msg_rx.data[7];
+
+  /* S-Function (scanunpack): '<S5>/CANUnpack_Pin101_Pin104_CMD' */
+  {
+    /* S-Function (scanunpack): '<S5>/CANUnpack_Pin101_Pin104_CMD' */
     if ((8 == VCU_SW_B.msg_419365114.Length) && (VCU_SW_B.msg_419365114.ID !=
          INVALID_CAN_ID) ) {
       if ((419365114 == VCU_SW_B.msg_419365114.ID) && (1U ==
@@ -193,7 +240,7 @@ void VCU_SW_InputNetwork(void)
 
             {
               ubyte1 result = (ubyte1) outValue;
-              VCU_SW_B.CAN_Unpack_PLC_StateM_o1 = result;
+              VCU_SW_B.CANUnpack_Pin101_Pin104_CMD_o1 = result;
             }
           }
 
@@ -226,84 +273,69 @@ void VCU_SW_InputNetwork(void)
 
             {
               ubyte1 result = (ubyte1) outValue;
-              VCU_SW_B.CAN_Unpack_PLC_StateM_o2 = result;
+              VCU_SW_B.CANUnpack_Pin101_Pin104_CMD_o2 = result;
             }
           }
         }
       }
     }
   }
-}
 
-/* System initialize for atomic system: '<Root>/InputLayer' */
-void VCU_SW_InputLayer_Init(void)
-{
-  /* SystemInitialize for Atomic SubSystem: '<S1>/InputInterfaces1' */
-  VCU_SW_InputInterfaces1_Init();
+  /* DataStoreRead: '<S2>/Data Store Read' */
+  VCU_SW_B.DataStoreRead =
+    VCU_SW_DW.OutputNetworkData.Pin101_Pin104_FB.Pin3_feedback;
 
-  /* End of SystemInitialize for SubSystem: '<S1>/InputInterfaces1' */
-
-  /* SystemInitialize for Atomic SubSystem: '<S1>/InputNetwork' */
-  VCU_SW_InputNetwork_Init();
-
-  /* End of SystemInitialize for SubSystem: '<S1>/InputNetwork' */
-}
-
-/* Output and update for atomic system: '<Root>/InputLayer' */
-void VCU_SW_InputLayer(void)
-{
-  /* Outputs for Atomic SubSystem: '<S1>/InputInterfaces1' */
-  VCU_SW_InputInterfaces1();
-
-  /* End of Outputs for SubSystem: '<S1>/InputInterfaces1' */
-
-  /* Outputs for Atomic SubSystem: '<S1>/InputNetwork' */
-  VCU_SW_InputNetwork();
-
-  /* End of Outputs for SubSystem: '<S1>/InputNetwork' */
-}
-
-/* System initialize for atomic system: '<S2>/OutputNetwork' */
-void VCU_SW_OutputNetwork_Init(void)
-{
-  /* Start for S-Function (canWrite_ttc500): '<S11>/transmit_message_hyd_fluid_temp' */
-
-  // Initialization of CAN transmit_message_hyd_fluid_temp msg object for TX
-  IO_CAN_ConfigMsg(&transmit_message_hyd_fluid_temp_handler_tx,
-                   IO_CAN_CHANNEL_0,
-                   IO_CAN_MSG_WRITE,
-                   IO_CAN_EXT_FRAME,
-                   0,
-                   0);
-}
-
-/* Output and update for atomic system: '<S2>/OutputNetwork' */
-void VCU_SW_OutputNetwork(void)
-{
-  /* local block i/o variables */
-  ubyte2 rtb_error_tx_transmit_message_h;
-
-  /* DataStoreRead: '<S11>/Data Store Read' */
-  VCU_SW_B.DataStoreRead = VCU_SW_DW.CANOutput.Pin101_Pin104_FB.Pin0_feedback;
-
-  /* S-Function (scanpack): '<S11>/CANPack_hyd_Fluid_temp' */
-  /* S-Function (scanpack): '<S11>/CANPack_hyd_Fluid_temp' */
-  VCU_SW_B.CANPack_hyd_Fluid_temp.ID = 419364903U;
-  VCU_SW_B.CANPack_hyd_Fluid_temp.Length = 8U;
-  VCU_SW_B.CANPack_hyd_Fluid_temp.Extended = 1U;
-  VCU_SW_B.CANPack_hyd_Fluid_temp.Remote = 0;
-  VCU_SW_B.CANPack_hyd_Fluid_temp.Data[0] = 0;
-  VCU_SW_B.CANPack_hyd_Fluid_temp.Data[1] = 0;
-  VCU_SW_B.CANPack_hyd_Fluid_temp.Data[2] = 0;
-  VCU_SW_B.CANPack_hyd_Fluid_temp.Data[3] = 0;
-  VCU_SW_B.CANPack_hyd_Fluid_temp.Data[4] = 0;
-  VCU_SW_B.CANPack_hyd_Fluid_temp.Data[5] = 0;
-  VCU_SW_B.CANPack_hyd_Fluid_temp.Data[6] = 0;
-  VCU_SW_B.CANPack_hyd_Fluid_temp.Data[7] = 0;
+  /* S-Function (scanpack): '<S2>/CANPack_VLVCMD_HYD1' */
+  /* S-Function (scanpack): '<S2>/CANPack_VLVCMD_HYD1' */
+  VCU_SW_B.CANPack_VLVCMD_HYD1_h.ID = 419364903U;
+  VCU_SW_B.CANPack_VLVCMD_HYD1_h.Length = 8U;
+  VCU_SW_B.CANPack_VLVCMD_HYD1_h.Extended = 1U;
+  VCU_SW_B.CANPack_VLVCMD_HYD1_h.Remote = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[0] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[1] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[2] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[3] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[4] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[5] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[6] = 0;
+  VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[7] = 0;
 
   {
     /* --------------- START Packing signal 0 ------------------
      *  startBit                = 0
+     *  length                  = 16
+     *  desiredSignalByteLayout = LITTLEENDIAN
+     *  dataType                = UNSIGNED
+     *  factor                  = 1.0
+     *  offset                  = 0.0
+     *  minimum                 = 0.0
+     *  maximum                 = 0.0
+     * -----------------------------------------------------------------------*/
+
+    /* --------------- START Packing signal 1 ------------------
+     *  startBit                = 16
+     *  length                  = 16
+     *  desiredSignalByteLayout = LITTLEENDIAN
+     *  dataType                = UNSIGNED
+     *  factor                  = 1.0
+     *  offset                  = 0.0
+     *  minimum                 = 0.0
+     *  maximum                 = 0.0
+     * -----------------------------------------------------------------------*/
+
+    /* --------------- START Packing signal 2 ------------------
+     *  startBit                = 32
+     *  length                  = 16
+     *  desiredSignalByteLayout = LITTLEENDIAN
+     *  dataType                = UNSIGNED
+     *  factor                  = 1.0
+     *  offset                  = 0.0
+     *  minimum                 = 0.0
+     *  maximum                 = 0.0
+     * -----------------------------------------------------------------------*/
+
+    /* --------------- START Packing signal 3 ------------------
+     *  startBit                = 48
      *  length                  = 16
      *  desiredSignalByteLayout = LITTLEENDIAN
      *  dataType                = UNSIGNED
@@ -328,77 +360,45 @@ void VCU_SW_OutputNetwork(void)
 
         {
           {
-            VCU_SW_B.CANPack_hyd_Fluid_temp.Data[0] =
-              VCU_SW_B.CANPack_hyd_Fluid_temp.Data[0] | (ubyte1)((ubyte2)
+            VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[6] =
+              VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[6] | (ubyte1)((ubyte2)
               (packedValue & (ubyte2)0xFFU));
-            VCU_SW_B.CANPack_hyd_Fluid_temp.Data[1] =
-              VCU_SW_B.CANPack_hyd_Fluid_temp.Data[1] | (ubyte1)((ubyte2)
-              ((ubyte2)(packedValue & (ubyte2)0xFF00U) >> 8));
+            VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[7] =
+              VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[7] | (ubyte1)((ubyte2)((ubyte2)
+              (packedValue & (ubyte2)0xFF00U) >> 8));
           }
         }
       }
     }
   }
 
-  /* S-Function (canWrite_ttc500): '<S11>/transmit_message_hyd_fluid_temp' */
-  transmit_message_hyd_fluid_temp_msg_tx.id_format =
-    VCU_SW_B.CANPack_hyd_Fluid_temp.Extended;
-  transmit_message_hyd_fluid_temp_msg_tx.length =
-    VCU_SW_B.CANPack_hyd_Fluid_temp.Length;
-  transmit_message_hyd_fluid_temp_msg_tx.id = VCU_SW_B.CANPack_hyd_Fluid_temp.ID;
-  transmit_message_hyd_fluid_temp_msg_tx.data[0] =
-    VCU_SW_B.CANPack_hyd_Fluid_temp.Data[0];
-  transmit_message_hyd_fluid_temp_msg_tx.data[1] =
-    VCU_SW_B.CANPack_hyd_Fluid_temp.Data[1];
-  transmit_message_hyd_fluid_temp_msg_tx.data[2] =
-    VCU_SW_B.CANPack_hyd_Fluid_temp.Data[2];
-  transmit_message_hyd_fluid_temp_msg_tx.data[3] =
-    VCU_SW_B.CANPack_hyd_Fluid_temp.Data[3];
-  transmit_message_hyd_fluid_temp_msg_tx.data[4] =
-    VCU_SW_B.CANPack_hyd_Fluid_temp.Data[4];
-  transmit_message_hyd_fluid_temp_msg_tx.data[5] =
-    VCU_SW_B.CANPack_hyd_Fluid_temp.Data[5];
-  transmit_message_hyd_fluid_temp_msg_tx.data[6] =
-    VCU_SW_B.CANPack_hyd_Fluid_temp.Data[6];
-  transmit_message_hyd_fluid_temp_msg_tx.data[7] =
-    VCU_SW_B.CANPack_hyd_Fluid_temp.Data[7];
+  /* S-Function (canWrite_ttc500): '<S2>/transmit_message_vlvcmd_hyd1' */
+  transmit_message_vlvcmd_hyd1_k_msg_tx.id_format =
+    VCU_SW_B.CANPack_VLVCMD_HYD1_h.Extended;
+  transmit_message_vlvcmd_hyd1_k_msg_tx.length =
+    VCU_SW_B.CANPack_VLVCMD_HYD1_h.Length;
+  transmit_message_vlvcmd_hyd1_k_msg_tx.id = VCU_SW_B.CANPack_VLVCMD_HYD1_h.ID;
+  transmit_message_vlvcmd_hyd1_k_msg_tx.data[0] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[0];
+  transmit_message_vlvcmd_hyd1_k_msg_tx.data[1] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[1];
+  transmit_message_vlvcmd_hyd1_k_msg_tx.data[2] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[2];
+  transmit_message_vlvcmd_hyd1_k_msg_tx.data[3] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[3];
+  transmit_message_vlvcmd_hyd1_k_msg_tx.data[4] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[4];
+  transmit_message_vlvcmd_hyd1_k_msg_tx.data[5] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[5];
+  transmit_message_vlvcmd_hyd1_k_msg_tx.data[6] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[6];
+  transmit_message_vlvcmd_hyd1_k_msg_tx.data[7] =
+    VCU_SW_B.CANPack_VLVCMD_HYD1_h.Data[7];
 
-  // Transmit transmit_message_hyd_fluid_temp CAN message with error check
-  rtb_error_tx_transmit_message_h = IO_CAN_WriteMsg
-    (transmit_message_hyd_fluid_temp_handler_tx,
-     &transmit_message_hyd_fluid_temp_msg_tx);
-}
-
-/* System initialize for atomic system: '<Root>/OutputLayer' */
-void VCU_SW_OutputLayer_Init(void)
-{
-  /* SystemInitialize for Atomic SubSystem: '<S2>/OutputNetwork' */
-  VCU_SW_OutputNetwork_Init();
-
-  /* End of SystemInitialize for SubSystem: '<S2>/OutputNetwork' */
-}
-
-/* Output and update for atomic system: '<Root>/OutputLayer' */
-void VCU_SW_OutputLayer(void)
-{
-  /* Outputs for Atomic SubSystem: '<S2>/OutputNetwork' */
-  VCU_SW_OutputNetwork();
-
-  /* End of Outputs for SubSystem: '<S2>/OutputNetwork' */
-}
-
-/* Model step function */
-void VCU_SW_step(void)
-{
-  /* Outputs for Atomic SubSystem: '<Root>/InputLayer' */
-  VCU_SW_InputLayer();
-
-  /* End of Outputs for SubSystem: '<Root>/InputLayer' */
-
-  /* Outputs for Atomic SubSystem: '<Root>/OutputLayer' */
-  VCU_SW_OutputLayer();
-
-  /* End of Outputs for SubSystem: '<Root>/OutputLayer' */
+  // Transmit transmit_message_vlvcmd_hyd1_k CAN message with error check
+  rtb_error_tx_transmit_message_d = IO_CAN_WriteMsg
+    (transmit_message_vlvcmd_hyd1_k_handler_tx,
+     &transmit_message_vlvcmd_hyd1_k_msg_tx);
 }
 
 /* Model initialize function */
@@ -417,15 +417,44 @@ void VCU_SW_initialize(void)
   (void) memset((void *)&VCU_SW_DW, 0,
                 sizeof(DW_VCU_SW_T));
 
-  /* SystemInitialize for Atomic SubSystem: '<Root>/InputLayer' */
-  VCU_SW_InputLayer_Init();
+  /* Start for S-Function (digitalInputGet_ttc500): '<S7>/EngineAirFilterClogSens' */
 
-  /* End of SystemInitialize for SubSystem: '<Root>/InputLayer' */
+  // Initialization of digital input IO_DI_50 channel
+  IO_DI_Init(IO_DI_50, IO_DI_PU_10K, NULL);
 
-  /* SystemInitialize for Atomic SubSystem: '<Root>/OutputLayer' */
-  VCU_SW_OutputLayer_Init();
+  /* Start for S-Function (canWrite_ttc500): '<S7>/transmit_message_vlvcmd_hyd1' */
 
-  /* End of SystemInitialize for SubSystem: '<Root>/OutputLayer' */
+  // Initialization of CAN transmit_message_vlvcmd_hyd1 msg object for TX
+  IO_CAN_ConfigMsg(&transmit_message_vlvcmd_hyd1_handler_tx,
+                   IO_CAN_CHANNEL_0,
+                   IO_CAN_MSG_WRITE,
+                   IO_CAN_EXT_FRAME,
+                   0,
+                   0);
+
+  /* Start for S-Function (canRead_ttc500): '<S5>/read_message_Pin101_Pin104_CMD' */
+
+  // Initialization of CAN read_message_Pin101_Pin104_CMD msg object for RX
+  IO_CAN_ConfigMsg(&read_message_Pin101_Pin104_CMD_handler_rx,
+                   IO_CAN_CHANNEL_0,
+                   IO_CAN_MSG_READ,
+                   IO_CAN_EXT_FRAME,
+                   419365114U,
+                   536870911U);
+
+  /* Start for S-Function (scanunpack): '<S5>/CANUnpack_Pin101_Pin104_CMD' */
+
+  /*-----------S-Function Block: <S5>/CANUnpack_Pin101_Pin104_CMD -----------------*/
+
+  /* Start for S-Function (canWrite_ttc500): '<S2>/transmit_message_vlvcmd_hyd1' */
+
+  // Initialization of CAN transmit_message_vlvcmd_hyd1_k msg object for TX
+  IO_CAN_ConfigMsg(&transmit_message_vlvcmd_hyd1_k_handler_tx,
+                   IO_CAN_CHANNEL_0,
+                   IO_CAN_MSG_WRITE,
+                   IO_CAN_EXT_FRAME,
+                   0,
+                   0);
 }
 
 /* Model terminate function */
