@@ -69,37 +69,37 @@ volatile const BL_APDB Apdb_t = {
 
 static ubyte4 timestamp = 0;
 
-#pragma TASK(main);
+/* Вспомогательная циклическая задача */
 void task(void)
 {
-    /* ФАЗА 1: До безопасного цикла (здесь разрешена реконфигурация) */
+    /* Фаза до защищенного цикла: вычитка CAN и реконфигурация */
     VCU_SW_pre_step();
 
-    /* ФАЗА 2: Защищенный цикл безопасности TTC */
+    /* Безопасный цикл ядра TTControl (только IO_*_Get / IO_*_Set) */
     (void)IO_Driver_TaskBegin();
 
-    /* Только быстрые операции: IO_*_Get() и IO_*_Set() / IO_PWM_SetDuty() */
     VCU_SW_step_io();
 
     (void)IO_Driver_TaskEnd();
 
-    /* ФАЗА 3: После безопасного цикла (отправка CAN по очереди) */
+    /* Фаза после безопасного цикла: передача FB и DIAG по CAN */
     VCU_SW_post_step();
 
-    /* Ожидание завершения кванта 10 мс */
+    /* Ожидание завершения 10-мс кванта времени */
     while (IO_RTC_GetTimeUS(timestamp) < STEP_SIZE) {
         /* wait */
     }
     timestamp += STEP_SIZE;
 }
 
+/* Главная точка входа приложения */
 #pragma TASK(main);
 void main(void)
 {
     IO_DRIVER_SAFETY_CONF safety_conf;
 
-    safety_conf.command_period     = STEP_SIZE;                           /* 10000 mks */
-    safety_conf.window_size       = SAFETY_CONF_WINDOW_SIZE_100_PERCENT;
+    safety_conf.command_period     = STEP_SIZE;                           /* 10000 мкс (10 мс) */
+    safety_conf.window_size        = SAFETY_CONF_WINDOW_SIZE_100_PERCENT;
     safety_conf.reset_behavior     = SAFETY_CONF_RESETS_DISABLED;
     safety_conf.glitch_filter_time = 30;
     safety_conf.error_callback     = NULL;

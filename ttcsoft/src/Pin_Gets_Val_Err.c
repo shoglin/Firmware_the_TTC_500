@@ -6,7 +6,7 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
     ubyte1 internal_pin;
     ubyte1 current_mode;
     ubyte2 fb_value = 0U;
-    ubyte2 diag_value = (ubyte2)IO_E_OK;
+    ubyte2 diag_value = (ubyte2) IO_E_OK;
 
     if ((group_idx >= NUM_GROUPS) || (pin_idx >= 4U))
     {
@@ -31,13 +31,13 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
 
         if (channel != IO_PIN_NONE)
         {
-            diag_value = (ubyte2)IO_DI_Get(channel, &di_val);
-            convDIOSttToEnum((BOOL)di_val, diag_value, &di_state);
-            fb_value = (ubyte2)di_state;
+            diag_value = (ubyte2) IO_DI_Get(channel, &di_val);
+            convDIOSttToEnum((BOOL) di_val, diag_value, &di_state);
+            fb_value = (ubyte2) di_state;
         }
         else
         {
-            diag_value = (ubyte2)IO_E_INVALID_CHANNEL_ID;
+            diag_value = (ubyte2) IO_E_INVALID_CHANNEL_ID;
             fb_value = 0U;
         }
         break;
@@ -51,7 +51,7 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
 
         if (channel != IO_PIN_NONE)
         {
-            diag_value = (ubyte2)IO_ADC_Get(channel, &adc_val, &fresh);
+            diag_value = (ubyte2) IO_ADC_Get(channel, &adc_val, &fresh);
 
             switch (g_pin_configs[internal_pin].adc_cfg.input_type)
             {
@@ -75,7 +75,7 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
         }
         else
         {
-            diag_value = (ubyte2)IO_E_INVALID_CHANNEL_ID;
+            diag_value = (ubyte2) IO_E_INVALID_CHANNEL_ID;
             fb_value = 0U;
         }
         break;
@@ -90,17 +90,15 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
 
         if (channel != IO_PIN_NONE)
         {
-            diag_value = (ubyte2)IO_PWD_ComplexGet(channel,
-                                                   &freq_mHz,
-                                                   &pulse_width_us,
-                                                   &pin_val,
-                                                   NULL);
+            diag_value = (ubyte2) IO_PWD_ComplexGet(channel, &freq_mHz,
+                                                    &pulse_width_us, &pin_val,
+                                                    NULL);
 
             convPWDData(freq_mHz, diag_value, &fb_value);
         }
         else
         {
-            diag_value = (ubyte2)IO_E_INVALID_CHANNEL_ID;
+            diag_value = (ubyte2) IO_E_INVALID_CHANNEL_ID;
             fb_value = 0U;
         }
         break;
@@ -114,12 +112,13 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
 
         if (channel != IO_PIN_NONE)
         {
-            diag_value = (ubyte2)IO_PVG_GetVoltage(channel, &voltage_mv, &fresh);
-            convAIVoltageData((ubyte4)voltage_mv, diag_value, &fb_value);
+            diag_value = (ubyte2) IO_PVG_GetVoltage(channel, &voltage_mv,
+                                                    &fresh);
+            convAIVoltageData((ubyte4) voltage_mv, diag_value, &fb_value);
         }
         else
         {
-            diag_value = (ubyte2)IO_E_INVALID_CHANNEL_ID;
+            diag_value = (ubyte2) IO_E_INVALID_CHANNEL_ID;
             fb_value = 0U;
         }
         break;
@@ -133,12 +132,28 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
 
         if (channel != IO_PIN_NONE)
         {
-            diag_value = (ubyte2)IO_DO_GetCur(channel, &current_ma, &fresh);
-            convAICurrentData((ubyte4)current_ma, diag_value, &fb_value);
+            ubyte1 cmd_val = Get_Pin_Value(&g_groups[group_idx].current_cmd,
+                                           pin_idx);
+            bool target_state = (cmd_val > 0U) ? TRUE : FALSE;
+            IO_ErrorType do_err = IO_DO_Set(channel, target_state);
+
+            /* After pause */
+            if (do_err == IO_E_FET_PROT_REENABLE)
+            {
+                (void) IO_DO_ResetProtection(channel, NULL);
+                do_err = IO_DO_Set(channel, target_state);
+            }
+
+            diag_value = (ubyte2) IO_DO_GetCur(channel, &current_ma, &fresh);
+            if (do_err != IO_E_OK)
+            {
+                diag_value = (ubyte2) do_err;
+            }
+            convAIVoltageData((ubyte4) current_ma, diag_value, &fb_value);
         }
         else
         {
-            diag_value = (ubyte2)IO_E_INVALID_CHANNEL_ID;
+            diag_value = (ubyte2) IO_E_INVALID_CHANNEL_ID;
             fb_value = 0U;
         }
         break;
@@ -152,12 +167,38 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
 
         if (channel != IO_PIN_NONE)
         {
-            diag_value = (ubyte2)IO_PWM_GetCur(channel, &current_ma, &fresh);
-            convAICurrentData((ubyte4)current_ma, diag_value, &fb_value);
+            ubyte1 cmd_val = Get_Pin_Value(&g_groups[group_idx].current_cmd,
+                                           pin_idx);
+            ubyte2 duty_cycle;
+            IO_ErrorType pwm_err;
+
+            if (cmd_val > 100U)
+            {
+                cmd_val = 100U;
+            }
+            duty_cycle = (ubyte2) (((ubyte4) cmd_val * 65535U) / 100U);
+
+            pwm_err = IO_PWM_SetDuty(channel, duty_cycle, NULL, NULL);
+
+            if (pwm_err == IO_E_FET_PROT_REENABLE)
+            {
+                (void) IO_PWM_ResetProtection(channel, NULL);
+                pwm_err = IO_PWM_SetDuty(channel, duty_cycle, NULL, NULL);
+            }
+
+            diag_value = (ubyte2) IO_PWM_GetCur(channel, &current_ma, &fresh);
+
+            if ((pwm_err != IO_E_OK) && (pwm_err != IO_E_PWM_NO_DIAG)
+                    && (pwm_err != IO_E_STARTUP))
+            {
+                diag_value = (ubyte2) pwm_err;
+            }
+
+            convAICurrentData((ubyte4) current_ma, diag_value, &fb_value);
         }
         else
         {
-            diag_value = (ubyte2)IO_E_INVALID_CHANNEL_ID;
+            diag_value = (ubyte2) IO_E_INVALID_CHANNEL_ID;
             fb_value = 0U;
         }
         break;
@@ -171,12 +212,13 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
 
         if (channel != IO_PIN_NONE)
         {
-            diag_value = (ubyte2)IO_VOUT_GetVoltage(channel, &voltage_mv, &fresh);
-            convAIVoltageData((ubyte4)voltage_mv, diag_value, &fb_value);
+            diag_value = (ubyte2) IO_VOUT_GetVoltage(channel, &voltage_mv,
+                                                     &fresh);
+            convAIVoltageData((ubyte4) voltage_mv, diag_value, &fb_value);
         }
         else
         {
-            diag_value = (ubyte2)IO_E_INVALID_CHANNEL_ID;
+            diag_value = (ubyte2) IO_E_INVALID_CHANNEL_ID;
             fb_value = 0U;
         }
         break;
@@ -186,7 +228,7 @@ void Update_Pin_FB_and_DIAG(ubyte1 group_idx, ubyte1 pin_idx)
     default:
     {
         fb_value = 0U;
-        diag_value = (ubyte2)IO_E_OK;
+        diag_value = (ubyte2) IO_E_OK;
         break;
     }
     }

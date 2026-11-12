@@ -1,6 +1,4 @@
 #include "convRawData.h"
-
-/* Include model header file for global data */
 #include "VCU_SW.h"
 #include "VCU_SW_private.h"
 

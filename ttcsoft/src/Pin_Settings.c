@@ -417,23 +417,23 @@ void Pin_Properties(void)
 
     // PWD Complex configurate
     g_pin_configs[24].pwd_complex_cfg.pin_channel = IO_PWD_00;
-    g_pin_configs[24].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME; // измеряем high time
-    g_pin_configs[24].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR; // частота измеряется по rising edges
-    g_pin_configs[24].pwd_complex_cfg.sample_accumulation_count = 8; // накапливаем 8 samples
-    g_pin_configs[24].pwd_complex_cfg.pupd = IO_PWD_PU_10K; // pull-up 10k
-    g_pin_configs[24].pwd_complex_cfg.complex_safety_settings = NULL; // не safety critical
+    g_pin_configs[24].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
+    g_pin_configs[24].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
+    g_pin_configs[24].pwd_complex_cfg.sample_accumulation_count = 1;
+    g_pin_configs[24].pwd_complex_cfg.pupd = IO_PWD_PD_10K;
+    g_pin_configs[24].pwd_complex_cfg.complex_safety_settings = NULL;
 
     // ADC configurate
     g_pin_configs[24].adc_cfg.pin_channel = IO_ADC_24;
     g_pin_configs[24].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[24].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[24].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[24].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[24].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[24].adc_cfg.safety_settings = NULL;
 
     // Digital Input configurate
     g_pin_configs[24].di_cfg.pin_channel = IO_DI_36;
-    g_pin_configs[24].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[24].di_cfg.pupd = IO_DI_PU_10K;
     g_pin_configs[24].di_cfg.limits = NULL;
 
     /*
@@ -445,19 +445,19 @@ void Pin_Properties(void)
     g_pin_configs[25].pwd_complex_cfg.pin_channel = IO_PWD_01;
     g_pin_configs[25].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[25].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
-    g_pin_configs[25].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[25].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
+    g_pin_configs[25].pwd_complex_cfg.sample_accumulation_count = 1;
+    g_pin_configs[25].pwd_complex_cfg.pupd = IO_PWD_PD_10K;
     g_pin_configs[25].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[25].adc_cfg.pin_channel = IO_ADC_25;
     g_pin_configs[25].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[25].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[25].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[25].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[25].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[25].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[25].di_cfg.pin_channel = IO_DI_37;
-    g_pin_configs[25].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[25].di_cfg.pupd = IO_DI_PU_10K;
     g_pin_configs[25].di_cfg.limits = NULL;
 
     /*
@@ -469,19 +469,19 @@ void Pin_Properties(void)
     g_pin_configs[26].pwd_complex_cfg.pin_channel = IO_PWD_02;
     g_pin_configs[26].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[26].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
-    g_pin_configs[26].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[26].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
+    g_pin_configs[26].pwd_complex_cfg.sample_accumulation_count = 1;
+    g_pin_configs[26].pwd_complex_cfg.pupd = IO_PWD_PD_10K;
     g_pin_configs[26].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[26].adc_cfg.pin_channel = IO_ADC_26;
     g_pin_configs[26].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[26].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[26].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[26].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[26].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[26].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[26].di_cfg.pin_channel = IO_DI_38;
-    g_pin_configs[26].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[26].di_cfg.pupd = IO_DI_PU_10K;
     g_pin_configs[26].di_cfg.limits = NULL;
 
     /*
@@ -493,19 +493,19 @@ void Pin_Properties(void)
     g_pin_configs[27].pwd_complex_cfg.pin_channel = IO_PWD_03;
     g_pin_configs[27].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[27].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
-    g_pin_configs[27].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[27].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
+    g_pin_configs[27].pwd_complex_cfg.sample_accumulation_count = 1;
+    g_pin_configs[27].pwd_complex_cfg.pupd = IO_PWD_PD_10K;
     g_pin_configs[27].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[27].adc_cfg.pin_channel = IO_ADC_27;
     g_pin_configs[27].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[27].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[27].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[27].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[27].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[27].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[27].di_cfg.pin_channel = IO_DI_39;
-    g_pin_configs[27].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[27].di_cfg.pupd = IO_DI_PU_10K;
     g_pin_configs[27].di_cfg.limits = NULL;
 
     /*
@@ -517,19 +517,19 @@ void Pin_Properties(void)
     g_pin_configs[28].pwd_complex_cfg.pin_channel = IO_PWD_04;
     g_pin_configs[28].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[28].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
-    g_pin_configs[28].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[28].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
+    g_pin_configs[28].pwd_complex_cfg.sample_accumulation_count = 1;
+    g_pin_configs[28].pwd_complex_cfg.pupd = IO_PWD_PD_10K;
     g_pin_configs[28].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[28].adc_cfg.pin_channel = IO_ADC_28;
     g_pin_configs[28].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[28].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[28].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[28].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[28].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[28].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[28].di_cfg.pin_channel = IO_DI_40;
-    g_pin_configs[28].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[28].di_cfg.pupd = IO_DI_PU_10K;
     g_pin_configs[28].di_cfg.limits = NULL;
 
     /*
@@ -541,19 +541,19 @@ void Pin_Properties(void)
     g_pin_configs[29].pwd_complex_cfg.pin_channel = IO_PWD_05;
     g_pin_configs[29].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[29].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
-    g_pin_configs[29].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[29].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
+    g_pin_configs[29].pwd_complex_cfg.sample_accumulation_count = 1;
+    g_pin_configs[29].pwd_complex_cfg.pupd = IO_PWD_PD_10K;
     g_pin_configs[29].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[29].adc_cfg.pin_channel = IO_ADC_29;
     g_pin_configs[29].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[29].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[29].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[29].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[29].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[29].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[29].di_cfg.pin_channel = IO_DI_41;
-    g_pin_configs[29].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[29].di_cfg.pupd = IO_DI_PU_10K;
     g_pin_configs[29].di_cfg.limits = NULL;
 
     /*
@@ -565,19 +565,19 @@ void Pin_Properties(void)
     g_pin_configs[30].pwd_complex_cfg.pin_channel = IO_PWD_06;
     g_pin_configs[30].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[30].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
-    g_pin_configs[30].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[30].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
+    g_pin_configs[30].pwd_complex_cfg.sample_accumulation_count = 1;
+    g_pin_configs[30].pwd_complex_cfg.pupd = IO_PWD_PD_10K;
     g_pin_configs[30].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[30].adc_cfg.pin_channel = IO_ADC_30;
     g_pin_configs[30].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[30].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[30].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[30].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[30].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[30].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[30].di_cfg.pin_channel = IO_DI_42;
-    g_pin_configs[30].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[30].di_cfg.pupd = IO_DI_PU_10K;
     g_pin_configs[30].di_cfg.limits = NULL;
 
     /*
@@ -589,19 +589,19 @@ void Pin_Properties(void)
     g_pin_configs[31].pwd_complex_cfg.pin_channel = IO_PWD_07;
     g_pin_configs[31].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[31].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
-    g_pin_configs[31].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[31].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
+    g_pin_configs[31].pwd_complex_cfg.sample_accumulation_count = 1;
+    g_pin_configs[31].pwd_complex_cfg.pupd = IO_PWD_PD_10K;
     g_pin_configs[31].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[31].adc_cfg.pin_channel = IO_ADC_31;
     g_pin_configs[31].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[31].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[31].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[31].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[31].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[31].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[31].di_cfg.pin_channel = IO_DI_43;
-    g_pin_configs[31].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[31].di_cfg.pupd = IO_DI_PU_10K;
     g_pin_configs[31].di_cfg.limits = NULL;
 
     /*
@@ -613,19 +613,19 @@ void Pin_Properties(void)
     g_pin_configs[32].pwd_complex_cfg.pin_channel = IO_PWD_08;
     g_pin_configs[32].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[32].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
-    g_pin_configs[32].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[32].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
+    g_pin_configs[32].pwd_complex_cfg.sample_accumulation_count = 1;
+    g_pin_configs[32].pwd_complex_cfg.pupd = IO_PWD_PD_10K;
     g_pin_configs[32].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[32].adc_cfg.pin_channel = IO_ADC_32;
     g_pin_configs[32].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[32].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[32].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[32].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[32].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[32].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[32].di_cfg.pin_channel = IO_DI_44;
-    g_pin_configs[32].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[32].di_cfg.pupd = IO_DI_PU_10K;
     g_pin_configs[32].di_cfg.limits = NULL;
 
     /*
@@ -637,19 +637,19 @@ void Pin_Properties(void)
     g_pin_configs[33].pwd_complex_cfg.pin_channel = IO_PWD_09;
     g_pin_configs[33].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[33].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
-    g_pin_configs[33].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[33].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
+    g_pin_configs[33].pwd_complex_cfg.sample_accumulation_count = 1;
+    g_pin_configs[33].pwd_complex_cfg.pupd = IO_PWD_PD_10K;
     g_pin_configs[33].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[33].adc_cfg.pin_channel = IO_ADC_33;
     g_pin_configs[33].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[33].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[33].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[33].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[33].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[33].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[33].di_cfg.pin_channel = IO_DI_45;
-    g_pin_configs[33].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[33].di_cfg.pupd = IO_DI_PU_10K;
     g_pin_configs[33].di_cfg.limits = NULL;
 
     /*
@@ -661,19 +661,19 @@ void Pin_Properties(void)
     g_pin_configs[34].pwd_complex_cfg.pin_channel = IO_PWD_10;
     g_pin_configs[34].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[34].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
-    g_pin_configs[34].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[34].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
+    g_pin_configs[34].pwd_complex_cfg.sample_accumulation_count = 1;
+    g_pin_configs[34].pwd_complex_cfg.pupd = IO_PWD_PD_10K;
     g_pin_configs[34].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[34].adc_cfg.pin_channel = IO_ADC_34;
     g_pin_configs[34].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[34].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[34].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[34].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[34].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[34].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[34].di_cfg.pin_channel = IO_DI_46;
-    g_pin_configs[34].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[34].di_cfg.pupd = IO_DI_PU_10K;
     g_pin_configs[34].di_cfg.limits = NULL;
 
     /*
@@ -685,19 +685,19 @@ void Pin_Properties(void)
     g_pin_configs[35].pwd_complex_cfg.pin_channel = IO_PWD_11;
     g_pin_configs[35].pwd_complex_cfg.pulse_duration_mode = IO_PWD_HIGH_TIME;
     g_pin_configs[35].pwd_complex_cfg.frequency_edge_mode = IO_PWD_FALLING_VAR;
-    g_pin_configs[35].pwd_complex_cfg.sample_accumulation_count = 8;
-    g_pin_configs[35].pwd_complex_cfg.pupd = IO_PWD_PU_10K;
+    g_pin_configs[35].pwd_complex_cfg.sample_accumulation_count = 1;
+    g_pin_configs[35].pwd_complex_cfg.pupd = IO_PWD_PD_10K;
     g_pin_configs[35].pwd_complex_cfg.complex_safety_settings = NULL;
 
     g_pin_configs[35].adc_cfg.pin_channel = IO_ADC_35;
     g_pin_configs[35].adc_cfg.input_type = IO_ADC_ABSOLUTE;
     g_pin_configs[35].adc_cfg.voltage_range = IO_ADC_NO_RANGE;
-    g_pin_configs[35].adc_cfg.pupd = IO_ADC_NO_PULL;
+    g_pin_configs[35].adc_cfg.pupd = IO_ADC_PU_10K;
     g_pin_configs[35].adc_cfg.supply_source = IO_PIN_NONE;
     g_pin_configs[35].adc_cfg.safety_settings = NULL;
 
     g_pin_configs[35].di_cfg.pin_channel = IO_DI_47;
-    g_pin_configs[35].di_cfg.pupd = IO_DI_NO_PULL;
+    g_pin_configs[35].di_cfg.pupd = IO_DI_PU_10K;
     g_pin_configs[35].di_cfg.limits = NULL;
 
     /*
